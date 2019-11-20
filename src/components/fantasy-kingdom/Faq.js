@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class FantasyFaq extends React.Component {
+class Faq extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
@@ -23,9 +23,10 @@ class FantasyFaq extends React.Component {
                                     <div className="faq-main for-rent mgtop50">
                                         <div className="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
                                             <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingOne"> <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    How to contact us
-                                        </Link>
+                                                <div className="card-header faq-heading" id="headingOne">
+                                                    <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        How to contact us
+                                        </a>
                                                 </div>
                                                 <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                                     <div className="card-body faq-body">
@@ -34,9 +35,10 @@ class FantasyFaq extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingThree"> <a className="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    How will I get to Fantasy Kingdom?
-                                        </Link>
+                                                <div className="card-header faq-heading" id="headingThree">
+                                                    <a className="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        How will I get to Fantasy Kingdom?
+                                        </a>
                                                 </div>
                                                 <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                                     <div className="card-body faq-body">
@@ -45,9 +47,10 @@ class FantasyFaq extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingFour"> <a className="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                    Is Outside food allowed in Fantasy Kingdom?
-                                        </Link>
+                                                <div className="card-header faq-heading" id="headingFour">
+                                                    <a className="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                        Is Outside food allowed in Fantasy Kingdom?
+                                        </a>
                                                 </div>
                                                 <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                                                     <div className="card-body faq-body">
@@ -72,4 +75,4 @@ class FantasyFaq extends React.Component {
         )
     }
 }
-export default FantasyFaq
+export default Faq

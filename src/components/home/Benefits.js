@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class HomeBenefits extends React.Component {
+class Benefits extends React.Component {
     render() {
         return (
             <section className="deals-benefits-area section-padding-top full-bg">
@@ -47,4 +47,4 @@ class HomeBenefits extends React.Component {
         )
     }
 }
-export default HomeBenefits
+export default Benefits

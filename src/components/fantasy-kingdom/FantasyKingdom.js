@@ -1,18 +1,35 @@
 import React from 'react'
 import ShortLink from '../../components/ShortLink'
-import FantasyMap from './FantasyMap'
-import FantasyDiscount from './FantasyDiscount'
-import FantasyGallery from './FantasyGallery'
-import FantasyShopping from './FantasyShopping'
-import Faq from './../Faq';
-import FantasyThings from './FantasyThings'
+import Map from './Map'
+import Discount from './Discount'
+import FantasyGallery from './Gallery'
+import Shopping from './Shopping'
+import Faq from './Faq';
+import Things from './Things'
 import { Link } from 'react-router-dom';
+import Axios from 'axios'
+
+const pathName = window.location.pathname.substring(1)
 
 class FantasyKingdom extends React.Component {
+    state = {
+        fantasy: {}
+    }
     componentDidMount() {
         window.scrollTo(0, 0)
+        Axios.get(`api/service/by-page/${pathName}`)
+            .then(res => {
+                this.setState({
+                    fantasy: res.data
+                })
+            })
     }
     render() {
+        let { fantasy } = this.state
+        let videoLink = ''
+        if (Object.keys(fantasy).length !== 0) {
+            videoLink = fantasy[0].video
+        }
         return (
             <div>
                 <ShortLink />
@@ -65,11 +82,11 @@ class FantasyKingdom extends React.Component {
                     </div>
                 </div>
 
-                <FantasyMap />
+                <Map />
 
-                <FantasyThings />
+                <Things />
 
-                <FantasyDiscount />
+                <Discount />
 
                 <FantasyGallery />
 
@@ -86,7 +103,7 @@ class FantasyKingdom extends React.Component {
                             <div className="col-lg-12 col-md-12">
                                 <div className="experience-img relative experiencebg">
                                     <img src="./assets/images/experiencebg.png" alt="experience background" />
-                                    <div className="ex-video-icon"> <Link to="https://www.youtube.com/watch?v=3qyhgV0Zew0" className="exp-play-btn"><i className=" fa fa-play"></i></Link>
+                                    <div className="ex-video-icon"> <Link to={`https://www.youtube.com/watch?v=${videoLink}`} className="exp-play-btn"><i className=" fa fa-play"></i></Link>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +111,7 @@ class FantasyKingdom extends React.Component {
                     </div>
                 </section>
 
-                <FantasyShopping />
+                <Shopping />
 
                 <Faq />
 

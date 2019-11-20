@@ -4,7 +4,7 @@ import WaterMap from './WaterMap'
 import WaterDiscount from './WaterDiscount'
 import WaterGallery from './WaterGallery'
 import WaterShopping from './WaterShopping'
-import Faq from '../Faq';
+import Faq from '../../page/Faq';
 import WaterThings from './WaterThings'
 import { Link } from 'react-router-dom';
 

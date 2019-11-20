@@ -1083,6 +1083,10 @@ li.nav-item.cart-item-header:hover .fantasy-mini-cart {
     background-repeat: no-repeat;
 }
 
+.home-slider {
+    background-position: center center;
+}
+
 .sliderone {
     background: url(../images/slider/slider1.png);
     background-position: center center;

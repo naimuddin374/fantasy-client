@@ -1,6 +1,6 @@
 import React from 'react'
 
-class HomeAward extends React.Component {
+class Award extends React.Component {
     render() {
         return (
             <section className="award-area pt-5 full-bg">
@@ -24,4 +24,4 @@ class HomeAward extends React.Component {
         )
     }
 }
-export default HomeAward
+export default Award

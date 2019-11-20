@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FantasyGallery from './../fantasykingdom/FantasyGallery'
+import FantasyGallery from '../fantasy-kingdom/Gallery';
 
 class RidePage extends React.Component {
     componentDidMount() {

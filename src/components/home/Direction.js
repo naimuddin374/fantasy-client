@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class HomeDirection extends React.Component {
+class Direction extends React.Component {
     render() {
         return (
             <section className="direction-area direction-shape relative section-padding full-bg">
@@ -89,4 +89,4 @@ class HomeDirection extends React.Component {
         )
     }
 }
-export default HomeDirection
+export default Direction

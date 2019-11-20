@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class FantasyShopping extends React.Component {
+class Shopping extends React.Component {
     render() {
         return (
             <section className="fantasy-hotel-room-area section-padding-top">
@@ -41,4 +41,4 @@ class FantasyShopping extends React.Component {
         )
     }
 }
-export default FantasyShopping
+export default Shopping

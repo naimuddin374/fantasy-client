@@ -1,6 +1,6 @@
 import React from 'react'
 
-class HomeNewsletter extends React.Component {
+class Newsletter extends React.Component {
     render() {
         return (
             <section className="newsletter-area section-padding background-section">
@@ -27,4 +27,4 @@ class HomeNewsletter extends React.Component {
         )
     }
 }
-export default HomeNewsletter
+export default Newsletter

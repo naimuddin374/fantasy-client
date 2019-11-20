@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class FantasyDiscount extends React.Component {
+class Discount extends React.Component {
     render() {
         return (
             <section className="fantasy-discount-area  relative">
@@ -82,4 +82,4 @@ class FantasyDiscount extends React.Component {
         )
     }
 }
-export default FantasyDiscount
+export default Discount

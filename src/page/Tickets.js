@@ -8,31 +8,31 @@ class Tickets extends React.Component {
     render() {
         return (
             <div>
-                <section class="ticket-choosen-area full-bg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <div class="page-breadcrum-area row-center">
-                                    <div class="ticket-title">
+                <section className="ticket-choosen-area full-bg">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <div className="page-breadcrum-area row-center">
+                                    <div className="ticket-title">
                                         <h4>Select Any park/resorts to view all the offers</h4>
                                     </div>
-                                    <div class="select-park-ticket">
-                                        <div class="fantasy-park-search-item float-right">
+                                    <div className="select-park-ticket">
+                                        <div className="fantasy-park-search-item float-right">
                                             <form action="#">
-                                                <div class="single-fantasy-park-search">
-                                                    <div class="fantasy-parki-select-item">
-                                                        {/* <select id="fantasysearchtype" class="form-control" style="display: none;">
+                                                <div className="single-fantasy-park-search">
+                                                    <div className="fantasy-parki-select-item">
+                                                        {/* <select id="fantasysearchtype" className="form-control" style="display: none;">
                                                         <option selected="">Select Your Park or resorts</option>
                                                     </select> */}
-                                                        <div class="nice-select fantasy-nice-select ticket-search-bg ticket-page-select" tabIndex="0"><span class="current">Select Your Park or resorts</span>
-                                                            <ul class="list">
-                                                                <li data-value="Fantasy" class="option">Fantasy Kingdom</li>
-                                                                <li data-value="water" class="option">Water Kingdom</li>
-                                                                <li data-value="foys" class="option">Foys Lake</li>
-                                                                <li data-value="Heritage" class="option">Heritage Park</li>
+                                                        <div className="nice-select fantasy-nice-select ticket-search-bg ticket-page-select" tabIndex="0"><span className="current">Select Your Park or resorts</span>
+                                                            <ul className="list">
+                                                                <li data-value="Fantasy" className="option">Fantasy Kingdom</li>
+                                                                <li data-value="water" className="option">Water Kingdom</li>
+                                                                <li data-value="foys" className="option">Foys Lake</li>
+                                                                <li data-value="Heritage" className="option">Heritage Park</li>
                                                             </ul>
                                                         </div>
-                                                        <div class="park-select-submit top-select-btn">
+                                                        <div className="park-select-submit top-select-btn">
                                                             <input type="submit" value="Submit" />
                                                         </div>
                                                     </div>
@@ -46,15 +46,15 @@ class Tickets extends React.Component {
                     </div>
                 </section>
 
-                <section class="checkout-page-area section-padding">
-                    <div class="circle-shape">
+                <section className="checkout-page-area section-padding">
+                    <div className="circle-shape">
                         <svg id="Group_1471" data-name="Group 1471" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 780">
                             <defs>
                                 <clipPath id="clip-path">
                                     <rect id="Rectangle_378" data-name="Rectangle 378" width="1920" height="780" fill="none" />
                                 </clipPath>
                             </defs>
-                            <g id="Group_1470" data-name="Group 1470" clip-path="url(#clip-path)">
+                            <g id="Group_1470" data-name="Group 1470" clipPath="url(#clip-path)">
                                 <g id="blob-shape" opacity="0.15">
                                     <path id="Path_2001" data-name="Path 2001" d="M1263.887,575.856c174.159,68.635,470.625,38.48,574.517,10.061,108.9,16.731,111.409,236.9,145.474,489.45s30.812,641.653-220.086,907.344-747.983,408.534-1058.549,309.245c-311.751-98.745-437.071-439.574-818.971-776.93s-1018.855-671.17-907.731-931.905c111.737-262.1,971.952-450.206,1502.744-422.658C1010.417,187.9,1089.679,507.134,1263.887,575.856Z" fill="#d2d2d2" />
                                 </g>
@@ -109,60 +109,64 @@ class Tickets extends React.Component {
                             </g>
                         </svg>
                     </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-12">
-                                <div class="checkout-inner-content-area mb-5">
-                                    <h4 class="ticket-name">Regular Tickets</h4>
-                                    <div class="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
-                                        <div class="product-increment-decrement">
-                                            <div class="prodcut-info">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-9 col-md-12">
+                                <div className="checkout-inner-content-area mb-5">
+                                    <h4 className="ticket-name">Regular Tickets</h4>
+                                    <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
+                                        <div className="product-increment-decrement">
+                                            <div className="prodcut-info">
                                                 <ul>
                                                     <li>
                                                         <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
                                                     </li>
                                                 </ul>
-                                                <p class="pt-3">Buy one get one offer. see details for more</p>
+                                                <p className="pt-3">Buy one get one offer. see details for more</p>
                                             </div>
-                                            <div class="single-product-increment-decrement">
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="1" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 300</h4>
+                                            <div className="single-product-increment-decrement">
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" defaultValue="1" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <h4 className="product-price">TK 300</h4>
                                                     <p>Kids (below 4)</p>
                                                 </div>
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="2" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 500</h4>
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" defaultValue="2" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <h4 className="product-price">TK 500</h4>
                                                     <p>Adult Entry 3 Rides</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-details-cart-btn mt-25">
-                                            <div class="prodcut-details-btn">	<Link to="#detailsmodal" class="details-ancor" data-toggle="modal">Details</Link>
+                                        <div className="product-details-cart-btn mt-25">
+                                            <div className="prodcut-details-btn">	<Link to="#detailsmodal" className="details-ancor" data-toggle="modal">Details</Link>
                                             </div>
-                                            <div class="prodcut-add-to-cart">
-                                                <button class="disable-payment-btn">Add to Cart</button>
+                                            <div className="prodcut-add-to-cart">
+                                                <button className="disable-payment-btn">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="checkout-inner-content-area mb-5">
-                                    <h4 class="ticket-name">Free Deals</h4>
-                                    <div class="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
-                                        <div class="product-increment-decrement">
-                                            <div class="prodcut-info">
+                                <div className="checkout-inner-content-area mb-5">
+                                    <h4 className="ticket-name">Free Deals</h4>
+                                    <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
+                                        <div className="product-increment-decrement">
+                                            <div className="prodcut-info">
                                                 <ul>
                                                     <li>
                                                         <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
@@ -171,141 +175,150 @@ class Tickets extends React.Component {
                                                         <img src="./assets/images/ticketpurchase/water.png" alt="ticket purchase logo" />
                                                     </li>
                                                 </ul>
-                                                <p class="pt-3">Buy one get one offer. see details for more</p>
+                                                <p className="pt-3">Buy one get one offer. see details for more</p>
                                             </div>
-                                            <div class="single-product-increment-decrement">
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="1" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 300</h4>
+                                            <div className="single-product-increment-decrement">
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" value="1" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <h4 className="product-price">TK 300</h4>
                                                     <p>Kids (below 4)</p>
                                                 </div>
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="2" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 500</h4>
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" value="2" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <h4 className="product-price">TK 500</h4>
                                                     <p>Adult Entry 3 Rides</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-details-cart-btn mt-25">
-                                            <div class="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" class="details-ancor">Details</Link>
+                                        <div className="product-details-cart-btn mt-25">
+                                            <div className="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" className="details-ancor">Details</Link>
                                             </div>
-                                            <div class="prodcut-add-to-cart">
-                                                <button class="disable-payment-btn">Add to Cart</button>
+                                            <div className="prodcut-add-to-cart">
+                                                <button className="disable-payment-btn">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="checkout-inner-content-area mb-5">
-                                    <h4 class="ticket-name">Discount Deals</h4>
-                                    <div class="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
-                                        <div class="product-increment-decrement">
-                                            <div class="prodcut-info">
+                                <div className="checkout-inner-content-area mb-5">
+                                    <h4 className="ticket-name">Discount Deals</h4>
+                                    <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
+                                        <div className="product-increment-decrement">
+                                            <div className="prodcut-info">
                                                 <ul>
                                                     <li>
                                                         <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
                                                     </li>
                                                 </ul>
-                                                <p class="pt-3">Buy one get one offer. see details for more</p>
+                                                <p className="pt-3">Buy one get one offer. see details for more</p>
                                             </div>
-                                            <div class="single-product-increment-decrement">
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="1" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 300</h4>
+                                            <div className="single-product-increment-decrement">
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" value="1" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <h4 className="product-price">TK 300</h4>
                                                     <p>Kids (below 4)</p>
                                                 </div>
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
-                                                            <input type="number" value="2" />
-                                                            <button class="inc qtybtn">+</button>
-                                                        </div>
-                                                    </td>
-                                                    <h4 class="product-price">TK 500</h4>
+                                                <div className="product-quantity-content">
+                                                    <tr>
+                                                        <td className="pro-quantity">
+                                                            <div className="pro-qty">
+                                                                <button className="dec qtybtn">-</button>
+                                                                <input type="number" value="2" />
+                                                                <button className="inc qtybtn">+</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <Link to="/detail" >Abc</Link>
+                                                    <h4 className="product-price">TK 500</h4>
                                                     <p>Adult Entry 3 Rides</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-details-cart-btn mt-25">
-                                            <div class="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" class="details-ancor">Details</Link>
+                                        <div className="product-details-cart-btn mt-25">
+                                            <div className="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" className="details-ancor">Details</Link>
                                             </div>
-                                            <div class="prodcut-add-to-cart">
-                                                <button class="disable-payment-btn">Add to Cart</button>
+                                            <div className="prodcut-add-to-cart">
+                                                <button className="disable-payment-btn">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="checkout-inner-content-area mb-5">
-                                    <h4 class="ticket-name">Package Offers</h4>
-                                    <div class="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
-                                        <div class="product-increment-decrement">
-                                            <div class="prodcut-info">
+                                <div className="checkout-inner-content-area mb-5">
+                                    <h4 className="ticket-name">Package Offers</h4>
+                                    <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding">
+                                        <div className="product-increment-decrement">
+                                            <div className="prodcut-info">
                                                 <ul>
                                                     <li>
                                                         <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
                                                     </li>
                                                 </ul>
-                                                <p class="pt-3">Buy one get one offer. see details for more</p>
+                                                <p className="pt-3">Buy one get one offer. see details for more</p>
                                             </div>
-                                            <div class="single-product-increment-decrement">
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
+                                            <div className="single-product-increment-decrement">
+                                                <div className="product-quantity-content">
+                                                    <td className="pro-quantity">
+                                                        <div className="pro-qty">
+                                                            <button className="dec qtybtn">-</button>
                                                             <input type="number" value="1" />
-                                                            <button class="inc qtybtn">+</button>
+                                                            <button className="inc qtybtn">+</button>
                                                         </div>
                                                     </td>
-                                                    <h4 class="product-price">TK 300</h4>
+                                                    <h4 className="product-price">TK 300</h4>
                                                     <p>Kids (below 4)</p>
                                                 </div>
-                                                <div class="product-quantity-content">
-                                                    <td class="pro-quantity">
-                                                        <div class="pro-qty">
-                                                            <button class="dec qtybtn">-</button>
+                                                <div className="product-quantity-content">
+                                                    <td className="pro-quantity">
+                                                        <div className="pro-qty">
+                                                            <button className="dec qtybtn">-</button>
                                                             <input type="number" value="2" />
-                                                            <button class="inc qtybtn">+</button>
+                                                            <button className="inc qtybtn">+</button>
                                                         </div>
                                                     </td>
-                                                    <h4 class="product-price">TK 500</h4>
+                                                    <h4 className="product-price">TK 500</h4>
                                                     <p>Adult Entry 3 Rides</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-details-cart-btn mt-25">
-                                            <div class="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" class="details-ancor">Details</Link>
+                                        <div className="product-details-cart-btn mt-25">
+                                            <div className="prodcut-details-btn">	<Link to="#detailsmodal" data-toggle="modal" className="details-ancor">Details</Link>
                                             </div>
-                                            <div class="prodcut-add-to-cart">
-                                                <button class="disable-payment-btn">Add to Cart</button>
+                                            <div className="prodcut-add-to-cart">
+                                                <button className="disable-payment-btn">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-12">
-                                <div class="single-widget summary-widget mt-5">
-                                    <div class="ticket-widget-content-title">
+                            <div className="col-lg-3 col-md-12">
+                                <div className="single-widget summary-widget mt-5">
+                                    <div className="ticket-widget-content-title">
                                         <h3>Summary</h3>
                                     </div>
-                                    <div class="ticket-widget-content-inner first-ticket-widget" id="oneticket">
+                                    <div className="ticket-widget-content-inner first-ticket-widget" id="oneticket">
                                         <ul>
                                             <li>
                                                 <h5>Regular Ticket</h5>
@@ -317,9 +330,9 @@ class Tickets extends React.Component {
                                             </li>
                                         </ul>
                                         <p>No Food</p>
-                                        <button class="remove-btn" id="remove-ticket-one">Remove</button>
+                                        <button className="remove-btn" id="remove-ticket-one">Remove</button>
                                     </div>
-                                    <div class="ticket-widget-content-inner second-titket-widget" id="twoticket">
+                                    <div className="ticket-widget-content-inner second-titket-widget" id="twoticket">
                                         <ul>
                                             <li>
                                                 <h5>Free Deals</h5>
@@ -331,11 +344,11 @@ class Tickets extends React.Component {
                                             </li>
                                         </ul>
                                         <p>Free Lunch</p>
-                                        <button class="remove-btn" id="remove-ticket-two">Remove</button>
+                                        <button className="remove-btn" id="remove-ticket-two">Remove</button>
                                     </div>
-                                    <div class="widget-checkout-money">
-                                        <h4 class="total-price-widget">Total : 1300 BDT</h4>
-                                        <div class="widget-chekout-btn-area mt-3 text-center">	<Link to="/" class="payment-btn">Check Out</Link>
+                                    <div className="widget-checkout-money">
+                                        <h4 className="total-price-widget">Total : 1300 BDT</h4>
+                                        <div className="widget-chekout-btn-area mt-3 text-center">	<Link to="/" className="payment-btn">Check Out</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -344,16 +357,16 @@ class Tickets extends React.Component {
                     </div>
                 </section>
 
-                <div class="modal fade ticket-modal-area" id="detailsmodal" tabIndex="-1" role="dialog" aria-labelledby="detailsmodal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content ticket-modal-content">
-                            <div class="modal-header ticket-modal-header">
-                                <h5 class="modal-title ticekt-modal-title">Regular Tickets</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+                <div className="modal fade ticket-modal-area" id="detailsmodal" tabIndex="-1" role="dialog" aria-labelledby="detailsmodal" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content ticket-modal-content">
+                            <div className="modal-header ticket-modal-header">
+                                <h5 className="modal-title ticekt-modal-title">Regular Tickets</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body ticket-body-modal-content">
-                                <h4 class="ticket-modal-body-title">Offers Details</h4>
+                            <div className="modal-body ticket-body-modal-content">
+                                <h4 className="ticket-modal-body-title">Offers Details</h4>
                                 <ul>
                                     <li>Adult : Entry + 3 Rides = Tk. 500</li>
                                     <li>Kids (below 4) : Entry = Tk. 300</li>
@@ -367,7 +380,7 @@ class Tickets extends React.Component {
                     </div>
                 </div>
 
-                <div class="add-item">	<span>Item added your cart</span>
+                <div className="add-item">	<span>Item added your cart</span>
                 </div>
             </div>
         )
