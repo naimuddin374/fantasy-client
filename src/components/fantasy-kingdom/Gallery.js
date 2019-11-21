@@ -4,10 +4,23 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
 import { Link } from 'react-router-dom'
 import CircleShape from './CircleShape';
-
+import Axios from 'axios';
+import * as Types from '../../store/actions/types'
 
 class Gallery extends React.Component {
+    state = {
+        galleries: {}
+    }
+    componentDidMount() {
+        Axios.get(`api/gallery/by-page/${Types.PATH_NAME}`)
+            .then(res => {
+                this.setState({
+                    galleries: res.data
+                })
+            })
+    }
     render() {
+        let { galleries } = this.state
         let settings = {
             dots: true,
             infinite: false,
@@ -58,12 +71,16 @@ class Gallery extends React.Component {
                     </div>
                     <div className="fantasy-gallery-slider2">
                         <Slider {...settings}>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery1.png">
-                                    <img src="./assets/images/gallery/gallery1.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
+                            {Object.keys(galleries).length !== 0 &&
+                                galleries.map(item => (
+                                    <div className="col-md-12" key={item.id}>
+                                        <Link to={Types.BASE_URL + item.image} className="project-gallery popup">
+                                            <img src={Types.BASE_URL + item.image} alt="gallery" />
+                                        </Link>
+                                    </div>
+                                ))
+                            }
+                            {/* <div className="col-md-12">
                                 <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery2.png">
                                     <img src="./assets/images/gallery/gallery2.png" alt="gallery" />
                                 </Link>
@@ -117,7 +134,7 @@ class Gallery extends React.Component {
                                 <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery1.png">
                                     <img src="./assets/images/gallery/gallery1.png" alt="gallery" />
                                 </Link>
-                            </div>
+                            </div> */}
                         </Slider>
                     </div>
                 </div>

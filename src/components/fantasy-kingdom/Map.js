@@ -2,15 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { textLimit } from './../../util/helper';
-
-const pathName = window.location.pathname.substring(1)
+import * as Types from '../../store/actions/types'
 
 class Map extends React.Component {
     state = {
         fantasy: {}
     }
     componentDidMount() {
-        Axios.get(`api/service/by-page/${pathName}`)
+        Axios.get(`api/service/by-page/${Types.PATH_NAME}`)
             .then(res => {
                 this.setState({
                     fantasy: res.data

@@ -94,7 +94,7 @@ class ThingsToDo extends React.Component {
                                                         <div className="aggressive-hight-content"> <span className="aggressive t-agg-high">{item.title}</span>
                                                         </div>
                                                     </div>
-                                                    <p>{textLimit(item.description, 170)}</p>
+                                                    <p>{textLimit(item.description, 100)}</p>
                                                     <div className="t-bottom-content">
                                                         <div className="t-viewdetails-content"> <Link to="/" className="view-gallery">View Gallery</Link>
                                                         </div>

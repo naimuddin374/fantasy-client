@@ -8,8 +8,7 @@ import Faq from './Faq';
 import Things from './Things'
 import { Link } from 'react-router-dom';
 import Axios from 'axios'
-
-const pathName = window.location.pathname.substring(1)
+import * as Types from '../../store/actions/types'
 
 class FantasyKingdom extends React.Component {
     state = {
@@ -17,7 +16,7 @@ class FantasyKingdom extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0)
-        Axios.get(`api/service/by-page/${pathName}`)
+        Axios.get(`api/service/by-page/${Types.PATH_NAME}`)
             .then(res => {
                 this.setState({
                     fantasy: res.data
