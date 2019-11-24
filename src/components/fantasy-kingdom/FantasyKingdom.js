@@ -6,10 +6,11 @@ import FantasyGallery from './Gallery'
 import Shopping from './Shopping'
 import Faq from './Faq';
 import Things from './Things'
-import { Link } from 'react-router-dom';
 import Axios from 'axios'
-import * as Types from '../../store/actions/types'
+import { PATH_NAME} from '../../store/actions/types'
 import YouTube from 'react-youtube';
+import Slider from './Slider'
+
 
 class FantasyKingdom extends React.Component {
     state = {
@@ -17,7 +18,7 @@ class FantasyKingdom extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0)
-        Axios.get(`api/service/${Types.PATH_NAME}`)
+        Axios.get(`api/service/${PATH_NAME}`)
             .then(res => {
                 this.setState({
                     fantasy: res.data
@@ -41,12 +42,13 @@ class FantasyKingdom extends React.Component {
         if (Object.keys(fantasy).length !== 0) {
             videoLink = fantasy[0].video
         }
-        console.log(fantasy)
         return (
             <div>
                 <ShortLink />
 
-                <section className="breadcrum-area fantasy-feature-img relative">
+                <Slider />
+
+                {/* <section className="breadcrum-area fantasy-feature-img relative">
                     <div className="breadcrum-feature-overlay"></div>
                     <div className="container">
                         <div className="row">
@@ -58,7 +60,7 @@ class FantasyKingdom extends React.Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <div className="select-park-option-area fantasy-select-park-bg">
                     <div className="container">
