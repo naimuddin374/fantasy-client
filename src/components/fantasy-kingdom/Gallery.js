@@ -2,25 +2,34 @@ import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
-import { Link } from 'react-router-dom'
 import CircleShape from './CircleShape';
 import Axios from 'axios';
 import * as Types from '../../store/actions/types'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 class Gallery extends React.Component {
     state = {
-        galleries: {}
+        images: [],
+        imageSrc: [],
+        photoIndex: 0,
+        isOpen: false,
     }
     componentDidMount() {
-        Axios.get(`api/gallery/by-page/${Types.PATH_NAME}`)
+        Axios.get(`api/gallery/${Types.PATH_NAME}`)
             .then(res => {
+                let imgSrc = []
+                res.data.map(item => {
+                    imgSrc.push(Types.API_URL + item.image)
+                })
                 this.setState({
-                    galleries: res.data
+                    images: res.data,
+                    imageSrc: imgSrc,
                 })
             })
     }
     render() {
-        let { galleries } = this.state
+        let { imageSrc, images, photoIndex, isOpen } = this.state
         let settings = {
             dots: true,
             infinite: false,
@@ -71,72 +80,28 @@ class Gallery extends React.Component {
                     </div>
                     <div className="fantasy-gallery-slider2">
                         <Slider {...settings}>
-                            {Object.keys(galleries).length !== 0 &&
-                                galleries.map(item => (
-                                    <div className="col-md-12" key={item.id}>
-                                        <Link to={Types.BASE_URL + item.image} className="project-gallery popup">
-                                            <img src={Types.BASE_URL + item.image} alt="gallery" />
-                                        </Link>
+                            {Object.keys(images).length !== 0 &&
+                                images.map((item, index) => (
+                                    <div className="col-md-12" key={item + '.' + index}>
+                                        <a className="project-gallery popup" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
+                                            <img src={Types.API_URL + item.image} alt="gallery" />
+                                        </a>
                                     </div>
                                 ))
                             }
-                            {/* <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery2.png">
-                                    <img src="./assets/images/gallery/gallery2.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery3.png">
-                                    <img src="./assets/images/gallery/gallery3.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery4.png">
-                                    <img src="./assets/images/gallery/gallery4.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery5.png">
-                                    <img src="./assets/images/gallery/gallery5.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery6.png">
-                                    <img src="./assets/images/gallery/gallery6.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery6.png">
-                                    <img src="./assets/images/gallery/gallery6.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery5.png">
-                                    <img src="./assets/images/gallery/gallery5.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery4.png">
-                                    <img src="./assets/images/gallery/gallery4.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery2.png">
-                                    <img src="./assets/images/gallery/gallery2.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery2.png">
-                                    <img src="./assets/images/gallery/gallery2.png" alt="gallery" />
-                                </Link>
-                            </div>
-                            <div className="col-md-12">
-                                <Link to="#" className="project-gallery popup" href="assets/images/gallery/gallery1.png">
-                                    <img src="./assets/images/gallery/gallery1.png" alt="gallery" />
-                                </Link>
-                            </div> */}
                         </Slider>
                     </div>
+
+                    {imageSrc && isOpen && (
+                        <Lightbox
+                            mainSrc={imageSrc[photoIndex]}
+                            nextSrc={imageSrc[(photoIndex + 1) % imageSrc.length]}
+                            prevSrc={imageSrc[(photoIndex + imageSrc.length - 1) % imageSrc.length]}
+                            onCloseRequest={() => this.setState({ isOpen: false })}
+                            onMovePrevRequest={() => this.imageChangeIndexHandler({ photoIndex: (photoIndex + imageSrc.length - 1) % imageSrc.length })}
+                            onMoveNextRequest={() => this.imageChangeIndexHandler({ photoIndex: (photoIndex + 1) % imageSrc.length })}
+                        />
+                    )}
                 </div>
             </section >
         )

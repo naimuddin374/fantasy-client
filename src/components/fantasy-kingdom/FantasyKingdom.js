@@ -9,6 +9,7 @@ import Things from './Things'
 import { Link } from 'react-router-dom';
 import Axios from 'axios'
 import * as Types from '../../store/actions/types'
+import YouTube from 'react-youtube';
 
 class FantasyKingdom extends React.Component {
     state = {
@@ -16,19 +17,31 @@ class FantasyKingdom extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0)
-        Axios.get(`api/service/by-page/${Types.PATH_NAME}`)
+        Axios.get(`api/service/${Types.PATH_NAME}`)
             .then(res => {
                 this.setState({
                     fantasy: res.data
                 })
             })
     }
+    onReady(event) {
+        event.target.pauseVideo();
+    }
     render() {
         let { fantasy } = this.state
+        const opts = {
+            height: '320',
+            width: '100%',
+            playerVars: {
+                autoplay: 0
+            }
+        }
+
         let videoLink = ''
         if (Object.keys(fantasy).length !== 0) {
             videoLink = fantasy[0].video
         }
+        console.log(fantasy)
         return (
             <div>
                 <ShortLink />
@@ -101,9 +114,16 @@ class FantasyKingdom extends React.Component {
                         <div className="row">
                             <div className="col-lg-12 col-md-12">
                                 <div className="experience-img relative experiencebg">
-                                    <img src="./assets/images/experiencebg.png" alt="experience background" />
-                                    <div className="ex-video-icon"> <Link to={`https://www.youtube.com/watch?v=${videoLink}`} className="exp-play-btn"><i className=" fa fa-play"></i></Link>
-                                    </div>
+                                    {/* <img src="./assets/images/experiencebg.png" alt="experience background" /> */}
+                                    <YouTube
+                                        videoId={videoLink}
+                                        opts={opts}
+                                        onReady={this.onReady}
+                                    />
+                                    {/* <div className="ex-video-icon"> <Link to={`https://www.youtube.com/watch?v=${videoLink}`} className="exp-play-btn">
+                                        <i className=" fa fa-play"></i>
+                                    </Link>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

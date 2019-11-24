@@ -83,7 +83,7 @@ class ThingsToDo extends React.Component {
                                         <div className="col-lg-4 col-md-6" key={item.id}>
                                             <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
                                                 <Link to="/">
-                                                    <img src={Types.BASE_URL + item.image} alt="advanture img" />
+                                                    <img src={Types.API_URL + item.image} alt="advanture img" />
                                                 </Link>
                                                 <div className="popular-item"> <span className="thing-popular">popular</span>
                                                 </div>

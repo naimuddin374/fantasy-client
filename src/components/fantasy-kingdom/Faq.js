@@ -1,11 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
+import { API_URL, PATH_NAME } from '../../store/actions/types'
 
 class Faq extends React.Component {
+    state = {
+        faqs: {}
+    }
     componentDidMount() {
-        window.scrollTo(0, 0)
+        Axios.get(`api/faq/${PATH_NAME}`)
+            .then(res => {
+                this.setState({
+                    faqs: res.data
+                })
+            })
     }
     render() {
+        let { faqs } = this.state
         return (
             <section className="fantasy-faq section-padding">
                 <div className="container">
@@ -22,42 +33,21 @@ class Faq extends React.Component {
                                 <div className="frequently-asked-title">
                                     <div className="faq-main for-rent mgtop50">
                                         <div className="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
-                                            <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingOne">
-                                                    <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        How to contact us
-                                        </a>
-                                                </div>
-                                                <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                    <div className="card-body faq-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, mi a sagittis sodales, sapien mi iaculis odio, ac tincidunt turpis sem sit amet eros Lorem ipsum dolor sit amet.</p>
+                                            {Object.keys(faqs).length !== 0 &&
+                                                faqs.map((item, index) => (
+                                                    <div className="card faq-inner-content" key={item.id}>
+                                                        <div className="card-header faq-heading" id="headingFour">
+                                                            <a className="collapsed" data-toggle="collapse" data-target={`#collapseFour_${item.id}`} aria-expanded="false" aria-controls={`collapseFour_${item.id}`}>
+                                                                {item.title} </a>
+                                                        </div>
+                                                        <div id={`collapseFour_${item.id}`} className={index === 0 ? 'collapse show' : 'collapse'} aria-labelledby="headingFour" data-parent="#accordionExample">
+                                                            <div className="card-body faq-body">
+                                                                <p>{item.description}</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingThree">
-                                                    <a className="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        How will I get to Fantasy Kingdom?
-                                        </a>
-                                                </div>
-                                                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                                    <div className="card-body faq-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, mi a sagittis sodales, sapien mi iaculis odio, ac tincidunt turpis sem sit amet eros Lorem ipsum dolor sit amet.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="card faq-inner-content">
-                                                <div className="card-header faq-heading" id="headingFour">
-                                                    <a className="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                        Is Outside food allowed in Fantasy Kingdom?
-                                        </a>
-                                                </div>
-                                                <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                                    <div className="card-body faq-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar, mi a sagittis sodales, sapien mi iaculis odio, ac tincidunt turpis sem sit amet eros Lorem ipsum dolor sit amet.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                ))
+                                            }
                                         </div>
                                     </div>
                                 </div>

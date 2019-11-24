@@ -20,3 +20,14 @@
 .App-link {
     color: #09d3ac;
 }
+
+.experience-area iframe {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.experience-area .experiencebg:after {
+    display: none;
+}

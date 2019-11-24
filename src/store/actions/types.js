@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8000/'
+export const API_URL = 'http://localhost:8000/'
 export const PATH_NAME = window.location.pathname.substring(1)
 export const SET_MESSAGE = 'SET_MESSAGE'
 export const SET_ERROR = 'SET_ERROR'

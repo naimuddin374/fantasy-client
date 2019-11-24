@@ -9,7 +9,7 @@ class Map extends React.Component {
         fantasy: {}
     }
     componentDidMount() {
-        Axios.get(`api/service/by-page/${Types.PATH_NAME}`)
+        Axios.get(`api/service/${Types.PATH_NAME}`)
             .then(res => {
                 this.setState({
                     fantasy: res.data

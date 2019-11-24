@@ -2607,6 +2607,7 @@ a.project-gallery:hover img {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 74px;
     border-bottom-left-radius: 15px;
+    z-index: -1;
 }
 
 .ex-video-icon a.exp-play-btn {
