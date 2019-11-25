@@ -49,7 +49,7 @@ class Menu extends React.Component {
                                                                         <span>Fantasy Kingdom</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
-                                                                    <Link to="#" className="single-park">	<span>Foys Lake</span>
+                                                                    <Link to="/foys-lake" className="single-park">	<span>Foys Lake</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
                                                                 </div>
@@ -80,8 +80,8 @@ class Menu extends React.Component {
                                                     </div>
                                                 </ul>
                                             </li>
-                                            <li className="nav-item"> <Link to="placestay.html" className="nav-link">Places to stay</Link>
-                                            </li>
+                                            <li className="nav-item"> <Link to="/things-to-do" className="nav-link">Things To Do</Link></li>
+                                            <li className="nav-item"> <Link to="placestay.html" className="nav-link">Places to stay</Link></li>
                                             <li className="nav-item"> <Link to="merchandise.html" className="nav-link">Merchandise</Link>
                                             </li>
                                             <li className="nav-item"> <Link to="#" className="nav-link">Offers</Link>

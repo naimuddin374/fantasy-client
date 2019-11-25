@@ -2,6 +2,7 @@ import React from 'react'
 import Slider from "react-slick"
 import Axios from 'axios'
 import { textLimit } from './../../util/helper';
+import { API_URL } from '../../store/actions/types';
 
 class HomeSlider extends React.Component {
     state = {
@@ -30,7 +31,7 @@ class HomeSlider extends React.Component {
                     {Object.keys(sliders).length !== 0 &&
                         sliders.map(item => (
                             <div className="hero-single-slide hero-overlay" key={item.id}>
-                                <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${item.image})` }}>
+                                <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${API_URL+item.image})` }}>
                                     <div className="container">
                                         <div className="row">
                                             <div className="col-md-12">

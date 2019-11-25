@@ -17,6 +17,7 @@ import CheckoutPage from './checkout/CheckoutPage';
 import WaterKingdom from './water-kingdom/WaterKingdom';
 import ExtremeKingdom from './extreme-kingdom/ExtremeKingdom';
 import HomePage from './home/HomePage';
+import FoysLake from './foys-lake/FoysLake';
 
 class MainApp extends React.Component {
     render() {
@@ -33,6 +34,7 @@ class MainApp extends React.Component {
                     <Route path='/water-kingdom' component={WaterKingdom} />
                     <Route path='/fantasy-kingdom' component={FantasyKingdom} />
                     <Route path='/extreme-kingdom' component={ExtremeKingdom} />
+                    <Route path='/foys-lake' component={FoysLake} />
                     <Route path='/' exact component={HomePage} />
                 </Switch>
                 <FooterPage />
