@@ -10,7 +10,7 @@ import Slider from '../common/Slider'
 import InnerSearch from '../common/InnerSearch'
 import Video from '../common/Video'
 
-class WaterKingdom extends React.Component {
+class ExtremeKingdom extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
@@ -23,22 +23,21 @@ class WaterKingdom extends React.Component {
 
                 <InnerSearch />
 
-                <Map className="water" />
+                <Map className="xtreme" />
 
-                <Things className="water" />
+                <Things className="xtreme" />
 
                 <Discount />
 
-                <Gallery className="water" />
+                <Gallery className="xtreme" />
 
-                <Video className="water" />
+                <Video className="xtreme" />
 
-                <Shopping className="water" />
+                <Shopping className="xtreme" />
 
-                <Faq className="water" />
-
+                <Faq className="xtreme" />
             </div>
         )
     }
 }
-export default WaterKingdom
+export default ExtremeKingdom

@@ -30,7 +30,7 @@ class NewsEvents extends React.Component {
                     </div>
                     <div className="row">
                         {Object.keys(events).length !== 0 &&
-                            events.map(item => (
+                            events.slice(0,6).map(item => (
                                 <div className="col-lg-4 col-md-6" key={item.id}>
                                     <div className="single-news">
                                         <Link to={`/news-events/${item.id}`}>

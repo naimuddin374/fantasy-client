@@ -5,10 +5,11 @@ import Axios from 'axios';
 
 class Things extends React.Component {
     state = {
-        ThingsToDo: {}
+        ThingsToDo: {},
+        className: this.props.className
     }
     componentDidMount() {
-        Axios.get('api/things-to-do')
+        Axios.get(`api/things-to-do/${window.location.pathname.substring(1)}`)
             .then(res => {
                 this.setState({
                     ThingsToDo: res.data
@@ -21,7 +22,7 @@ class Things extends React.Component {
             fade: false,
             speed: 1000,
             rows: 1,
-            dots: false,
+            dots: true,
             autoplay: true,
             arrows: false,
             centerMode: true,
@@ -60,13 +61,13 @@ class Things extends React.Component {
                 }
             ]
         }
-        let { ThingsToDo } = this.state
+        let { ThingsToDo, className } = this.state
         return (
             <section className="things-area section-padding-top full-bg">
                 <div className="container">
                     <div className="row row-center">
                         <div className="col-lg-8 col-md-8">
-                            <div className="section-title water-section-title mb-40 things-to-do-title">
+                            <div className={`section-title ${className}-section-title mb-40 things-to-do-title`}>
                                 <h2>Explore Rides & Events</h2>
                             </div>
                         </div>
@@ -84,7 +85,11 @@ class Things extends React.Component {
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">
-                                            <Link to={`/${item.link}`}><img src={item.image} alt="thins img" /></Link>
+                                            {item.link ?
+                                                <Link to={`/${item.link}`}>
+                                                    <img src={item.image} alt="thins img" />
+                                                </Link> : <img src={item.image} alt="thins img" />
+                                            }
                                         </div>
                                         <div className="thing-offer">
                                             <span className="offer-shape">Ride</span>

@@ -1,10 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
+import { API_URL } from '../../store/actions/types'
 
-class WaterDiscount extends React.Component {
+class Discount extends React.Component {
+    state = {
+        discount: {}
+    }
+    componentDidMount() {
+        Axios.get(`api/discount/${window.location.pathname.substring(1)}`)
+            .then(res => {
+                this.setState({
+                    discount: res.data
+                })
+            })
+    }
     render() {
+        let { discount } = this.state
         return (
-            <section className="fantasy-discount-area relative">
+            <section className="fantasy-discount-area relative mt-5">
                 <div className="circle-shape">
                     <svg id="Group_1471" data-name="Group 1471" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 780">
                         <defs>
@@ -71,9 +85,13 @@ class WaterDiscount extends React.Component {
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
                             <div className="discount-wrapper">
-                                <Link to="/">
-                                    <img src="./assets/images/discount.png" alt="discount png" />
-                                </Link>
+                                {Object.keys(discount).length !== 0 &&
+                                    discount.map(item => (
+                                        <Link key={item.id} to={item.hyperlink !== null ? `/${item.hyperlink}` : '/'}>
+                                            <img src={API_URL + item.image} alt="discount png" />
+                                        </Link>
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>
@@ -82,4 +100,4 @@ class WaterDiscount extends React.Component {
         )
     }
 }
-export default WaterDiscount
+export default Discount

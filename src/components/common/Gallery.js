@@ -1,22 +1,23 @@
 import React from 'react'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
 import CircleShape from './CircleShape';
 import Axios from 'axios';
 import * as Types from '../../store/actions/types'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class Gallery extends React.Component {
     state = {
         images: [],
         imageSrc: [],
         photoIndex: 0,
-        isOpen: false,
+        isOpen: false, 
+        className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/gallery/${Types.PATH_NAME}`)
+        Axios.get(`api/gallery/${window.location.pathname.substring(1)}`)
             .then(res => {
                 let imgSrc = []
                 res.data.map(item => {
@@ -29,7 +30,7 @@ class Gallery extends React.Component {
             })
     }
     render() {
-        let { imageSrc, images, photoIndex, isOpen } = this.state
+        let { imageSrc, images, photoIndex, isOpen, className } = this.state
         let settings = {
             dots: true,
             infinite: false,
@@ -73,7 +74,7 @@ class Gallery extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className="section-title-small-text fantasy-section-title-small-text mb-40">
+                            <div className={`section-title-small-text ${className}-section-title-small-text mb-40`}>
                                 <h2>Gallery</h2>
                             </div>
                         </div>
@@ -92,7 +93,7 @@ class Gallery extends React.Component {
                         </Slider>
                     </div>
 
-                    {imageSrc && isOpen && (
+                    {isOpen && (
                         <Lightbox
                             mainSrc={imageSrc[photoIndex]}
                             nextSrc={imageSrc[(photoIndex + 1) % imageSrc.length]}

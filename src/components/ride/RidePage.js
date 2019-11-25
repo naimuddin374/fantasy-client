@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FantasyGallery from '../fantasy-kingdom/Gallery';
+import Gallery from '../common/Gallery';
 
 class RidePage extends React.Component {
     componentDidMount() {
@@ -115,7 +115,7 @@ class RidePage extends React.Component {
                     </div>
                 </section>
 
-                <FantasyGallery />
+                <Gallery className="fantasy" />
 
             </div>
         )

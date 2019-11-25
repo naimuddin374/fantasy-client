@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
-import { API_URL, PATH_NAME } from '../../store/actions/types'
 
 class Faq extends React.Component {
     state = {
-        faqs: {}
+        faqs: {},
+        className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/faq/${PATH_NAME}`)
+        Axios.get(`api/faq/${window.location.pathname.substring(1)}`)
             .then(res => {
                 this.setState({
                     faqs: res.data
@@ -16,13 +16,13 @@ class Faq extends React.Component {
             })
     }
     render() {
-        let { faqs } = this.state
+        let { faqs, className } = this.state
         return (
             <section className="fantasy-faq section-padding">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                            <div className="section-title-small-text water-section-title-small-text text-center mb-4">
+                            <div className={`section-title-small-text ${className}-section-title-small-text text-center mb-4`}>
                                 <h2>FAQ</h2>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ class Faq extends React.Component {
                                     <div className="faq-main for-rent mgtop50">
                                         <div className="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
                                             {Object.keys(faqs).length !== 0 &&
-                                                faqs.map((item, index) => (
+                                                faqs.slice(0,4).map((item, index) => (
                                                     <div className="card faq-inner-content" key={item.id}>
                                                         <div className="card-header faq-heading" id="headingFour">
                                                             <a className="collapsed" data-toggle="collapse" data-target={`#collapseFour_${item.id}`} aria-expanded="false" aria-controls={`collapseFour_${item.id}`}>

@@ -5,10 +5,10 @@ import { textLimit } from './../../util/helper';
 
 class HomeSlider extends React.Component {
     state = {
-        sliders: {}
+        sliders: {},
     }
     componentDidMount() {
-        Axios.get('api/slider')
+        Axios.get(`api/slider/${window.location.pathname.substring(1)}`)
             .then(res => {
                 this.setState({
                     sliders: res.data
@@ -35,7 +35,7 @@ class HomeSlider extends React.Component {
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="hero-slider-content slide-1 text-center">
-                                                    <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">{item.title}</h2>
+                                                    <h1 className="text-white wow fadeInUp" data-wow-delay=".3s">{item.title}</h1>
                                                     <p className="text-white mt-3 wow fadeInUp" data-wow-delay=".6s">{textLimit(item.description, 150)}</p>
                                                 </div>
                                             </div>

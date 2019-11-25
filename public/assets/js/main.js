@@ -16,22 +16,22 @@
         $('select').niceSelect();
     });
     // active video popup experience
-    $("a.exp-play-btn").YouTubePopUp();
+    // $("a.exp-play-btn").YouTubePopUp();
     // magnific popup
-    $('.popup').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        },
-        zoom: {
-            enabled: true,
-            duration: 300,
-            easing: 'ease-in-out',
-            opener: function (openerElement) {
-                return openerElement.is('img') ? openerElement : openerElement.find('img');
-            }
-        }
-    });
+    // $('.popup').magnificPopup({
+    //     type: 'image',
+    //     gallery: {
+    //         enabled: true
+    //     },
+    //     zoom: {
+    //         enabled: true,
+    //         duration: 300,
+    //         easing: 'ease-in-out',
+    //         opener: function (openerElement) {
+    //             return openerElement.is('img') ? openerElement : openerElement.find('img');
+    //         }
+    //     }
+    // });
     // menu active class
     $('nav>ul>li>a').filter(function () {
         return this.href === location.href;
@@ -272,8 +272,8 @@
         $(".offcanvas-search-inner").removeClass('show')
     });
     // active video popup
-    $("a.about-company-video1").YouTubePopUp();
-    $("a.single-post-video").YouTubePopUp();
+    // $("a.about-company-video1").YouTubePopUp();
+    // $("a.single-post-video").YouTubePopUp();
     // scroll to top
     $('.scrolltotop').fadeOut(1000);
     $(window).on('scroll', function () {

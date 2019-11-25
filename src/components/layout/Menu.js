@@ -63,7 +63,7 @@ class Menu extends React.Component {
                                                             </li>
                                                             <li className="megamenu">	<span>Other parks</span>
                                                                 <div className="megamenu-item">
-                                                                    <Link to="/xtreme-kingdom" className="single-park">	<span>Extreme Racing Add</span>
+                                                                    <Link to="/extreme-kingdom" className="single-park">	<span>Extreme Racing Add</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
                                                                 </div>

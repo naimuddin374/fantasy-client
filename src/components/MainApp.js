@@ -15,7 +15,7 @@ import ThingsToDo from './things-to-do/ThingsToDo';
 import Tickets from '../page/Tickets';
 import CheckoutPage from './checkout/CheckoutPage';
 import WaterKingdom from './water-kingdom/WaterKingdom';
-import XtremeKingdom from './xtreme-kingdom/XtremeKingdom';
+import ExtremeKingdom from './extreme-kingdom/ExtremeKingdom';
 import HomePage from './home/HomePage';
 
 class MainApp extends React.Component {
@@ -32,7 +32,7 @@ class MainApp extends React.Component {
                     <Route path='/things-to-do' component={ThingsToDo} />
                     <Route path='/water-kingdom' component={WaterKingdom} />
                     <Route path='/fantasy-kingdom' component={FantasyKingdom} />
-                    <Route path='/xtreme-kingdom' component={XtremeKingdom} />
+                    <Route path='/extreme-kingdom' component={ExtremeKingdom} />
                     <Route path='/' exact component={HomePage} />
                 </Switch>
                 <FooterPage />
