@@ -23,7 +23,7 @@ class FantasyKingdom extends React.Component {
 
                 <Slider />
 
-                <InnerSearch />
+                <InnerSearch className="fantasy" />
 
                 <Map className="fantasy" />
 

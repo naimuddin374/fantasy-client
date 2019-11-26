@@ -27,14 +27,14 @@ class Map extends React.Component {
             date_time = moduleData[0].open_time
         }
         return (
-            <section className={`fantasy-feature-about-area relative ${className}-feature-shape section-padding`}>
+            <section className="fantasy-feature-about-area relative fantasy-feature-shape section-padding">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-6">
                             <div className="fantasy-about-content">
-                                <div className="section-title fantasy-section-title">
+                                <div className={`section-title ${className}-section-title`}>
                                     <h2>{title}</h2>
-                                    <p className="mt-3">{textLimit(description, 300)}</p>
+                                    <p className="mt-3">{textLimit(description, 650)}</p>
                                     <Link to='/ticket' className="theme-btn mt-5">Get Ticket</Link>
                                 </div>
                             </div>

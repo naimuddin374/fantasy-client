@@ -10,7 +10,7 @@ import Slider from '../common/Slider'
 import InnerSearch from '../common/InnerSearch'
 import Video from '../common/Video'
 
-class FoysLake extends React.Component {
+class HeritagePark extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
@@ -41,4 +41,4 @@ class FoysLake extends React.Component {
         )
     }
 }
-export default FoysLake
+export default HeritagePark

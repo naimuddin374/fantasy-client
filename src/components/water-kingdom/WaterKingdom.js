@@ -21,7 +21,7 @@ class WaterKingdom extends React.Component {
 
                 <Slider />
 
-                <InnerSearch />
+                <InnerSearch className="water" />
 
                 <Map className="water" />
 

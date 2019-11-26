@@ -9,6 +9,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-image-lightbox": "^5.1.1",
+    "react-modal": "^3.11.1",
     "react-moment": "^0.9.6",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",

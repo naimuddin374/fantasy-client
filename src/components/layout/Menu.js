@@ -63,18 +63,18 @@ class Menu extends React.Component {
                                                             </li>
                                                             <li className="megamenu">	<span>Other parks</span>
                                                                 <div className="megamenu-item">
-                                                                    <Link to="/extreme-kingdom" className="single-park">	<span>Extreme Racing Add</span>
+                                                                    <Link to="/extreme-kingdom" className="single-park">	<span>Extreme Racing</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
                                                                 </div>
                                                                 <div className="megamenu-item">
-                                                                    <Link to="#" className="single-park">	<span>Heritage Park</span>
+                                                                    <Link to="/heritage-park" className="single-park">	<span>Heritage Park</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
                                                                 </div>
                                                             </li>
                                                         </div>
-                                                        <div className="menu-menu-park-btn mt-5 mb-3">	<Link to="#" className="theme-btn">View Events</Link>
+                                                        <div className="menu-menu-park-btn mt-5 mb-3">	<Link to="/things-to-do" className="theme-btn">View Events</Link>
                                                             <Link to="/ticket" className="theme-btn">Buy Tickets</Link>
                                                         </div>
                                                     </div>
@@ -84,7 +84,7 @@ class Menu extends React.Component {
                                             <li className="nav-item"> <Link to="placestay.html" className="nav-link">Places to stay</Link></li>
                                             <li className="nav-item"> <Link to="merchandise.html" className="nav-link">Merchandise</Link>
                                             </li>
-                                            <li className="nav-item"> <Link to="#" className="nav-link">Offers</Link>
+                                            <li className="nav-item"> <Link to="/ticket" className="nav-link">Offers</Link>
                                             </li>
                                             <li className="nav-item"> <Link className="nav-link" to="/faq">FAQ</Link>
                                             </li>

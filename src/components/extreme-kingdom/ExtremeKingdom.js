@@ -21,7 +21,7 @@ class ExtremeKingdom extends React.Component {
 
                 <Slider />
 
-                <InnerSearch />
+                <InnerSearch className="xtreme" />
 
                 <Map className="xtreme" />
 

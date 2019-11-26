@@ -31,3 +31,23 @@
 .experience-area .experiencebg:after {
     display: none;
 }
+
+ul.list li.option a {
+    color: #000;
+    display: block;
+}
+
+.nice-select .option:hover a {
+    color: #fff;
+}
+
+.nice-select .option.selected.focus {
+    color: #fff;
+}
+
+h4.product-price {
+    margin-left: -15px;
+}
+.modal-body.ticket-body-modal-content {
+    padding: 10px 30px 30px 30px;
+}
