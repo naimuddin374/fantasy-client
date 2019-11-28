@@ -51,3 +51,9 @@ h4.product-price {
 .modal-body.ticket-body-modal-content {
     padding: 10px 30px 30px 30px;
 }
+
+.ticket-widget-content-inner {
+    padding: 10px 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+}

@@ -8,7 +8,7 @@ class Discount extends React.Component {
         discount: {}
     }
     componentDidMount() {
-        Axios.get(`api/discount/${window.location.pathname.substring(1)}`)
+        Axios.get(`api/discount${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     discount: res.data

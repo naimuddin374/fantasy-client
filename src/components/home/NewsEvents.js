@@ -31,7 +31,7 @@ class NewsEvents extends React.Component {
                     <div className="row">
                         {Object.keys(events).length !== 0 &&
                             events.slice(0,6).map(item => (
-                                <div className="col-lg-4 col-md-6" key={item.id}>
+                                <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                                     <div className="single-news">
                                         <Link to={`/news-events/${item.id}`}>
                                             <img className="top-left-right-radius" src={item.image} alt="news" />
@@ -57,7 +57,7 @@ class NewsEvents extends React.Component {
                     <div className="row">
                         <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
                             <div className="view-all-blog-post text-center mt-5">
-                                <Link to="/" className="theme-btn">View All</Link>
+                                <Link to="/news-events" className="theme-btn">View All</Link>
                             </div>
                         </div>
                     </div>

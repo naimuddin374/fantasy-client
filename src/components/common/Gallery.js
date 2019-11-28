@@ -17,7 +17,7 @@ class Gallery extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/gallery/${window.location.pathname.substring(1)}`)
+        Axios.get(`api/gallery${window.location.pathname}`)
             .then(res => {
                 let imgSrc = []
                 res.data.map(item => {

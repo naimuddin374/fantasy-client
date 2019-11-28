@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Cart from './Cart'
 
 class Menu extends React.Component {
     state = {
@@ -31,7 +32,7 @@ class Menu extends React.Component {
                             <div className="col-lg-2 col-md-12">
                                 <div className="rox-logo">
                                     <Link to='/'>
-                                        <img src='./assets/images/headerlogo.png' alt="Site Logo" />
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
                                     </Link>
                                 </div>
                             </div>
@@ -63,7 +64,7 @@ class Menu extends React.Component {
                                                             </li>
                                                             <li className="megamenu">	<span>Other parks</span>
                                                                 <div className="megamenu-item">
-                                                                    <Link to="/extreme-kingdom" className="single-park">	<span>Extreme Racing</span>
+                                                                    <Link to="/extreme-racing" className="single-park">	<span>Extreme Racing</span>
                                                                         <p>Open, 10 am- 11 pm</p>
                                                                     </Link>
                                                                 </div>
@@ -81,64 +82,14 @@ class Menu extends React.Component {
                                                 </ul>
                                             </li>
                                             <li className="nav-item"> <Link to="/things-to-do" className="nav-link">Things To Do</Link></li>
-                                            <li className="nav-item"> <Link to="placestay.html" className="nav-link">Places to stay</Link></li>
-                                            <li className="nav-item"> <Link to="merchandise.html" className="nav-link">Merchandise</Link>
-                                            </li>
+                                            <li className="nav-item"> <Link to="/atlantis" className="nav-link">Places to stay</Link></li>
                                             <li className="nav-item"> <Link to="/ticket" className="nav-link">Offers</Link>
                                             </li>
                                             <li className="nav-item"> <Link className="nav-link" to="/faq">FAQ</Link>
                                             </li>
                                             <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
                                             </li>
-                                            <li className="nav-item cart-item-header"><Link className="nav-link shopping-cart-btn" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">2</span></Link>
-                                                <div className="fantasy-mini-cart">
-                                                    <div className="fantasy-mini-cart-inner">
-                                                        <div className="fantasy-cart-item">
-                                                            <div className="fantasy-cart-img">
-                                                                <Link to="#">
-                                                                    <img src="./assets/images/cart/product1.jpg" alt="product" />
-                                                                </Link>
-                                                            </div>
-                                                            <div className="fantasy-cart-info">	<Link to="#">Promotional Ticket</Link>
-                                                                <p>Qty: 2<span>BDT 30.00 </span>
-                                                                </p>
-                                                            </div>
-                                                            <div className="fantasy-cart-remove">	<Link to="#"><i className="fa fa-close"></i></Link>
-                                                            </div>
-                                                        </div>
-                                                        <div className="fantasy-cart-item">
-                                                            <div className="fantasy-cart-img">
-                                                                <Link to="#">
-                                                                    <img src="./assets/images/cart/product3.jpg" alt="product" />
-                                                                </Link>
-                                                            </div>
-                                                            <div className="fantasy-cart-info">	<Link to="#">2-Day Ticket</Link>
-                                                                <p>Qty: 4 <span>BDT 120.00 </span>
-                                                                </p>
-                                                            </div>
-                                                            <div className="fantasy-cart-remove">
-                                                                <Link to="#"><i className="fa fa-close"></i></Link>
-                                                            </div>
-                                                        </div>
-                                                        <div className="fantasy-mini-cart-table">
-                                                            <div className="fantasy-cart-total mt-10">	<span className="fantasy-total-amount">Sub-Total:</span>
-                                                                <span className="fantasy-price">BDT 120.00</span>
-                                                            </div>
-                                                            <div className="fantasy-cart-total mt-10">	<span className="fantasy-total-amount">Total:</span>
-                                                                <span className="fantasy-price">BDT 150.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="fantasy-mini-cart-footer">
-                                                        <div className="fantasy-cart-button">
-                                                            <Link to="#" className="theme-btn">View cart</Link>
-                                                        </div>
-                                                        <div className="fantasy-cart-button">
-                                                            <Link to="/checkout" className="theme-btn">Checkout</Link>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                            <Cart />
                                             <li className="nav-item"> <Link to="#modalJoin" className="signup-btn" data-toggle="modal">Sign Up/In</Link>
                                             </li>
                                         </ul>

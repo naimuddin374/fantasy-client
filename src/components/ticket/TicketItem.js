@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import Axios from 'axios'
 import { API_URL } from '../../store/actions/types'
 import { textLimit } from './../../util/helper';
 import Details from './Details'
+import { connect } from 'react-redux'
+import { addToCart } from '../../store/actions/cartActions';
 
 class TicketItem extends React.Component {
     state = {
@@ -31,6 +32,20 @@ class TicketItem extends React.Component {
             detailData: {}
         })
     }
+    addToCartHandler(data) {
+        let rides = this.props.cart.rides
+        if (Object.keys(rides).length === 0) {
+            this.props.addToCart([data])
+        } else {
+            let checkArr = rides.filter(cart => cart.id === data.id)
+            if (Object.keys(checkArr).length !== 0) {
+                alert('This item already in cart')
+            } else {
+                let oldData = rides.filter(item => item.id !== data.id)
+                this.props.addToCart(oldData.concat(data))
+            }
+        }
+    }
     render() {
         let { rides } = this.state
         return (
@@ -44,7 +59,7 @@ class TicketItem extends React.Component {
                                 <div className="prodcut-info">
                                     <ul>
                                         <li>
-                                            <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
+                                            <img src={API_URL + item.service_logo} alt="Ticket purchase logo" style={{ height: '60px' }} />
                                         </li>
                                     </ul>
                                     <h4 className="pt-3">{item.title}</h4>
@@ -93,10 +108,10 @@ class TicketItem extends React.Component {
                             </div>
                             <div className="product-details-cart-btn mt-25">
                                 <div className="prodcut-details-btn">
-                                    <a href="#" className="details-ancor" onClick={() => this.openModal(item)}>Details</a>
+                                    <a className="details-ancor" onClick={() => this.openModal(item)}>Details</a>
                                 </div>
                                 <div className="prodcut-add-to-cart">
-                                    <button className="disable-payment-btn">Add to Cart</button>
+                                    <button className="disable-payment-btn" onClick={() => this.addToCartHandler(item)}>Add to Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -185,4 +200,8 @@ class TicketItem extends React.Component {
         )
     }
 }
-export default TicketItem
+
+const mapStateToProps = state => ({
+    cart: state.cart
+})
+export default connect(mapStateToProps, { addToCart })(TicketItem)

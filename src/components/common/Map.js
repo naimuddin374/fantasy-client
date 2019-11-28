@@ -9,7 +9,7 @@ class Map extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/service/${window.location.pathname.substring(1)}`)
+        Axios.get(`api/service${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     moduleData: res.data

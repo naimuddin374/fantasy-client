@@ -75,19 +75,19 @@ class DiscoverPackage extends React.Component {
 							<Slider {...settings}>
 							{Object.keys(services).length !== 0 && 
 								services.map(item => (
-<div className="col-lg-12 col-md-4">
+<div className="col-lg-12 col-md-4" key={item.id}>
 					<div className="single-discover-carousel">
-											<Link to="/"><img src={item.image ? item.image : "./assets/images/resorts/resort1.png"} alt="resorts" /></Link>
+											<Link to={`/${item.hyperlink}`}><img src={item.image ? item.image : "./assets/images/resorts/resort1.png"} alt="resorts" /></Link>
 						<div className="resport-open-close">
-							<span className="offer-shape">Open Today</span>
+								<span className="offer-shape">{item.open_time}</span>
 						</div>
 						<div className="resort-heading-content">
-							<Link to="/"><h3>{item.title}</h3></Link>
+							<Link to={`/${item.hyperlink}`}><h3>{item.title}</h3></Link>
 							{/* <h5>N302, Baipayl</h5> */}
 							<h6>{item.open_time}</h6>
 						</div>
 						<div className="resorts-linked-btn">
-							<Link to="/">
+							<a>
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										viewBox="0 0 32 32">
 									<path className="st0" d="M27.1,18.3L13.7,4.9c-0.4-0.4-1-0.4-1.4,0L10.2,7C9.8,7.3,9.8,7.9,10,8.3c0.4,0.5,0.3,1.3-0.1,1.7
@@ -97,8 +97,8 @@ class DiscoverPackage extends React.Component {
 										l3.5,3.5l-6,6L7,13z M24.2,19.8c-1.3-0.7-2.9-0.5-3.9,0.5c-1,1-1.2,2.7-0.5,3.9L19,25l-7.1-7.1l6-6L25,19L24.2,19.8z"/>
 									</svg>
 								<p>Ticket</p>
-							</Link>
-							<Link to="/">
+							</a>
+							<a>
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										 viewBox="0 0 32 32">
 									<g id="Path_2176">
@@ -110,8 +110,8 @@ class DiscoverPackage extends React.Component {
 									</g>
 									</svg>
 								<p>Direction</p>
-							</Link>
-							<Link to="/">
+							</a>
+							<a>
 								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 									viewBox="0 0 32 32">
 								<g>
@@ -124,7 +124,7 @@ class DiscoverPackage extends React.Component {
 								</g>
 								</svg>
 								<p>parking</p>
-							</Link>
+							</a>
 						</div>
 					</div>
 					</div>

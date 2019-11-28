@@ -18,7 +18,7 @@ class FooterPage extends React.Component {
                             <div className="col-lg-5 col-md-5">
                                 <div className="widget-wrapper">
                                     <div className="widget-content">
-                                        <img src="./assets/images/footerlogo.png" alt="logo" />
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/footerlogo.png`} alt="logo" />
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing  <br />eliLorem ipsum dolor sit amet, consectetur
 						</p>
                                     </div>

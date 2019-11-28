@@ -9,7 +9,7 @@ class HomeSlider extends React.Component {
         sliders: {},
     }
     componentDidMount() {
-        Axios.get(`api/slider/${window.location.pathname.substring(1)}`)
+        Axios.get(`api/slider${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     sliders: res.data
