@@ -41,7 +41,7 @@ class Summary extends React.Component {
                                     <li style={{ border: "none" }}>
                                         <h5>
                                             <span className="float-left">{item.title}</span>
-                                            <span className="float-right" onClick={() => this.cartRemoveHandler(item.id)} ><i className="fa fa-close p-1" /></span>
+                                            <span className="float-right link-btn" onClick={() => this.cartRemoveHandler(item.id)} ><i className="fa fa-close p-1" /></span>
                                         </h5>
                                         <p>
                                             <span className="float-left">{item.service_title}</span>

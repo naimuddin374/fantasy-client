@@ -99,8 +99,8 @@ class Gallery extends React.Component {
                             nextSrc={imageSrc[(photoIndex + 1) % imageSrc.length]}
                             prevSrc={imageSrc[(photoIndex + imageSrc.length - 1) % imageSrc.length]}
                             onCloseRequest={() => this.setState({ isOpen: false })}
-                            onMovePrevRequest={() => this.imageChangeIndexHandler({ photoIndex: (photoIndex + imageSrc.length - 1) % imageSrc.length })}
-                            onMoveNextRequest={() => this.imageChangeIndexHandler({ photoIndex: (photoIndex + 1) % imageSrc.length })}
+                            onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + imageSrc.length - 1) % imageSrc.length })}
+                            onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % imageSrc.length })}
                         />
                     )}
                 </div>

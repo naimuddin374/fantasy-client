@@ -10,7 +10,7 @@ class TicketItem extends React.Component {
     state = {
         isModalOpen: false,
         rides: {},
-        detailData: {}
+        detailData: {},
     }
     componentDidMount() {
         Axios.get(`api/ride`)
@@ -30,6 +30,32 @@ class TicketItem extends React.Component {
         this.setState({
             isModalOpen: false,
             detailData: {}
+        })
+    }
+    quantityAddHandler(id) {
+        // let totalItem = this.state.rides.filter(item => item.id !== id)        
+        // let selItem = this.state.rides.filter(item => item.id === id)        
+        let newArr = []
+        // let abc = this.state.rides.map(item => {
+        //     if (item.id === id) {
+        //         return {
+        //             ...item,
+        //             quantity: item.quantity + 1
+        //         }
+        //     }else{
+        //         return {
+        //             ...item
+        //         }
+        //     }
+        // })
+        // console.log(abc)
+        // this.setState({
+        //     rides: {}
+        // })
+    }
+    quantityMinusHandler(id) {
+        this.setState({
+            quantity: this.state.quantity - 1
         })
     }
     addToCartHandler(data) {
@@ -59,7 +85,7 @@ class TicketItem extends React.Component {
                                 <div className="prodcut-info">
                                     <ul>
                                         <li>
-                                            <img src={API_URL + item.service_logo} alt="Ticket purchase logo" style={{ height: '60px' }} />
+                                            <img src={item.service_logo ? API_URL + item.service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
                                         </li>
                                     </ul>
                                     <h4 className="pt-3">{item.title}</h4>
@@ -93,9 +119,9 @@ class TicketItem extends React.Component {
                                                 <tr>
                                                     <td className="pro-quantity">
                                                         <div className="pro-qty ml-4">
-                                                            <button className="dec qtybtn">-</button>
-                                                            <input type="number" defaultValue="1" />
-                                                            <button className="inc qtybtn">+</button>
+                                                            <button className="dec qtybtn" onClick={() => this.quantityMinusHandler(item.id)}>-</button>
+                                                            <input type="number" name="quantity" defaultValue={item.quantity ? item.quantity : 1} />
+                                                            <button className="inc qtybtn" onClick={() => this.quantityAddHandler(item.id)}>+</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -108,7 +134,7 @@ class TicketItem extends React.Component {
                             </div>
                             <div className="product-details-cart-btn mt-25">
                                 <div className="prodcut-details-btn">
-                                    <a className="details-ancor" onClick={() => this.openModal(item)}>Details</a>
+                                    <a className="details-ancor link-btn" onClick={() => this.openModal(item)}>Details</a>
                                 </div>
                                 <div className="prodcut-add-to-cart">
                                     <button className="disable-payment-btn" onClick={() => this.addToCartHandler(item)}>Add to Cart</button>
@@ -128,7 +154,7 @@ class TicketItem extends React.Component {
                                     <div className="prodcut-info">
                                         <ul>
                                             <li>
-                                                <img src="./assets/images/ticketpurchase/fantasy.png" alt="ticket purchase logo" />
+                                                <img src={item.service_logo ? API_URL + item.service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
                                             </li>
                                         </ul>
                                         <h4 className="pt-3">{item.title}</h4>
@@ -177,7 +203,7 @@ class TicketItem extends React.Component {
                                 </div>
                                 <div className="product-details-cart-btn mt-25">
                                     <div className="prodcut-details-btn">
-                                        <a href="#" className="details-ancor" onClick={() => this.openModal(item)}>Details</a>
+                                        <a href="#" className="details-ancor link-btn" onClick={() => this.openModal(item)}>Details</a>
                                     </div>
                                     <div className="prodcut-add-to-cart">
                                         <button className="disable-payment-btn">Add to Cart</button>

@@ -48,6 +48,7 @@ ul.list li.option a {
 h4.product-price {
     margin-left: -15px;
 }
+
 .modal-body.ticket-body-modal-content {
     padding: 10px 30px 30px 30px;
 }
@@ -56,4 +57,8 @@ h4.product-price {
     padding: 10px 20px;
     overflow: hidden;
     border-bottom: 1px solid #ddd;
+}
+
+.link-btn {
+    cursor: pointer;
 }

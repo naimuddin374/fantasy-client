@@ -5,9 +5,7 @@ import './App.css'
 // Load Component
 import Menu from './layout/Menu'
 import FooterPage from './layout/FooterPage'
-import Register from './layout/Register'
 
-// Load Page
 import Faq from '../page/Faq';
 import FantasyKingdom from './fantasy-kingdom/FantasyKingdom';
 // import RidePage from './ride/RidePage';
@@ -22,17 +20,22 @@ import HeritagePark from './heritage-park/HeritagePark';
 import Atlantis from './atlantis/Atlantis';
 import NewsEvents from './../page/NewsEvents';
 import NewsEventDetail from '../page/NewsEventDetail';
+import AlertMessage from './layout/AlertMessage';
+import Register from './layout/Register';
+import Login from './layout/Login'
 
 
 class MainApp extends React.Component {
     render() {
         return (
             <div>
-                <Menu />
-                <Register />
+                <AlertMessage />
+                <Menu history={this.props.history} />
                 <Switch>
                     <Route path='/faq' component={Faq} />
                     <Route path='/ticket' component={Ticket} />
+                    <Route path='/register' component={Register} history={this.props.history} />
+                    <Route path='/login' component={Login} history={this.props.history} />
                     {/* <Route path='/ride' component={RidePage} /> */}
                     <Route path='/checkout' component={Checkout} />
                     <Route path='/atlantis' component={Atlantis} />

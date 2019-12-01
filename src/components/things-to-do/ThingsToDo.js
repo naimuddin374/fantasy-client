@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import * as Types from '../../store/actions/types'
 import Axios from 'axios'
-import { textLimit } from '../../util/helper'
 import CircleShape from './CircleShape'
+import Item from './Item'
 
 class ThingsToDo extends React.Component {
     state = {
@@ -82,30 +80,7 @@ class ThingsToDo extends React.Component {
                             {Object.keys(thingsToDo).length !== 0 &&
                                 thingsToDo.map(item => (
                                     item.category === "1" &&
-                                    <div className="col-lg-4 col-md-6" key={item.id}>
-                                        <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
-                                            <Link to="/">
-                                                <img src={Types.API_URL + item.image} alt="advanture img" />
-                                            </Link>
-                                            <div className="popular-item"> <span className="thing-popular">popular</span>
-                                            </div>
-                                            <div className="thing-to-do-inner-content">
-                                                <div className="t-top-content">
-                                                    <div className="t-title-content"> <Link to="/" className="t-tile">Roller Coaster</Link>
-                                                    </div>
-                                                    <div className="aggressive-hight-content"> <span className="aggressive t-agg-high">{item.title}</span>
-                                                    </div>
-                                                </div>
-                                                <p>{textLimit(item.description, 100)}</p>
-                                                <div className="t-bottom-content">
-                                                    <div className="t-viewdetails-content"> <Link to="/" className="view-gallery">View Gallery</Link>
-                                                    </div>
-                                                    <div className="t-ticket-btn-content"> <Link to="/ticket" className="payment-btn">Buy Ticket</Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Item item={item} key={item.id} />
                                 ))
                             }
                         </div>
@@ -120,30 +95,7 @@ class ThingsToDo extends React.Component {
                             {Object.keys(thingsToDo).length !== 0 &&
                                 thingsToDo.map(item => (
                                     item.category === "2" &&
-                                    <div className="col-lg-4 col-md-6" key={item.id}>
-                                        <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
-                                            <Link to="/">
-                                                <img src={Types.API_URL + item.image} alt="advanture img" />
-                                            </Link>
-                                            <div className="popular-item"> <span className="thing-popular">popular</span>
-                                            </div>
-                                            <div className="thing-to-do-inner-content">
-                                                <div className="t-top-content">
-                                                    <div className="t-title-content"> <Link to="/" className="t-tile">Roller Coaster</Link>
-                                                    </div>
-                                                    <div className="aggressive-hight-content"> <span className="aggressive t-agg-high">{item.title}</span>
-                                                    </div>
-                                                </div>
-                                                <p>{textLimit(item.description, 100)}</p>
-                                                <div className="t-bottom-content">
-                                                    <div className="t-viewdetails-content"> <Link to="/" className="view-gallery">View Gallery</Link>
-                                                    </div>
-                                                    <div className="t-ticket-btn-content"> <Link to="/ticket" className="payment-btn">Buy Ticket</Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Item item={item} key={item.id} />
                                 ))
                             }
                         </div>
@@ -158,30 +110,7 @@ class ThingsToDo extends React.Component {
                             {Object.keys(thingsToDo).length !== 0 &&
                                 thingsToDo.map(item => (
                                     item.category === "3" &&
-                                    <div className="col-lg-4 col-md-6" key={item.id}>
-                                        <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
-                                            <Link to="/">
-                                                <img src={Types.API_URL + item.image} alt="advanture img" />
-                                            </Link>
-                                            <div className="popular-item"> <span className="thing-popular">popular</span>
-                                            </div>
-                                            <div className="thing-to-do-inner-content">
-                                                <div className="t-top-content">
-                                                    <div className="t-title-content"> <Link to="/" className="t-tile">Roller Coaster</Link>
-                                                    </div>
-                                                    <div className="aggressive-hight-content"> <span className="aggressive t-agg-high">{item.title}</span>
-                                                    </div>
-                                                </div>
-                                                <p>{textLimit(item.description, 100)}</p>
-                                                <div className="t-bottom-content">
-                                                    <div className="t-viewdetails-content"> <Link to="/" className="view-gallery">View Gallery</Link>
-                                                    </div>
-                                                    <div className="t-ticket-btn-content"> <Link to="/ticket" className="payment-btn">Buy Ticket</Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <Item item={item} key={item.id} />
                                 ))
                             }
                         </div>

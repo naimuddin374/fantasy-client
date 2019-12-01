@@ -83,7 +83,6 @@ class DiscoverPackage extends React.Component {
 						</div>
 						<div className="resort-heading-content">
 							<Link to={`/${item.hyperlink}`}><h3>{item.title}</h3></Link>
-							{/* <h5>N302, Baipayl</h5> */}
 							<h6>{item.open_time}</h6>
 						</div>
 						<div className="resorts-linked-btn">

@@ -4,13 +4,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
-import { ADD_TO_CART } from './store/actions/types';
+import { ADD_TO_CART, SET_USER } from './store/actions/types';
 
 let cart = localStorage.getItem('cart_item')
+let token = localStorage.getItem('auth_token')
 if (cart) {
     store.dispatch({
         type: ADD_TO_CART,
         payload: JSON.parse(cart)
+    })
+}
+if (token) {
+    store.dispatch({
+        type: SET_USER,
+        payload: {
+            token: JSON.parse(token)
+        }
     })
 }
 

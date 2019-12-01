@@ -7,32 +7,43 @@ import { API_URL } from './../store/actions/types';
 
 class NewsEventDetail extends React.Component {
     state = {
-        events: {}
+        events: {},
+        eventsDetail: {},
+    }
+    componentWillReceiveProps(props) {
+        Axios.get(`${API_URL}api/news-event/detail/${props.match.params.id}`)
+            .then(res => {
+                this.setState({
+                    eventsDetail: res.data
+                })
+            })
     }
     componentDidMount() {
-        // Axios.get('api/news-event')
-        //     .then(res => {
-        //         this.setState({
-        //             events: res.data
-        //         })
-        //     })
+        Axios.get(`${API_URL}api/news-event`)
+            .then(res => {
+                this.setState({
+                    events: res.data
+                })
+            })
+        Axios.get(`${API_URL}api/news-event/detail/${this.props.match.params.id}`)
+            .then(res => {
+                this.setState({
+                    eventsDetail: res.data
+                })
+            })
     }
     render() {
-        let { events } = this.state
-        console.log('OK', this.props.match.params.id)
-        // console.log('detailId', this.props.params.id)
+        let { events, eventsDetail } = this.state
         return (
             <div>
-                <h1>Welcome</h1>
-                {/* <section className="single-blog-page section-padding">
-                    {Object.keys(events).length !== 0 &&
-                        events.map(item => (
-                            item.id === this.props.params.id &&
-                            <div className="container">
+                <section className="single-blog-page section-padding">
+                    {Object.keys(eventsDetail).length !== 0 &&
+                        eventsDetail.map(item => (
+                            <div className="container" key={item.id}>
                                 <div className="row">
                                     <div className="col-lg-10 col-md-10 offset-lg-1 offset-md-1">
                                         <div className="blog-details-page-inner-content">
-                                            <div className="single-news single-page-blog-image">
+                                            <div className="single-news single-page-blog-image text-center">
                                                 <img className="top-left-right-radius" src={API_URL + item.image} alt="news" />
                                                 <div className="blog-details-content pt-4">
                                                     <span>{item.created_at}</span>
@@ -40,7 +51,7 @@ class NewsEventDetail extends React.Component {
                                                     <p>{item.description}</p>
                                                 </div>
                                                 <div className="newshap">
-                                                    <img src="assets/images/newshap.png" alt="new shape" />
+                                                    <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
                                                 </div>
                                             </div>
                                         </div>
@@ -48,10 +59,10 @@ class NewsEventDetail extends React.Component {
                                 </div>
                             </div>
                         ))}
-                </section> */}
+                </section>
 
 
-                {/* <section className="news-event-area mt-5 full-bg">
+                <section className="news-event-area mt-5 full-bg">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
@@ -63,10 +74,11 @@ class NewsEventDetail extends React.Component {
                         <div className="row">
                             {Object.keys(events).length !== 0 &&
                                 events.slice(0, 6).map(item => (
+                                    item.id !== this.props.match.params.id &&
                                     <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                                         <div className="single-news">
                                             <Link to={`/news-event-detail/${item.id}`}>
-                                                <img className="top-left-right-radius" src={item.image} alt="news" />
+                                                <img className="top-left-right-radius" src={API_URL + item.image} alt="news" />
                                             </Link>
                                             <div className="latest-news-content bottom-left-right-radius">
                                                 <span>
@@ -79,14 +91,14 @@ class NewsEventDetail extends React.Component {
                                                 <Link to={`/news-event-detail/${item.id}`} className="read-more-btn">Read More</Link>
                                             </div>
                                             <div className="newshap">
-                                                <img src="./assets/images/newshap.png" alt="new shape" />
+                                                <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
                                             </div>
                                         </div>
                                     </div>
                                 ))
                             }
                         </div>
-                        <div className="row">
+                        <div className="row mb-5">
                             <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
                                 <div className="view-all-blog-post text-center mt-5">
                                     <Link to="/news-events" className="theme-btn">View All</Link>
@@ -94,7 +106,7 @@ class NewsEventDetail extends React.Component {
                             </div>
                         </div>
                     </div>
-                </section> */}
+                </section>
             </div>
         )
     }
