@@ -19,7 +19,8 @@
     "react-youtube": "^7.9.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sweetalert2": "^9.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

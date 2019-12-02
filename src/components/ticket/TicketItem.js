@@ -1,16 +1,12 @@
 import React from 'react'
 import Axios from 'axios'
-import { API_URL } from '../../store/actions/types'
-import { textLimit } from './../../util/helper';
-import Details from './Details'
 import { connect } from 'react-redux'
 import { addToCart } from '../../store/actions/cartActions';
+import Item from './Item'
 
 class TicketItem extends React.Component {
     state = {
-        isModalOpen: false,
         rides: {},
-        detailData: {},
     }
     componentDidMount() {
         Axios.get(`api/ride`)
@@ -20,45 +16,62 @@ class TicketItem extends React.Component {
                 })
             })
     }
-    openModal = (data) => {
-        this.setState({
-            isModalOpen: true,
-            detailData: data,
+    quantityAddHandler(id, type) {
+        console.log(id, type)
+        let newArr = this.state.rides.map(item => {
+            return {
+                ...item,
+                kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) + 1 : Number(item.kids_quantity),
+                adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) + 1 : Number(item.adult_quantity)
+            }
         })
-    }
-    closeModal = () => {
         this.setState({
-            isModalOpen: false,
-            detailData: {}
+            rides: newArr
         })
+        if (Object.keys(this.props.cart.rides).length !== 0) {
+            let selItem = this.props.cart.rides.filter(item => item.id === id)
+            if (Object.keys(selItem).length !== 0) {
+                let newArr = this.props.cart.rides.map(item => {
+                    return {
+                        ...item,
+                        kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) + 1 : Number(item.kids_quantity),
+                        adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) + 1 : Number(item.adult_quantity)
+                    }
+                })
+                this.props.addToCart(newArr)
+            }
+        }
     }
-    quantityAddHandler(id) {
-        // let totalItem = this.state.rides.filter(item => item.id !== id)        
-        // let selItem = this.state.rides.filter(item => item.id === id)        
-        let newArr = []
-        // let abc = this.state.rides.map(item => {
-        //     if (item.id === id) {
-        //         return {
-        //             ...item,
-        //             quantity: item.quantity + 1
-        //         }
-        //     }else{
-        //         return {
-        //             ...item
-        //         }
-        //     }
-        // })
-        // console.log(abc)
-        // this.setState({
-        //     rides: {}
-        // })
-    }
-    quantityMinusHandler(id) {
+    quantityMinusHandler(id, type) {
+        let newArr = this.state.rides.map(item => {
+            return {
+                ...item,
+                kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) - 1 : Number(item.kids_quantity),
+                adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) - 1 : Number(item.adult_quantity)
+            }
+        })
         this.setState({
-            quantity: this.state.quantity - 1
+            rides: newArr
         })
+        if (Object.keys(this.props.cart.rides).length !== 0) {
+            let selItem = this.props.cart.rides.filter(item => item.id === id)
+            if (Object.keys(selItem).length !== 0) {
+                console.log(selItem.kids_quantity, selItem.adult_quantity)
+                let newArr = this.props.cart.rides.map(item => {
+                    return {
+                        ...item,
+                        kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) - 1 : Number(item.kids_quantity),
+                        adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) - 1 : Number(item.adult_quantity)
+                    }
+                })
+                this.props.addToCart(newArr)
+            }
+        }
     }
     addToCartHandler(data) {
+        if (data.adult_quantity == 0 && data.kids_quantity == 0) {
+            data.kids_quantity = 1
+        }
         let rides = this.props.cart.rides
         if (Object.keys(rides).length === 0) {
             this.props.addToCart([data])
@@ -71,6 +84,16 @@ class TicketItem extends React.Component {
                 this.props.addToCart(oldData.concat(data))
             }
         }
+
+        let newArr = this.state.rides.map(item => {
+            return {
+                ...item,
+                isInCart: item.id === data.id ? true : item.isInCart
+            }
+        })
+        this.setState({
+            rides: newArr
+        })
     }
     render() {
         let { rides } = this.state
@@ -80,67 +103,13 @@ class TicketItem extends React.Component {
                 {Object.keys(rides).length !== 0 &&
                     rides.map(item => (
                         item.discount_price === null &&
-                        <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding mb-3" key={item.id}>
-                            <div className="product-increment-decrement">
-                                <div className="prodcut-info">
-                                    <ul>
-                                        <li>
-                                            <img src={item.service_logo ? API_URL + item.service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
-                                        </li>
-                                    </ul>
-                                    <h4 className="pt-3">{item.title}</h4>
-                                    <p>{textLimit(item.description, 40)}</p>
-                                </div>
-                                <div className="single-product-increment-decrement">
-                                    <div className="product-quantity-content">
-                                        {item.type === "1" &&
-                                            <div>
-                                                <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <td className="pro-quantity">
-                                                                <div className="pro-qty ml-4">
-                                                                    <button className="dec qtybtn">-</button>
-                                                                    <input type="number" defaultValue="2" />
-                                                                    <button className="inc qtybtn">+</button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                                <h4 className="product-price">৳{item.price}</h4>
-                                                <p>Adult Entry 3 Rides</p>
-                                            </div>
-                                        }
-                                    </div>
-                                    <div className="product-quantity-content">
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <td className="pro-quantity">
-                                                        <div className="pro-qty ml-4">
-                                                            <button className="dec qtybtn" onClick={() => this.quantityMinusHandler(item.id)}>-</button>
-                                                            <input type="number" name="quantity" defaultValue={item.quantity ? item.quantity : 1} />
-                                                            <button className="inc qtybtn" onClick={() => this.quantityAddHandler(item.id)}>+</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                        <h4 className="product-price">৳{item.price}</h4>
-                                        <p>Kids (below 4)</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="product-details-cart-btn mt-25">
-                                <div className="prodcut-details-btn">
-                                    <a className="details-ancor link-btn" onClick={() => this.openModal(item)}>Details</a>
-                                </div>
-                                <div className="prodcut-add-to-cart">
-                                    <button className="disable-payment-btn" onClick={() => this.addToCartHandler(item)}>Add to Cart</button>
-                                </div>
-                            </div>
-                        </div>
+                        <Item
+                            key={item.id}
+                            data={item}
+                            quantityMinusHandler={this.quantityMinusHandler.bind(this)}
+                            quantityAddHandler={this.quantityAddHandler.bind(this)}
+                            addToCartHandler={this.addToCartHandler.bind(this)}
+                        />
                     ))
                 }
             </div>
@@ -149,79 +118,19 @@ class TicketItem extends React.Component {
                     {Object.keys(rides).length !== 0 &&
                         rides.map(item => (
                             item.discount_price !== null &&
-                            <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding mb-3" key={item.id}>
-                                <div className="product-increment-decrement">
-                                    <div className="prodcut-info">
-                                        <ul>
-                                            <li>
-                                                <img src={item.service_logo ? API_URL + item.service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
-                                            </li>
-                                        </ul>
-                                        <h4 className="pt-3">{item.title}</h4>
-                                        <p>{textLimit(item.description, 40)}</p>
-                                    </div>
-                                    <div className="single-product-increment-decrement">
-                                        <div className="product-quantity-content">
-                                            {item.type === "1" &&
-                                                <div>
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <td className="pro-quantity">
-                                                                    <div className="pro-qty ml-4">
-                                                                        <button className="dec qtybtn">-</button>
-                                                                        <input type="number" defaultValue="2" />
-                                                                        <button className="inc qtybtn">+</button>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </thead>
-                                                    </table>
-                                                    <h4 className="product-price">৳{item.price}</h4>
-                                                    <p>Adult Entry 3 Rides</p>
-                                                </div>
-                                            }
-                                        </div>
-                                        <div className="product-quantity-content">
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <td className="pro-quantity">
-                                                            <div className="pro-qty ml-4">
-                                                                <button className="dec qtybtn">-</button>
-                                                                <input type="number" defaultValue="1" />
-                                                                <button className="inc qtybtn">+</button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                            <h4 className="product-price">৳{item.price}</h4>
-                                            <p>Kids (below 4)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="product-details-cart-btn mt-25">
-                                    <div className="prodcut-details-btn">
-                                        <a href="#" className="details-ancor link-btn" onClick={() => this.openModal(item)}>Details</a>
-                                    </div>
-                                    <div className="prodcut-add-to-cart">
-                                        <button className="disable-payment-btn">Add to Cart</button>
-                                    </div>
-                                </div>
-                            </div>
+                            <Item
+                                key={item.id}
+                                data={item}
+                                quantityMinusHandler={this.quantityMinusHandler}
+                                quantityAddHandler={this.quantityAddHandler}
+                                addToCartHandler={this.addToCartHandler}
+                            />
                         ))
                     }
                 </div>
                 <div className="checkout-inner-content-area mb-5">
                     <h4 className="ticket-name">Package Offers</h4>
                 </div>
-
-                <Details
-                    isOpen={this.state.isModalOpen}
-                    isClose={this.closeModal}
-                    detailData={this.state.detailData}
-                />
             </div>
         )
     }
