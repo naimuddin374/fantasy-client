@@ -5,13 +5,24 @@ import PageContent from './PageContent';
 import OurRoom from './OurRoom';
 import ContactUs from './ContactUs';
 import CircleShape from './../common/CircleShape';
+import Axios from 'axios';
 
 
 class Atlantis extends React.Component {
+    state = {
+        rooms: {}
+    }
     componentDidMount() {
         window.scrollTo(0, 0)
+        Axios.get(`api/room`)
+            .then(res => {
+                this.setState({
+                    rooms: res.data
+                })
+            })
     }
     render() {
+        let { rooms } = this.state
         return (
             <div>
                 <Breadcrumb />
@@ -30,9 +41,17 @@ class Atlantis extends React.Component {
                         <CircleShape />
                     </div>
                 </section>
-                <OurRoom />
 
-                <OurRoom />
+                {Object.keys(rooms).length !== 0 &&
+                    rooms.map(item => (
+                        <OurRoom
+                            key={item.id}
+                            data={item}
+                        />
+                    ))
+                }
+
+                {/* <OurRoom /> */}
 
                 <ContactUs />
             </div>

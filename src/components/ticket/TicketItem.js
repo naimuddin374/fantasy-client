@@ -17,7 +17,6 @@ class TicketItem extends React.Component {
             })
     }
     quantityAddHandler(id, type) {
-        console.log(id, type)
         let newArr = this.state.rides.map(item => {
             return {
                 ...item,
