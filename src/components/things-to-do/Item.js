@@ -2,41 +2,57 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../store/actions/types'
 import { textLimit } from '../../util/helper'
+import Details from './Details'
 
 class Item extends React.Component {
     state = {
-        item: {}
+        isModalOpen: false,
+        detailData: {}
     }
-    componentDidMount(){
+    openModal = (data) => {
         this.setState({
-            item: this.props.item
+            isModalOpen: true,
+            detailData: data,
+        })
+    }
+    closeModal = () => {
+        this.setState({
+            isModalOpen: false,
+            detailData: {}
         })
     }
     render() {
-        let { id, title, image, description } = this.state.item
+        let { id, title, image, description, is_buy } = this.props.data
         return (
             <div className="col-lg-4 col-md-6" key={id}>
                 <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
-                    <Link to="/ticket">
-                        <img src={image &&API_URL + image} alt="advanture img" />
-                    </Link>
-                    <div className="popular-item"> <span className="thing-popular">popular</span>
+                    <img src={image && API_URL + image} alt="advanture img" className="things-to-do-img" />
+                    <div className="popular-item"> <span className="thing-popular">Popular</span>
                     </div>
                     <div className="thing-to-do-inner-content">
                         <div className="t-top-content">
                             <div className="t-title-content">
-                                <Link to="/ticket" className="t-tile">{title}</Link>
+                                <p className="t-tile">{textLimit(title, 27)}</p>
                             </div>
                         </div>
                         <p>{textLimit(description, 100)}</p>
                         <div className="t-bottom-content">
-                            {/* <div className="t-viewdetails-content"> <Link to="/" className="view-gallery">View Gallery</Link>
-                                                    </div> */}
-                            <div className="t-ticket-btn-content"> <Link to="/ticket" className="payment-btn">Buy Ticket</Link>
+                            <div className="t-viewdetails-content">
+                                <a className="view-gallery link-btn" onClick={() => this.openModal(this.props.data)}>Read More</a>
                             </div>
+                            {Number(is_buy) === 1 &&
+                                <div className="t-ticket-btn-content">
+                                    <Link to={`/ticket/${id}`} className="payment-btn">Buy Ticket</Link>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
+                <Details
+                    isOpen={this.state.isModalOpen}
+                    isClose={this.closeModal}
+                    detailData={this.state.detailData}
+                />
             </div>
         )
     }

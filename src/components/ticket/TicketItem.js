@@ -3,14 +3,25 @@ import Axios from 'axios'
 import { connect } from 'react-redux'
 import { addToCart } from '../../store/actions/cartActions';
 import Item from './Item'
+import { API_URL } from '../../store/actions/types';
 
 class TicketItem extends React.Component {
     state = {
         rides: {},
     }
     componentDidMount() {
-        Axios.get(`api/ride`)
+        Axios.get(`${API_URL}api/all-ticket`)
             .then(res => {
+                // let allItem = []
+                // if (this.props.match.params.id !== null) {
+                //     if (Object.keys(res.data).length !== 0) {
+                //         let selItem = res.data.filter(item => item === this.props.match.params.id)
+                //         allItem = res.data.filter(item => item !== this.props.match.params.id)
+                //         allItem.concat(selItem)
+                //     }
+                // } else {
+                //     allItem = res.data
+                // }
                 this.setState({
                     rides: res.data
                 })
@@ -127,15 +138,15 @@ class TicketItem extends React.Component {
                         ))
                     }
                 </div>
-                <div className="checkout-inner-content-area mb-5">
+                {/* <div className="checkout-inner-content-area mb-5">
                     <h4 className="ticket-name">Package Offers</h4>
-                </div>
+                </div> */}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart
+    cart: state.cart,
 })
 export default connect(mapStateToProps, { addToCart })(TicketItem)

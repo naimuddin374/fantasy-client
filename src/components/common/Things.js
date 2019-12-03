@@ -9,8 +9,9 @@ class Things extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/things-to-do${window.location.pathname}`)
+        Axios.get(`api/ride${window.location.pathname}`)
             .then(res => {
+                console.log('res', res.data)
                 this.setState({
                     ThingsToDo: res.data
                 })

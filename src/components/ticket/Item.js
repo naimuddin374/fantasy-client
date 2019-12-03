@@ -28,7 +28,7 @@ class Item extends React.Component {
         return true
     }
     render() {
-        let { service_logo, title, description, adult_quantity, kids_quantity, price, id, type, isInCart } = this.props.data
+        let { title, description, adult_quantity, kids_quantity, price, id, type, isInCart, image } = this.props.data
         return (
             <div>
                 <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding mb-3">
@@ -36,7 +36,7 @@ class Item extends React.Component {
                         <div className="prodcut-info">
                             <ul>
                                 <li>
-                                    <img src={service_logo ? API_URL + service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
+                                    <img src={image ? API_URL + image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
                                 </li>
                             </ul>
                             <h4 className="pt-3">{title}</h4>

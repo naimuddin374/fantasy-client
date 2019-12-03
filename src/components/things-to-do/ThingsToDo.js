@@ -5,19 +5,25 @@ import Item from './Item'
 
 class ThingsToDo extends React.Component {
     state = {
-        thingsToDo: {}
+        rides: {},
+        categories: {}
     }
     componentDidMount() {
-        Axios.get(`api/things-to-do`)
+        Axios.get(`api/ride`)
             .then(res => {
                 this.setState({
-                    thingsToDo: res.data
+                    rides: res.data
                 })
             })
-            .catch(err => console.log(err.response))
+        Axios.get(`api/ride-category`)
+            .then(res => {
+                this.setState({
+                    categories: res.data
+                })
+            })
     }
     render() {
-        let { thingsToDo } = this.state
+        let { rides, categories } = this.state
         return (
             <div>
                 <section className="ticket-choosen-area full-bg">
@@ -69,54 +75,31 @@ class ThingsToDo extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="row advanture-ride-area pb-3">
-                            <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                                <div className="thing-to-title text-center pb-40 pt-3">
-                                    <h4 className="advanture-ride-title">Adventure Rides</h4>
+                        {
+                            Object.keys(categories).length !== 0 &&
+                            categories.map(cat => (
+                                <div key={cat.id}>
+                                    <div className="row advanture-ride-area pb-3">
+                                        <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
+                                            <div className="thing-to-title text-center pb-40 pt-3">
+                                                <h4 className="advanture-ride-title">{cat.name}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        {Object.keys(rides).length !== 0 &&
+                                            rides.map(item => (
+                                                cat.id === item.category_id &&
+                                                <Item data={item} key={item.id} />
+                                            ))
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            {Object.keys(thingsToDo).length !== 0 &&
-                                thingsToDo.map(item => (
-                                    item.category === "1" &&
-                                    <Item item={item} key={item.id} />
-                                ))
-                            }
-                        </div>
-                        <div className="row live-entertainment">
-                            <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                                <div className="thing-to-title text-center pb-40 pt-3">
-                                    <h4 className="event-entertainment-title">Events & Live Entertainment</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            {Object.keys(thingsToDo).length !== 0 &&
-                                thingsToDo.map(item => (
-                                    item.category === "2" &&
-                                    <Item item={item} key={item.id} />
-                                ))
-                            }
-                        </div>
-                        <div className="row live-entertainment">
-                            <div className="col-lg-12 offset-lg-2 col-md-12 offset-md-2">
-                                <div className="thing-to-title text-center pb-40 pt-3">
-                                    <h4 className="dining-shopping-title">Dining & Shopping</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            {Object.keys(thingsToDo).length !== 0 &&
-                                thingsToDo.map(item => (
-                                    item.category === "3" &&
-                                    <Item item={item} key={item.id} />
-                                ))
-                            }
-                        </div>
+                            ))
+                        }
                     </div>
                 </section>
-            </div >
+            </div>
         )
     }
 }

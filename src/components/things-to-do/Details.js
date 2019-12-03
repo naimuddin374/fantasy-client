@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal'
 import { API_URL } from '../../store/actions/types';
+import { Link } from 'react-router-dom';
 
 class Details extends React.Component {
     componentWillMount() {
@@ -28,7 +29,7 @@ class Details extends React.Component {
                 border: "none"
             }
         }
-        let { title, description, price, discount_price, image, type, age } = this.state.detailData
+        let { id, title, description, price, discount_price, image, type, age, is_buy } = this.state.detailData
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -37,7 +38,7 @@ class Details extends React.Component {
             >
                 <div className="modal-content ticket-modal-content">
                     <div className="modal-header ticket-modal-header">
-                        <h5 className="modal-title ticekt-modal-title">Ticket Details</h5>
+                        <h5 className="modal-title ticekt-modal-title">Details</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.isClose}> <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -45,18 +46,21 @@ class Details extends React.Component {
                         {image && <div className="row"><img src={API_URL + image} alt="Ride Image" style={{ height: "150px", margin: "0 auto" }} /></div>}
                         <h4 className="ticket-modal-body-title">{title}</h4>
                         <ul>
-                            <li>Regular Price: ৳{price}</li>
-                            {discount_price !== null &&
-                                <li>Discount Price: ৳{discount_price}</li>
-                            }
-                            <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
-                            {type === "2" &&
-                                <li>Maximum Age: {age}</li>
-                            }
-                            <li>
-                                {description}
-                            </li>
+                            <li>{description}</li>
                         </ul>
+                        {is_buy === "1" &&
+                            <ul>
+                                <li>Regular Price: ৳{price}</li>
+                                {discount_price !== null &&
+                                    <li>Discount Price: ৳{discount_price}</li>
+                                }
+                                <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
+                                {type === "2" &&
+                                    <li>Maximum Age: {age}</li>
+                                }
+                                <li><Link to={`/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
+                            </ul>
+                        }
                     </div>
                 </div>
             </Modal>

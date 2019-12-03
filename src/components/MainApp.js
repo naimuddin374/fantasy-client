@@ -33,7 +33,8 @@ class MainApp extends React.Component {
                 <Menu history={this.props.history} />
                 <Switch>
                     <Route path='/faq' component={Faq} />
-                    <Route path='/ticket' component={Ticket} />
+                    <Route path='/ticket/:id' exact component={Ticket} />
+                    <Route path='/ticket' exact component={Ticket} />
                     <Route path='/register' component={Register} history={this.props.history} />
                     <Route path='/login' component={Login} history={this.props.history} />
                     {/* <Route path='/ride' component={RidePage} /> */}

@@ -8,12 +8,15 @@ class Menu extends React.Component {
     state = {
         stickyClass: 'rox-header-menu header-sticky',
     }
-    componentWillMount() {
+    componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
     }
-    componentWillUnmount() {
-        window.addEventListener('scroll', this.handleScroll);
-    }
+    // componentWillMount() {
+    //     window.addEventListener('scroll', this.handleScroll);
+    // }
+    // componentWillUnmount() {
+    //     window.addEventListener('scroll', this.handleScroll);
+    // }
     handleScroll = (event) => {
         if (window.pageYOffset > 120) {
             this.setState({
@@ -47,7 +50,7 @@ class Menu extends React.Component {
                                                     <div className="menga-menu-park-list">
                                                         <li className="megamenu">	<span>Theme Parks</span>
                                                             <div className="megamenu-item">
-                                                                <Link to="fantasy-kingdom" className="single-park">
+                                                                <Link to="/fantasy-kingdom" className="single-park">
                                                                     <span>Fantasy Kingdom</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>

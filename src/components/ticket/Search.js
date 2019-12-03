@@ -10,7 +10,7 @@ class Search extends React.Component {
                         <div className="col-lg-12 col-md-12">
                             <div className="page-breadcrum-area row-center">
                                 <div className="ticket-title">
-                                    <h4>Select Any park/resorts to view all the offers</h4>
+                                    <h4>Select any park/resorts to view all the offers</h4>
                                 </div>
                                 <div className="select-park-ticket">
                                     <div className="fantasy-park-search-item float-right">
