@@ -6,6 +6,7 @@ import OurRoom from './OurRoom';
 import ContactUs from './ContactUs';
 import CircleShape from './../common/CircleShape';
 import Axios from 'axios';
+import { API_URL } from '../../store/actions/types';
 
 
 class Atlantis extends React.Component {
@@ -14,7 +15,7 @@ class Atlantis extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0)
-        Axios.get(`api/room`)
+        Axios.get(`${API_URL}api/room`)
             .then(res => {
                 this.setState({
                     rooms: res.data

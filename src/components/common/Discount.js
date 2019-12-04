@@ -8,7 +8,7 @@ class Discount extends React.Component {
         discount: {}
     }
     componentDidMount() {
-        Axios.get(`api/discount${window.location.pathname}`)
+        Axios.get(`${API_URL}api/discount${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     discount: res.data
@@ -87,7 +87,7 @@ class Discount extends React.Component {
                             <div className="discount-wrapper">
                                 {Object.keys(discount).length !== 0 &&
                                     discount.map(item => (
-                                        <Link key={item.id} to={item.hyperlink !== null ? `/${item.hyperlink}` : '/'}>
+                                        <Link key={item.id} to={item.hyperlink !== null ? `/${item.hyperlink}` : '/ticket'}>
                                             <img src={API_URL + item.image} alt="discount png" />
                                         </Link>
                                     ))

@@ -4,13 +4,13 @@ import { API_URL } from '../../store/actions/types';
 import { Link } from 'react-router-dom';
 
 class Details extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         Modal.setAppElement('body');
     }
     state = {
         detailData: {},
     }
-    componentWillReceiveProps(props) {
+    UNSAFE_componentWillReceiveProps(props) {
         this.setState({
             detailData: props.detailData,
         })
@@ -43,7 +43,7 @@ class Details extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body ticket-body-modal-content">
-                        {image && <div className="row"><img src={API_URL + image} alt="Ride Image" style={{ height: "150px", margin: "0 auto" }} /></div>}
+                        {image && <div className="row"><img src={API_URL + image} alt="RideImage" style={{ height: "150px", margin: "0 auto" }} /></div>}
                         <h4 className="ticket-modal-body-title">{title}</h4>
                         <ul>
                             <li>{description}</li>

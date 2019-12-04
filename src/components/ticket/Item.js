@@ -1,8 +1,8 @@
 import React from 'react'
-import Axios from 'axios'
 import { API_URL } from '../../store/actions/types'
 import { textLimit } from './../../util/helper';
 import Details from './Details'
+
 
 class Item extends React.Component {
     state = {
@@ -79,13 +79,13 @@ class Item extends React.Component {
                                     </thead>
                                 </table>
                                 <h4 className="product-price">৳{price}</h4>
-                                <p>Kids (below 4) reg</p>
+                                <p>Child (below 4) reg</p>
                             </div>
                         </div>
                     </div>
                     <div className="product-details-cart-btn mt-25">
                         <div className="prodcut-details-btn">
-                            <a className="details-ancor link-btn" onClick={() => this.openModal(this.props.data)}>Details</a>
+                            <span className="details-ancor link-btn" onClick={() => this.openModal(this.props.data)}>Details</span>
                         </div>
                         <div className="prodcut-add-to-cart">
                             {isInCart !== true ?

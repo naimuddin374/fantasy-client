@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
+import { API_URL } from '../../store/actions/types'
 
 class Faq extends React.Component {
     state = {
@@ -8,7 +9,7 @@ class Faq extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/faq${window.location.pathname}`)
+        Axios.get(`${API_URL}api/faq${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     faqs: res.data
@@ -34,11 +35,11 @@ class Faq extends React.Component {
                                     <div className="faq-main for-rent mgtop50">
                                         <div className="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
                                             {Object.keys(faqs).length !== 0 &&
-                                                faqs.slice(0,4).map((item, index) => (
+                                                faqs.slice(0, 4).map((item, index) => (
                                                     <div className="card faq-inner-content" key={item.id}>
                                                         <div className="card-header faq-heading" id="headingFour">
-                                                            <a className="collapsed" data-toggle="collapse" data-target={`#collapseFour_${item.id}`} aria-expanded="false" aria-controls={`collapseFour_${item.id}`}>
-                                                                {item.title} </a>
+                                                            <span className="collapsed link-btn" data-toggle="collapse" data-target={`#collapseFour_${item.id}`} aria-expanded="false" aria-controls={`collapseFour_${item.id}`}>
+                                                                {item.title} </span>
                                                         </div>
                                                         <div id={`collapseFour_${item.id}`} className={index === 0 ? 'collapse show' : 'collapse'} aria-labelledby="headingFour" data-parent="#accordionExample">
                                                             <div className="card-body faq-body">

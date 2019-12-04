@@ -3,13 +3,15 @@ import Slider from "react-slick"
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import { textLimit } from '../../util/helper'
+import { API_URL } from '../../store/actions/types'
+
 
 class HomeSlider extends React.Component {
     state = {
         sliders: {}
     }
     componentDidMount() {
-        Axios.get('api/home-slider')
+        Axios.get(`${API_URL}api/home-slider`)
             .then(res => {
                 this.setState({
                     sliders: res.data

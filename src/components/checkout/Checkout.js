@@ -5,7 +5,8 @@ import { API_URL } from '../../store/actions/types';
 
 class Checkout extends React.Component {
     state = {
-        rides: this.props.cart.rides
+        rides: this.props.cart.rides,
+        auth: this.props.auth,
     }
     componentDidMount() {
         window.scrollTo(0, 0)
@@ -29,6 +30,9 @@ class Checkout extends React.Component {
         return tPrice
     }
     render() {
+        if (!this.state.auth.isAuth){
+            window.location.href = "/login";
+        }
         let { rides } = this.state
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
@@ -56,20 +60,22 @@ class Checkout extends React.Component {
 
                                         {Object.keys(rides).length !== 0 &&
                                             rides.map((item, index) => (
-                                                <div className="single-order-content">
+                                                <div className="single-order-content" key={item.id}>
                                                     <div className="product-order-details">
                                                         <div className="product-detais-order-innder">
-                                                            <div className="prduct-order-count">	<span>{index}.</span>
+                                                            <div className="prduct-order-count">	<span>{index + 1}.</span>
                                                             </div>
                                                             <div className="product-order-name">
                                                                 <ul>
                                                                     <li>
-                                                                        <img src={item.service_logo ? API_URL + item.service_logo : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '50px' }} />
-                                                                    </li>
-                                                                    <li>{item.title}</li>
-                                                                    <li>
-                                                                        {item.adult_quantity > 0 && `${item.adult_quantity} Adult `}
-                                                                        {item.kids_quantity > 0 && `${item.kids_quantity} Child`}
+                                                                        <span className="float-left">
+                                                                            <img src={item.image ? API_URL + item.image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '50px' }} />
+                                                                        </span>
+                                                                        <span className="float-left ml-5">
+                                                                            {item.title}<br />
+                                                                            {item.adult_quantity > 0 && `${item.adult_quantity} Adult `} &nbsp;
+                                                                            {item.kids_quantity > 0 && `${item.kids_quantity} Child`}
+                                                                        </span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -86,7 +92,7 @@ class Checkout extends React.Component {
                                         </div>
                                         <div className="terms-condition-content text-center">
                                             <input type="checkbox" className="termscondiiton" name="payactive" value="aa" />Terms & Conditions
-								<br />
+                                            <br />
                                             <div className="checkbox-pay-btn-content mt-3">
                                                 <button className="pay-btn">Pay</button>
                                             </div>
@@ -106,7 +112,8 @@ class Checkout extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    cart: state.cart
+    cart: state.cart,
+    auth: state.auth,
 })
 export default connect(mapStateToProps)(Checkout)
 

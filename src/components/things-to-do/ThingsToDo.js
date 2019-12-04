@@ -2,6 +2,8 @@ import React from 'react'
 import Axios from 'axios'
 import CircleShape from './CircleShape'
 import Item from './Item'
+import { API_URL } from '../../store/actions/types'
+
 
 class ThingsToDo extends React.Component {
     state = {
@@ -9,13 +11,13 @@ class ThingsToDo extends React.Component {
         categories: {}
     }
     componentDidMount() {
-        Axios.get(`api/ride`)
+        Axios.get(`${API_URL}api/ride`)
             .then(res => {
                 this.setState({
                     rides: res.data
                 })
             })
-        Axios.get(`api/ride-category`)
+        Axios.get(`${API_URL}api/ride-category`)
             .then(res => {
                 this.setState({
                     categories: res.data

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import { textLimit } from '../../util/helper'
 import Moment from 'react-moment';
+import { API_URL } from '../../store/actions/types';
 
 class NewsEvents extends React.Component {
     state = {
         events: {}
     }
     componentDidMount() {
-        Axios.get('api/news-event')
+        Axios.get(`${API_URL}api/news-event`)
             .then(res => {
                 this.setState({
                     events: res.data

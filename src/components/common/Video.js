@@ -1,6 +1,8 @@
 import React from 'react'
 import Axios from 'axios'
 import YouTube from 'react-youtube';
+import { API_URL } from '../../store/actions/types';
+
 
 class Video extends React.Component {
     state = {
@@ -8,7 +10,7 @@ class Video extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/service${window.location.pathname}`)
+        Axios.get(`${API_URL}api/service${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     service: res.data

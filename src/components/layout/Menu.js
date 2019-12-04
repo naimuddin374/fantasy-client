@@ -96,7 +96,7 @@ class Menu extends React.Component {
                                         <Cart />
                                         <li className="nav-item">
                                             {this.props.auth.isAuth ?
-                                                <a className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</a>
+                                                <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
                                                 : <Link to="/login" className="signup-btn">Sign Up/In</Link>
                                             }
                                         </li>

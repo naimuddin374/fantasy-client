@@ -50,7 +50,10 @@ class Register extends React.Component {
                         <div className="col-md-6 offset-md-3">
                             <div className="row">
                                 {Object.keys(validation).length !== 0 &&
-                                    validation.email && <p className="text-danger">{validation.email}</p> || validation.contact_no && <p className="text-danger">{validation.contact_no}</p>
+                                    <span>
+                                        {validation.email && <p className="text-danger">{validation.email}</p>}
+                                        {validation.contact_no && <p className="text-danger">{validation.contact_no}</p>}
+                                    </span>
                                 }
                             </div>
 

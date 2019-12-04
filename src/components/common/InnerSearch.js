@@ -9,7 +9,7 @@ class InnerSearch extends React.Component {
         service: {}
     }
     componentDidMount() {
-        Axios.get(`api/service${window.location.pathname}`)
+        Axios.get(`${API_URL}api/service${window.location.pathname}`)
             .then(res => {
                 this.setState({
                     service: res.data

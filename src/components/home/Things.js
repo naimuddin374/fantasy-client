@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
 import Axios from 'axios';
+import { API_URL } from '../../store/actions/types';
+
 
 class Things extends React.Component {
     state = {
-        ThingsToDo: {}
+        rides: {}
     }
     componentDidMount() {
-        Axios.get('api/things-to-do')
+        Axios.get(`${API_URL}api/ride`)
             .then(res => {
                 this.setState({
-                    ThingsToDo: res.data
+                    rides: res.data
                 })
             })
     }
@@ -24,7 +26,6 @@ class Things extends React.Component {
             dots: false,
             autoplay: true,
             arrows: false,
-            centerMode: true,
             slidesToShow: 5,
             slidesToScroll: 5,
             responsive: [
@@ -60,7 +61,7 @@ class Things extends React.Component {
                 }
             ]
         }
-        let { ThingsToDo } = this.state
+        let { rides } = this.state
         return (
             <section className="things-area section-padding-top full-bg">
                 <div className="container">
@@ -79,8 +80,8 @@ class Things extends React.Component {
                 </div>
                 <div className="things-wrapper">
                     <Slider {...settings}>
-                        {Object.keys(ThingsToDo).length !== 0 &&
-                            ThingsToDo.map(item => (
+                        {Object.keys(rides).length !== 0 &&
+                            rides.map(item => (
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">

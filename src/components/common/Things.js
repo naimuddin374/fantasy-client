@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
 import Axios from 'axios';
+import { API_URL } from '../../store/actions/types';
+
 
 class Things extends React.Component {
     state = {
@@ -9,9 +11,8 @@ class Things extends React.Component {
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/ride${window.location.pathname}`)
+        Axios.get(`${API_URL}api/ride${window.location.pathname}`)
             .then(res => {
-                console.log('res', res.data)
                 this.setState({
                     ThingsToDo: res.data
                 })
@@ -26,7 +27,6 @@ class Things extends React.Component {
             dots: true,
             autoplay: true,
             arrows: false,
-            centerMode: true,
             slidesToShow: 5,
             slidesToScroll: 5,
             responsive: [
@@ -86,16 +86,14 @@ class Things extends React.Component {
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">
-                                            {item.link ?
-                                                <Link to={`/${item.link}`}>
-                                                    <img src={item.image} alt="thins img" />
-                                                </Link> : <img src={item.image} alt="thins img" />
-                                            }
+                                            <img src={API_URL + item.image} alt="thins img" />
                                         </div>
                                         <div className="thing-offer">
-                                            <span className="offer-shape">Ride</span>
+                                            <span className="offer-shape">
+                                                {item.is_buy ? 'Ride' : 'Complimentary'}
+                                            </span>
                                         </div>
-                                        <Link to={`/${item.link}`}>{item.title}</Link>
+                                        <Link to={`/ticket/${item.id}`}>{item.title}</Link>
                                         <div className="gradient-bottomshape"></div>
                                     </div>
                                 </div>
@@ -106,7 +104,7 @@ class Things extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 text-center mt-5">
-                            <Link to="/ticket" className="theme-btn">get ticket</Link>
+                            <Link to="/ticket" className="theme-btn">Get Ticket</Link>
                         </div>
                     </div>
                 </div>

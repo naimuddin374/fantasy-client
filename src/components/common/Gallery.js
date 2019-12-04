@@ -2,31 +2,31 @@ import React from 'react'
 import Slider from "react-slick"
 import CircleShape from './CircleShape';
 import Axios from 'axios';
-import * as Types from '../../store/actions/types'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { API_URL } from '../../store/actions/types';
 
 class Gallery extends React.Component {
     state = {
         images: [],
         imageSrc: [],
         photoIndex: 0,
-        isOpen: false, 
+        isOpen: false,
         className: this.props.className
     }
     componentDidMount() {
-        Axios.get(`api/gallery${window.location.pathname}`)
+        Axios.get(`${API_URL}api/gallery${window.location.pathname}`)
             .then(res => {
                 let imgSrc = []
-                res.data.map(item => {
-                    imgSrc.push(Types.API_URL + item.image)
-                })
-                this.setState({
-                    images: res.data,
-                    imageSrc: imgSrc,
-                })
+                if (Object.keys(res.data).length !== 0) {
+                    res.data.map(item => imgSrc.push(API_URL + item.image))
+                    this.setState({
+                        images: res.data,
+                        imageSrc: imgSrc,
+                    })
+                }
             })
     }
     render() {
@@ -84,9 +84,9 @@ class Gallery extends React.Component {
                             {Object.keys(images).length !== 0 &&
                                 images.map((item, index) => (
                                     <div className="col-md-12" key={item + '.' + index}>
-                                        <a className="project-gallery popup" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
-                                            <img src={Types.API_URL + item.image} alt="gallery" />
-                                        </a>
+                                        <span className="project-gallery popup link-btn" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
+                                            <img src={API_URL + item.image} alt="gallery" />
+                                        </span>
                                     </div>
                                 ))
                             }

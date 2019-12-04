@@ -19,7 +19,7 @@ class Ticket extends React.Component {
 
                     <div className="container">
                         <div className="row">
-                            <TicketItem />
+                            <TicketItem paramId={this.props.match.params.id} />
                             <Summary />
                         </div>
                     </div>

@@ -746,7 +746,8 @@ a.nav-link.offcanvas-btn:before {
     sign up button
 ===========================================================*/
 
-a.signup-btn {
+a.signup-btn,
+span.signup-btn {
     background: #E50019;
     display: inline-block;
     padding: 5px 12px !important;
@@ -2437,16 +2438,16 @@ a.hotel-icon i {
     margin-bottom: 0;
 }
 
-a.project-gallery {
+span.project-gallery {
     margin-bottom: 30px;
     display: block;
 }
 
-a.project-gallery>img {
+span.project-gallery>img {
     transition: all .3s linear;
 }
 
-a.project-gallery:hover img {
+span.project-gallery:hover img {
     filter: grayscale(100%);
 }
 
@@ -2573,7 +2574,7 @@ a.project-gallery:hover img {
     padding: 0px 30px;
 }
 
-.faq-area .card-header a.collapsed:after {
+.faq-area .card-header .collapsed:after {
     content: "\f078";
     color: #004089;
     font-family: 'fontawesome' !important;

@@ -9,7 +9,7 @@ class OurRoom extends React.Component {
         galleries: {}
     }
     componentDidMount() {
-        Axios.get(`api/room-gallery/${this.props.data.id}`)
+        Axios.get(`${API_URL}api/room-gallery/${this.props.data.id}`)
             .then(res => {
                 this.setState({
                     galleries: res.data
@@ -39,7 +39,7 @@ class OurRoom extends React.Component {
                                 <div className="row">
                                     {Object.keys(galleries).length !== 0 &&
                                         galleries.map(item => (
-                                            <div className="col-lg-6 col-md-4 col-sm-6">
+                                            <div className="col-lg-6 col-md-4 col-sm-6" key={item.id}>
                                                 <div className="atlantis-room-thumb" id="thumb_img">
                                                     <img
                                                         className="active"

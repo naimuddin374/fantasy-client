@@ -27,7 +27,10 @@ class Item extends React.Component {
             <div className="col-lg-4 col-md-6" key={id}>
                 <div className="single-thing-to-do-content single-advanture-ride popular-item-border">
                     <img src={image && API_URL + image} alt="advanture img" className="things-to-do-img" />
-                    <div className="popular-item"> <span className="thing-popular">Popular</span>
+                    <div className="popular-item">
+                        <span className="offer-shape">
+                            {is_buy ? 'Ride' : 'Complimentary'}
+                        </span>
                     </div>
                     <div className="thing-to-do-inner-content">
                         <div className="t-top-content">
@@ -38,7 +41,7 @@ class Item extends React.Component {
                         <p>{textLimit(description, 100)}</p>
                         <div className="t-bottom-content">
                             <div className="t-viewdetails-content">
-                                <a className="view-gallery link-btn" onClick={() => this.openModal(this.props.data)}>Read More</a>
+                                <span className="view-gallery link-btn" onClick={() => this.openModal(this.props.data)}>Read More</span>
                             </div>
                             {Number(is_buy) === 1 &&
                                 <div className="t-ticket-btn-content">

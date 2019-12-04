@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cartActions'
+import { API_URL } from '../../store/actions/types';
 
 class Cart extends React.Component {
     state = {
@@ -29,22 +30,19 @@ class Cart extends React.Component {
                 totalPrice = totalPrice + (item.discount_price ? item.discount_price : item.price)
             ))
         return (
-            <li className="nav-item cart-item-header"><a className="nav-link shopping-cart-btn" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">{Object.keys(rides).length}</span></a>
+            <li className="nav-item cart-item-header"><Link className="nav-link shopping-cart-btn" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">{Object.keys(rides).length}</span></Link>
                 {Object.keys(rides).length !== 0 &&
                     <div className="fantasy-mini-cart">
                         <div className="fantasy-mini-cart-inner">
                             {rides.map(item => (
                                 <div className="fantasy-cart-item" key={item.id}>
                                     <div className="fantasy-cart-img">
-                                        <Link to="#">
-                                            <img src={item.service_logo} alt="product" />
-                                        </Link>
+                                        <img src={API_URL + item.image} alt="product" />
                                     </div>
-                                    <div className="fantasy-cart-info">	<Link to="#">{item.title}</Link>
-                                        <p>Qty: 2<span>৳{item.discount_price ? item.discount_price : item.price}</span>
-                                        </p>
+                                    <div className="fantasy-cart-info">	<p>{item.title}</p>
+                                        <p><span>৳{item.discount_price ? item.discount_price : item.price}</span></p>
                                     </div>
-                                    <div className="fantasy-cart-remove"><a onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></a>
+                                    <div className="fantasy-cart-remove"><a className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></a>
                                     </div>
                                 </div>
                             ))}
@@ -56,8 +54,8 @@ class Cart extends React.Component {
                         </div>
                         <div className="fantasy-mini-cart-footer">
                             <div className="fantasy-cart-button">
-                                <Link to="/checkout" className="theme-btn">Checkout</Link>:
-                        </div>
+                                <Link to="/checkout" className="theme-btn">Checkout</Link>
+                            </div>
                         </div>
                     </div>
                 }
