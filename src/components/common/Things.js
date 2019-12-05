@@ -74,7 +74,7 @@ class Things extends React.Component {
                         </div>
                         <div className="col-lg-4 col-md-4">
                             <div className="show-all-content-area text-right">
-                                <Link to="/things-to-do">View All</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ class Things extends React.Component {
                                                 {item.is_buy ? 'Ride' : 'Complimentary'}
                                             </span>
                                         </div>
-                                        <Link to={`/ticket/${item.id}`}>{item.title}</Link>
+                                        <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}>{item.title}</Link>
                                         <div className="gradient-bottomshape"></div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ class Things extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 text-center mt-5">
-                            <Link to="/ticket" className="theme-btn">Get Ticket</Link>
+                            <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn">Get Ticket</Link>
                         </div>
                     </div>
                 </div>

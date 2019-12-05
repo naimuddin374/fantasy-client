@@ -7,6 +7,8 @@ import ContactUs from './ContactUs';
 import CircleShape from './../common/CircleShape';
 import Axios from 'axios';
 import { API_URL } from '../../store/actions/types';
+import { setRoom } from '../../store/actions/roomActions'
+import { connect } from 'react-redux';
 
 
 class Atlantis extends React.Component {
@@ -17,10 +19,14 @@ class Atlantis extends React.Component {
         window.scrollTo(0, 0)
         Axios.get(`${API_URL}api/room`)
             .then(res => {
-                this.setState({
-                    rooms: res.data
-                })
+                this.props.setRoom(res.data)
             })
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (JSON.stringify(nextProps.rooms) === JSON.stringify(prevState.rooms)) return null
+        return {
+            rooms: nextProps.rooms,
+        }
     }
     render() {
         let { rooms } = this.state
@@ -56,4 +62,7 @@ class Atlantis extends React.Component {
         )
     }
 }
-export default Atlantis
+const mapStateToProps = state => ({
+    rooms: state.cart.rooms,
+})
+export default connect(mapStateToProps, { setRoom })(Atlantis)

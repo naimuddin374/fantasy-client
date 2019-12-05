@@ -34,8 +34,8 @@ class NewsEvents extends React.Component {
                             events.slice(0,6).map(item => (
                                 <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                                     <div className="single-news">
-                                        <Link to={`/news-events/${item.id}`}>
-                                            <img className="top-left-right-radius" src={item.image} alt="news" />
+                                        <Link to={`${process.env.PUBLIC_URL}/news-events/${item.id}`}>
+                                            <img className="top-left-right-radius" src={API_URL+item.image} alt="news" />
                                         </Link>
                                         <div className="latest-news-content bottom-left-right-radius">
                                             <span>
@@ -43,12 +43,12 @@ class NewsEvents extends React.Component {
                                                     {item.created_at}
                                                 </Moment>
                                             </span>
-                                            <h4><Link to={`/news-events/${item.id}`}>{item.title}</Link></h4>
+                                            <h4><Link to={`${process.env.PUBLIC_URL}/news-events/${item.id}`}>{item.title}</Link></h4>
                                             <p>{textLimit(item.description, 85)}</p>
-                                            <Link to={`/news-events/${item.id}`} className="read-more-btn">Read More</Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/news-events/${item.id}`} className="read-more-btn">Read More</Link>
                                         </div>
                                         <div className="newshap">
-                                            <img src="./assets/images/newshap.png" alt="new shape" />
+                                            <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@ class NewsEvents extends React.Component {
                     <div className="row">
                         <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
                             <div className="view-all-blog-post text-center mt-5">
-                                <Link to="/news-events" className="theme-btn">View All</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/news-events`} className="theme-btn">View All</Link>
                             </div>
                         </div>
                     </div>

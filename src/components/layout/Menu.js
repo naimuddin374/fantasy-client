@@ -52,46 +52,47 @@ class Menu extends React.Component {
                                                     <div className="menga-menu-park-list">
                                                         <li className="megamenu">	<span>Theme Parks</span>
                                                             <div className="megamenu-item">
-                                                                <Link to="/fantasy-kingdom" className="single-park">
+                                                                <Link to={`${process.env.PUBLIC_URL}/fantasy-kingdom`} className="single-park">
                                                                     <span>Fantasy Kingdom</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>
-                                                                <Link to="/foys-lake" className="single-park">	<span>Foys Lake</span>
+                                                                <Link to={`${process.env.PUBLIC_URL}/foys-lake`} className="single-park">	<span>Foys Lake</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>
                                                             </div>
                                                         </li>
                                                         <li className="megamenu">	<span>Water Parks</span>
                                                             <div className="megamenu-item">
-                                                                <Link to="/water-kingdom" className="single-park">	<span>Water Kingdom</span>
+                                                                <Link to={`${process.env.PUBLIC_URL}/water-kingdom`} className="single-park">	<span>Water Kingdom</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>
                                                             </div>
                                                         </li>
                                                         <li className="megamenu">	<span>Other parks</span>
                                                             <div className="megamenu-item">
-                                                                <Link to="/extreme-racing" className="single-park">	<span>Extreme Racing</span>
+                                                                <Link to={`${process.env.PUBLIC_URL}/extreme-racing`} className="single-park">	<span>Extreme Racing</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>
                                                             </div>
                                                             <div className="megamenu-item">
-                                                                <Link to="/heritage-park" className="single-park">	<span>Heritage Park</span>
+                                                                <Link to={`${process.env.PUBLIC_URL}/heritage-park`} className="single-park">	<span>Heritage Park</span>
                                                                     <p>Open, 10 am- 11 pm</p>
                                                                 </Link>
                                                             </div>
                                                         </li>
                                                     </div>
-                                                    <div className="menu-menu-park-btn mt-5 mb-3">	<Link to="/things-to-do" className="theme-btn">View Events</Link>
-                                                        <Link to="/ticket" className="theme-btn">Buy Tickets</Link>
+                                                    <div className="menu-menu-park-btn mt-5 mb-3">
+                                                        <Link to={`${process.env.PUBLIC_URL}/news-events`} className="theme-btn">View Events</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn">Buy Tickets</Link>
                                                     </div>
                                                 </div>
                                             </ul>
                                         </li>
-                                        <li className="nav-item"> <Link to="/things-to-do" className="nav-link">Things To Do</Link></li>
-                                        <li className="nav-item"> <Link to="/atlantis" className="nav-link">Places to stay</Link></li>
-                                        <li className="nav-item"> <Link to={`/ticket/${DISCOUNT_TAG}`} className="nav-link">Offers</Link>
+                                        <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/things-to-do`} className="nav-link">Things To Do</Link></li>
+                                        <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/atlantis`} className="nav-link">Places to stay</Link></li>
+                                        <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/ticket/${DISCOUNT_TAG}`} className="nav-link">Offers</Link>
                                         </li>
-                                        <li className="nav-item"> <Link className="nav-link" to="/faq">FAQ</Link>
+                                        <li className="nav-item"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
                                         </li>
                                         <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
                                         </li>
@@ -99,7 +100,7 @@ class Menu extends React.Component {
                                         <li className="nav-item">
                                             {this.props.auth.isAuth ?
                                                 <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
-                                                : <Link to="/login" className="signup-btn">Sign Up/In</Link>
+                                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="signup-btn">Sign Up/In</Link>
                                             }
                                         </li>
                                     </ul>

@@ -36,7 +36,7 @@ class Map extends React.Component {
                                 <div className={`section-title ${className}-section-title`}>
                                     <h2>{title}</h2>
                                     <p className="mt-3">{textLimit(description, 650)}</p>
-                                    <Link to='/ticket' className="theme-btn mt-5">Get Ticket</Link>
+                                    <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn mt-5">Get Ticket</Link>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,7 @@ class Map extends React.Component {
                             </div>
                             <div className="fantasy-google-map-content">
                                 <div className="google-map-wrapper">
-                                    <img src="./assets/images/map.png" alt="experience background" width="100%" />
-                                    {/* <div id="map" data-latitude="23.789987" data-longitude="90.411627"></div> */}
+                                    <img src={`${process.env.PUBLIC_URL}/assets/images/map.png`} alt="experience background" width="100%" />
                                 </div>
                             </div>
                             <div className="direction-area-fantasy-kingdom">
@@ -92,7 +91,8 @@ class Map extends React.Component {
                                     </span>
                                 </div>
                                 <div className="single-direction-map">
-                                    <a>	<i className="fa fa-clock-o" aria-hidden="true"></i>
+                                    <a href="/">
+                                        <i className="fa fa-clock-o" aria-hidden="true"></i>
                                         <span>Parking House</span>
                                     </a>
                                 </div>

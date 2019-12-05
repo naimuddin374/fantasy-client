@@ -186,7 +186,7 @@ class Register extends React.Component {
                     <div className="have-an-account mb-5">
                         <div className="form-row">
                             <div className="col-md-12">
-                                <div className="loginregisteration-group p-2"> <span>Already have an account <Link to="/login">Login here</Link></span>
+                                <div className="loginregisteration-group p-2"> <span>Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}>Login here</Link></span>
                                 </div>
                             </div>
                         </div>

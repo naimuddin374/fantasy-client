@@ -58,7 +58,7 @@ class Details extends React.Component {
                                 {type === "2" &&
                                     <li>Maximum Age: {age}</li>
                                 }
-                                <li><Link to={`/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
+                            <li><Link to={`${process.env.PUBLIC_URL}/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
                             </ul>
                         }
                     </div>

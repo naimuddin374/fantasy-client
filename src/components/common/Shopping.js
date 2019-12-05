@@ -16,11 +16,11 @@ class Shopping extends React.Component {
                                 <div className={`fantasy-hotel-table-title section-title-small-text ${className}-section-title-small-text`}>
                                     <h2>Dining</h2>
                                 </div>
-                                <div className="fantasy-hotel-icon">	<Link to="/" className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
+                                <div className="fantasy-hotel-icon">	<Link to={`${process.env.PUBLIC_URL}/`} className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
                                 </div>
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <img src="./assets/images/hotelfeature/dinner.png" alt="dining" />
                                 </Link>
                             </div>
@@ -30,12 +30,13 @@ class Shopping extends React.Component {
                                 <div className={`fantasy-hotel-table-title section-title-small-text ${className}-section-title-small-text`}>
                                     <h2>Shopping</h2>
                                 </div>
-                                <div className="fantasy-hotel-icon">	<Link to="/" className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
+                                <div className="fantasy-hotel-icon">
+                                    <Link to={`${process.env.PUBLIC_URL}/`} className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
                                 </div>
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
-                                <Link to="/">
-                                    <img src="./assets/images/hotelfeature/shopping.png" alt="shopping" />
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
+                                    <img src={`${process.env.PUBLIC_URL}/assets/images/hotelfeature/shopping.png`} alt="shopping" />
                                 </Link>
                             </div>
                         </div>

@@ -6,15 +6,21 @@ import { getItemPrice } from '../../util/helper'
 
 class Checkout extends React.Component {
     state = {
-        rides: this.props.cart.rides,
+        rides: {},
         auth: this.props.auth,
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
+        return {
+            rides: nextProps.cart.rides.filter(item => item.isInCart)
+        }
     }
     componentDidMount() {
         window.scrollTo(0, 0)
     }
     render() {
         if (!this.state.auth.isAuth) {
-            window.location.href = "/login";
+            window.location.href = `${process.env.PUBLIC_URL}/login`;
         }
         let { rides } = this.state
         let totalPrice = 0

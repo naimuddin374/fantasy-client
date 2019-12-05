@@ -80,7 +80,7 @@ class Register extends React.Component {
                         <div className="form-row">
                             <div className="col-md-12">
                                 <div className="loginregisteration-group p-2">
-                                    <span>Don't have an account <Link to="/register">Sign up here</Link></span>
+                                    <span>Don't have an account <Link to={`${process.env.PUBLIC_URL}/register`}>Sign up here</Link></span>
                                     <span onClick={() => this.props.logout(this.props.history)}>Logout</span>
                                 </div>
                             </div>

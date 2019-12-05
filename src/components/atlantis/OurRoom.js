@@ -91,7 +91,7 @@ class OurRoom extends React.Component {
                                                 </div>
                                                 {this.props.auth.isAuth ?
                                                     <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn">Book Now</button>
-                                                    : <Link to="/login" className="atlantis-book-now-btn btn">Book Now</Link>
+                                                    : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn">Book Now</Link>
                                                 }
                                             </div>
                                         </div>

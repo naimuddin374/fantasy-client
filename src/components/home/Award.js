@@ -15,7 +15,7 @@ class Award extends React.Component {
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
                             <div className="award-img">
-                                <img src="./assets/images/award/Awards.png" alt="award img" />
+                                <img src={`${process.env.PUBLIC_URL}/assets/images/award/Awards.png`} alt="award img" />
                             </div>
                         </div>
                     </div>

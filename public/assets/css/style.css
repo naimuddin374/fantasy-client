@@ -3661,11 +3661,21 @@ a.atlantis-book-now-btn {
 .calender-date-checking {
     width: 50%;
     float: left;
+    position: relative;
+}
+.calender-date-checking:after {
+    content: "\f073";
+    position: absolute;
+    left: 20px;
+    bottom: 6px;
+    font-family: "fontawesome";
 }
 
 .single-date-checking {
     box-sizing: border-box;
     display: inline-block;
+    width: 50%;
+    float: left;
 }
 
 .number-guest {
@@ -3683,8 +3693,7 @@ a.atlantis-book-now-btn {
 }
 
 .check-in-out-date-content {
-    background: #F3F3F3;
-    padding: 5px 15px;
+    padding: 0px 15px;
     border-radius: 5px;
     padding-right: 0;
     position: relative;
@@ -3700,14 +3709,20 @@ a.atlantis-book-now-btn {
     top: 50%;
     transform: translateY(-50%);
 }
+.atlantis-single-search-content label{
+    margin-bottom:0 !important;
+}
 
 .single-date-checking input {
     border: none;
-    background: transparent;
+    background: #f3f3f3;
     font-weight: 400;
     font-size: 14px;
+    padding: 0 27px;
 }
-
+.react-datepicker__input-container #checkOut {
+    padding: 0;
+}
 .atlantis-search-room {
     position: relative;
 }

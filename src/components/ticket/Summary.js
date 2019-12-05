@@ -63,7 +63,7 @@ class Summary extends React.Component {
                         <h4 className="total-price-widget">Total : ৳{totalPrice}</h4>
                         <div className="widget-chekout-btn-area mt-3 text-center">
                             {Object.keys(rides).length !== 0 ?
-                                <Link to="/checkout" className="payment-btn">Check Out</Link> :
+                                <Link to={`${process.env.PUBLIC_URL}/checkout`} className="payment-btn">Check Out</Link> :
                                 <button type="button" className="payment-btn">Check Out</button>
                             }
                         </div>

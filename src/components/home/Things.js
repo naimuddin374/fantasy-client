@@ -73,7 +73,7 @@ class Things extends React.Component {
                         </div>
                         <div className="col-lg-4 col-md-4">
                             <div className="show-all-content-area text-right">
-                                <Link to="/things-to-do">View All</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
                             </div>
                         </div>
                     </div>
@@ -85,13 +85,12 @@ class Things extends React.Component {
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">
-                                            <Link to={`/ticket/${item.id}`}><img src={item.image} alt="thins img" /></Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}><img src={API_URL+item.image} alt="thins img" /></Link>
                                         </div>
                                         <div className="thing-offer">
                                             <span className="offer-shape">Ride</span>
                                         </div>
-                                        {/* <Link to={`/${item.link}`}>{item.title}</Link> */}
-                                        <Link to={`/ticket/${item.id}`}>{item.title}</Link>
+                                        <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}>{item.title}</Link>
                                         <div className="gradient-bottomshape"></div>
                                     </div>
                                 </div>
@@ -102,7 +101,7 @@ class Things extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 text-center mt-5">
-                            <Link to="/ticket" className="theme-btn">Get Ticket</Link>
+                            <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn">Get Ticket</Link>
                         </div>
                     </div>
                 </div>

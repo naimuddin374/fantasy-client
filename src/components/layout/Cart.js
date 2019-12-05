@@ -59,7 +59,7 @@ class Cart extends React.Component {
                         </div>
                         <div className="fantasy-mini-cart-footer">
                             <div className="fantasy-cart-button">
-                                <Link to="/checkout" className="theme-btn">Checkout</Link>
+                                <Link to={`${process.env.PUBLIC_URL}/checkout`} className="theme-btn">Checkout</Link>
                             </div>
                         </div>
                     </div>

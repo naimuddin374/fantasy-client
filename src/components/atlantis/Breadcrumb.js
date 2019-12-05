@@ -1,10 +1,42 @@
 import React from 'react'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import dateFormat from 'dateformat';
+import { connect } from 'react-redux';
+import { searchRoom } from '../../store/actions/roomActions'
+
 
 class Breadcrumb extends React.Component {
+    state = {
+        detailData: {},
+        no_of_guest: 2,
+        no_of_room: 2,
+        checkIn: new Date('2019-12-15'),
+        checkOut: new Date('2019-12-20'),
+    }
+    checkInHandleChange = date => {
+        this.setState({
+            checkIn: date
+        });
+    }
+    checkOutHandleChange = date => {
+        this.setState({
+            checkOut: date
+        });
+    }
     changeHandler = event => {
         console.log(event.target.value)
     }
+    submitHandler = event => {
+        event.preventDefault()
+        let { no_of_guest, no_of_room, checkIn, checkOut } = this.state
+        let check_in = dateFormat(checkIn, "yyyy-mm-dd")
+        let check_out = dateFormat(checkOut, "yyyy-mm-dd")
+        this.props.searchRoom({ no_of_guest, no_of_room, check_in, check_out })
+        // this.props.isClose()
+    }
     render() {
+        let { checkIn, checkOut, no_of_guest, no_of_room } = this.state
         return (
             <section className="breadcrum-area atlantis-feature-img relative atlantis-breadcrumb-area">
                 <div className="breadcrum-feature-overlay"></div>
@@ -16,74 +48,62 @@ class Breadcrumb extends React.Component {
                                 <p className="text-white mt-3 wow fadeInUp" data-wow-delay=".6s">Welcoming everyone with a smile</p>
                             </div>
                             <div className="atlantis-search-area">
-                                <form action="#">
+                                <form onSubmit={this.submitHandler}>
                                     <div className="atlantis-single-search-content calender-date-checking">
-                                        <h4>Pick Your Date</h4>
                                         <div className="check-in-out-date-content">
-                                            <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
                                             <div className="single-date-checking">
-                                                <label htmlFor="check_in_date">Check In: </label>
-                                                <input type="date" id="check_in_date" name="checkInDate" onChange={this.changeHandler} />
+                                                <label htmlFor="checkIn">Check In: </label>
+                                                <DatePicker
+                                                    id="checkIn"
+                                                    className='form-control'
+                                                    placeholder="Check In Date"
+                                                    selected={checkIn}
+                                                    onChange={this.checkInHandleChange}
+                                                />
                                             </div>
                                             <div className="single-date-checking">
-                                                <label htmlFor="check_out_date">Check Out: </label>
-                                                <input type="date" id="check_out_date" name="CheckOutDate" onChange={this.changeHandler} />
+                                                <label htmlFor="checkOut">Check Out: </label>
+                                                <DatePicker
+                                                    id="checkOut"
+                                                    className='form-control'
+                                                    placeholder="Check Out Date"
+                                                    selected={checkOut}
+                                                    onChange={this.checkOutHandleChange}
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="atlantis-single-search-content number-guest">
-                                        <h4>Number of guest</h4>
+                                      
+                                        <label htmlFor="no_of_guest">Number of guest</label>
                                         <div className="single-atlantis-park-search">
                                             <div className="atlantis-nice-select">
-                                                <input type="text" placeholder="2 adults 0 Children" name="adult_children" value="1" onChange={this.changeHandler} />
-                                                <ul className="count-guest-list" id="quest_one">
-
-                                                    <li data-value="Fantasy" className="option">
-                                                        <div className="select-guest-content">
-                                                            <div className="guest-name">
-                                                                <span>Adults</span>
-                                                            </div>
-                                                            <div className="guest-increment-decrement">
-                                                                <div className="pro-quantity">
-                                                                    <div className="pro-qty atlantis-pro-qty">
-                                                                        <button className="dec atlantis_btn">-</button>
-                                                                        <input type="number" value="1" name="adult" onChange={this.changeHandler} />
-                                                                        <button className="inc  atlantis_btn">+</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li data-value="Fantasy" className="option">
-                                                        <div className="select-guest-content">
-                                                            <div className="guest-name">
-                                                                <span>Children</span>
-                                                            </div>
-                                                            <div className="guest-increment-decrement">
-                                                                <div className="pro-quantity">
-                                                                    <div className="pro-qty atlantis-pro-qty">
-                                                                        <button className="dec atlantis_btn">-</button>
-                                                                        <input type="number" value="1" name="children" onChange={this.changeHandler} />
-                                                                        <button className="inc  atlantis_btn">+</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
+                                                <input
+                                                    type="number"
+                                                    placeholder="No of Guest"
+                                                    id="no_of_guest"
+                                                    name="no_of_guest"
+                                                    value={no_of_guest}
+                                                    onChange={this.changeHandler}
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="atlantis-single-search-content number-room">
-                                        <h4>Number of room</h4>
+                                        <label htmlFor="no_of_room">Number of room </label>
                                         <div className="atlantis-page-search-room">
                                             <div className="atlantis-search-room">
-                                                <input type="search" name="roomTitle" onChange={this.changeHandler} placeholder="Search Room" />
-                                                <button className="atlantis-search-btn">Search</button>
+                                                <input
+                                                    type="number"
+                                                    name="no_of_room"
+                                                    id="no_of_room"
+                                                    onChange={this.changeHandler}
+                                                    placeholder="No of Room"
+                                                    value={no_of_room}
+                                                />
+                                                <button type="submit" className="atlantis-search-btn">Search</button>
                                             </div>
                                         </div>
                                     </div>
@@ -96,4 +116,4 @@ class Breadcrumb extends React.Component {
         )
     }
 }
-export default Breadcrumb
+export default connect(null, { searchRoom })(Breadcrumb)

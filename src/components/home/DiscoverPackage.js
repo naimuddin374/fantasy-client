@@ -78,16 +78,16 @@ class DiscoverPackage extends React.Component {
 								services.map(item => (
 							<div className="col-lg-12 col-md-4" key={item.id}>
 					<div className="single-discover-carousel">
-											<Link to={`/${item.hyperlink}`}><img src={item.image ? item.image : `${process.env.PUBLIC_URL}/assets/images/resorts/resort1.png`} alt="resorts" /></Link>
+											<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><img src={item.image ? API_URL+ item.image : `${process.env.PUBLIC_URL}/assets/images/resorts/resort1.png`} alt="resorts" /></Link>
 						<div className="resport-open-close">
 								<span className="offer-shape">{item.open_time}</span>
 						</div>
 						<div className="resort-heading-content">
-							<Link to={`/${item.hyperlink}`}><h3>{item.title}</h3></Link>
+												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><h3>{item.title}</h3></Link>
 							<h6>{item.open_time}</h6>
 						</div>
 						<div className="resorts-linked-btn">
-												<Link to={`/${item.hyperlink}`}>
+												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										viewBox="0 0 32 32">
 									<path className="st0" d="M27.1,18.3L13.7,4.9c-0.4-0.4-1-0.4-1.4,0L10.2,7C9.8,7.3,9.8,7.9,10,8.3c0.4,0.5,0.3,1.3-0.1,1.7
@@ -98,7 +98,7 @@ class DiscoverPackage extends React.Component {
 									</svg>
 								<p>Ticket</p>
 							</Link>
-												<Link to={`/${item.hyperlink}`}>
+												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										 viewBox="0 0 32 32">
 									<g id="Path_2176">
@@ -111,7 +111,7 @@ class DiscoverPackage extends React.Component {
 									</svg>
 								<p>Direction</p>
 							</Link>
-												<Link to={`/${item.hyperlink}`}>
+												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
 								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 									viewBox="0 0 32 32">
 								<g>

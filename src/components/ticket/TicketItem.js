@@ -79,10 +79,10 @@ class TicketItem extends React.Component {
             if (item.id === id) {
                 obj.isInCart = true
             }
-            if (obj.kids_quantity === 0 && obj.adult_quantity === 0) {
+            if (Number(obj.kids_quantity) === 0 && Number(obj.adult_quantity) === 0) {
                 obj.kids_quantity = 1
             }
-            if (obj.adult_quantity === 0 && obj.kids_quantity === 0) {
+            if (Number(obj.adult_quantity) === 0 && Number(obj.kids_quantity) === 0) {
                 obj.kids_quantity = 1
             }
             return obj

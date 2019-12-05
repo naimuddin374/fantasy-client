@@ -33,13 +33,13 @@ class HomeSlider extends React.Component {
                     {Object.keys(sliders).length !== 0 &&
                         sliders.map(item => (
                             <div className="hero-single-slide hero-overlay" key={item.id}>
-                                <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${item.image})` }}>
+                                <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${API_URL+item.image})` }}>
                                     <div className="container">
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="hero-slider-content slide-1 text-center">
                                                     <h1 className="slide-title">{item.title}</h1>
-                                                    <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>	<Link to={`/${item.link}`} className="theme-btn">Get Details</Link>
+                                                    <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>	<Link to={`${process.env.PUBLIC_URL}/${item.link}`} className="theme-btn">Get Details</Link>
                                                 </div>
                                             </div>
                                         </div>

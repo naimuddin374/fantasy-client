@@ -45,7 +45,7 @@ class Item extends React.Component {
                             </div>
                             {Number(is_buy) === 1 &&
                                 <div className="t-ticket-btn-content">
-                                    <Link to={`/ticket/${id}`} className="payment-btn">Buy Ticket</Link>
+                                    <Link to={`${process.env.PUBLIC_URL}/ticket/${id}`} className="payment-btn">Buy Ticket</Link>
                                 </div>
                             }
                         </div>

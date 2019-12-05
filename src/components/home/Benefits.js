@@ -17,7 +17,7 @@ class Benefits extends React.Component {
                         <div className="col-lg-6 col-md-6">
                             <div className="deails-img relative free-ticke-img deals-benefits-style free-offer">
                                 <Link to="#" className="freeticketbg">
-                                    <img src="./assets/images/deals/free-ticket-img.png" alt="deals img" />
+                                    <img src={`${process.env.PUBLIC_URL}/assets/images/deals/free-ticket-img.png`} alt="deals img" />
                                 </Link>
                                 <div className="deails-details-btn  free-ticket">
                                     <Link to="#">Free Tickets</Link>
@@ -27,7 +27,7 @@ class Benefits extends React.Component {
                         <div className="col-lg-6 col-md-6">
                             <div className="deails-img relative deals-benefits-style discount-offer">
                                 <Link to="#" className="discountbg">
-                                    <img src="./assets/images/deals/discountdealsimg.png" alt="deals img" />
+                                    <img src={`${process.env.PUBLIC_URL}/assets/images/deals/discountdealsimg.png`} alt="deals img" />
                                 </Link>
                                 <div className="deails-details-btn">
                                     <Link to="#">Discounts Deals</Link>
@@ -35,7 +35,8 @@ class Benefits extends React.Component {
                             </div>
                             <div className="deails-img relative deals-benefits-style package-offer">
                                 <Link to="#" className="dealspackagebg">
-                                    <img src="./assets/images/deals/dealspackageimg.png" alt="deals img" /></Link>
+                                    <img src={`${process.env.PUBLIC_URL}/assets/images/deals/dealspackageimg.png`} alt="deals img" />
+                                </Link>
                                 <div className="deails-details-btn">
                                     <Link to="#" className="deals-shape-btn">Package Offers</Link>
                                 </div>

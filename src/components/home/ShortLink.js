@@ -9,7 +9,7 @@ class ShortLink extends React.Component {
                     <div className="row linked-wrapper slider-bottom-linked">
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="52.692" height="45.403" viewBox="0 0 52.692 45.403">
                                         <g id="tickets" transform="translate(0 -35.415)">
                                             <g id="Group_1057" data-name="Group 1057" transform="translate(0 35.415)">
@@ -36,7 +36,7 @@ class ShortLink extends React.Component {
                         </div>
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50.322" height="44.451" viewBox="0 0 50.322 44.451">
                                         <g id="tickets_1_" data-name="tickets (1)" transform="translate(0 -28.001)">
                                             <g id="Group_1059" data-name="Group 1059" transform="translate(0 28.001)">
@@ -87,7 +87,7 @@ class ShortLink extends React.Component {
                         </div>
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="46.831" height="46.831" viewBox="0 0 46.831 46.831">
                                         <g id="hotel" transform="translate(0)">
                                             <g id="Group_1075" data-name="Group 1075" transform="translate(8.828 13.33)">
@@ -158,7 +158,7 @@ class ShortLink extends React.Component {
                         </div>
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="71.936" height="48.559" viewBox="0 0 71.936 48.559">
                                         <g id="Group_1137" data-name="Group 1137" transform="translate(-1013.855 -1080.037)">
                                             <g id="Group_1133" data-name="Group 1133" transform="matrix(-0.485, -0.875, 0.875, -0.485, 1034.451, 1128.509)">
@@ -224,7 +224,7 @@ class ShortLink extends React.Component {
                         </div>
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="75.362" height="42.52" viewBox="0 0 75.362 42.52">
                                         <g id="Group_1116" data-name="Group 1116" transform="translate(-1240.638 -1096.881)">
                                             <path id="Subtraction_3" data-name="Subtraction 3" d="M-5382.678,410.451h-48.645a.839.839,0,0,1-.838-.838V402.9a.839.839,0,0,1,.838-.838,3.358,3.358,0,0,0,3.354-3.355,3.358,3.358,0,0,0-3.354-3.354.84.84,0,0,1-.838-.839v-6.709a.843.843,0,0,1,.605-.806h49.11a.843.843,0,0,1,.606.806v6.709a.84.84,0,0,1-.839.839,3.359,3.359,0,0,0-3.355,3.354,3.359,3.359,0,0,0,3.355,3.355.839.839,0,0,1,.839.838v6.711A.839.839,0,0,1-5382.678,410.451Zm-9.227-5.032h1.678v3.355h6.709v-5.1a5.035,5.035,0,0,1-4.127-4.129,5.038,5.038,0,0,1,4.127-5.8v-5.1H-5422.1v2.516h-1.678v-2.516h-6.709v5.1a5.032,5.032,0,0,1,4.128,4.128,5.039,5.039,0,0,1-4.128,5.8v5.1h6.709v-.839h1.678v.839h30.191v-3.354Zm-5.87,1.677h-18.451a.839.839,0,0,1-.839-.838,1.68,1.68,0,0,0-1.677-1.678.839.839,0,0,1-.839-.838V393.677a.84.84,0,0,1,.839-.839,1.679,1.679,0,0,0,1.677-1.677.84.84,0,0,1,.839-.839h18.451a.84.84,0,0,1,.839.839,1.679,1.679,0,0,0,1.677,1.677.84.84,0,0,1,.839.839v10.065a.839.839,0,0,1-.839.838,1.68,1.68,0,0,0-1.677,1.678A.839.839,0,0,1-5397.774,407.1Zm-17.718-15.1a3.372,3.372,0,0,1-2.41,2.41v8.6a3.369,3.369,0,0,1,2.41,2.41h16.985a3.368,3.368,0,0,1,2.411-2.41v-8.6a3.373,3.373,0,0,1-2.411-2.41h-16.985ZM-5422,406.226h-2v-3h2v3Zm32-2h-2v-4h2v4Zm-32-3h-2v-3h2v3Zm32-3h-2v-3h2v3Zm-32-2h-2v-3h2v3Zm32-3h-2v-3h2v3Z" transform="translate(6337.311 3041.87) rotate(25)" />
@@ -249,7 +249,7 @@ class ShortLink extends React.Component {
                         </div>
                         <div className="col-lg-2 col-md-4">
                             <div className="single-linked">
-                                <Link to="/">
+                                <Link to={`${process.env.PUBLIC_URL}/`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36.624" height="36.735" viewBox="0 0 36.624 36.735">
                                         <g id="Group_1142" data-name="Group 1142" transform="translate(-1466 -1091.955)">
                                             <g id="suitcase" transform="translate(1465.223 1091.955)">

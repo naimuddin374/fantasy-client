@@ -54,7 +54,7 @@ class Faq extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                                        <div className="allfaq-show mt-5 text-center"> <Link to="/faq" className="theme-btn">View All</Link>
+                                        <div className="allfaq-show mt-5 text-center"> <Link to={`${process.env.PUBLIC_URL}/faq`} className="theme-btn">View All</Link>
                                         </div>
                                     </div>
                                 </div>

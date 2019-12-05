@@ -17,15 +17,18 @@ class ThingsToDo extends React.Component {
                     rides: res.data
                 })
             })
+            .catch(err => console.log(err.response))
         Axios.get(`${API_URL}api/ride-category`)
             .then(res => {
                 this.setState({
                     categories: res.data
                 })
             })
+            .catch(err => console.log(err.response))
     }
     render() {
         let { rides, categories } = this.state
+        console.log('rides', rides)
         return (
             <div>
                 <section className="ticket-choosen-area full-bg">
@@ -91,7 +94,7 @@ class ThingsToDo extends React.Component {
                                     <div className="row">
                                         {Object.keys(rides).length !== 0 &&
                                             rides.map(item => (
-                                                cat.id === item.category_id &&
+                                                Number(cat.id) === Number(item.category_id) &&
                                                 <Item data={item} key={item.id} />
                                             ))
                                         }

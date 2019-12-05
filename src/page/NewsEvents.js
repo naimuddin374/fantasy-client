@@ -35,7 +35,7 @@ class NewsEvents extends React.Component {
                             events.slice(0, 30).map(item => (
                                 <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                                     <div className="single-news">
-                                        <Link to={`/news-event-detail/${item.id}`}>
+                                        <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>
                                             <img className="top-left-right-radius" src={API_URL + item.image} alt="news" />
                                         </Link>
                                         <div className="latest-news-content bottom-left-right-radius">
@@ -44,9 +44,9 @@ class NewsEvents extends React.Component {
                                                     {item.created_at}
                                                 </Moment>
                                             </span>
-                                            <h4><Link to={`/news-event-detail/${item.id}`}>{item.title}</Link></h4>
+                                            <h4><Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>{item.title}</Link></h4>
                                             <p>{textLimit(item.description, 85)}</p>
-                                            <Link to={`/news-event-detail/${item.id}`} className="read-more-btn">Read More</Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`} className="read-more-btn">Read More</Link>
                                         </div>
                                         <div className="newshap">
                                             <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
@@ -56,13 +56,6 @@ class NewsEvents extends React.Component {
                             ))
                         }
                     </div>
-                    {/* <div className="row">
-                        <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-                            <div className="view-all-blog-post text-center mt-5">
-                                <Link to="/" className="theme-btn">View All</Link>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </section>
         )

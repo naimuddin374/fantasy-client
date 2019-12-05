@@ -11,7 +11,7 @@ class Direction extends React.Component {
                             <div className="row">
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="/">
+                                        <Link to={`${process.env.PUBLIC_URL}/`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1292" data-name="Group 1292" transform="translate(-560 -2216)">
                                                     <g id="Group_1290" data-name="Group 1290">
@@ -27,7 +27,7 @@ class Direction extends React.Component {
                                 </div>
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="/">
+                                        <Link to={`${process.env.PUBLIC_URL}/`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1293" data-name="Group 1293" transform="translate(-782 -2216)">
                                                     <circle id="Ellipse_17" data-name="Ellipse 17" cx="49.5" cy="49.5" r="49.5" transform="translate(782 2216)" fill="#f9f9f9" />
@@ -40,7 +40,7 @@ class Direction extends React.Component {
                                 </div>
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="/">
+                                        <Link to={`${process.env.PUBLIC_URL}/`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1293" data-name="Group 1293" transform="translate(-1012 -2216)">
                                                     <circle id="Ellipse_18" data-name="Ellipse 18" cx="49.5" cy="49.5" r="49.5" transform="translate(1012 2216)" fill="#f9f9f9" />
@@ -62,7 +62,7 @@ class Direction extends React.Component {
                                 </div>
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="/">
+                                        <Link to={`${process.env.PUBLIC_URL}/`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1293" data-name="Group 1293" transform="translate(-1012 -2216)">
                                                     <circle id="Ellipse_18" data-name="Ellipse 18" cx="49.5" cy="49.5" r="49.5" transform="translate(1012 2216)" fill="#f9f9f9" />

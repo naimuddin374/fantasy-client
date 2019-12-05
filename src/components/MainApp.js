@@ -32,23 +32,22 @@ class MainApp extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
-                    <Route path='/faq' component={Faq} />
-                    <Route path='/ticket/:id' exact component={Ticket} />
-                    <Route path='/ticket' exact component={Ticket} />
-                    <Route path='/register' component={Register} history={this.props.history} />
-                    <Route path='/login' component={Login} history={this.props.history} />
-                    {/* <Route path='/ride' component={RidePage} /> */}
-                    <Route path='/checkout' component={Checkout} />
-                    <Route path='/atlantis' component={Atlantis} />
-                    <Route path='/things-to-do' component={ThingsToDo} />
-                    <Route path='/water-kingdom' component={WaterKingdom} />
-                    <Route path='/fantasy-kingdom' component={FantasyKingdom} />
-                    <Route path='/extreme-racing' component={ExtremeKingdom} />
-                    <Route path='/foys-lake' component={FoysLake} />
-                    <Route path='/heritage-park' component={HeritagePark} />
-                    <Route path='/news-events' component={NewsEvents} />
-                    <Route path="/news-event-detail/:id" component={NewsEventDetail} />
-                    <Route path='/' exact component={HomePage} />
+                    <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} />
+                    <Route path={`${process.env.PUBLIC_URL}/ticket/:id`} exact component={Ticket} />
+                    <Route path={`${process.env.PUBLIC_URL}/ticket`} exact component={Ticket} />
+                    <Route path={`${process.env.PUBLIC_URL}/register`} component={Register} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/checkout`} component={Checkout} />
+                    <Route path={`${process.env.PUBLIC_URL}/atlantis`} component={Atlantis} />
+                    <Route path={`${process.env.PUBLIC_URL}/things-to-do`} component={ThingsToDo} />
+                    <Route path={`${process.env.PUBLIC_URL}/water-kingdom`} component={WaterKingdom} />
+                    <Route path={`${process.env.PUBLIC_URL}/fantasy-kingdom`} component={FantasyKingdom} />
+                    <Route path={`${process.env.PUBLIC_URL}/extreme-racing`} component={ExtremeKingdom} />
+                    <Route path={`${process.env.PUBLIC_URL}/foys-lake`} component={FoysLake} />
+                    <Route path={`${process.env.PUBLIC_URL}/heritage-park`} component={HeritagePark} />
+                    <Route path={`${process.env.PUBLIC_URL}/news-events`} component={NewsEvents} />
+                    <Route path={`${process.env.PUBLIC_URL}/news-event-detail/:id`} component={NewsEventDetail} />
+                    <Route path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} />
                 </Switch>
                 <FooterPage />
             </div>

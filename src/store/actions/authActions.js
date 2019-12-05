@@ -17,7 +17,7 @@ export const Registration = (data, history) => dispatch => {
                     type: 'success',
                 }
             })
-            history.push('/login')
+            history.push(`${process.env.PUBLIC_URL}/login`)
         })
         .catch(err => {
             if (err.response.data.validation) {
@@ -54,7 +54,7 @@ export const Login = (data, history) => dispatch => {
                     type: 'success',
                 }
             })
-            history.push('/')
+            history.push(`${process.env.PUBLIC_URL}/`)
         })
         .catch(err => {
             dispatch({
@@ -68,7 +68,7 @@ export const Login = (data, history) => dispatch => {
 }
 export const logout = history => dispatch => {
     localStorage.removeItem('auth_token')
-    history.push('/login')
+    history.push(`${process.env.PUBLIC_URL}/login`)
     window.location.reload();
     dispatch({
         type: SET_USER,
