@@ -67,3 +67,11 @@ h4.product-price {
     width: 100%;
     height: 226px;
 }
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+body.swal2-toast-shown .swal2-container.swal2-top-end {
+    z-index: 999999 !important;
+}

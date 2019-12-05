@@ -1,12 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import { API_URL } from '../../store/actions/types';
 import Axios from 'axios';
+import FeatureIcon from './FeatureIcon';
+import BookingForm from './BookingForm';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 class OurRoom extends React.Component {
     state = {
         thumbnailImage: API_URL + this.props.data.image,
-        galleries: {}
+        galleries: {},
+        isModalOpen: false,
+        detailData: {}
+    }
+    openModal = (data) => {
+        this.setState({
+            isModalOpen: true,
+            detailData: data,
+        })
+    }
+    closeModal = () => {
+        this.setState({
+            isModalOpen: false,
+            detailData: {}
+        })
     }
     componentDidMount() {
         Axios.get(`${API_URL}api/room-gallery/${this.props.data.id}`)
@@ -27,7 +45,6 @@ class OurRoom extends React.Component {
         return (
             <section className="atlantis-room-suites section-padding-bottom relative">
                 <div className="container">
-
                     <div className="atlantis-room-suites-feature-area">
                         <div className="row">
                             <div className="col-lg-8 col-md-12">
@@ -59,25 +76,9 @@ class OurRoom extends React.Component {
                                 <div className="room-suite-inner-content-area pt-3">
                                     <h3>{title}</h3>
                                     <p>{description}</p>
-
                                     <div className="row">
                                         <div className="col-lg-8 col-md-8">
-                                            <div className="room-suite-features">
-                                                <div className="single-room-feature">
-                                                    <ul>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />{type === "1" ? 'Non Air-conditioned Room' : 'Air-conditioned Room'}</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Credit Card Facility</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />En-suite Bathroom</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Convenience Store</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Telephone</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Laundry Service</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Cable TV</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Cyber Café/Wi-Fi</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Car Parking</li>
-                                                        <li><img src="./assets/images/atlantis/feature_icon.png" alt="atlantis feature icon" />Restaurant</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <FeatureIcon type={type} />
                                         </div>
                                         <div className="col-lg-4 col-md-4">
                                             <div className="atlantis-booking-ticket-area">
@@ -88,7 +89,10 @@ class OurRoom extends React.Component {
                                                     <span className="atlantis-charge">10% tax + 5% Service Charge</span>
                                                     <h3 className="atlantis-free-collection">*Free cancellation</h3>
                                                 </div>
-                                                <Link to="/" className="atlantis-book-now-btn btn">Book Now</Link>
+                                                {this.props.auth.isAuth ?
+                                                    <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn">Book Now</button>
+                                                    : <Link to="/login" className="atlantis-book-now-btn btn">Book Now</Link>
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -96,10 +100,18 @@ class OurRoom extends React.Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
+                <BookingForm
+                    isOpen={this.state.isModalOpen}
+                    isClose={this.closeModal}
+                    detailData={this.props.data}
+                />
             </section>
         )
     }
 }
-export default OurRoom
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+export default connect(mapStateToProps)(OurRoom)

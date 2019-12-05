@@ -1,12 +1,14 @@
 import React from 'react'
 import Item from './Item'
+import { DISCOUNT_TAG } from '../../store/actions/types'
+
 
 class ItemList extends React.Component {
     render() {
         let { rides, paramId } = this.props
         return (
             <span>
-                {paramId === "DC1000" ?
+                {paramId === DISCOUNT_TAG ?
                     <span>
                         <div className="checkout-inner-content-area mb-5">
                             <h4 className="ticket-name">Discount Ticket</h4>

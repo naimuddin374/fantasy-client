@@ -51,9 +51,6 @@ class Atlantis extends React.Component {
                         />
                     ))
                 }
-
-                {/* <OurRoom /> */}
-
                 <ContactUs />
             </div>
         )

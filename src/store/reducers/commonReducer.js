@@ -13,7 +13,8 @@ const commonReducer = (state = init, action) => {
                 return {
                     ...state,
                     message: action.payload.message,
-                    type: action.payload.type,
+                    // type: action.payload.type,
+                    type: 'success',
                     time: new Date().toLocaleString(),
                 }
             }

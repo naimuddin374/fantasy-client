@@ -1,7 +1,5 @@
 import { SET_MESSAGE, API_URL, SET_VALIDATION, SET_USER } from './types'
 import Axios from 'axios'
-import { createBrowserHistory } from 'history';
-export default createBrowserHistory();
 
 export const Registration = (data, history) => dispatch => {
     Axios.post(`${API_URL}api/register`, data)

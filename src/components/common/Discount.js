@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
-import { API_URL } from '../../store/actions/types'
+import { API_URL, DISCOUNT_TAG } from '../../store/actions/types'
 
 class Discount extends React.Component {
     state = {
@@ -87,7 +87,7 @@ class Discount extends React.Component {
                             <div className="discount-wrapper">
                                 {Object.keys(discount).length !== 0 &&
                                     discount.map(item => (
-                                        <Link key={item.id} to={item.hyperlink !== null ? `/${item.hyperlink}` : '/ticket'}>
+                                        <Link key={item.id} to={item.hyperlink !== null ? `/${item.hyperlink}` : `/ticket/${DISCOUNT_TAG}`}>
                                             <img src={API_URL + item.image} alt="discount png" />
                                         </Link>
                                     ))

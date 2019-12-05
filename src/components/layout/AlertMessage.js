@@ -4,15 +4,19 @@ import Swal from 'sweetalert2'
 
 class AlertMessage extends React.Component {
     render() {
-        let Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000
-        })
         if (this.props.common.message) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
             Toast.fire({
-                type: this.props.common.type,
                 icon: this.props.common.type,
                 title: this.props.common.message
             })

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Cart from './Cart'
 import { connect } from 'react-redux';
 import { logout } from '../../store/actions/authActions'
+import { DISCOUNT_TAG } from '../../store/actions/types';
+
 
 class Menu extends React.Component {
     state = {
@@ -87,7 +89,7 @@ class Menu extends React.Component {
                                         </li>
                                         <li className="nav-item"> <Link to="/things-to-do" className="nav-link">Things To Do</Link></li>
                                         <li className="nav-item"> <Link to="/atlantis" className="nav-link">Places to stay</Link></li>
-                                        <li className="nav-item"> <Link to="/ticket" className="nav-link">Offers</Link>
+                                        <li className="nav-item"> <Link to={`/ticket/${DISCOUNT_TAG}`} className="nav-link">Offers</Link>
                                         </li>
                                         <li className="nav-item"> <Link className="nav-link" to="/faq">FAQ</Link>
                                         </li>
