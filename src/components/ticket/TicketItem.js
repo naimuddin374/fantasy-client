@@ -26,139 +26,74 @@ class TicketItem extends React.Component {
                 }
                 let rides = this.props.cart.rides
                 if (Object.keys(rides).length === 0) {
-                    this.setState({
-                        rides: allItem
-                    })
+                    this.props.addToCart(allItem)
                 } else {
                     // Check this item already in cart set isInCart true of false
-                    let newRideArr = allItem.map(item => {
-                        let cartCheck = rides.filter(ride => ride.id === item.id)
-                        let newObj = {
-                            isInCart: false
+                    let newArr = allItem.map(item => {
+                        let obj = {
+                            ...item
                         }
-                        if (Object.keys(cartCheck).length !== 0) {
-                            newObj = {
-                                isInCart: false,
-                                kids_quantity: cartCheck[0].kids_quantity,
-                                adult_quantity: cartCheck[0].adult_quantity,
-                            }
+                        let selItem = rides.filter(cart => (cart.id === item.id && cart.isInCart))
+                        if (Object.keys(selItem).length !== 0) {
+                            obj.isInCart = true
+                            obj.kids_quantity = selItem[0].kids_quantity
+                            obj.adult_quantity = selItem[0].adult_quantity
                         }
-                        return {
-                            ...item,
-                            ...newObj
-                        }
+                        return obj
                     })
-                    this.setState({
-                        rides: newRideArr
-                    })
+                    this.props.addToCart(newArr)
                 }
-
             })
     }
 
     // Manage Plus item quantity
     quantityAddHandler(id, type) {
-        // Set item quantity in state 
         let newArr = this.state.rides.map(item => {
             return {
                 ...item,
-                kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) + 1 : Number(item.kids_quantity),
-                adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) + 1 : Number(item.adult_quantity)
+                kids_quantity: (item.id === id && type === 2) ? item.kids_quantity + 1 : item.kids_quantity,
+                adult_quantity: (item.id === id && type === 1) ? item.adult_quantity + 1 : item.adult_quantity
             }
         })
-        this.setState({
-            rides: newArr
-        })
-
-        // Manage quantity in cart 
-        if (Object.keys(this.props.cart.rides).length !== 0) {
-            let selItem = this.props.cart.rides.filter(item => item.id === id)
-            if (Object.keys(selItem).length !== 0) {
-                let newArr = this.props.cart.rides.map(item => {
-                    return {
-                        ...item,
-                        kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) + 1 : Number(item.kids_quantity),
-                        adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) + 1 : Number(item.adult_quantity)
-                    }
-                })
-                this.props.addToCart(newArr)
-            }
-        }
+        this.props.addToCart(newArr)
     }
     quantityMinusHandler(id, type) {
-
-        // Set new value in state after minus quantity 
-        let quantityManArr = this.state.rides.map(item => {
-            return {
-                ...item,
-                kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) - 1 : Number(item.kids_quantity),
-                adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) - 1 : Number(item.adult_quantity)
-            }
-        })
-        this.setState({
-            rides: quantityManArr
-        })
-
-        // Manage cart if have this item already in cart
-        if (Object.keys(this.props.cart.rides).length !== 0) {
-            let selItem = this.props.cart.rides.filter(item => item.id === id)
-            if (Object.keys(selItem).length !== 0) {
-
-                // If new quantity 0
-                if ((selItem[0].kids_quantity === 1 && selItem[0].adult_quantity === 0) || (selItem[0].kids_quantity === 0 && selItem[0].adult_quantity === 1)) {
-                    let newArr = this.props.cart.rides.filter(item => item.id !== id)
-                    this.props.addToCart(newArr)
-                    let newStateArr = quantityManArr.map(item => {
-                        return {
-                            ...item,
-                            isInCart: item.id === id ? false : item.isInCart
-                        }
-                    })
-                    this.setState({
-                        rides: newStateArr
-                    })
-                } else {
-                    let newArr = this.props.cart.rides.map(item => {
-                        return {
-                            ...item,
-                            kids_quantity: (item.id === id && type === 2) ? Number(item.kids_quantity) - 1 : Number(item.kids_quantity),
-                            adult_quantity: (item.id === id && type === 1) ? Number(item.adult_quantity) - 1 : Number(item.adult_quantity)
-                        }
-                    })
-                    this.props.addToCart(newArr)
-                }
-            }
-        }
-    }
-    addToCartHandler(data) {
-        // Check quantity 
-        if (data.adult_quantity === 0 && data.kids_quantity === 0) {
-            data.kids_quantity = 1
-        }
-        // Add first item in cart
-        let rides = this.props.cart.rides
-        if (Object.keys(rides).length === 0) {
-            this.props.addToCart([data])
-        } else {
-            let checkArr = rides.filter(cart => cart.id === data.id)
-            if (Object.keys(checkArr).length !== 0) {
-                alert('This item already in cart')
-            } else {
-                let oldData = rides.filter(item => item.id !== data.id)
-                this.props.addToCart(oldData.concat(data))
-            }
-        }
-
-        // Set isInCart in state
         let newArr = this.state.rides.map(item => {
-            return {
+            let obj = {
                 ...item,
-                isInCart: item.id === data.id ? true : item.isInCart
+                kids_quantity: (item.id === id && type === 2) ? item.kids_quantity - 1 : item.kids_quantity,
+                adult_quantity: (item.id === id && type === 1) ? item.adult_quantity - 1 : item.adult_quantity
             }
+            if (obj.kids_quantity === 0 && obj.adult_quantity === 0) {
+                obj.isInCart = false
+            }
+            return obj
         })
-        this.setState({
-            rides: newArr
+        this.props.addToCart(newArr)
+    }
+    addToCartHandler(id) {
+        let newArr = this.state.rides.map(item => {
+            let obj = {
+                ...item
+            }
+            if (item.id === id) {
+                obj.isInCart = true
+            }
+            if (obj.kids_quantity === 0 && obj.adult_quantity === 0) {
+                obj.kids_quantity = 1
+            }
+            if (obj.adult_quantity === 0 && obj.kids_quantity === 0) {
+                obj.kids_quantity = 1
+            }
+            return obj
         })
+        this.props.addToCart(newArr)
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
+        return {
+            rides: nextProps.cart.rides,
+        }
     }
     render() {
         let { rides } = this.state

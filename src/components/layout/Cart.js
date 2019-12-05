@@ -10,19 +10,21 @@ class Cart extends React.Component {
         rides: {},
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        if (JSON.stringify(nextProps.cart.rides) !== JSON.stringify(prevState.rides)) {
-            return {
-                rides: nextProps.cart.rides,
-            }
+        if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
+        return {
+            rides: nextProps.cart.rides.filter(item => item.isInCart)
         }
-        return null
     }
-
     cartRemoveHandler(id) {
-        let newArr = this.state.rides.filter(item => item.id !== id)
+        let newArr = this.props.cart.rides.map(item => {
+            let obj = { ...item }
+            if (item.id === id) {
+                obj.isInCart = false
+            }
+            return obj
+        })
         this.props.addToCart(newArr)
     }
-
     render() {
         let { rides } = this.state
         let totalPrice = 0
