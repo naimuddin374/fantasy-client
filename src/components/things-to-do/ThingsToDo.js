@@ -28,7 +28,6 @@ class ThingsToDo extends React.Component {
     }
     render() {
         let { rides, categories } = this.state
-        console.log('rides', rides)
         return (
             <div>
                 <section className="ticket-choosen-area full-bg">

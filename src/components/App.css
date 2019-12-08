@@ -75,3 +75,24 @@ h4.product-price {
 body.swal2-toast-shown .swal2-container.swal2-top-end {
     z-index: 999999 !important;
 }
+
+/* add to cart btn custom style */
+button.link-btn {
+    background: transparent;
+    height: 15px;
+    width: 15px;
+    border: 1px solid;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+button.link-btn i {
+    font-size: 11px;
+}
+button.link-btn i {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+}

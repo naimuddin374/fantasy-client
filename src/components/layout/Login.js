@@ -36,7 +36,7 @@ class Register extends React.Component {
                         <div className="col-md-6 offset-md-3">
                             <form onSubmit={this.submitHandler}>
                                 <div className="form-group">
-                                    <label htmlFor="contact_no">Connect Number <span className="text-danger">*</span></label>
+                                    <label htmlFor="contact_no">Contact Number <span className="text-danger">*</span></label>
                                     <input
                                         type="number"
                                         className="form-control"

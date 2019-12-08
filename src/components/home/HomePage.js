@@ -21,11 +21,11 @@ class HomePage extends React.Component {
                 <ShortLink />
                 <DiscoverPackage />
                 <Direction />
-                <NewsEvents />
+                <Benefits />
                 <Things />
                 <Ticket />
                 <Newsletter />
-                <Benefits />
+                <NewsEvents />
                 <Award />
             </div>
         )

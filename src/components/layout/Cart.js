@@ -47,7 +47,7 @@ class Cart extends React.Component {
                                             <span className="float-left">{item.adult_quantity !== 0 && `A-${item.adult_quantity}`} {item.kids_quantity !== 0 && `K-${item.kids_quantity}`}</span>
                                             <span className="float-right">৳{getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span></p>
                                     </div>
-                                    <div className="fantasy-cart-remove"><a className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></a>
+                                    <div className="fantasy-cart-remove"><button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button>
                                     </div>
                                 </div>
                             ))}

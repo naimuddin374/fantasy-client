@@ -35,19 +35,24 @@ class Atlantis extends React.Component {
                 <Breadcrumb />
                 <InnerSearch className="atlantis" />
                 <PageContent />
-
-                <section className="atlantis-room-suites section-padding-bottom relative">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-8 col-md-8">
-                                <div className="section-title atlantis-section-title mb-40">
-                                    <h2>Our Rooms & Suites</h2>
+                {Object.keys(rooms).length === 0 ? <div className="row mb-5">
+                    <div className="col-md-6 offset-3">
+                        <h1>No Rooms Available</h1>
+                    </div>
+                </div>
+                    : <section className="atlantis-room-suites section-padding-bottom relative">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-8 col-md-8">
+                                    <div className="section-title atlantis-section-title mb-40">
+                                        <h2>Our Rooms & Suites</h2>
+                                    </div>
                                 </div>
                             </div>
+                            <CircleShape />
                         </div>
-                        <CircleShape />
-                    </div>
-                </section>
+                    </section>
+                }
 
                 {Object.keys(rooms).length !== 0 &&
                     rooms.map(item => (

@@ -8,6 +8,7 @@ class App extends React.Component {
     render() {
         return (
             <BrowserRouter>
+                {/* <BrowserRouter basename={'/fantasykingdom'}> */}
                 <MainApp history={History} />
             </BrowserRouter>
         )

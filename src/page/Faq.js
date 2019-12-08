@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import { API_URL } from './../store/actions/types';
 
 class Faq extends React.Component {
     state = {
@@ -8,7 +9,7 @@ class Faq extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
 
-        Axios.get('api/faq')
+        Axios.get(`${API_URL}api/faq`)
             .then(res => {
                 this.setState({
                     faqs: res.data

@@ -25,7 +25,9 @@ class Breadcrumb extends React.Component {
         });
     }
     changeHandler = event => {
-        console.log(event.target.value)
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
     submitHandler = event => {
         event.preventDefault()
@@ -75,7 +77,7 @@ class Breadcrumb extends React.Component {
                                     </div>
 
                                     <div className="atlantis-single-search-content number-guest">
-                                      
+
                                         <label htmlFor="no_of_guest">Number of guest</label>
                                         <div className="single-atlantis-park-search">
                                             <div className="atlantis-nice-select">
