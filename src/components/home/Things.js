@@ -23,11 +23,13 @@ class Things extends React.Component {
             fade: false,
             speed: 1000,
             rows: 1,
-            dots: true,
+            dots: false,
             autoplay: true,
-            arrows: false,
+            arrows: true,
             slidesToShow: 5,
             slidesToScroll: 5,
+            prevArrow: <div className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>,
+            nextArrow: <div className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>,
             responsive: [
                 {
                     breakpoint: 1920,

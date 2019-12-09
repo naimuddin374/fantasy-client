@@ -32,13 +32,13 @@ class Gallery extends React.Component {
     render() {
         let { imageSrc, images, photoIndex, isOpen, className } = this.state
         let settings = {
-            dots: true,
+            dots: false,
             infinite: false,
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 3,
             rows: 2,
-            arrows: false,
+            arrows: true,
             prevArrow: <div className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>,
             nextArrow: <div className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>,
             responsive: [

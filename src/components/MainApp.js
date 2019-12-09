@@ -28,7 +28,7 @@ import Login from './layout/Login'
 class MainApp extends React.Component {
     render() {
         return (
-            <div>
+            <div className="main-div">
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
