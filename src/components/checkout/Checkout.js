@@ -8,11 +8,13 @@ class Checkout extends React.Component {
     state = {
         rides: {},
         auth: this.props.auth,
+        booking: {}
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
+        if ((JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) && (JSON.stringify(nextProps.cart.booking) === JSON.stringify(prevState.booking))) return null
         return {
-            rides: nextProps.cart.rides.filter(item => item.isInCart)
+            rides: nextProps.cart.rides.filter(item => item.isInCart),
+            booking: nextProps.cart.booking,
         }
     }
     componentDidMount() {
@@ -22,12 +24,15 @@ class Checkout extends React.Component {
         if (!this.state.auth.isAuth) {
             window.location.href = `${process.env.PUBLIC_URL}/login`;
         }
-        let { rides } = this.state
+        let { rides, booking } = this.state
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
                 totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
             ))
+        if (Object.keys(booking).length !== 0) {
+            totalPrice = totalPrice + Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)
+        }
         return (
             <div>
                 <section className="page-breadcrum-area checkout-page-content section-padding">
@@ -75,6 +80,32 @@ class Checkout extends React.Component {
                                                     </div>
                                                 </div>
                                             ))}
+
+                                        {Object.keys(booking).length !== 0 &&
+                                            <div className="single-order-content" key={booking[0].id}>
+                                                <div className="product-order-details">
+                                                    <div className="product-detais-order-innder">
+                                                        <div className="prduct-order-count">	<span>R1.</span>
+                                                        </div>
+                                                        <div className="product-order-name">
+                                                            <ul>
+                                                                <li>
+                                                                    <span className="float-left">
+                                                                        <img src={booking[0].image ? API_URL + booking[0].image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '50px' }} />
+                                                                    </span>
+                                                                    <span className="float-left ml-5">
+                                                                        {booking[0].title}
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="product-total-order-price">
+                                                    <span>৳{Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)}</span>
+                                                </div>
+                                            </div>
+                                        }
 
                                         <div className="total-order-count">	<span>Total</span>
                                             <span>৳{totalPrice}</span>

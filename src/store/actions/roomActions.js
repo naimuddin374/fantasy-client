@@ -1,9 +1,15 @@
-import { SET_MESSAGE, API_URL, SET_ROOM_RESULT } from './types'
+import { SET_MESSAGE, API_URL, SET_ROOM_RESULT, SET_ROOM_IN_CART } from './types'
 import Axios from 'axios'
 
-export const storeRoomBooking = data => dispatch => {
+export const storeRoomBooking = (data, history, roomData) => dispatch => {
     Axios.post(`${API_URL}api/room-booking`, data)
         .then(res => {
+            let bookingData = [{ ...roomData, booking_id: res.data.booking_id }]
+            localStorage.setItem('booking_data', JSON.stringify(bookingData))
+            dispatch({
+                type: SET_ROOM_IN_CART,
+                payload: bookingData
+            })
             dispatch({
                 type: SET_MESSAGE,
                 payload: {
@@ -11,9 +17,10 @@ export const storeRoomBooking = data => dispatch => {
                     type: 'success',
                 }
             })
+            history.push('/checkout')
         })
         .catch(err => {
-            console.log(err.response.data)
+            console.log(err.response)
             dispatch({
                 type: SET_MESSAGE,
                 payload: {

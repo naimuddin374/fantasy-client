@@ -8,11 +8,13 @@ import { getItemPrice } from '../../util/helper'
 class Cart extends React.Component {
     state = {
         rides: {},
+        booking: {},
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
+        if ((JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) && (JSON.stringify(nextProps.cart.booking) === JSON.stringify(prevState.booking))) return null
         return {
-            rides: nextProps.cart.rides.filter(item => item.isInCart)
+            rides: nextProps.cart.rides.filter(item => item.isInCart),
+            booking: nextProps.cart.booking,
         }
     }
     cartRemoveHandler(id) {
@@ -26,31 +28,51 @@ class Cart extends React.Component {
         this.props.addToCart(newArr)
     }
     render() {
-        let { rides } = this.state
+        let { rides, booking } = this.state
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
                 totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
             ))
+        let totalItem = Object.keys(rides).length
+        if (Object.keys(booking).length !== 0) {
+            totalPrice = totalPrice + Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)
+            totalItem = totalItem + 1
+        }
         return (
-            <li className="nav-item cart-item-header"><Link className="nav-link shopping-cart-btn" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">{Object.keys(rides).length}</span></Link>
-                {Object.keys(rides).length !== 0 &&
+            <li className="nav-item cart-item-header"><Link className="nav-link shopping-cart-btn" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">{totalItem}</span></Link>
+                {(Object.keys(rides).length !== 0 || (Object.keys(booking).length !== 0)) &&
                     <div className="fantasy-mini-cart">
                         <div className="fantasy-mini-cart-inner">
-                            {rides.map(item => (
-                                <div className="fantasy-cart-item" key={item.id}>
+                            {Object.keys(rides).length !== 0 &&
+                                rides.map(item => (
+                                    <div className="fantasy-cart-item" key={item.id}>
+                                        <div className="fantasy-cart-img">
+                                            <img src={API_URL + item.image} alt="product" />
+                                        </div>
+                                        <div className="fantasy-cart-info">	<p>{item.title}</p>
+                                            <p>
+                                                <span className="float-left">{item.adult_quantity !== 0 && `A-${item.adult_quantity}`} {item.kids_quantity !== 0 && `K-${item.kids_quantity}`}</span>
+                                                <span className="float-right">৳{getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span></p>
+                                        </div>
+                                        <div className="fantasy-cart-remove"><button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button>
+                                        </div>
+                                    </div>
+                                ))}
+                            {Object.keys(booking).length !== 0 &&
+                                <div className="fantasy-cart-item" key={booking[0].id}>
                                     <div className="fantasy-cart-img">
-                                        <img src={API_URL + item.image} alt="product" />
+                                        <img src={API_URL + booking[0].image} alt="product" />
                                     </div>
-                                    <div className="fantasy-cart-info">	<p>{item.title}</p>
+                                    <div className="fantasy-cart-info">	<p>{booking[0].title}</p>
                                         <p>
-                                            <span className="float-left">{item.adult_quantity !== 0 && `A-${item.adult_quantity}`} {item.kids_quantity !== 0 && `K-${item.kids_quantity}`}</span>
-                                            <span className="float-right">৳{getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span></p>
+                                            <span className="float-right">৳{Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)}</span></p>
                                     </div>
-                                    <div className="fantasy-cart-remove"><button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button>
+                                    <div className="fantasy-cart-remove">
+                                        {/* <button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button> */}
                                     </div>
                                 </div>
-                            ))}
+                            }
                             <div className="fantasy-mini-cart-table">
                                 <div className="fantasy-cart-total mt-10">	<span className="fantasy-total-amount">Total:</span>
                                     <span className="fantasy-price">৳{totalPrice}</span>

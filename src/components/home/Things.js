@@ -23,7 +23,7 @@ class Things extends React.Component {
             fade: false,
             speed: 1000,
             rows: 1,
-            dots: false,
+            dots: true,
             autoplay: true,
             arrows: false,
             slidesToShow: 5,
@@ -81,11 +81,11 @@ class Things extends React.Component {
                 <div className="things-wrapper">
                     <Slider {...settings}>
                         {Object.keys(rides).length !== 0 &&
-                            rides.map(item => (
+                            rides.map(item => (item.slide === 1 &&
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">
-                                            <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}><img src={API_URL+item.image} alt="thins img" /></Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}><img src={API_URL + item.image} alt="thins img" /></Link>
                                         </div>
                                         <div className="thing-offer">
                                             <span className="offer-shape">Ride</span>

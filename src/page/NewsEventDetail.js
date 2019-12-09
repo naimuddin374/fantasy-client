@@ -10,13 +10,14 @@ class NewsEventDetail extends React.Component {
         events: {},
         eventsDetail: {},
     }
-    componentWillReceiveProps(props) {
+    UNSAFE_componentWillReceiveProps(props) {
         Axios.get(`${API_URL}api/news-event/detail/${props.match.params.id}`)
             .then(res => {
                 this.setState({
                     eventsDetail: res.data
                 })
             })
+        window.scrollTo(0, 0)
     }
     componentDidMount() {
         Axios.get(`${API_URL}api/news-event`)

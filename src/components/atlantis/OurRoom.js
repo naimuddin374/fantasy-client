@@ -105,6 +105,7 @@ class OurRoom extends React.Component {
                     isOpen={this.state.isModalOpen}
                     isClose={this.closeModal}
                     detailData={this.props.data}
+                    history={this.props.history}
                 />
             </section>
         )

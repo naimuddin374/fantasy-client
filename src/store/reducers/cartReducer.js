@@ -1,8 +1,9 @@
-import { ADD_TO_CART, SET_ROOM_RESULT } from '../actions/types'
+import { ADD_TO_CART, SET_ROOM_RESULT, SET_ROOM_IN_CART } from '../actions/types'
 
 const init = {
     rides: {},
-    rooms: {}
+    rooms: {},
+    booking: {}
 }
 
 const cartReducer = (state = init, action) => {
@@ -19,6 +20,13 @@ const cartReducer = (state = init, action) => {
                 return {
                     ...state,
                     rooms: action.payload,
+                }
+            }
+        case SET_ROOM_IN_CART:
+            {
+                return {
+                    ...state,
+                    booking: action.payload,
                 }
             }
         default:

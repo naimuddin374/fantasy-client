@@ -38,7 +38,7 @@ class Breadcrumb extends React.Component {
         // this.props.isClose()
     }
     render() {
-        let { checkIn, checkOut, no_of_guest, no_of_room } = this.state
+        let { checkIn, checkOut, no_of_guest } = this.state
         return (
             <section className="breadcrum-area atlantis-feature-img relative atlantis-breadcrumb-area">
                 <div className="breadcrum-feature-overlay"></div>
@@ -89,23 +89,7 @@ class Breadcrumb extends React.Component {
                                                     value={no_of_guest}
                                                     onChange={this.changeHandler}
                                                 />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="atlantis-single-search-content number-room">
-                                        <label htmlFor="no_of_room">Number of room </label>
-                                        <div className="atlantis-page-search-room">
-                                            <div className="atlantis-search-room">
-                                                <input
-                                                    type="number"
-                                                    name="no_of_room"
-                                                    id="no_of_room"
-                                                    onChange={this.changeHandler}
-                                                    placeholder="No of Room"
-                                                    value={no_of_room}
-                                                />
-                                                <button type="submit" className="atlantis-search-btn">Search</button>
+                                            <button type="submit" className="atlantis-search-btn">Search</button>
                                             </div>
                                         </div>
                                     </div>

@@ -37,7 +37,7 @@ class Atlantis extends React.Component {
                 <PageContent />
                 {Object.keys(rooms).length === 0 ? <div className="row mb-5">
                     <div className="col-md-6 offset-3">
-                        <h1>No Rooms Available</h1>
+                        <h1>No room available right now.</h1>
                     </div>
                 </div>
                     : <section className="atlantis-room-suites section-padding-bottom relative">
@@ -59,6 +59,7 @@ class Atlantis extends React.Component {
                         <OurRoom
                             key={item.id}
                             data={item}
+                            history={this.props.history}
                         />
                     ))
                 }

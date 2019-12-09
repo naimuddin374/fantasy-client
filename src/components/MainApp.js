@@ -32,22 +32,22 @@ class MainApp extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
-                    <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} />
-                    <Route path={`${process.env.PUBLIC_URL}/ticket/:id`} exact component={Ticket} />
-                    <Route path={`${process.env.PUBLIC_URL}/ticket`} exact component={Ticket} />
+                    <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/ticket/:id`} exact component={Ticket} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/ticket`} exact component={Ticket} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/register`} component={Register} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} history={this.props.history} />
-                    <Route path={`${process.env.PUBLIC_URL}/checkout`} component={Checkout} />
-                    <Route path={`${process.env.PUBLIC_URL}/atlantis`} component={Atlantis} />
-                    <Route path={`${process.env.PUBLIC_URL}/things-to-do`} component={ThingsToDo} />
-                    <Route path={`${process.env.PUBLIC_URL}/water-kingdom`} component={WaterKingdom} />
-                    <Route path={`${process.env.PUBLIC_URL}/fantasy-kingdom`} component={FantasyKingdom} />
-                    <Route path={`${process.env.PUBLIC_URL}/extreme-racing`} component={ExtremeKingdom} />
-                    <Route path={`${process.env.PUBLIC_URL}/foys-lake`} component={FoysLake} />
-                    <Route path={`${process.env.PUBLIC_URL}/heritage-park`} component={HeritagePark} />
-                    <Route path={`${process.env.PUBLIC_URL}/news-events`} component={NewsEvents} />
-                    <Route path={`${process.env.PUBLIC_URL}/news-event-detail/:id`} component={NewsEventDetail} />
-                    <Route path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} />
+                    <Route path={`${process.env.PUBLIC_URL}/checkout`} component={Checkout} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/atlantis`} component={Atlantis} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/things-to-do`} component={ThingsToDo} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/water-kingdom`} component={WaterKingdom} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/fantasy-kingdom`} component={FantasyKingdom} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/extreme-racing`} component={ExtremeKingdom} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/foys-lake`} component={FoysLake} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/heritage-park`} component={HeritagePark} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/news-events`} component={NewsEvents} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/news-event-detail/:id`} component={NewsEventDetail} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} history={this.props.history} />
                 </Switch>
                 <FooterPage />
             </div>

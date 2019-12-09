@@ -7,14 +7,14 @@ import { API_URL } from '../../store/actions/types';
 
 class Things extends React.Component {
     state = {
-        ThingsToDo: {},
+        rides: {},
         className: this.props.className
     }
     componentDidMount() {
         Axios.get(`${API_URL}api/ride${window.location.pathname}`)
             .then(res => {
                 this.setState({
-                    ThingsToDo: res.data
+                    rides: res.data
                 })
             })
     }
@@ -62,7 +62,7 @@ class Things extends React.Component {
                 }
             ]
         }
-        let { ThingsToDo, className } = this.state
+        let { rides, className } = this.state
         return (
             <section className="things-area section-padding-top full-bg">
                 <div className="container">
@@ -81,8 +81,8 @@ class Things extends React.Component {
                 </div>
                 <div className="things-wrapper">
                     <Slider {...settings}>
-                        {Object.keys(ThingsToDo).length !== 0 &&
-                            ThingsToDo.map(item => (
+                        {Object.keys(rides).length !== 0 &&
+                            rides.map(item => (item.slide === 1 &&
                                 <div className="col-lg-12 col-md-4" key={item.id}>
                                     <div className="single-things">
                                         <div className="img-things-link">

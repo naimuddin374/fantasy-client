@@ -5,6 +5,8 @@ import { storeRoomBooking } from '../../store/actions/roomActions';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import dateFormat from 'dateformat';
+import Axios from 'axios'
+import { API_URL } from '../../store/actions/types';
 
 class BookingForm extends React.Component {
     state = {
@@ -18,6 +20,8 @@ class BookingForm extends React.Component {
         checkIn: new Date('2019-12-15'),
         checkOut: new Date('2019-12-20'),
         status: 0,
+        isAvailable: false,
+        flashMessage: null
     }
     UNSAFE_componentWillReceiveProps(props) {
         this.setState({
@@ -28,9 +32,31 @@ class BookingForm extends React.Component {
         Modal.setAppElement('body');
     }
     checkInHandleChange = date => {
-        this.setState({
-            checkIn: date
-        });
+        let check_in = dateFormat(date, "yyyy-mm-dd")
+        if (check_in) {
+            Axios.post(`${API_URL}api/check-room-booking`, { check_in, room_id: this.props.detailData.id })
+                .then(res => {
+                    if (res.data.status === 1) {
+                        this.setState({
+                            checkIn: date,
+                            isAvailable: true,
+                            flashMessage: null
+                        });
+                    } else {
+                        this.setState({
+                            isAvailable: false,
+                            flashMessage: res.data.message
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.log(err.response)
+                    this.setState({
+                        isAvailable: false
+                    });
+                })
+        }
+
     }
     checkOutHandleChange = date => {
         this.setState({
@@ -49,8 +75,8 @@ class BookingForm extends React.Component {
         let check_in = dateFormat(checkIn, "yyyy-mm-dd")
         let check_out = dateFormat(checkOut, "yyyy-mm-dd")
         let user_id = localStorage.getItem('auth_token')
-        this.props.storeRoomBooking({ room_id, full_name, contact_no, email, address, no_of_guest, check_in, check_out, total_day, user_id, status: 0 })
-        this.props.isClose()
+        this.props.storeRoomBooking({ room_id, full_name, contact_no, email, address, no_of_guest, check_in, check_out, total_day, user_id, status: 0 }, this.props.history, this.props.detailData)
+        // this.props.isClose()
     }
     render() {
         const customStyles = {
@@ -66,7 +92,7 @@ class BookingForm extends React.Component {
                 border: "none"
             }
         }
-        let { detailData, checkIn, checkOut, full_name, contact_no, email, address, no_of_guest } = this.state
+        let { detailData, checkIn, checkOut, full_name, contact_no, email, address, no_of_guest, isAvailable, flashMessage } = this.state
         let isDone = checkIn && checkOut && full_name && contact_no && no_of_guest
         return (
             <Modal
@@ -81,6 +107,7 @@ class BookingForm extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body ticket-body-modal-content">
+                        {flashMessage && <h3 className="text-danger">{flashMessage}</h3>}
                         <h3>{detailData.title}</h3>
                         <form onSubmit={this.submitHandler}>
                             <div className="row mt-3">
@@ -189,7 +216,7 @@ class BookingForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-2 offset-5">
                                     <button type="submit" className="btn btn-primary btn-sm"
-                                        disabled={!isDone}><i className="fa fa-check"></i> Submit</button>
+                                        disabled={!isDone || !isAvailable}><i className="fa fa-check"></i> Submit</button>
                                 </div>
                             </div>
                         </form>
