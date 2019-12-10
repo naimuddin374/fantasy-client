@@ -7,7 +7,7 @@ import store from './store';
 import { ADD_TO_CART, SET_USER, SET_ROOM_IN_CART } from './store/actions/types';
 
 let cart = localStorage.getItem('cart_item')
-let token = localStorage.getItem('auth_token')
+let auth = localStorage.getItem('auth')
 let booking = localStorage.getItem('booking_data')
 if (cart) {
     store.dispatch({
@@ -15,12 +15,10 @@ if (cart) {
         payload: JSON.parse(cart)
     })
 }
-if (token) {
+if (auth) {
     store.dispatch({
         type: SET_USER,
-        payload: {
-            token: JSON.parse(token)
-        }
+        payload: JSON.parse(auth)
     })
 }
 if (booking) {

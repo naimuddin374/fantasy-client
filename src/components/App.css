@@ -168,6 +168,10 @@ button.link-btn i {
     border-top-right-radius: 10px;
 }
 
-.pay-btn:hover {
+.pay-btn-enable {
     cursor: pointer;
+}
+
+.pay-btn-enable:hover {
+    background: #e50019;
 }

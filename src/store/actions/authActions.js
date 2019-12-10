@@ -40,12 +40,11 @@ export const Registration = (data, history) => dispatch => {
 export const Login = (data, history) => dispatch => {
     Axios.post(`${API_URL}api/login`, data)
         .then(res => {
-            localStorage.setItem('auth_token', JSON.stringify(res.data.token))
+            let userAuth = { token: res.data.token, user: res.data.user }
+            localStorage.setItem('auth', JSON.stringify(userAuth))
             dispatch({
                 type: SET_USER,
-                payload: {
-                    token: res.data.token,
-                }
+                payload: userAuth
             })
             dispatch({
                 type: SET_MESSAGE,
@@ -67,13 +66,14 @@ export const Login = (data, history) => dispatch => {
         })
 }
 export const logout = history => dispatch => {
-    localStorage.removeItem('auth_token')
+    localStorage.removeItem('auth')
     history.push(`${process.env.PUBLIC_URL}/login`)
     window.location.reload();
     dispatch({
         type: SET_USER,
         payload: {
             token: {},
+            user: {}
         }
     })
     dispatch({

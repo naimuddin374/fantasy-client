@@ -3,25 +3,33 @@ import CircleShape from './../common/CircleShape';
 import { connect } from 'react-redux'
 import { API_URL } from '../../store/actions/types';
 import { getItemPrice } from '../../util/helper'
+import { checkoutPayment } from '../../store/actions/cartActions'
 
 class Checkout extends React.Component {
     state = {
         rides: {},
         auth: this.props.auth,
-        booking: {}
+        booking: {},
+        termsAdnConditions: false
     }
     static getDerivedStateFromProps(nextProps, prevState) {
         if ((JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) && (JSON.stringify(nextProps.cart.booking) === JSON.stringify(prevState.booking))) return null
         return {
-            rides: nextProps.cart.rides.filter(item => item.isInCart),
+            rides: Object.keys(nextProps.cart.rides).length !== 0 && nextProps.cart.rides.filter(item => item.isInCart),
             booking: nextProps.cart.booking,
         }
     }
     componentDidMount() {
         window.scrollTo(0, 0)
     }
+    termsAdnConditionsHandler() {
+        this.setState({
+            termsAdnConditions: !this.state.termsAdnConditions
+        })
+    }
     payHandler = () => {
-        console.log('stateData', this.state)
+        let { rides, booking, auth, } = this.state
+        this.props.checkoutPayment(rides, booking, auth, this.props.history)
     }
     render() {
         if (!this.state.auth.isAuth) {
@@ -36,6 +44,7 @@ class Checkout extends React.Component {
         if (Object.keys(booking).length !== 0) {
             totalPrice = totalPrice + Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)
         }
+        let { termsAdnConditions } = this.state
         return (
             <div>
                 <section className="page-breadcrum-area checkout-page-content section-padding">
@@ -114,10 +123,18 @@ class Checkout extends React.Component {
                                             <span>৳{totalPrice}</span>
                                         </div>
                                         <div className="terms-condition-content text-center">
-                                            <input type="checkbox" className="termscondiiton" name="payactive" value="aa" />Terms & Conditions
+                                            <input
+                                                type="checkbox"
+                                                className="termscondiiton"
+                                                id="termsConditions"
+                                                name="payactive"
+                                                value="1"
+                                                checked={termsAdnConditions}
+                                                onChange={() => this.termsAdnConditionsHandler()}
+                                            /><label htmlFor="termsConditions">Terms & Conditions</label>
                                             <br />
                                             <div className="checkbox-pay-btn-content mt-3">
-                                                <button className="pay-btn" onClick={this.payHandler}>Pay</button>
+                                                <button className={termsAdnConditions ? `pay-btn pay-btn-enable` : `pay-btn`} onClick={this.payHandler} disabled={!termsAdnConditions}>Pay</button>
                                             </div>
                                         </div>
                                     </div>
@@ -138,5 +155,5 @@ const mapStateToProps = state => ({
     cart: state.cart,
     auth: state.auth,
 })
-export default connect(mapStateToProps)(Checkout)
+export default connect(mapStateToProps, { checkoutPayment })(Checkout)
 

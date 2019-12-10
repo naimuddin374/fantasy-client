@@ -4,6 +4,7 @@ const init = {
     validation: {},
     time: {},
     token: null,
+    user: {},
     isAuth: false,
 }
 
@@ -21,7 +22,8 @@ const authReducer = (state = init, action) => {
             {
                 return {
                     ...state,
-                    token: action.payload.token ? action.payload.token:null,
+                    token: action.payload.token ? action.payload.token : null,
+                    user: action.payload.user ? action.payload.user : {},
                     isAuth: action.payload.token ? action.payload.token : false,
                 }
             }

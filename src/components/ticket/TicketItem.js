@@ -19,6 +19,10 @@ class TicketItem extends React.Component {
                     if (paramId !== undefined) {
                         let selItem = res.data.filter(item => item.id === Number(paramId))
                         allItem = res.data.filter(item => item.id !== Number(paramId))
+
+                        // Add default in cart
+                        selItem[0].isInCart = true
+                        selItem[0].adult_quantity = 1
                         allItem.unshift(...selItem)
                     } else {
                         allItem = res.data

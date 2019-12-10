@@ -13,7 +13,7 @@ class Cart extends React.Component {
     static getDerivedStateFromProps(nextProps, prevState) {
         if ((JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) && (JSON.stringify(nextProps.cart.booking) === JSON.stringify(prevState.booking))) return null
         return {
-            rides: nextProps.cart.rides.filter(item => item.isInCart),
+            rides: Object.keys(nextProps.cart.rides).length !== 0 && nextProps.cart.rides.filter(item => item.isInCart),
             booking: nextProps.cart.booking,
         }
     }
