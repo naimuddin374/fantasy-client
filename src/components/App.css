@@ -167,3 +167,7 @@ button.link-btn i {
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+.pay-btn:hover {
+    cursor: pointer;
+}

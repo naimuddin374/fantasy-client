@@ -20,6 +20,9 @@ class Checkout extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
+    payHandler = () => {
+        console.log('stateData', this.state)
+    }
     render() {
         if (!this.state.auth.isAuth) {
             window.location.href = `${process.env.PUBLIC_URL}/login`;
@@ -114,7 +117,7 @@ class Checkout extends React.Component {
                                             <input type="checkbox" className="termscondiiton" name="payactive" value="aa" />Terms & Conditions
                                             <br />
                                             <div className="checkbox-pay-btn-content mt-3">
-                                                <button className="pay-btn">Pay</button>
+                                                <button className="pay-btn" onClick={this.payHandler}>Pay</button>
                                             </div>
                                         </div>
                                     </div>
