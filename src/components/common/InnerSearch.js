@@ -33,9 +33,6 @@ class InnerSearch extends React.Component {
                             <div className="fantasy-park-search-item float-right">
                                 <div className="single-fantasy-park-search">
                                     <div className="fantasy-parki-select-item">
-                                        {/* <select defaultValue={selectedVal} id="fantasysearchtype" className="form-control" style={{ display: "none" }}>
-                                                    <option selected="">Select Other park & resorts</option>
-                                                </select> */}
                                         <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select Other park & resorts</span>
                                             <ul className="list">
                                                 <li data-value="Fantasy" className="option"><Link to='/fantasy-kingdom'>Fantasy Kingdom</Link></li>
@@ -44,16 +41,8 @@ class InnerSearch extends React.Component {
                                                 <li data-value="foys" className="option"><Link to='/foys-lake'>Foys Lake</Link></li>
                                                 <li data-value="foys" className="option"><Link to='/heritage-park'>Heritage Park</Link></li>
                                                 <li data-value="foys" className="option"><Link to='/atlantis'>Place To Stay</Link></li>
-
-                                                {/* <li data-value="Fantasy" className="option" >Fantasy Kingdom</li>
-                                                    <li data-value="water" className="option">Water Kingdom</li>
-                                                    <li data-value="foys" className="option">Foys Lake</li>
-                                                    <li data-value="Heritage" className="option">Heritage Park</li> */}
                                             </ul>
                                         </div>
-                                        {/* <div className="park-select-submit top-select-btn">
-                                                <input type="submit" value="Submit" />
-                                            </div> */}
                                     </div>
                                 </div>
                             </div>

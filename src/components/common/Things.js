@@ -3,22 +3,33 @@ import { Link } from 'react-router-dom'
 import Slider from "react-slick";
 import Axios from 'axios';
 import { API_URL } from '../../store/actions/types';
-
+import Loading from '../layout/Loading';
 
 class Things extends React.Component {
     state = {
         rides: {},
-        className: this.props.className
+        className: this.props.className,
+        loading: true
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/ride${window.location.pathname}`)
             .then(res => {
                 this.setState({
-                    rides: res.data
+                    rides: res.data,
+                    loading: false
                 })
             })
     }
     render() {
+        function SliderPrevArrow(props) {
+            return <div onClick={props.onClick} className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>
+        }
+        function SliderNextArrow(props) {
+            return <div onClick={props.onClick} className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        }
         let settings = {
             loop: true,
             fade: false,
@@ -29,8 +40,8 @@ class Things extends React.Component {
             arrows: true,
             slidesToShow: 5,
             slidesToScroll: 5,
-            prevArrow: <div className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>,
-            nextArrow: <div className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>,
+            prevArrow: <SliderPrevArrow />,
+            nextArrow: <SliderNextArrow />,
             responsive: [
                 {
                     breakpoint: 1920,
@@ -64,7 +75,7 @@ class Things extends React.Component {
                 }
             ]
         }
-        let { rides, className } = this.state
+        let { rides, className, loading } = this.state
         return (
             <section className="things-area section-padding-top full-bg">
                 <div className="container">
@@ -82,26 +93,27 @@ class Things extends React.Component {
                     </div>
                 </div>
                 <div className="things-wrapper">
-                    <Slider {...settings}>
-                        {Object.keys(rides).length !== 0 &&
-                            rides.map(item => (item.slide === 1 &&
-                                <div className="col-lg-12 col-md-4" key={item.id}>
-                                    <div className="single-things">
-                                        <div className="img-things-link">
-                                            <img src={API_URL + item.image} alt="thins img" />
+                    {loading ? <Loading /> :
+                        <Slider {...settings}>
+                            {Object.keys(rides).length !== 0 &&
+                                rides.map(item => (Number(item.slide) === 1 &&
+                                    <div className="col-lg-12 col-md-4" key={item.id}>
+                                        <div className="single-things">
+                                            <div className="img-things-link">
+                                                <img src={API_URL + item.image} alt="thins img" />
+                                            </div>
+                                            <div className="thing-offer">
+                                                <span className="offer-shape">
+                                                    {item.is_buy ? 'Ride' : 'Complimentary'}
+                                                </span>
+                                            </div>
+                                            <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}>{item.title}</Link>
+                                            <div className="gradient-bottomshape"></div>
                                         </div>
-                                        <div className="thing-offer">
-                                            <span className="offer-shape">
-                                                {item.is_buy ? 'Ride' : 'Complimentary'}
-                                            </span>
-                                        </div>
-                                        <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}>{item.title}</Link>
-                                        <div className="gradient-bottomshape"></div>
                                     </div>
-                                </div>
-                            ))
-                        }
-                    </Slider>
+                                ))
+                            }
+                        </Slider>}
                 </div>
                 <div className="container">
                     <div className="row">

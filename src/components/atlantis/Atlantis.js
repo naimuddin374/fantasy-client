@@ -9,14 +9,18 @@ import Axios from 'axios';
 import { API_URL } from '../../store/actions/types';
 import { setRoom } from '../../store/actions/roomActions'
 import { connect } from 'react-redux';
-
+import Loading from './../layout/Loading';
 
 class Atlantis extends React.Component {
     state = {
-        rooms: {}
+        rooms: {},
+        loading: true
     }
     componentDidMount() {
         window.scrollTo(0, 0)
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/room`)
             .then(res => {
                 this.props.setRoom(res.data)
@@ -26,35 +30,38 @@ class Atlantis extends React.Component {
         if (JSON.stringify(nextProps.rooms) === JSON.stringify(prevState.rooms)) return null
         return {
             rooms: nextProps.rooms,
+            loading: false
         }
     }
     render() {
-        let { rooms } = this.state
+        let { rooms, loading } = this.state
         return (
             <div>
                 <Breadcrumb />
                 <InnerSearch className="atlantis" />
                 <PageContent />
-                {Object.keys(rooms).length === 0 ? <div className="row mb-5">
-                    <div className="col-md-6 offset-3">
-                        <h1>No room available right now.</h1>
+                {loading ? <Loading /> :
+                    Object.keys(rooms).length === 0 ? <div className="row mb-5">
+                        <div className="col-md-6 offset-3">
+                            <h1>No room available right now.</h1>
+                        </div>
                     </div>
-                </div>
-                    : <section className="atlantis-room-suites section-padding-bottom relative">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-8 col-md-8">
-                                    <div className="section-title atlantis-section-title mb-40">
-                                        <h2>Our Rooms & Suites</h2>
+                        : <section className="atlantis-room-suites section-padding-bottom relative">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-lg-8 col-md-8">
+                                        <div className="section-title atlantis-section-title mb-40">
+                                            <h2>Our Rooms & Suites</h2>
+                                        </div>
                                     </div>
                                 </div>
+                                <CircleShape />
                             </div>
-                            <CircleShape />
-                        </div>
-                    </section>
+                        </section>
                 }
 
-                {Object.keys(rooms).length !== 0 &&
+                {loading ? <Loading /> :
+                    Object.keys(rooms).length !== 0 &&
                     rooms.map(item => (
                         <OurRoom
                             key={item.id}

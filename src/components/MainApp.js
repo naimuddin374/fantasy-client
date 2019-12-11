@@ -42,7 +42,7 @@ class MainApp extends React.Component {
                     <Route path={`${process.env.PUBLIC_URL}/things-to-do`} component={ThingsToDo} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/water-kingdom`} component={WaterKingdom} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/fantasy-kingdom`} component={FantasyKingdom} history={this.props.history} />
-                    <Route path={`${process.env.PUBLIC_URL}/extreme-racing`} component={ExtremeKingdom} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/xtreme-racing`} component={ExtremeKingdom} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/foys-lake`} component={FoysLake} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/heritage-park`} component={HeritagePark} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/news-events`} component={NewsEvents} history={this.props.history} />

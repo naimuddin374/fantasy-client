@@ -13,11 +13,14 @@ class HomeSlider extends React.Component {
         loading: true
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/home-slider`)
             .then(res => {
                 this.setState({
                     sliders: res.data,
-                    // loading: false
+                    loading: false
                 })
             })
     }
@@ -43,7 +46,8 @@ class HomeSlider extends React.Component {
                                                 <div className="col-md-12">
                                                     <div className="hero-slider-content slide-1 text-center">
                                                         <h1 className="slide-title">{item.title}</h1>
-                                                        <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>	<Link to={`${process.env.PUBLIC_URL}/${item.link}`} className="theme-btn">Get Details</Link>
+                                                        <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>
+                                                        {item.link && <Link to={`${process.env.PUBLIC_URL}/${item.link}`} className="theme-btn">Get Details</Link>}
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,8 +56,7 @@ class HomeSlider extends React.Component {
                                 </div>
                             ))
                         }
-                    </Slider>
-                }
+                    </Slider>}
             </section>
         )
     }

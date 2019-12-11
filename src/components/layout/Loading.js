@@ -60,18 +60,20 @@ const EllipsisSpinner = styled.div`
 `
 
 const Loading = ({ color, size, sizeUnit }) => (
+  <div className="loading-relative-data">
     <EllipsisSpinner color={color} size={size} sizeUnit={sizeUnit}>
-        <div />
-        <div />
-        <div />
-        <div />
+      <div />
+      <div />
+      <div />
+      <div />
     </EllipsisSpinner>
+  </div>
 )
 
 Loading.defaultProps = {
-    size: 64,
-    color: '#00bfff',
-    sizeUnit: 'px'
+  size: 64,
+  color: '#00bfff',
+  sizeUnit: 'px'
 }
 
 export default Loading

@@ -175,3 +175,30 @@ button.link-btn i {
 .pay-btn-enable:hover {
     background: #e50019;
 }
+
+/* global css loading css */
+.loading-relative-data {
+    position: relative;
+    min-height: 170px;
+}
+
+.loading-relative-data .sc-bdVaJa {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+/* Things to do image design */
+.slick-slide .single-things img {
+    display: block;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+}
+
+/* Map page desing */
+.direction-area-fantasy-kingdom a {
+    color: #000;
+}

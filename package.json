@@ -13,6 +13,7 @@
     "react-datepicker": "^2.10.1",
     "react-dom": "^16.10.2",
     "react-image-lightbox": "^5.1.1",
+    "react-image-magnify": "^2.7.4",
     "react-modal": "^3.11.1",
     "react-moment": "^0.9.6",
     "react-redux": "^7.1.1",

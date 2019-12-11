@@ -3,34 +3,46 @@ import { Link } from 'react-router-dom'
 import Slider from "react-slick";
 import Axios from 'axios';
 import { API_URL } from '../../store/actions/types';
+import Loading from '../layout/Loading';
 
 
 class DiscoverPackage extends React.Component {
 	state = {
-		services: {}
+		services: {},
+		loading: true
 	}
 	componentDidMount() {
+		this.setState({
+			loading: true
+		})
 		Axios.get(`${API_URL}api/service`)
 			.then(res => {
 				this.setState({
-					services: res.data
+					services: res.data,
+					loading:false
 				})
 			})
 	}
     render() {
-		let { services} = this.state
+		function SliderPrevArrow(props) {
+			return <div onClick={props.onClick} className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>
+		}
+		function SliderNextArrow(props) {
+			return <div onClick={props.onClick} className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+		}
+		let { services, loading} = this.state
 		let settings = {
 			loop: true,
 			fade: false,
 			speed: 1000,
 			rows: 1,
 			dots: false,
-			autoplay: false,
+			autoplay: true,
 			arrows: true,
 			slidesToShow: 3,
 			slidesToScroll: 3,
-			prevArrow: <div className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>,
-			nextArrow: <div className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>,
+			prevArrow: <SliderPrevArrow />,
+			nextArrow: <SliderNextArrow />,
 			responsive: [
 				{
 					breakpoint: 1920,
@@ -75,6 +87,7 @@ class DiscoverPackage extends React.Component {
 				</div>
 			</div>
 				<div className="discover-carousel-wrapper">
+						{loading ? <Loading /> :
 							<Slider {...settings}>
 							{Object.keys(services).length !== 0 && 
 								services.map(item => (
@@ -89,7 +102,7 @@ class DiscoverPackage extends React.Component {
 							<h6>{item.open_time}</h6>
 						</div>
 						<div className="resorts-linked-btn">
-												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
+							<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 										viewBox="0 0 32 32">
 									<path className="st0" d="M27.1,18.3L13.7,4.9c-0.4-0.4-1-0.4-1.4,0L10.2,7C9.8,7.3,9.8,7.9,10,8.3c0.4,0.5,0.3,1.3-0.1,1.7
@@ -132,7 +145,7 @@ class DiscoverPackage extends React.Component {
 					</div>
 								))
 							}
-							</Slider>
+							</Slider>}
 				</div>
 		</div>
 	</section>

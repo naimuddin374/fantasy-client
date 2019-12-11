@@ -4,22 +4,27 @@ import Axios from 'axios'
 import Moment from 'react-moment';
 import { textLimit } from './../util/helper';
 import { API_URL } from '../store/actions/types';
-
+import Loading from './../components/layout/Loading';
 
 class NewsEvents extends React.Component {
     state = {
-        events: {}
+        events: {},
+        loading: true
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/news-event`)
             .then(res => {
                 this.setState({
-                    events: res.data
+                    events: res.data,
+                    loading: false
                 })
             })
     }
     render() {
-        let { events } = this.state
+        let { events, loading } = this.state
         return (
             <section className="news-event-area mt-5 full-bg">
                 <div className="container">
@@ -30,32 +35,33 @@ class NewsEvents extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        {Object.keys(events).length !== 0 &&
-                            events.slice(0, 30).map(item => (
-                                <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
-                                    <div className="single-news">
-                                        <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>
-                                            <img className="top-left-right-radius" src={API_URL + item.image} alt="news" />
-                                        </Link>
-                                        <div className="latest-news-content bottom-left-right-radius">
-                                            <span>
-                                                <Moment format="D MMM YYYY" withTitle>
-                                                    {item.created_at}
-                                                </Moment>
-                                            </span>
-                                            <h4><Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>{item.title}</Link></h4>
-                                            <p>{textLimit(item.description, 85)}</p>
-                                            <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`} className="read-more-btn">Read More</Link>
-                                        </div>
-                                        <div className="newshap">
-                                            <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
+                    {loading ? <Loading /> :
+                        <div className="row">
+                            {Object.keys(events).length !== 0 &&
+                                events.slice(0, 30).map(item => (
+                                    <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
+                                        <div className="single-news">
+                                            <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>
+                                                <img className="top-left-right-radius" src={API_URL + item.image} alt="news" />
+                                            </Link>
+                                            <div className="latest-news-content bottom-left-right-radius">
+                                                <span>
+                                                    <Moment format="D MMM YYYY" withTitle>
+                                                        {item.created_at}
+                                                    </Moment>
+                                                </span>
+                                                <h4><Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`}>{item.title}</Link></h4>
+                                                <p>{textLimit(item.description, 85)}</p>
+                                                <Link to={`${process.env.PUBLIC_URL}/news-event-detail/${item.id}`} className="read-more-btn">Read More</Link>
+                                            </div>
+                                            <div className="newshap">
+                                                <img src={`${process.env.PUBLIC_URL}/assets/images/newshap.png`} alt="new shape" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
-                        }
-                    </div>
+                                ))
+                            }
+                        </div>}
                 </div>
             </section>
         )

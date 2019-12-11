@@ -85,17 +85,22 @@ class Map extends React.Component {
                                 </div>
                                 <div className="single-direction-map">
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="41.67" height="44.98" viewBox="0 0 41.67 44.98">
-                                            <path id="Path_2378" data-name="Path 2378" d="M.147,28.934,8.474,2.426c1.015-3.235,6.137-3.235,7.156,0l8.327,26.508c.9,2.872-2.546,5.276-5.435,3.784l-4.613-2.383a4.1,4.1,0,0,0-3.714,0L5.581,32.719C2.693,34.21-.757,31.807.147,28.934Z" transform="translate(2.089 14.124) rotate(-30)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="3" />
-                                        </svg>	<span>Direction</span>
+                                        <a href="https://g.page/fantasy-kingdom-dhaka?share" target="_blank" rel="noopener noreferrer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="41.67" height="44.98" viewBox="0 0 41.67 44.98">
+                                                <path id="Path_2378" data-name="Path 2378" d="M.147,28.934,8.474,2.426c1.015-3.235,6.137-3.235,7.156,0l8.327,26.508c.9,2.872-2.546,5.276-5.435,3.784l-4.613-2.383a4.1,4.1,0,0,0-3.714,0L5.581,32.719C2.693,34.21-.757,31.807.147,28.934Z" transform="translate(2.089 14.124) rotate(-30)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="3" />
+                                            </svg>
+                                            <span>Direction</span>
+                                        </a>
                                     </span>
                                 </div>
-                                <div className="single-direction-map">
-                                    <a href="/">
-                                        <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                {/* <div className="single-direction-map">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="41.67" height="44.98" viewBox="0 0 41.67 44.98">
+                                            <path id="Path_2378" data-name="Path 2378" d="M.147,28.934,8.474,2.426c1.015-3.235,6.137-3.235,7.156,0l8.327,26.508c.9,2.872-2.546,5.276-5.435,3.784l-4.613-2.383a4.1,4.1,0,0,0-3.714,0L5.581,32.719C2.693,34.21-.757,31.807.147,28.934Z" transform="translate(2.089 14.124) rotate(-30)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="3" />
+                                        </svg>
                                         <span>Parking House</span>
-                                    </a>
-                                </div>
+                                    </span>
+                                </div> */}
                             </div>
                         </div>
                     </div>

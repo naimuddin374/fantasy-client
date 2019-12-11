@@ -62,7 +62,7 @@ class Checkout extends React.Component {
                             <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
                                 <div className="full-order-summary-content">
                                     <div className="checkout-page-order-summary-wrapper">
-                                        <h4>Order Summery</h4>
+                                        <h4>Order Summary</h4>
 
                                         {Object.keys(rides).length !== 0 &&
                                             rides.map((item, index) => (

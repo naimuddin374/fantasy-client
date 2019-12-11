@@ -7,6 +7,7 @@ import 'react-image-lightbox/style.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { API_URL } from '../../store/actions/types';
+import Loading from '../layout/Loading';
 
 class Gallery extends React.Component {
     state = {
@@ -14,9 +15,13 @@ class Gallery extends React.Component {
         imageSrc: [],
         photoIndex: 0,
         isOpen: false,
-        className: this.props.className
+        className: this.props.className,
+        loading: true
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/gallery${window.location.pathname}`)
             .then(res => {
                 let imgSrc = []
@@ -25,12 +30,19 @@ class Gallery extends React.Component {
                     this.setState({
                         images: res.data,
                         imageSrc: imgSrc,
+                        loading: false
                     })
                 }
             })
     }
     render() {
-        let { imageSrc, images, photoIndex, isOpen, className } = this.state
+        function SliderPrevArrow(props) {
+            return <div onClick={props.onClick} className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>
+        }
+        function SliderNextArrow(props) {
+            return <div onClick={props.onClick} className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+        }
+        let { imageSrc, images, photoIndex, isOpen, className, loading } = this.state
         let settings = {
             dots: false,
             infinite: false,
@@ -39,8 +51,8 @@ class Gallery extends React.Component {
             slidesToScroll: 3,
             rows: 2,
             arrows: true,
-            prevArrow: <div className="slick-prev fantasy-gallery-prev"><i className="fa fa-long-arrow-left" aria-hidden="true"></i></div>,
-            nextArrow: <div className="slick-next fantasy-gallery-next"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></div>,
+            prevArrow: <SliderPrevArrow />,
+            nextArrow: <SliderNextArrow />,
             responsive: [
                 {
                     breakpoint: 1024,
@@ -80,17 +92,18 @@ class Gallery extends React.Component {
                         </div>
                     </div>
                     <div className="fantasy-gallery-slider2">
-                        <Slider {...settings}>
-                            {Object.keys(images).length !== 0 &&
-                                images.map((item, index) => (
-                                    <div className="col-md-12" key={item + '.' + index}>
-                                        <span className="project-gallery popup link-btn" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
-                                            <img src={API_URL + item.image} alt="gallery" />
-                                        </span>
-                                    </div>
-                                ))
-                            }
-                        </Slider>
+                        {loading ? <Loading /> :
+                            <Slider {...settings}>
+                                {Object.keys(images).length !== 0 &&
+                                    images.map((item, index) => (
+                                        <div className="col-md-12" key={item + '.' + index}>
+                                            <span className="project-gallery popup link-btn" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
+                                                <img src={API_URL + item.image} alt="gallery" />
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </Slider>}
                     </div>
 
                     {isOpen && (

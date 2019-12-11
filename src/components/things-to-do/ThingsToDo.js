@@ -3,71 +3,38 @@ import Axios from 'axios'
 import CircleShape from './CircleShape'
 import Item from './Item'
 import { API_URL } from '../../store/actions/types'
-
+import Loading from './../layout/Loading';
+import InnerSearch from './../common/InnerSearch';
 
 class ThingsToDo extends React.Component {
     state = {
         rides: {},
-        categories: {}
+        categories: {},
+        loading: true
     }
     componentDidMount() {
-        Axios.get(`${API_URL}api/ride`)
-            .then(res => {
-                this.setState({
-                    rides: res.data
-                })
-            })
-            .catch(err => console.log(err.response))
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/ride-category`)
             .then(res => {
                 this.setState({
                     categories: res.data
                 })
             })
-            .catch(err => console.log(err.response))
+        Axios.get(`${API_URL}api/ride`)
+            .then(res => {
+                this.setState({
+                    rides: res.data,
+                    loading: false
+                })
+            })
     }
     render() {
-        let { rides, categories } = this.state
+        let { rides, categories, loading } = this.state
         return (
             <div>
-                <section className="ticket-choosen-area full-bg">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 col-md-12">
-                                <div className="page-breadcrum-area row-center">
-                                    <div className="ticket-title">
-                                        <h4>Select Any park/resorts to view all the activities</h4>
-                                    </div>
-                                    <div className="select-park-ticket">
-                                        <div className="fantasy-park-search-item float-right">
-                                            <form action="#">
-                                                <div className="single-fantasy-park-search">
-                                                    <div className="fantasy-parki-select-item">
-                                                        {/* <select id="fantasysearchtype" className="form-control" style="display: none;">
-                                                        <option selected="">Select Your Park or resorts</option>
-                                                    </select> */}
-                                                        <div className="nice-select fantasy-nice-select ticket-search-bg ticket-page-select" tabIndex="0"><span className="current">Select Your Park or resorts</span>
-                                                            <ul className="list">
-                                                                <li data-value="Fantasy" className="option">Fantasy Kingdom</li>
-                                                                <li data-value="water" className="option">Water Kingdom</li>
-                                                                <li data-value="foys" className="option">Foys Lake</li>
-                                                                <li data-value="Heritage" className="option">Heritage Park</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div className="park-select-submit top-select-btn">
-                                                            <input type="submit" value="Submit" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+                <InnerSearch className="fantasy" />
                 <section className="things-to-do-page-content-area section-padding relative">
                     <CircleShape />
 
@@ -79,7 +46,7 @@ class ThingsToDo extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {
+                        {loading ? <Loading /> :
                             Object.keys(categories).length !== 0 &&
                             categories.map(cat => (
                                 <div key={cat.id}>

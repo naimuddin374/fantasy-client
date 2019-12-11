@@ -1056,7 +1056,7 @@ li#signInIdIcon {
     text-transform: capitalize;
     display: inline-block;
     padding-left: 0;
-    z-index: 99;
+    z-index: -1;
 }
 
 .section-title-small-text h2 {
@@ -1482,6 +1482,7 @@ p.footer-text>a:hover {
 .resorts-linked-btn>a>svg {
     height: 50px;
     width: 50px;
+    fill: #fff;
 }
 
 .resort-heading-content a h3 {
@@ -3663,6 +3664,7 @@ a.atlantis-book-now-btn {
     float: left;
     position: relative;
 }
+
 .calender-date-checking:after {
     content: "\f073";
     position: absolute;
@@ -3709,8 +3711,9 @@ a.atlantis-book-now-btn {
     top: 50%;
     transform: translateY(-50%);
 }
-.atlantis-single-search-content label{
-    margin-bottom:0 !important;
+
+.atlantis-single-search-content label {
+    margin-bottom: 0 !important;
 }
 
 .single-date-checking input {
@@ -3720,9 +3723,11 @@ a.atlantis-book-now-btn {
     font-size: 14px;
     padding: 0 27px;
 }
+
 .react-datepicker__input-container #checkOut {
     padding: 0;
 }
+
 .atlantis-search-room {
     position: relative;
 }
