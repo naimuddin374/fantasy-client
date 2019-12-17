@@ -38,11 +38,13 @@ class MapImage extends React.Component {
                                 src: `${process.env.PUBLIC_URL}/assets/images/Map_FK-Complex-large.jpg`,
                                 alt: 'Park Map',
                                 isFluidWidth: true,
+                                zoomType: "inner"
                             },
                             largeImage: {
                                 src: `${process.env.PUBLIC_URL}/assets/images/Map_FK-Complex-large.jpg`,
                                 width: 1200,
-                                height: 1800
+                                height: 1800,
+                                zoomType: "inner"
                             }
                         }} />
                     </div>

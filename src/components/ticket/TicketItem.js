@@ -16,7 +16,7 @@ class TicketItem extends React.Component {
                 if (Object.keys(res.data).length !== 0) {
                     // Check if selected any ticket from another page
                     let paramId = this.props.paramId
-                    if (paramId !== undefined) {
+                    if (paramId !== undefined && !isNaN(paramId)) {
                         let selItem = res.data.filter(item => item.id === Number(paramId))
                         allItem = res.data.filter(item => item.id !== Number(paramId))
 

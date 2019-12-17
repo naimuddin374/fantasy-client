@@ -41,7 +41,7 @@ class OurRoom extends React.Component {
     }
     render() {
         let { thumbnailImage, galleries } = this.state
-        let { title, description, price, discount, type } = this.props.data
+        let { title, description, price, vat, discount, service_charge } = this.props.data
         return (
             <section className="atlantis-room-suites section-padding-bottom relative">
                 <div className="container">
@@ -78,20 +78,20 @@ class OurRoom extends React.Component {
                                     <p>{description}</p>
                                     <div className="row">
                                         <div className="col-lg-8 col-md-8">
-                                            <FeatureIcon type={type} />
+                                            <FeatureIcon />
                                         </div>
                                         <div className="col-lg-4 col-md-4">
                                             <div className="atlantis-booking-ticket-area">
                                                 <div className="atlantis-booking-content mb-3">
-                                                    <h5 className="atlantis-booking-price">Price</h5>
-                                                    <h2 className="atlantis-bd-price">৳{price}</h2>
-                                                    <h5 className="atlantis-booking-price">Discount ৳{discount ? discount : '00'}</h5>
-                                                    <span className="atlantis-charge">10% tax + 5% Service Charge</span>
-                                                    <h3 className="atlantis-free-collection">*Free cancellation</h3>
+                                                    <h2 className="atlantis-bd-price">Price: ৳{price}</h2>
+                                                    <h5 className="atlantis-booking-price">Vat: {`${vat}%`}</h5>
+                                                    {discount !== 0 && <h5 className="atlantis-booking-price">Discount: {discount}%</h5>}
+                                                    <span className="atlantis-charge">Service Charge: {service_charge}%</span>
+                                                    <h3 className="atlantis-free-collection">*Free Cancellation</h3>
                                                 </div>
-                                                {this.props.auth.isAuth ?
+                                                {this.props.isSearchRes ?
                                                     <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn">Book Now</button>
-                                                    : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn">Book Now</Link>
+                                                    : <button onClick={() => this.props.gotToTop()} className="atlantis-book-now-btn btn">Check Availability</button>
                                                 }
                                             </div>
                                         </div>

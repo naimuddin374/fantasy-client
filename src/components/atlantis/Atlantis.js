@@ -1,5 +1,5 @@
 import React from 'react'
-import Breadcrumb from './Breadcrumb'
+import RoomSearch from './RoomSearch'
 import InnerSearch from './../common/InnerSearch';
 import PageContent from './PageContent';
 import OurRoom from './OurRoom';
@@ -14,7 +14,8 @@ import Loading from './../layout/Loading';
 class Atlantis extends React.Component {
     state = {
         rooms: {},
-        loading: true
+        loading: true,
+        isSearchRes: false
     }
     componentDidMount() {
         window.scrollTo(0, 0)
@@ -30,14 +31,21 @@ class Atlantis extends React.Component {
         if (JSON.stringify(nextProps.rooms) === JSON.stringify(prevState.rooms)) return null
         return {
             rooms: nextProps.rooms,
-            loading: false
+            loading: false,
         }
     }
+    gotToTop() {
+        window.scrollTo(0, 0)
+    }
+    searchHandler = () => {
+        this.setState({ isSearchRes: true })
+        window.scrollTo(0, 1200)
+    }
     render() {
-        let { rooms, loading } = this.state
+        let { rooms, loading, isSearchRes } = this.state
         return (
             <div>
-                <Breadcrumb />
+                <RoomSearch searchHandler={this.searchHandler} />
                 <InnerSearch className="atlantis" />
                 <PageContent />
                 {loading ? <Loading /> :
@@ -67,6 +75,8 @@ class Atlantis extends React.Component {
                             key={item.id}
                             data={item}
                             history={this.props.history}
+                            isSearchRes={isSearchRes}
+                            gotToTop={this.gotToTop}
                         />
                     ))
                 }
