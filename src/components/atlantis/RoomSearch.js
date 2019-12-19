@@ -5,11 +5,10 @@ import dateFormat from 'dateformat';
 import { connect } from 'react-redux';
 import { searchRoom } from '../../store/actions/roomActions'
 
-
 class RoomSearch extends React.Component {
     state = {
-        checkIn: new Date('2019-12-15'),
-        checkOut: new Date('2019-12-20'),
+        checkIn: new Date('2019-12-21'),
+        checkOut: new Date('2019-12-24'),
         no_of_room: 1,
         no_of_guest: 2,
     }
@@ -34,7 +33,10 @@ class RoomSearch extends React.Component {
         let { no_of_guest, no_of_room, checkIn, checkOut } = this.state
         let check_in = dateFormat(checkIn, "yyyy-mm-dd")
         let check_out = dateFormat(checkOut, "yyyy-mm-dd")
-        this.props.searchRoom({ check_in, check_out, no_of_room, no_of_guest })
+
+        let res = Math.abs(checkOut - checkIn) / 1000;
+        let days = Math.floor(res / 86400);
+        this.props.searchRoom({ check_in, check_out, no_of_room, no_of_guest, totalDay: days })
     }
     render() {
         let { checkIn, checkOut, no_of_room, no_of_guest } = this.state
@@ -74,11 +76,17 @@ class RoomSearch extends React.Component {
                                         </div>
                                         <div className="col-md-2">
                                             <label htmlFor="no_of_room">Room: </label>
-                                            <select
+                                            <input
+                                                type="text"
                                                 className="form-control"
                                                 id="no_of_room"
                                                 name="no_of_room"
-                                                defaultValue={no_of_room}
+                                                value={no_of_room}
+                                                onChange={this.changeHandler}
+                                            />
+                                            {/* <select
+                                                name="no_of_room"
+                                                value={no_of_room}
                                                 onChange={this.changeHandler}
                                             >
                                                 <option value="0">Room</option>
@@ -91,11 +99,20 @@ class RoomSearch extends React.Component {
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
                                                 <option value="9">9</option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                         <div className="col-md-2">
                                             <label htmlFor="no_of_guest">Adult: </label>
-                                            <select
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="no_of_guest"
+                                                name="no_of_guest"
+                                                value={no_of_guest}
+                                                onChange={this.changeHandler}
+                                            />
+
+                                            {/* <select
                                                 className="form-control"
                                                 id="no_of_guest"
                                                 name="no_of_guest"
@@ -112,10 +129,10 @@ class RoomSearch extends React.Component {
                                                 <option value="7">7</option>
                                                 <option value="8">8</option>
                                                 <option value="9">9</option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                         <div className="col-md-2" style={{ top: "36px" }}>
-                                            <button type="submit" className="atlantis-search-btn">Check Availability</button>
+                                            <button type="submit" className="atlantis-search-btn"><i className="fa fa-search" /> Check Availability</button>
                                         </div>
                                     </div>
                                 </form>

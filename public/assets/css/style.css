@@ -3987,7 +3987,7 @@ ul.count-guest-list {
 
 .single-room-feature ul li {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     float: left;
     margin-bottom: 22px;
     color: #000;
@@ -4015,7 +4015,7 @@ ul.count-guest-list {
 }
 
 .atlantis-booking-price {
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     font-weight: 500;
     font-size: 15px;
 }

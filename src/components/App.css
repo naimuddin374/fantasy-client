@@ -202,3 +202,9 @@ button.link-btn i {
 .direction-area-fantasy-kingdom a {
     color: #000;
 }
+
+/***********************Change for select room check availability adult select option***********************/
+.fantasy-feature-about-area,
+.select-park-option-area {
+    z-index: -1;
+}

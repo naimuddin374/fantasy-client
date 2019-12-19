@@ -14,8 +14,8 @@ import Loading from './../layout/Loading';
 class Atlantis extends React.Component {
     state = {
         rooms: {},
+        searchData: {},
         loading: true,
-        isSearchRes: false
     }
     componentDidMount() {
         window.scrollTo(0, 0)
@@ -25,12 +25,16 @@ class Atlantis extends React.Component {
         Axios.get(`${API_URL}api/room`)
             .then(res => {
                 this.props.setRoom(res.data)
+                this.setState({
+                    loading: false
+                })
             })
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        if (JSON.stringify(nextProps.rooms) === JSON.stringify(prevState.rooms)) return null
+        if ((JSON.stringify(nextProps.cart.searchData) === JSON.stringify(prevState.searchData)) && (JSON.stringify(nextProps.cart.rooms) === JSON.stringify(prevState.rooms))) return null
         return {
-            rooms: nextProps.rooms,
+            rooms: nextProps.cart.rooms,
+            searchData: nextProps.cart.searchData,
             loading: false,
         }
     }
@@ -38,11 +42,10 @@ class Atlantis extends React.Component {
         window.scrollTo(0, 0)
     }
     searchHandler = () => {
-        this.setState({ isSearchRes: true })
         window.scrollTo(0, 1200)
     }
     render() {
-        let { rooms, loading, isSearchRes } = this.state
+        let { rooms, loading, searchData } = this.state
         return (
             <div>
                 <RoomSearch searchHandler={this.searchHandler} />
@@ -75,7 +78,7 @@ class Atlantis extends React.Component {
                             key={item.id}
                             data={item}
                             history={this.props.history}
-                            isSearchRes={isSearchRes}
+                            searchData={searchData}
                             gotToTop={this.gotToTop}
                         />
                     ))
@@ -86,6 +89,6 @@ class Atlantis extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    rooms: state.cart.rooms,
+    cart: state.cart,
 })
 export default connect(mapStateToProps, { setRoom })(Atlantis)

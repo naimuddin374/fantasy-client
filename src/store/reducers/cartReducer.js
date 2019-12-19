@@ -3,7 +3,8 @@ import { ADD_TO_CART, SET_ROOM_RESULT, SET_ROOM_IN_CART, PAYMENT_SUCCESS } from 
 const init = {
     rides: {},
     rooms: {},
-    booking: {}
+    booking: {},
+    searchData: {},
 }
 
 const cartReducer = (state = init, action) => {
@@ -19,7 +20,8 @@ const cartReducer = (state = init, action) => {
             {
                 return {
                     ...state,
-                    rooms: action.payload,
+                    rooms: action.payload.rooms,
+                    searchData: action.payload.searchData,
                 }
             }
         case SET_ROOM_IN_CART:

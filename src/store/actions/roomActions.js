@@ -20,7 +20,6 @@ export const storeRoomBooking = (data, history, roomData) => dispatch => {
             history.push('/checkout')
         })
         .catch(err => {
-            console.log(err.response)
             dispatch({
                 type: SET_MESSAGE,
                 payload: {
@@ -35,11 +34,13 @@ export const searchRoom = data => dispatch => {
         .then(res => {
             dispatch({
                 type: SET_ROOM_RESULT,
-                payload: res.data
+                payload: {
+                    rooms: res.data,
+                    searchData: data
+                }
             })
         })
         .catch(err => {
-            console.log(err.response.data)
             dispatch({
                 type: SET_MESSAGE,
                 payload: {
@@ -53,6 +54,9 @@ export const searchRoom = data => dispatch => {
 export const setRoom = data => dispatch => {
     dispatch({
         type: SET_ROOM_RESULT,
-        payload: data
+        payload: {
+            rooms: data,
+            searchData: {}
+        }
     })
 }
