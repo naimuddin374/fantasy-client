@@ -2,81 +2,45 @@ import React from 'react';
 import Modal from 'react-modal'
 import { connect } from 'react-redux';
 import { storeRoomBooking } from '../../store/actions/roomActions';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import dateFormat from 'dateformat';
-import Axios from 'axios'
-import { API_URL } from '../../store/actions/types';
 
 class BookingForm extends React.Component {
     state = {
-        detailData: {},
         room_id: this.props.detailData.id,
-        full_name: 'MD FOYSAL',
-        contact_no: '88017546525',
-        email: 'FOYSAL@GMAIL.COM',
-        address: 'Dhaka, BD',
-        no_of_guest: 2,
-        checkIn: new Date('2019-12-15'),
-        checkOut: new Date('2019-12-20'),
+        user_id: this.props.auth ? this.props.auth.user.id : null,
+        full_name: this.props.auth ? this.props.auth.user.full_name : null,
+        contact_no: this.props.auth ? this.props.auth.user.contact_no : null,
+        email: this.props.auth ? this.props.auth.user.email : null,
+        comments: '',
         status: 0,
-        isAvailable: false,
-        flashMessage: null
-    }
-    UNSAFE_componentWillReceiveProps(props) {
-        this.setState({
-            detailData: props.detailData,
-        })
+        isDone: false,
+        booking_for: this.props.auth ? 1 : 2
     }
     componentDidMount() {
         Modal.setAppElement('body');
-    }
-    checkInHandleChange = date => {
-        let check_in = dateFormat(date, "yyyy-mm-dd")
-        if (check_in) {
-            Axios.post(`${API_URL}api/check-room-booking`, { check_in, room_id: this.props.detailData.id })
-                .then(res => {
-                    if (res.data.status === 1) {
-                        this.setState({
-                            checkIn: date,
-                            isAvailable: true,
-                            flashMessage: null
-                        });
-                    } else {
-                        this.setState({
-                            isAvailable: false,
-                            flashMessage: res.data.message
-                        });
-                    }
-                })
-                .catch(err => {
-                    console.log(err.response)
-                    this.setState({
-                        isAvailable: false
-                    });
-                })
-        }
-
-    }
-    checkOutHandleChange = date => {
         this.setState({
-            checkOut: date
-        });
+            isDone: this.props.auth && this.props.auth.user.full_name && this.props.auth.user.contact_no
+        })
     }
     changeHandler = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            isDone: this.state.full_name && this.state.contact_no
         })
     }
     submitHandler = event => {
         event.preventDefault()
-        let { room_id, full_name, contact_no, email, address, no_of_guest, checkIn, checkOut } = this.state
-        let total_day = Math.ceil(Math.abs(checkOut - checkIn) / (1000 * 60 * 60 * 24));
-        let check_in = dateFormat(checkIn, "yyyy-mm-dd")
-        let check_out = dateFormat(checkOut, "yyyy-mm-dd")
-        let user_id = localStorage.getItem('auth_token')
-        this.props.storeRoomBooking({ room_id, full_name, contact_no, email, address, no_of_guest, check_in, check_out, total_day, user_id, status: 0 }, this.props.history, this.props.detailData)
-        // this.props.isClose()
+        this.setState({ isDone: false })
+        let data = {
+            ...this.props.room.searchData,
+            ...this.state,
+            totalPrice: this.props.totalPrice,
+            title: this.props.detailData.title,
+            image: this.props.detailData.image,
+        }
+        this.props.storeRoomBooking(data, this.props.history)
+        setTimeout(() => {
+            this.setState({ isDone: true })
+        }, 3000);
     }
     render() {
         const customStyles = {
@@ -92,8 +56,8 @@ class BookingForm extends React.Component {
                 border: "none"
             }
         }
-        let { detailData, checkIn, checkOut, full_name, contact_no, email, address, no_of_guest, isAvailable, flashMessage } = this.state
-        let isDone = checkIn && checkOut && full_name && contact_no && no_of_guest
+        let { check_in, check_out, no_of_room, no_of_guest, totalDay } = this.props.room.searchData
+        let { full_name, contact_no, booking_for, isDone, comments } = this.state
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -107,37 +71,51 @@ class BookingForm extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body ticket-body-modal-content">
-                        {flashMessage && <h3 className="text-danger">{flashMessage}</h3>}
-                        <h3>{detailData.title}</h3>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <p><b>Check In: </b>{check_in}</p>
+                                <p><b>Check Out: </b>{check_out}</p>
+                                <p><b>Total Day: </b>{totalDay}</p>
+                                <p><b>Total Guest: </b>{no_of_guest}</p>
+                            </div>
+                            <div className="col-md-6">
+                                <p><b>Total Rooms: </b>{no_of_room}</p>
+                                <p><b>Total Amount: </b>৳{this.props.totalPrice}</p>
+                                <p><b>Your booking includes</b></p>
+                                <p>Breakfast, Free WiFi&Free Parking</p>
+                            </div>
+                        </div>
                         <form onSubmit={this.submitHandler}>
-                            <div className="row mt-3">
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="checkIn" className="bmd-label-floating">Check In Date <span className="text-danger">*</span></label><br />
-                                        <DatePicker
-                                            id="checkIn"
-                                            className='form-control'
-                                            placeholder="Check In Date"
-                                            selected={checkIn}
-                                            onChange={this.checkInHandleChange}
-                                            required
-                                        />
+                            <div className="row booking-for-area">
+                                <div className="col-md-12">
+                                    <b>Who are you booking for?</b>
+                                    <div className="form-group mb-0">
+                                        <label className="bmd-label-floating">
+                                            <input
+                                                type="checkbox"
+                                                name="booking_for"
+                                                className="mr-2"
+                                                value="1"
+                                                onChange={this.changeHandler}
+                                                checked={Number(booking_for) === 1 ? true : false}
+                                            />
+                                            I am the main guest</label>
                                     </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="checkOut" className="bmd-label-floating">Check Out Date <span className="text-danger">*</span></label><br />
-                                        <DatePicker
-                                            id="checkOut"
-                                            className='form-control'
-                                            placeholder="Check Out Date"
-                                            selected={checkOut}
-                                            onChange={this.checkOutHandleChange}
-                                            required
-                                        />
+                                    <div className="form-group mb-0">
+                                        <label className="bmd-label-floating">
+                                            <input
+                                                type="checkbox"
+                                                name="booking_for"
+                                                className="mr-2"
+                                                value="2"
+                                                onChange={this.changeHandler}
+                                                checked={Number(booking_for) === 2 ? true : false}
+                                            />
+                                            Booking for someone else</label>
                                     </div>
                                 </div>
                             </div>
+
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="form-group">
@@ -149,6 +127,7 @@ class BookingForm extends React.Component {
                                             name="full_name"
                                             defaultValue={full_name}
                                             onChange={this.changeHandler}
+                                            readOnly={Number(booking_for) === 1}
                                             required
                                         />
                                     </div>
@@ -163,60 +142,30 @@ class BookingForm extends React.Component {
                                             name="contact_no"
                                             defaultValue={contact_no}
                                             onChange={this.changeHandler}
+                                            readOnly={Number(booking_for) === 1}
                                             required
                                         />
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-12">
                                     <div className="form-group">
-                                        <label htmlFor="email" className="bmd-label-floating">Email Address (optional)</label>
-                                        <input
-                                            type="email"
-                                            className='form-control'
-                                            id="email"
-                                            name="email"
-                                            defaultValue={email}
-                                            onChange={this.changeHandler}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="no_of_guest" className="bmd-label-floating">No of Guest <span className="text-danger">*</span></label>
-                                        <input
+                                        <label htmlFor="contact_no" className="bmd-label-floating">Special Request</label>
+                                        <textarea
                                             type="number"
                                             className='form-control'
-                                            id="no_of_guest"
-                                            name="no_of_guest"
-                                            defaultValue={no_of_guest}
+                                            id="comments"
+                                            name="comments"
+                                            defaultValue={comments}
                                             onChange={this.changeHandler}
-                                            required
+                                            rows="3"
                                         />
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="address" className="bmd-label-floating">Address (optional)</label>
-                                        <input
-                                            type="text"
-                                            className='form-control'
-                                            id="address"
-                                            name="address"
-                                            defaultValue={address}
-                                            onChange={this.changeHandler}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div className="row">
                                 <div className="col-md-2 offset-5">
                                     <button type="submit" className="btn btn-primary btn-sm"
-                                        disabled={!isDone || !isAvailable}><i className="fa fa-check"></i> Submit</button>
+                                        disabled={!isDone}><i className="fa fa-check"></i> Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -226,4 +175,8 @@ class BookingForm extends React.Component {
         )
     }
 }
-export default connect(null, { storeRoomBooking })(BookingForm)
+const mapStateToProps = state => ({
+    room: state.room,
+    auth: state.auth,
+})
+export default connect(mapStateToProps, { storeRoomBooking })(BookingForm)

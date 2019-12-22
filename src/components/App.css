@@ -208,3 +208,15 @@ button.link-btn i {
 .select-park-option-area {
     z-index: -1;
 }
+
+.btn-disabled {
+    background: #838383 !important;
+    cursor: inherit !important;
+}
+
+.booking-for-area {
+    background: #eae6df75;
+    border-radius: 10px;
+    padding-top: 15px;
+    margin: 20px 0;
+}

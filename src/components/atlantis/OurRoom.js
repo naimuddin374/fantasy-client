@@ -2,7 +2,6 @@ import React from 'react'
 import { API_URL } from '../../store/actions/types';
 import Axios from 'axios';
 import Facility from './Facility';
-import BookingForm from './BookingForm';
 import { connect } from 'react-redux';
 import PriceBoard from './PriceBoard';
 
@@ -10,20 +9,6 @@ class OurRoom extends React.Component {
     state = {
         thumbnailImage: API_URL + this.props.data.image,
         galleries: {},
-        isModalOpen: false,
-        detailData: {},
-    }
-    openModal = (data) => {
-        this.setState({
-            isModalOpen: true,
-            detailData: data,
-        })
-    }
-    closeModal = () => {
-        this.setState({
-            isModalOpen: false,
-            detailData: {}
-        })
     }
     componentDidMount() {
         Axios.get(`${API_URL}api/room-gallery/${this.props.data.id}`)
@@ -84,6 +69,7 @@ class OurRoom extends React.Component {
                                             searchData={this.props.searchData}
                                             openModal={this.openModal}
                                             gotToTop={this.props.gotToTop}
+                                            history={this.props.history}
                                         />
                                     </div>
                                 </div>
@@ -91,12 +77,6 @@ class OurRoom extends React.Component {
                         </div>
                     </div>
                 </div>
-                <BookingForm
-                    isOpen={this.state.isModalOpen}
-                    isClose={this.closeModal}
-                    detailData={this.props.data}
-                    history={this.props.history}
-                />
             </section>
         )
     }

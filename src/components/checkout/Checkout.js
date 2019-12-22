@@ -28,7 +28,7 @@ class Checkout extends React.Component {
         })
     }
     payHandler = () => {
-        let { rides, booking, auth, } = this.state
+        let { rides, booking, auth } = this.state
         this.props.checkoutPayment(rides, booking, auth, this.props.history)
     }
     render() {
@@ -39,10 +39,10 @@ class Checkout extends React.Component {
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
-                totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
+                totalPrice = totalPrice + getItemPrice(item.quantity, item.price, item.discount_price)
             ))
         if (Object.keys(booking).length !== 0) {
-            totalPrice = totalPrice + Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)
+            totalPrice = totalPrice + booking.totalPrice
         }
         let { termsAdnConditions } = this.state
         return (
@@ -79,8 +79,7 @@ class Checkout extends React.Component {
                                                                         </span>
                                                                         <span className="float-left ml-5">
                                                                             {item.title}<br />
-                                                                            {item.adult_quantity > 0 && `${item.adult_quantity} Adult `} &nbsp;
-                                                                            {item.kids_quantity > 0 && `${item.kids_quantity} Child`}
+                                                                            Quantity: {item.quantity}x৳{item.discount_price !== null ? item.discount_price : item.price}
                                                                         </span>
                                                                     </li>
                                                                 </ul>
@@ -88,13 +87,13 @@ class Checkout extends React.Component {
                                                         </div>
                                                     </div>
                                                     <div className="product-total-order-price">
-                                                        <span>৳{getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span>
+                                                        <span>৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
                                                     </div>
                                                 </div>
                                             ))}
 
                                         {Object.keys(booking).length !== 0 &&
-                                            <div className="single-order-content" key={booking[0].id}>
+                                            <div className="single-order-content" key={booking.booking_id}>
                                                 <div className="product-order-details">
                                                     <div className="product-detais-order-innder">
                                                         <div className="prduct-order-count">	<span>R1.</span>
@@ -103,10 +102,10 @@ class Checkout extends React.Component {
                                                             <ul>
                                                                 <li>
                                                                     <span className="float-left">
-                                                                        <img src={booking[0].image ? API_URL + booking[0].image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '50px' }} />
+                                                                        <img src={booking.image ? API_URL + booking.image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '50px' }} />
                                                                     </span>
                                                                     <span className="float-left ml-5">
-                                                                        {booking[0].title}
+                                                                        {booking.title}
                                                                     </span>
                                                                 </li>
                                                             </ul>
@@ -114,7 +113,7 @@ class Checkout extends React.Component {
                                                     </div>
                                                 </div>
                                                 <div className="product-total-order-price">
-                                                    <span>৳{Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)}</span>
+                                                    <span>৳{booking.totalPrice}</span>
                                                 </div>
                                             </div>
                                         }

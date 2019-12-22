@@ -28,7 +28,7 @@ class Item extends React.Component {
         return true
     }
     render() {
-        let { title, description, adult_quantity, kids_quantity, price, id, type, isInCart, image } = this.props.data
+        let { title, description, quantity, price, discount_price, id, isInCart, image } = this.props.data
         return (
             <div>
                 <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding mb-3">
@@ -36,49 +36,22 @@ class Item extends React.Component {
                         <div className="prodcut-info">
                             <ul>
                                 <li>
-                                    <img src={image ? API_URL + image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '60px' }} />
+                                    <img src={image ? API_URL + image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '90px' }} />
                                 </li>
+                                <li><h4>{title}</h4></li>
                             </ul>
-                            <h4 className="pt-3">{title}</h4>
-                            <p>{textLimit(description, 40)}</p>
+                            <p>{textLimit(description, 70)}</p>
                         </div>
                         <div className="single-product-increment-decrement">
-                            <div className="product-quantity-content">
-                                {type === "1" &&
-                                    <div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <td className="pro-quantity">
-                                                        <div className="pro-qty ml-4">
-                                                            <button className="dec qtybtn" disabled={this.minusButtonHandler(adult_quantity)} onClick={() => this.props.quantityMinusHandler(id, 1)}>-</button>
-                                                            <input type="number" value={adult_quantity} readOnly />
-                                                            <button className="inc qtybtn" disabled={adult_quantity === 15} onClick={() => this.props.quantityAddHandler(id, 1)}>+</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                        <h4 className="product-price">৳{price}</h4>
-                                        <p>Adult Entry 3 Rides</p>
+                            <div className="product-quantity-content text-center">
+                                <div className="pro-quantity">
+                                    <div className="pro-qty">
+                                        <button className="dec qtybtn" disabled={this.minusButtonHandler(quantity)} onClick={() => this.props.quantityMinusHandler(id)}>-</button>
+                                        <input type="number" name="quantity" value={quantity} readOnly />
+                                        <button className="inc qtybtn" disabled={quantity === 15} onClick={() => this.props.quantityAddHandler(id)}>+</button>
                                     </div>
-                                }
-                            </div>
-                            <div className="product-quantity-content">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <td className="pro-quantity">
-                                                <div className="pro-qty ml-4">
-                                                    <button className="dec qtybtn" disabled={this.minusButtonHandler(kids_quantity)} onClick={() => this.props.quantityMinusHandler(id, 2)}>-</button>
-                                                    <input type="number" name="quantity" value={kids_quantity} readOnly />
-                                                    <button className="inc qtybtn" disabled={kids_quantity === 15} onClick={() => this.props.quantityAddHandler(id, 2)}>+</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                </table>
-                                <h4 className="product-price">৳{price}</h4>
+                                </div>
+                                <h4 className="product-price">৳{discount_price !== null ? discount_price : price}</h4>
                                 <p>Child (below 4) reg</p>
                             </div>
                         </div>

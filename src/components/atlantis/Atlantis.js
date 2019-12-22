@@ -31,10 +31,10 @@ class Atlantis extends React.Component {
             })
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        if ((JSON.stringify(nextProps.cart.searchData) === JSON.stringify(prevState.searchData)) && (JSON.stringify(nextProps.cart.rooms) === JSON.stringify(prevState.rooms))) return null
+        if ((JSON.stringify(nextProps.room.searchData) === JSON.stringify(prevState.searchData)) && (JSON.stringify(nextProps.room.rooms) === JSON.stringify(prevState.rooms))) return null
         return {
-            rooms: nextProps.cart.rooms,
-            searchData: nextProps.cart.searchData,
+            rooms: nextProps.room.rooms,
+            searchData: nextProps.room.searchData,
             loading: false,
         }
     }
@@ -89,6 +89,6 @@ class Atlantis extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    cart: state.cart,
+    room: state.room,
 })
 export default connect(mapStateToProps, { setRoom })(Atlantis)

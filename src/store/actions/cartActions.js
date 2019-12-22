@@ -10,7 +10,7 @@ export const addToCart = data => dispatch => {
     })
 }
 
-export const checkoutPayment = (rides, room, auth, history) => dispatch => {
+export const checkoutPayment = (rides, booking, auth, history) => dispatch => {
     let name = auth.full_name
     let email = auth.email
     let contactNo = auth.contact_no
@@ -25,11 +25,11 @@ export const checkoutPayment = (rides, room, auth, history) => dispatch => {
             return true
         })
 
-    // Room Lists and price
+    // Room booking Lists and price
     let roomLists = ''
-    if (Object.keys(room).length !== 0) {
-        totalPrice = totalPrice + Math.abs(room[0].discount !== null ? room[0].discount : room[0].price)
-        roomLists += `<hr/><h3>Room Information</h3><hr/><h4 style="margin: 0;padding: 0;"><span style="float:left;">${room[0].title}</span><span style="float:right;">${Math.abs(room[0].discount !== null ? room[0].discount : room[0].price)}</span></h4>`
+    if (Object.keys(booking).length !== 0) {
+        totalPrice = totalPrice + booking.totalPrice
+        roomLists += `<hr/><h3>Room Information</h3><hr/><h4 style="margin: 0;padding: 0;"><span style="float:left;">${booking.title}</span><span style="float:right;">${booking.totalPrice}</span></h4>`
     }
 
     // Email body for admin 
@@ -71,7 +71,7 @@ export const checkoutPayment = (rides, room, auth, history) => dispatch => {
 </body>
 </html>`
     let postData = {
-        room,
+        booking,
         emailBody,
         rides: rides,
         userToken: auth.token,
@@ -81,8 +81,8 @@ export const checkoutPayment = (rides, room, auth, history) => dispatch => {
     Axios.post(`${API_URL}api/sales`, postData)
         .then(res => {
             console.log(res.data)
-            localStorage.removeItem("cart_item")
-            localStorage.removeItem("booking_data")
+            // localStorage.removeItem("cart_item")
+            // localStorage.removeItem("booking_data")
             dispatch({
                 type: SET_MESSAGE,
                 payload: {

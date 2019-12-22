@@ -2961,15 +2961,8 @@ input[type="number"]:focus {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 28px;
+    padding-bottom: 5px;
 }
-
-.single-product-increment-decrement {
-    display: flex;
-    width: 50%;
-    text-align: center;
-}
-
 .pro-qty>input {
     height: 50px;
     width: 50px;
@@ -2983,11 +2976,6 @@ input[type="number"]:focus {
 input[type="number"] {
     -webkit-appearance: none !important;
 }
-
-.product-quantity-content {
-    width: 50%;
-}
-
 .product-details-cart-btn {
     display: flex;
     overflow: hidden;
@@ -3087,7 +3075,6 @@ h4.product-price {
 }
 
 .ticket-widget-content-inner h5 {
-    margin-top: 12px;
     font-size: 15px;
     font-weight: 600;
 }
@@ -3095,7 +3082,11 @@ h4.product-price {
 .ticket-widget-content-inner {
     padding: 27px 20px;
 }
-
+.inner-checkout-content{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
 h4.total-price-widget {
     font-weight: 600;
     color: #1A0537;
@@ -3104,7 +3095,7 @@ h4.total-price-widget {
 }
 
 .ticket-modal-header {
-    background: #ED9321;
+    background: #e50019;
     text-align: center;
     display: inline-block;
     padding-top: 22px;
@@ -3314,20 +3305,6 @@ li.order-product-name {
     display: inline-block;
     padding-right: 16px;
     position: relative;
-}
-
-.prodcut-info>ul>li:after {
-    content: "\f067 ";
-    position: absolute;
-    right: -4px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: "fontawesome";
-    color: #3a3a3a;
-}
-
-.prodcut-info>ul>li:last-child:after {
-    display: none;
 }
 
 .remove-btn {

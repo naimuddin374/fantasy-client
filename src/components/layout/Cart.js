@@ -32,11 +32,11 @@ class Cart extends React.Component {
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
-                totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
+                totalPrice = totalPrice + getItemPrice(item.quantity, item.price, item.discount_price)
             ))
         let totalItem = Object.keys(rides).length
         if (Object.keys(booking).length !== 0) {
-            totalPrice = totalPrice + Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)
+            totalPrice = totalPrice + booking.totalPrice
             totalItem = totalItem + 1
         }
         return (
@@ -50,23 +50,26 @@ class Cart extends React.Component {
                                         <div className="fantasy-cart-img">
                                             <img src={API_URL + item.image} alt="product" />
                                         </div>
-                                        <div className="fantasy-cart-info">	<p>{item.title}</p>
+                                        <div className="fantasy-cart-info">
+                                            <p>{item.title}</p>
                                             <p>
-                                                <span className="float-left">{item.adult_quantity !== 0 && `A-${item.adult_quantity}`} {item.kids_quantity !== 0 && `K-${item.kids_quantity}`}</span>
-                                                <span className="float-right">৳{getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span></p>
+                                                <span className="float-left">Q: {item.quantity}x৳{item.discount_price !== null ? item.discount_price : item.price}</span>
+                                                <span className="float-right">৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
+                                            </p>
                                         </div>
-                                        <div className="fantasy-cart-remove"><button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button>
+                                        <div className="fantasy-cart-remove">
+                                            <button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button>
                                         </div>
                                     </div>
                                 ))}
                             {Object.keys(booking).length !== 0 &&
-                                <div className="fantasy-cart-item" key={booking[0].id}>
+                                <div className="fantasy-cart-item" key={booking.booking_id}>
                                     <div className="fantasy-cart-img">
-                                        <img src={API_URL + booking[0].image} alt="product" />
+                                        <img src={API_URL + booking.image} alt="product" />
                                     </div>
-                                    <div className="fantasy-cart-info">	<p>{booking[0].title}</p>
+                                    <div className="fantasy-cart-info">	<p>{booking.title}</p>
                                         <p>
-                                            <span className="float-right">৳{Math.abs(booking[0].discount !== null ? booking[0].discount : booking[0].price)}</span></p>
+                                            <span className="float-right">৳{booking.totalPrice}</span></p>
                                     </div>
                                     <div className="fantasy-cart-remove">
                                         {/* <button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button> */}

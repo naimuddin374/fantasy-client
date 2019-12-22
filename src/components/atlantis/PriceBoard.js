@@ -1,7 +1,24 @@
 import React from 'react'
 import { priceCal } from '../../util/helper'
+import BookingForm from './BookingForm';
 
 class PriceBoard extends React.Component {
+    state = {
+        isModalOpen: false,
+        detailData: {},
+    }
+    openModal = (data) => {
+        this.setState({
+            isModalOpen: true,
+            detailData: data,
+        })
+    }
+    closeModal = () => {
+        this.setState({
+            isModalOpen: false,
+            detailData: {}
+        })
+    }
     render() {
         let { price, vat, discount, service_charge, no_of_room } = this.props.data
         let totalDay = 0
@@ -24,8 +41,7 @@ class PriceBoard extends React.Component {
                             <h5 className="atlantis-booking-price">Service Charge: {`${service_charge * totalDay}%`}</h5>
                             <h3 className="atlantis-booking-price"><i className="fa fa-coffee" /> Breakfast included</h3>
                             <h4 className="atlantis-free-collection mb-3">Total Amount: ৳{priceCal(((price * totalRoom) * totalDay), vat, discount)}</h4>
-                            {/* <button onClick={() => this.props.openModal(this.props.data)} className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button> */}
-                            <button className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button>
+                            <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button>
                         </div> :
                         <div className="atlantis-booking-content mb-3">
                             <h5 className="atlantis-booking-price">Price per night as low as</h5>
@@ -40,9 +56,15 @@ class PriceBoard extends React.Component {
                         </div>
                     }
                 </div>
+                <BookingForm
+                    isOpen={this.state.isModalOpen}
+                    isClose={this.closeModal}
+                    detailData={this.props.data}
+                    history={this.props.history}
+                    totalPrice={totalDay > 0 ? priceCal(((price * totalRoom) * totalDay), vat, discount) : 0}
+                />
             </div>
         )
     }
 }
-
 export default PriceBoard

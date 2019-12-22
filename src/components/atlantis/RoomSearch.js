@@ -40,6 +40,7 @@ class RoomSearch extends React.Component {
     }
     render() {
         let { checkIn, checkOut, no_of_room, no_of_guest } = this.state
+        let isDone = checkIn && checkOut && no_of_room && no_of_guest
         return (
             <section className="breadcrum-area atlantis-feature-img relative atlantis-breadcrumb-area">
                 <div className="breadcrum-feature-overlay"></div>
@@ -84,22 +85,6 @@ class RoomSearch extends React.Component {
                                                 value={no_of_room}
                                                 onChange={this.changeHandler}
                                             />
-                                            {/* <select
-                                                name="no_of_room"
-                                                value={no_of_room}
-                                                onChange={this.changeHandler}
-                                            >
-                                                <option value="0">Room</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                            </select> */}
                                         </div>
                                         <div className="col-md-2">
                                             <label htmlFor="no_of_guest">Adult: </label>
@@ -111,28 +96,9 @@ class RoomSearch extends React.Component {
                                                 value={no_of_guest}
                                                 onChange={this.changeHandler}
                                             />
-
-                                            {/* <select
-                                                className="form-control"
-                                                id="no_of_guest"
-                                                name="no_of_guest"
-                                                defaultValue={no_of_guest}
-                                                onChange={this.changeHandler}
-                                            >
-                                                <option value="0">Adult</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                            </select> */}
                                         </div>
                                         <div className="col-md-2" style={{ top: "36px" }}>
-                                            <button type="submit" className="atlantis-search-btn"><i className="fa fa-search" /> Check Availability</button>
+                                            <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}><i className="fa fa-search" /> Check Availability</button>
                                         </div>
                                     </div>
                                 </form>

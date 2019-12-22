@@ -16,21 +16,19 @@ class Summary extends React.Component {
     }
     cartRemoveHandler(id) {
         let newArr = this.props.cart.rides.map(item => {
-            let obj = { ...item }
-            if (item.id === id) {
-                obj.isInCart = false
+            return {
+                ...item,
+                isInCart: item.id === id ? false : item.isInCart
             }
-            return obj
         })
         this.props.addToCart(newArr)
     }
-
     render() {
         let { rides } = this.state
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
-                totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
+                totalPrice = totalPrice + getItemPrice(item.quantity, item.price, item.discount_price)
             ))
         return (
             <div className="col-lg-3 col-md-12">
@@ -41,22 +39,17 @@ class Summary extends React.Component {
                     {Object.keys(rides).length !== 0 &&
                         rides.map(item => (
                             <div className="ticket-widget-content-inner first-ticket-widget" key={item.id}>
-                                <ul>
-                                    <li style={{ border: "none" }}>
-                                        <h5>
-                                            <span className="float-left">{item.title}</span>
-                                            <span className="float-right link-btn" onClick={() => this.cartRemoveHandler(item.id)} ><i className="fa fa-close p-1" /></span>
-                                        </h5>
-                                        <p>
-                                            <span className="float-left">{item.service_title}</span>
-                                            <span className="float-right">
-                                                {item.adult_quantity !== 0 && "A-" + item.adult_quantity} &nbsp;
-                                                {item.kids_quantity !== 0 && "K-" + item.kids_quantity} &nbsp;৳
-                                                {getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}
-                                            </span>
-                                        </p>
-                                    </li>
-                                </ul>
+                                <div className="inner-checkout-content">
+                                    <span className="float-left"><h5>{item.title}</h5></span>
+                                    <span className="float-right link-btn" onClick={() => this.cartRemoveHandler(item.id)} ><i className="fa fa-close p-1" /></span>
+                                </div>
+
+                                <div className="inner-checkout-content">
+                                    <span className="float-left">Quantity: {item.quantity}x৳{item.discount_price !== null ? item.discount_price : item.price}</span>
+                                    <span className="float-right">
+                                        ৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
+                                </div>
+
                             </div>
                         ))}
                     <div className="widget-checkout-money">
