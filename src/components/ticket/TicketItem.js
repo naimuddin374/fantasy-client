@@ -73,7 +73,7 @@ class TicketItem extends React.Component {
             return {
                 ...item,
                 isInCart: item.id === id ? true : item.isInCart,
-                quantity: (item.id === id && item.quantity === 0) ? 1 : item.quantity
+                quantity: (item.id === id && Number(item.quantity) === 0) ? 1 : item.quantity
             }
         })
         this.props.addToCart(newArr)

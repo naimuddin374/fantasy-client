@@ -1,4 +1,4 @@
-import { SET_MESSAGE, API_URL, SET_ROOM_RESULT, SET_ROOM_IN_CART, SET_ACTION_STATUS } from './types'
+import { SET_MESSAGE, API_URL, SET_ROOM_RESULT, SET_ROOM_IN_CART } from './types'
 import Axios from 'axios'
 
 export const storeRoomBooking = (data, history) => dispatch => {

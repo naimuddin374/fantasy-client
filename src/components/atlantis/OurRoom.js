@@ -4,17 +4,23 @@ import Axios from 'axios';
 import Facility from './Facility';
 import { connect } from 'react-redux';
 import PriceBoard from './PriceBoard';
+import Loading from '../layout/Loading';
 
 class OurRoom extends React.Component {
     state = {
         thumbnailImage: API_URL + this.props.data.image,
         galleries: {},
+        loading: true,
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        })
         Axios.get(`${API_URL}api/room-gallery/${this.props.data.id}`)
             .then(res => {
                 this.setState({
-                    galleries: res.data
+                    galleries: res.data,
+                    loading: false
                 })
             })
     }
@@ -24,7 +30,7 @@ class OurRoom extends React.Component {
         })
     }
     render() {
-        let { thumbnailImage, galleries } = this.state
+        let { thumbnailImage, galleries, loading } = this.state
         let { title, description } = this.props.data
         return (
             <section className="atlantis-room-suites section-padding-bottom relative">
@@ -38,7 +44,8 @@ class OurRoom extends React.Component {
                             </div>
                             <div className="col-lg-4 col-md-12">
                                 <div className="row">
-                                    {Object.keys(galleries).length !== 0 &&
+                                    {loading ? <Loading /> :
+                                        Object.keys(galleries).length !== 0 &&
                                         galleries.map(item => (
                                             <div className="col-lg-6 col-md-4 col-sm-6" key={item.id}>
                                                 <div className="atlantis-room-thumb" id="thumb_img">
@@ -81,7 +88,6 @@ class OurRoom extends React.Component {
         )
     }
 }
-
 const mapStateToProps = state => ({
     auth: state.auth,
 })

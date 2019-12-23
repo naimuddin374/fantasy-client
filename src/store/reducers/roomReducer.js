@@ -1,4 +1,4 @@
-import { SET_ROOM_RESULT, SET_ROOM_IN_CART, SET_ACTION_STATUS } from '../actions/types'
+import { SET_ROOM_RESULT, SET_ROOM_IN_CART } from '../actions/types'
 
 const init = {
     rooms: {},

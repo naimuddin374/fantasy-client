@@ -165,7 +165,7 @@ class BookingForm extends React.Component {
                             <div className="row">
                                 <div className="col-md-2 offset-5">
                                     <button type="submit" className="btn btn-primary btn-sm"
-                                        disabled={!isDone}><i className="fa fa-check"></i> Submit</button>
+                                        disabled={!isDone}><i className="fa fa-check"></i> Confirm Booking</button>
                                 </div>
                             </div>
                         </form>
