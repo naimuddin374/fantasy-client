@@ -2963,6 +2963,7 @@ input[type="number"]:focus {
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
 }
+
 .pro-qty>input {
     height: 50px;
     width: 50px;
@@ -2976,6 +2977,7 @@ input[type="number"]:focus {
 input[type="number"] {
     -webkit-appearance: none !important;
 }
+
 .product-details-cart-btn {
     display: flex;
     overflow: hidden;
@@ -3082,11 +3084,13 @@ h4.product-price {
 .ticket-widget-content-inner {
     padding: 27px 20px;
 }
-.inner-checkout-content{
+
+.inner-checkout-content {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
+
 h4.total-price-widget {
     font-weight: 600;
     color: #1A0537;
@@ -4277,4 +4281,154 @@ button.atlantis-book-now-btn.btn {
     .atlantis-breadcrumb-area {
         padding-bottom: 450px;
     }
+}
+
+/**************************Profile Style************************/
+.user-profile-inner-content {
+    box-shadow: 0 3px 6pc rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    padding: 20px 30px;
+}
+
+.emp-profile {
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.profile-img {
+    width: 100%;
+    height: 250px;
+}
+
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529B8;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-short-description {
+    margin-top: 50px;
+}
+
+.table-content>h3 {
+    text-transform: capitalize;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+.profile-data-tab-content {
+    overflow: hidden;
+}
+
+.profile-head h5 {
+    color: #333;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 600;
+}
+
+.profile-head h6 {
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #666;
+}
+
+.profile-edit-btn {
+    border: none;
+    padding: 6px 30px;
+    border-radius: 4px;
+    display: inline-block;
+    line-height: 30px;
+    font-weight: 500;
+    color: #fff;
+    background: #17A2B8;
+}
+
+.proile-rating {
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+
+.proile-rating span {
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.profile-work {
+    padding: 14%;
+    margin-top: -15%;
+}
+
+.profile-work p {
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+
+.profile-work a {
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.profile-work ul {
+    list-style: none;
+}
+
+.ordered-info-user>h3 {
+    font-size: 19px;
+    text-transform: capitalize;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+.ordered-info-user {
+    margin-top: 46px;
+}
+
+.ordered-balance {
+    display: inline-block;
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.row.user-order-info {
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.11);
+    margin-bottom: 20px;
+    padding: 10px 18px;
+}
+
+.Collapsible__trigger {
+    width: 100%;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.Collapsible__contentInner {
+    border: 1px solid rgba(0, 0, 0, 0.11);
 }

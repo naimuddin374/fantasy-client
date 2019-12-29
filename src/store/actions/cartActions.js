@@ -20,7 +20,7 @@ export const checkoutPayment = (rides, booking, auth, history) => dispatch => {
     let rideLists = ''
     Object.keys(rides).length !== 0 &&
         rides.map((item, index) => {
-            totalPrice = totalPrice + getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)
+            totalPrice = totalPrice + getItemPrice(item.quantity, item.price, item.discount_price)
             rideLists += `<h4 style="margin: 0;padding: 0;"><span style="float:left;">${index + 1}. ${item.title}</span><span style="float:right;">${getItemPrice(item.adult_quantity, item.kids_quantity, item.price, item.discount_price)}</span></h4>`
             return true
         })

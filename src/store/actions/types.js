@@ -1,4 +1,3 @@
-// export const PATH_NAME = window.location.pathname.substring(1)
 export const API_URL = 'https://btlbd.xyz/fantasy-api/'
 // export const API_URL = 'http://localhost:8000/'
 

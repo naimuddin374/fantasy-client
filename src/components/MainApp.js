@@ -23,6 +23,7 @@ import NewsEventDetail from '../page/NewsEventDetail';
 import AlertMessage from './layout/AlertMessage';
 import Register from './layout/Register';
 import Login from './layout/Login'
+import Profile from './profile/Profile';
 
 
 class MainApp extends React.Component {
@@ -32,6 +33,7 @@ class MainApp extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
+                    <Route path={`${process.env.PUBLIC_URL}/profile`} component={Profile} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/ticket/:id`} exact component={Ticket} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/ticket`} exact component={Ticket} history={this.props.history} />

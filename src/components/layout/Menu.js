@@ -96,6 +96,9 @@ class Menu extends React.Component {
                                         </li>
                                         <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
                                         </li>
+                                        {this.props.auth.isAuth &&
+                                            <li className="nav-item search-header-btn"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
+                                            </li>}
                                         <Cart />
                                         <li className="nav-item">
                                             {this.props.auth.isAuth ?

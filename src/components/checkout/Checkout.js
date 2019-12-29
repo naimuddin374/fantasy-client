@@ -30,6 +30,14 @@ class Checkout extends React.Component {
     payHandler = () => {
         let { rides, booking, auth } = this.state
         this.props.checkoutPayment(rides, booking, auth, this.props.history)
+        this.setState({
+            termsAdnConditions: false
+        })
+        setTimeout(() => {
+            this.setState({
+                termsAdnConditions: false
+            })
+        }, 3000)
     }
     render() {
         if (!this.state.auth.isAuth) {

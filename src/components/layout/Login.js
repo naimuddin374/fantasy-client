@@ -25,6 +25,9 @@ class Register extends React.Component {
                 <div className="container">
                     <div className="login-registeration-or-shape">
                         <div className="form-row">
+                            <div className="col-md-4 offset-4">
+                                <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
+                            </div>
                             <div className="col-md-12">
                                 <div className="or-shape"> <span><h4>Login</h4></span>
                                 </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Axios from 'axios'
 import { API_URL } from './../store/actions/types';
+import ReactHtmlParser from 'react-html-parser';
 
 class Faq extends React.Component {
     state = {
@@ -43,7 +44,7 @@ class Faq extends React.Component {
                                                         </div>
                                                         <div id={`collapseFour_${item.id}`} className={index === 0 ? 'collapse show' : 'collapse'} aria-labelledby="headingFour" data-parent="#accordionExample">
                                                             <div className="card-body faq-body">
-                                                                <p>{item.description}</p>
+                                                                <p>{ReactHtmlParser(item.description)}</p>
                                                             </div>
                                                         </div>
                                                     </div>
