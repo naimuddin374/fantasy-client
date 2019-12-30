@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './Search'
+// import Search from './Search'
 import CircleShape from '../common/CircleShape'
 import Summary from './Summary'
 import TicketItem from './TicketItem'
@@ -11,7 +11,7 @@ class Ticket extends React.Component {
     render() {
         return (
             <div>
-                <Search />
+                {/* <Search /> */}
 
                 <section className="checkout-page-area section-padding">
 

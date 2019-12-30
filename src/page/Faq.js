@@ -20,36 +20,35 @@ class Faq extends React.Component {
     render() {
         let { faqs } = this.state
         return (
-            <section className="fantasy-faq section-padding">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                            <div className="section-title-small-text fantasy-section-title-small-text text-center mb-4">
+            <section class="fantasy-faq section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
+                            <div class="section-title-small-text text-center mb-4 faq-section-title">
                                 <h2>FAQ</h2>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-12 col-md-12">
-                            <div className="frequently-asked-question-wrapper">
-                                <div className="frequently-asked-title">
-                                    <div className="faq-main for-rent mgtop50">
-                                        <div className="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="frequently-asked-question-wrapper">
+                                <div class="frequently-asked-title">
+                                    <div class="faq-main for-rent mgtop50">
+                                        <div class="accordion mgtop16 faq-area" data-wow-delay=".2s" id="accordionExample">
                                             {Object.keys(faqs).length !== 0 &&
                                                 faqs.map((item, index) => (
-                                                    <div className="card faq-inner-content" key={item.id}>
-                                                        <div className="card-header faq-heading" id="headingFour">
-                                                            <span className="collapsed link-btn" data-toggle="collapse" data-target={`#collapseFour_${item.id}`} aria-expanded="false" aria-controls={`collapseFour_${item.id}`}>
-                                                                {item.title} </span>
+                                                    <div class="card faq-inner-content" key={item.id}>
+                                                        <div class="card-header faq-heading" id="headingOne"> <a data-toggle="collapse" data-target={`#collapseOne-${item.id}`} aria-expanded="true" aria-controls={`collapseOne-${item.id}`}>
+                                                            {item.title}
+                                                        </a>
                                                         </div>
-                                                        <div id={`collapseFour_${item.id}`} className={index === 0 ? 'collapse show' : 'collapse'} aria-labelledby="headingFour" data-parent="#accordionExample">
-                                                            <div className="card-body faq-body">
+                                                        <div id={`collapseOne-${item.id}`} class={index === 0 ? "collapse show" : "collapse"} aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                            <div class="card-body faq-body">
                                                                 <p>{ReactHtmlParser(item.description)}</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                ))
-                                            }
+                                                ))}
                                         </div>
                                     </div>
                                 </div>
@@ -62,3 +61,4 @@ class Faq extends React.Component {
     }
 }
 export default Faq
+

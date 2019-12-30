@@ -77,7 +77,7 @@ class Things extends React.Component {
         }
         let { rides, className, loading } = this.state
         return (
-            <section className="things-area section-padding-top full-bg">
+            <section className="things-area explore-area section-padding">
                 <div className="container">
                     <div className="row row-center">
                         <div className="col-lg-8 col-md-8">

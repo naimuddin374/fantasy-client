@@ -23,6 +23,30 @@ class Summary extends React.Component {
         })
         this.props.addToCart(newArr)
     }
+    minusButtonHandler = (quantity) => {
+        if (quantity > 0) {
+            return false
+        }
+        return true
+    }
+    quantityAddHandler(id) {
+        let newArr = this.state.rides.map(item => {
+            return {
+                ...item,
+                quantity: item.id === id ? Number(item.quantity) + 1 : item.quantity
+            }
+        })
+        this.props.addToCart(newArr)
+    }
+    quantityMinusHandler(id) {
+        let newArr = this.state.rides.map(item => {
+            return {
+                ...item,
+                quantity: item.id === id ? Number(item.quantity) - 1 : item.quantity
+            }
+        })
+        this.props.addToCart(newArr)
+    }
     render() {
         let { rides } = this.state
         let totalPrice = 0
@@ -49,6 +73,31 @@ class Summary extends React.Component {
                                     <span className="float-right">
                                         ৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
                                 </div>
+                                <div className="inner-checkout-content">
+                                    <div className="row">
+                                        <div className="pro-quantity">
+                                            <div className="order-summary-qtn">
+                                                <button className="order-qtn" disabled={this.minusButtonHandler(item.quantity)} onClick={() => this.quantityMinusHandler(item.id)}>-</button>
+                                                <input type="number" name="quantity" className="order-qtn-number" value={item.quantity} readOnly />
+                                                <button className="order-qtn" disabled={item.quantity === 15} onClick={() => this.quantityAddHandler(item.id)}>+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* <div className="inner-checkout-content">
+                                    <div className="row">
+                                        <div className="col-md-4">
+                                            <button className="btn p-5" disabled={this.minusButtonHandler(item.quantity)} onClick={() => this.quantityAddHandler(item.id)}>-</button>
+                                        </div>
+                                        <div className="col-md-4">
+                                            <input type="number" value={item.quantity} readOnly />
+                                        </div>
+                                        <div className="col-md-4">
+                                            <button className="btn p-5" disabled={item.quantity === 15} onClick={() => this.quantityMinusHandler(item.id)}>+</button>
+                                        </div>
+                                    </div>
+                                </div> */}
 
                             </div>
                         ))}

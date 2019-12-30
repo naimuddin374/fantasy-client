@@ -1,6 +1,6 @@
 import React from 'react'
 import RoomSearch from './RoomSearch'
-import InnerSearch from './../common/InnerSearch';
+// import InnerSearch from './../common/InnerSearch';
 import PageContent from './PageContent';
 import OurRoom from './OurRoom';
 import ContactUs from './ContactUs';
@@ -49,7 +49,7 @@ class Atlantis extends React.Component {
         return (
             <div>
                 <RoomSearch searchHandler={this.searchHandler} />
-                <InnerSearch className="atlantis" />
+                {/* <InnerSearch className="atlantis" /> */}
                 <PageContent />
                 {loading ? <Loading /> :
                     Object.keys(rooms).length === 0 ? <div className="row mb-5">

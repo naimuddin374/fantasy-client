@@ -67,14 +67,12 @@ class Register extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <div className="loginregisteration-group">
-                                        <button
-                                            type="submit"
-                                            className={isDone ? 'email-submit form-control' : 'btn-default'}
-                                            disabled={!isDone}>
-                                            <i className="fa fa-check" aria-hidden="true"></i>
-                                            Sign Up</button>
-                                    </div>
+                                    {isDone ?
+                                        <button type="submit" className="primary-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                            Sign In</button> :
+                                        <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                            Sign In</button>
+                                    }
                                 </div>
                             </form>
                         </div>
@@ -83,8 +81,8 @@ class Register extends React.Component {
                         <div className="form-row">
                             <div className="col-md-12">
                                 <div className="loginregisteration-group p-2">
-                                    <span>Don't have an account <Link to={`${process.env.PUBLIC_URL}/register`}>Sign up here</Link></span>
-                                    <span onClick={() => this.props.logout(this.props.history)}>Logout</span>
+                                    <span>Don't have an account <Link to={`${process.env.PUBLIC_URL}/register`}> Sign up here </Link></span>
+                                    {/* <span onClick={() => this.props.logout(this.props.history)}>Logout</span> */}
                                 </div>
                             </div>
                         </div>

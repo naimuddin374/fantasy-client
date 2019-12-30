@@ -1,7 +1,24 @@
-import History from '../../components/History'
+import { API_URL, SET_MESSAGE } from './types';
+import Axios from 'axios'
 
-// Change page from inner search component
-export const changePage = link => dispatch => {
-    History.push(`${process.env.PUBLIC_URL}/${link}`)
-    dispatch(History.push(`${process.env.PUBLIC_URL}/${link}`))
+// Update profile picture 
+export const storeSubscribe = data => dispatch => {
+    Axios.post(`${API_URL}api/subscribe/`, data)
+        .then(res => {
+            dispatch({
+                type: SET_MESSAGE,
+                payload: {
+                    message: 'Thank you for connected with us.',
+                }
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: SET_MESSAGE,
+                payload: {
+                    message: err.response.data,
+                    type: 'error',
+                }
+            })
+        })
 }

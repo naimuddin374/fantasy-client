@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { DISCOUNT_TAG } from '../../store/actions/types';
 
 class FooterPage extends React.Component {
     render() {
@@ -9,9 +10,9 @@ class FooterPage extends React.Component {
                     <div className="container">
                         <div className="footer-shape-social">
                             <ul>
-                                <li><Link to="#"><i className="fa fa-facebook"></i></Link></li>
-                                <li><Link to="#"><i className="fa fa-twitter"></i></Link></li>
-                                <li><Link to="#"><i className="fa fa-youtube-play"></i></Link></li>
+                                <li><a target="_blank" href="https://www.facebook.com/fantasykingdomcomplex"><i className="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/fantasykingdom_"><i className="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/channel/UC3WC5sY2ez7RirsuyRM2zxQ"><i className="fa fa-youtube-play"></i></a></li>
                             </ul>
                         </div>
                         <div className="row">
@@ -19,8 +20,7 @@ class FooterPage extends React.Component {
                                 <div className="widget-wrapper">
                                     <div className="widget-content">
                                         <img src={`${process.env.PUBLIC_URL}/assets/images/footerlogo.png`} alt="logo" />
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing  <br />eliLorem ipsum dolor sit amet, consectetur
-						</p>
+                                        <p>Based in Ashulia, Fantasy Kingdom is the first theme park in Bangladesh. The park is only a 20 minutes car ride away from Hazrat Shahjalal International Airport.</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,10 +62,10 @@ class FooterPage extends React.Component {
                                     <div className="widget-content animation-widget">
                                         <h4>useful link</h4>
                                         <ul>
-                                            <li><Link to="#">Park Tickets</Link></li>
-                                            <li><Link to="#">Resorts</Link></li>
-                                            <li><Link to="#">Merchandise</Link></li>
-                                            <li><Link to="#">Offers</Link></li>
+                                            <li><Link to={`${process.env.PUBLIC_URL}/ticket`}>Park Tickets</Link></li>
+                                            <li><Link to={`${process.env.PUBLIC_URL}/atlantis`}>Resorts</Link></li>
+                                            <li><Link to={`${process.env.PUBLIC_URL}/things-to-do`}>Things To Do</Link></li>
+                                            <li><Link to={`${process.env.PUBLIC_URL}/ticket/${DISCOUNT_TAG}`}>Offers</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -78,15 +78,15 @@ class FooterPage extends React.Component {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-lg-3 col-md-3">
-                                <p className="footer-text">Terms of Service  >  Privacy Policy</p>
+                                <p className="footer-text">Terms of Service : Privacy Policy</p>
                             </div>
                             <div className="col-lg-5 col-md-5">
                                 <div className="allright-reserve">
-                                    <p className="footer-text">&copy; 2019 Fantasy Kingdom Complex. All rights reserved.</p>
+                                    <p className="footer-text">&copy; 2020 Fantasy Kingdom. All rights reserved.</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4">
-                                <p className="footer-text">Design & developed by : <Link to="http://beatnik.technology" target="_blank">Beatnik Technology Ltd.</Link></p>
+                                <p className="footer-text">Design & developed by : <Link to="https://beatnik.digital/" target="_blank">Beatnik</Link></p>
                             </div>
                         </div>
                     </div>

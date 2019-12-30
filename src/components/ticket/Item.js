@@ -62,8 +62,8 @@ class Item extends React.Component {
                         </div>
                         <div className="prodcut-add-to-cart">
                             {isInCart !== true ?
-                                <button className="disable-payment-btn" onClick={() => this.props.addToCartHandler(id)}>Add to Cart</button>
-                                : <button className="disable-payment-btn">Already In Cart</button>
+                                <button className="primary-btn" onClick={() => this.props.addToCartHandler(id)}>Add to Cart</button>
+                                : <button className="disable-btn">Added In Cart</button>
                             }
                         </div>
                     </div>

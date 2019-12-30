@@ -52,7 +52,7 @@ class PriceBoard extends React.Component {
                             <h5 className="atlantis-booking-price">Total Rooms: {no_of_room}</h5>
                             <h3 className="atlantis-booking-price"><i className="fa fa-coffee" /> Breakfast included</h3>
                             <h4 className="atlantis-free-collection mb-3">Total Amount: ৳{priceCal(price, (vat + service_charge), discount)}</h4>
-                            <button onClick={() => this.props.gotToTop()} className="atlantis-book-now-btn btn"><i className="fa fa-search" /> Check Availability</button>
+                            <button onClick={() => this.props.gotToTop()} className="atlantis-book-now-btn btn secondary-btn"><i className="fa fa-search" /> Check Availability</button>
                         </div>
                     }
                 </div>

@@ -39,8 +39,11 @@ class Register extends React.Component {
                 <div className="container">
                     <div className="login-registeration-or-shape">
                         <div className="form-row">
+                            <div className="col-md-4 offset-4">
+                                <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
+                            </div>
                             <div className="col-md-12">
-                                <div className="or-shape"> <span><h4>Register</h4></span>
+                                <div className="or-shape"> <span><h4>Sign Up</h4></span>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +142,8 @@ class Register extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
+                                    <label htmlFor="Other" className="d-block">Gender <span className="text-danger">*</span></label>
+
                                     <label htmlFor="Male" className="mr-3">
                                         <input
                                             type="radio"
@@ -171,14 +176,12 @@ class Register extends React.Component {
                                         Other</label>
                                 </div>
                                 <div className="form-group">
-                                    <div className="loginregisteration-group">
-                                        <button
-                                            type="submit"
-                                            className={isDone ? 'email-submit form-control' : 'btn-default'}
-                                            disabled={!isDone}>
-                                            <i className="fa fa-check" aria-hidden="true"></i>
+                                    {isDone ?
+                                        <button type="submit" className="primary-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                            Sign Up</button> :
+                                        <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
                                             Sign Up</button>
-                                    </div>
+                                    }
                                 </div>
                             </form>
                         </div>

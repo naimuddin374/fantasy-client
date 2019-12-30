@@ -77,15 +77,15 @@ class DiscoverPackage extends React.Component {
 			]
 		}
         return (
-            <section className="discover-area section-padding full-bg">
+			<section className="discover-area section-padding full-bg">
 		<div className="container">
-			<div className="row">
-				<div className="col-lg-12 col-md-12">
-					<div className="section-title fantasy-section-title mb-40">
-						<h2>Discover parks & resorts</h2>
+					<div className="row">
+						<div className="col-lg-12 col-md-12">
+							<div className="section-title fantasy-section-title mb-40">
+								<h2>Discover parks & resorts</h2>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
 				<div className="discover-carousel-wrapper">
 						{loading ? <Loading /> :
 							<Slider {...settings}>

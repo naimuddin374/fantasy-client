@@ -94,18 +94,22 @@ class Menu extends React.Component {
                                         </li>
                                         <li className="nav-item"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
                                         </li>
-                                        <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
-                                        </li>
                                         {this.props.auth.isAuth &&
                                             <li className="nav-item search-header-btn"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
                                             </li>}
-                                        <Cart />
                                         <li className="nav-item">
                                             {this.props.auth.isAuth ?
                                                 <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
-                                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="signup-btn">Sign Up/In</Link>
+                                                : <span>
+                                                    <Link to={`${process.env.PUBLIC_URL}/register`} className="signup-btn">Create Account</Link>
+                                                    <span> | </span>
+                                                    <Link to={`${process.env.PUBLIC_URL}/login`} className="signup-btn">Sign In</Link>
+                                                </span>
                                             }
                                         </li>
+                                        <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
+                                        </li>
+                                        <Cart />
                                     </ul>
                                 </nav>
                             </div>

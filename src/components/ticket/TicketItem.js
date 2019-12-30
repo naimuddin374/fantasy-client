@@ -49,7 +49,7 @@ class TicketItem extends React.Component {
             })
     }
 
-    // Manage Plus item quantity
+    // Manage item quantity
     quantityAddHandler(id) {
         let newArr = this.state.rides.map(item => {
             return {

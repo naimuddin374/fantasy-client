@@ -149,7 +149,7 @@ class BookingForm extends React.Component {
                                 </div>
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <label htmlFor="contact_no" className="bmd-label-floating">Special Request</label>
+                                        <label htmlFor="contact_no" className="bmd-label-floating">Special Request (Optional)</label>
                                         <textarea
                                             type="number"
                                             className='form-control'
