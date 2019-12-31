@@ -3,6 +3,9 @@ import PersonalInfo from './PersonalInfo';
 import OrderHistory from './OrderHistory';
 
 class Profile extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     render() {
         return (
             <section className="user-proifle-area section-padding">

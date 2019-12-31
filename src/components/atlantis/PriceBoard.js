@@ -1,6 +1,8 @@
 import React from 'react'
 import { priceCal } from '../../util/helper'
 import BookingForm from './BookingForm';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class PriceBoard extends React.Component {
     state = {
@@ -41,7 +43,10 @@ class PriceBoard extends React.Component {
                             <h5 className="atlantis-booking-price">Service Charge: {`${service_charge * totalDay}%`}</h5>
                             <h3 className="atlantis-booking-price"><i className="fa fa-coffee" /> Breakfast included</h3>
                             <h4 className="atlantis-free-collection mb-3">Total Amount: ৳{priceCal(((price * totalRoom) * totalDay), vat, discount)}</h4>
-                            <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button>
+                            {this.props.auth.isAuth ?
+                                <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button>
+                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn"><i className="fa fa-sign-in" /> Sign In</Link>
+                            }
                         </div> :
                         <div className="atlantis-booking-content mb-3">
                             <h5 className="atlantis-booking-price">Price per night as low as</h5>
@@ -67,4 +72,7 @@ class PriceBoard extends React.Component {
         )
     }
 }
-export default PriceBoard
+const mapStateToProps = state => ({
+    auth: state.auth,
+})
+export default connect(mapStateToProps)(PriceBoard)

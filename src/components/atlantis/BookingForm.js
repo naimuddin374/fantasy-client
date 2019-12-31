@@ -12,24 +12,20 @@ class BookingForm extends React.Component {
         email: this.props.auth ? this.props.auth.user.email : null,
         comments: '',
         status: 0,
-        isDone: false,
-        booking_for: this.props.auth ? 1 : 2
+        booking_for: this.props.auth ? 1 : 2,
+        isLoading: false,
     }
     componentDidMount() {
         Modal.setAppElement('body');
-        this.setState({
-            isDone: this.props.auth && this.props.auth.user.full_name && this.props.auth.user.contact_no
-        })
     }
     changeHandler = event => {
         this.setState({
             [event.target.name]: event.target.value,
-            isDone: this.state.full_name && this.state.contact_no
         })
     }
     submitHandler = event => {
         event.preventDefault()
-        this.setState({ isDone: false })
+        this.setState({ isLoading: true })
         let data = {
             ...this.props.room.searchData,
             ...this.state,
@@ -39,7 +35,7 @@ class BookingForm extends React.Component {
         }
         this.props.storeRoomBooking(data, this.props.history)
         setTimeout(() => {
-            this.setState({ isDone: true })
+            this.setState({ isLoading: false })
         }, 3000);
     }
     render() {
@@ -57,7 +53,8 @@ class BookingForm extends React.Component {
             }
         }
         let { check_in, check_out, no_of_room, no_of_guest, totalDay } = this.props.room.searchData
-        let { full_name, contact_no, booking_for, isDone, comments } = this.state
+        let { full_name, contact_no, booking_for, isLoading, comments } = this.state
+        let isDone = full_name && contact_no && !isLoading
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -72,47 +69,53 @@ class BookingForm extends React.Component {
                     </div>
                     <div className="modal-body ticket-body-modal-content">
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-4">
                                 <p><b>Check In: </b>{check_in}</p>
-                                <p><b>Check Out: </b>{check_out}</p>
-                                <p><b>Total Day: </b>{totalDay}</p>
-                                <p><b>Total Guest: </b>{no_of_guest}</p>
-                            </div>
-                            <div className="col-md-6">
                                 <p><b>Total Rooms: </b>{no_of_room}</p>
-                                <p><b>Total Amount: </b>৳{this.props.totalPrice}</p>
                                 <p><b>Your booking includes</b></p>
+                            </div>
+                            <div className="col-md-4">
+                                <p><b>Check Out: </b>{check_out}</p>
+                                <p><b>Total Guest: </b>{no_of_guest}</p>
                                 <p>Breakfast, Free WiFi&Free Parking</p>
+                            </div>
+                            <div className="col-md-4">
+                                <p><b>Total Day: </b>{totalDay}</p>
+                                <p><b>Total Amount: </b>৳{this.props.totalPrice}</p>
                             </div>
                         </div>
                         <form onSubmit={this.submitHandler}>
-                            <div className="row booking-for-area">
-                                <div className="col-md-12">
+                            <div className="row">
+                                <div className="col-lg-12 col-md-12 pt-4 pb-4">
                                     <b>Who are you booking for?</b>
-                                    <div className="form-group mb-0">
-                                        <label className="bmd-label-floating">
-                                            <input
-                                                type="checkbox"
-                                                name="booking_for"
-                                                className="mr-2"
-                                                value="1"
-                                                onChange={this.changeHandler}
-                                                checked={Number(booking_for) === 1 ? true : false}
-                                            />
-                                            I am the main guest</label>
+                                    <div className="booking-row">
+                                        <div className="form-group mb-0">
+                                            <label className="bmd-label-floating">
+                                                <input
+                                                    type="checkbox"
+                                                    name="booking_for"
+                                                    className="mr-2"
+                                                    value="1"
+                                                    onChange={this.changeHandler}
+                                                    checked={Number(booking_for) === 1 ? true : false}
+                                                />
+                                                I am the main guest</label>
+                                        </div>
+                                        <div className="form-group mb-0 booking-else">
+                                            <label className="bmd-label-floating">
+                                                <input
+                                                    type="checkbox"
+                                                    name="booking_for"
+                                                    className="mr-2"
+                                                    value="2"
+                                                    onChange={this.changeHandler}
+                                                    checked={Number(booking_for) === 2 ? true : false}
+                                                />
+                                                Booking for someone else</label>
+                                        </div>
                                     </div>
-                                    <div className="form-group mb-0">
-                                        <label className="bmd-label-floating">
-                                            <input
-                                                type="checkbox"
-                                                name="booking_for"
-                                                className="mr-2"
-                                                value="2"
-                                                onChange={this.changeHandler}
-                                                checked={Number(booking_for) === 2 ? true : false}
-                                            />
-                                            Booking for someone else</label>
-                                    </div>
+
+
                                 </div>
                             </div>
 
@@ -163,9 +166,13 @@ class BookingForm extends React.Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-md-2 offset-5">
-                                    <button type="submit" className="btn btn-primary btn-sm"
-                                        disabled={!isDone}><i className="fa fa-check"></i> Confirm Booking</button>
+                                <div className="col-lg-4 offset-4">
+                                    {isDone ?
+                                        <button type="submit" className="primary-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                            Confirm Booking</button> :
+                                        <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                            Confirm Booking</button>
+                                    }
                                 </div>
                             </div>
                         </form>

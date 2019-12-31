@@ -141,7 +141,12 @@ class Checkout extends React.Component {
                                             /><label htmlFor="termsConditions">Terms & Conditions</label>
                                             <br />
                                             <div className="checkbox-pay-btn-content mt-3">
-                                                <button className={termsAdnConditions ? `pay-btn pay-btn-enable` : `pay-btn`} onClick={this.payHandler} disabled={!termsAdnConditions}>Pay</button>
+                                                {termsAdnConditions ?
+                                                    <button type="submit" className="primary-btn full-width" onClick={this.payHandler}> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                                        Pay</button> :
+                                                    <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                                        Pay</button>
+                                                }
                                             </div>
                                         </div>
                                     </div>

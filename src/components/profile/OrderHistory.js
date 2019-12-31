@@ -31,7 +31,7 @@ class OrderHistory extends React.Component {
                 <h3>Ordered History :</h3>
                 {Object.keys(sales).length !== 0 ?
                     sales.map(sale => (
-                        <Collapsible key={sale.id} trigger={`FAN-${sale.id} | ${sale.created_at} | ৳${sale.total_price}`}>
+                        <Collapsible key={sale.id} trigger={`FAN${sale.id} | ${sale.created_at} | ৳${sale.total_price}`}>
                             {salesDetails.map(sDetail => (
                                 sDetail.type === 1 ?
                                     rides.map(ride => (

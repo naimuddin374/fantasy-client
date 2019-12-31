@@ -1,6 +1,7 @@
 import { SET_MESSAGE, API_URL, SET_VALIDATION, SET_USER } from './types'
 import Axios from 'axios'
 
+// Registration 
 export const Registration = (data, history) => dispatch => {
     Axios.post(`${API_URL}api/register`, data)
         .then(res => {
@@ -37,6 +38,9 @@ export const Registration = (data, history) => dispatch => {
             })
         })
 }
+
+
+// Login
 export const Login = (data, history) => dispatch => {
     Axios.post(`${API_URL}api/login`, data)
         .then(res => {
@@ -65,6 +69,9 @@ export const Login = (data, history) => dispatch => {
             })
         })
 }
+
+
+// Logout
 export const logout = history => dispatch => {
     localStorage.removeItem('auth')
     history.push(`${process.env.PUBLIC_URL}/login`)
@@ -84,3 +91,4 @@ export const logout = history => dispatch => {
         }
     })
 }
+

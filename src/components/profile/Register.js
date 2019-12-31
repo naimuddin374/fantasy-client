@@ -43,7 +43,7 @@ class Register extends React.Component {
                                 <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
                             </div>
                             <div className="col-md-12">
-                                <div className="or-shape"> <span><h4>Sign Up</h4></span>
+                                <div className="or-shape"> <span><h4>Create Account</h4></span>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@ class Register extends React.Component {
                     <div className="have-an-account mb-5">
                         <div className="form-row">
                             <div className="col-md-12">
-                                <div className="loginregisteration-group p-2"> <span>Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}>Login here</Link></span>
+                                <div className="loginregisteration-group p-2"> <span>Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}>Sign In</Link></span>
                                 </div>
                             </div>
                         </div>

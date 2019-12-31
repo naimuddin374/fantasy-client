@@ -220,3 +220,11 @@ button.link-btn i {
     padding-top: 15px;
     margin: 20px 0;
 }
+
+.page-not-found {
+    padding: 40px 0;
+    text-align: center;
+}
+.page-not-found img{
+    max-width: 500px;
+}

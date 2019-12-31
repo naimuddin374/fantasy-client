@@ -22,7 +22,7 @@ class Item extends React.Component {
         })
     }
     minusButtonHandler = (quantity) => {
-        if (quantity > 0) {
+        if (quantity > 1) {
             return false
         }
         return true

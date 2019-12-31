@@ -4501,3 +4501,88 @@ input.order-qtn-number {
     background: #000000 !important;
     color: #fff;
 }
+
+/* room booking */
+.ReactModal__Content.ReactModal__Content--after-open {
+    box-shadow: 0 3px 5px rgba(56, 38, 38, 0.34);
+    border-radius: 4px;
+    z-index: 99999 !important
+}
+
+.row.booking-for-area .col-md-12 b {
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-bottom: 17px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.ticket-body-modal-content .row p b {
+    font-weight: 500;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    margin-right: 10px;
+}
+
+.modal-header.ticket-modal-header button {
+    color: #fff;
+    opacity: 1 !important;
+    z-index: 999 !important;
+    position: absolute;
+    top: 14px;
+}
+
+h5.modal-title.ticekt-modal-title {
+    margin: auto;
+    display: block;
+    margin-bottom: 17px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #fff;
+}
+
+.close:not(:disabled):not(.disabled):hover {
+    color: #ddd;
+}
+
+.modal-content.ticket-modal-content {
+    border-radius: 15px;
+    min-width: 650px;
+    border: none;
+}
+
+.modal-body.ticket-body-modal-content {
+    padding: 20px 0;
+}
+
+h5.modal-title.ticekt-modal-title {
+    margin-bottom: 0;
+}
+
+.ticket-modal-header {
+    background: #E50019;
+    text-align: center;
+    display: inline-block;
+    padding: 14px 0;
+    border-radius: 10px;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+    box-shadow: 0 3px 5px rgba(56, 38, 38, 0.34);
+    border-radius: 4px !important;
+    padding: 30px 25px;
+
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    background-color: rgba(0, 0, 0, 0.64) !important;
+}
+
+.booking-row {
+    display: flex;
+}
+
+.form-group.mb-0.booking-else {
+    margin-left: 27px;
+}

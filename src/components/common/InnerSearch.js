@@ -35,12 +35,12 @@ class InnerSearch extends React.Component {
                                     <div className="fantasy-parki-select-item">
                                         <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select Other park & resorts</span>
                                             <ul className="list">
-                                                <li data-value="Fantasy" className="option"><Link to='/fantasy-kingdom'>Fantasy Kingdom</Link></li>
-                                                <li data-value="water" className="option"><Link to='/water-kingdom'>Water Kingdom</Link></li>
-                                                <li data-value="water" className="option"><Link to='/extreme-kingdom'>Extreme Kingdom</Link></li>
-                                                <li data-value="foys" className="option"><Link to='/foys-lake'>Foys Lake</Link></li>
-                                                <li data-value="foys" className="option"><Link to='/heritage-park'>Heritage Park</Link></li>
-                                                <li data-value="foys" className="option"><Link to='/atlantis'>Place To Stay</Link></li>
+                                                <li data-value="Fantasy" className="option"><Link to={`${process.env.PUBLIC_URL}/fantasy-kingdom`}>Fantasy Kingdom</Link></li>
+                                                <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/water-kingdom`}>Water Kingdom</Link></li>
+                                                <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/xtreme-racing`}>Xtreme Racing</Link></li>
+                                                <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/foys-lake`}>Foys Lake</Link></li>
+                                                <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/heritage-park`}>Heritage Park</Link></li>
+                                                <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/atlantis`}>Place To Stay</Link></li>
                                             </ul>
                                         </div>
                                     </div>

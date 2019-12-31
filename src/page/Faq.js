@@ -38,7 +38,8 @@ class Faq extends React.Component {
                                             {Object.keys(faqs).length !== 0 &&
                                                 faqs.map((item, index) => (
                                                     <div class="card faq-inner-content" key={item.id}>
-                                                        <div class="card-header faq-heading" id="headingOne"> <a data-toggle="collapse" data-target={`#collapseOne-${item.id}`} aria-expanded="true" aria-controls={`collapseOne-${item.id}`}>
+                                                        <div class="card-header faq-heading" id="headingOne"> 
+                                                        <a data-toggle="collapse" data-target={`#collapseOne-${item.id}`} href="#blank" aria-expanded="true" aria-controls={`collapseOne-${item.id}`}>
                                                             {item.title}
                                                         </a>
                                                         </div>

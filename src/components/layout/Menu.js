@@ -94,9 +94,6 @@ class Menu extends React.Component {
                                         </li>
                                         <li className="nav-item"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
                                         </li>
-                                        {this.props.auth.isAuth &&
-                                            <li className="nav-item search-header-btn"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
-                                            </li>}
                                         <li className="nav-item">
                                             {this.props.auth.isAuth ?
                                                 <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
@@ -107,6 +104,9 @@ class Menu extends React.Component {
                                                 </span>
                                             }
                                         </li>
+                                        {this.props.auth.isAuth &&
+                                            <li className="nav-item search-header-btn"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
+                                            </li>}
                                         <li className="nav-item search-header-btn"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>
                                         </li>
                                         <Cart />

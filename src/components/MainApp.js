@@ -21,9 +21,12 @@ import Atlantis from './atlantis/Atlantis';
 import NewsEvents from './../page/NewsEvents';
 import NewsEventDetail from '../page/NewsEventDetail';
 import AlertMessage from './layout/AlertMessage';
-import Register from './layout/Register';
-import Login from './layout/Login'
+import Register from './profile/Register';
+import Login from './profile/Login'
 import Profile from './profile/Profile';
+import ForgotPassword from './profile/ForgotPassword';
+import SetNewPassword from './profile/SetNewPassword';
+import PageNotFound from '../page/PageNotFound';
 
 
 class MainApp extends React.Component {
@@ -33,6 +36,8 @@ class MainApp extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
+                    <Route path={`${process.env.PUBLIC_URL}/forgot-password`} component={ForgotPassword} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/set-password`} component={SetNewPassword} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/profile`} component={Profile} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/ticket/:id`} exact component={Ticket} history={this.props.history} />
@@ -50,6 +55,7 @@ class MainApp extends React.Component {
                     <Route path={`${process.env.PUBLIC_URL}/news-events`} component={NewsEvents} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/news-event-detail/:id`} component={NewsEventDetail} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/`} exact component={HomePage} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/*`} component={PageNotFound} history={this.props.history} />
                 </Switch>
                 <FooterPage />
             </div>
