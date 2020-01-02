@@ -22,13 +22,10 @@ class ForgotPassword extends React.Component {
         let { contact_no, email, type } = this.state
         let isDone = type && (contact_no || email)
         return (
-            <section className="fantasy-faq">
+            <section className="section-padding">
                 <div className="container">
                     <div className="login-registeration-or-shape">
                         <div className="form-row">
-                            <div className="col-md-4 offset-4">
-                                <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
-                            </div>
                             <div className="col-md-12">
                                 <div className="or-shape"> <span><h4>Forgot Password</h4></span>
                                 </div>
@@ -107,13 +104,12 @@ class ForgotPassword extends React.Component {
                                     }
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div className="have-an-account mb-5">
-                        <div className="form-row">
-                            <div className="col-md-12">
-                                <div className="loginregisteration-group p-2">
-                                    <span>Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}> Sign in here </Link></span>
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    <Link to={`${process.env.PUBLIC_URL}/login`}>Sign In</Link>
+                                </div>
+                                <div className="col-lg-6">
+                                    <Link className="float-right" to={`${process.env.PUBLIC_URL}/set-password`}> Already got a code? </Link>
                                 </div>
                             </div>
                         </div>

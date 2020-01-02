@@ -21,13 +21,13 @@ class Register extends React.Component {
         let { contact_no, password } = this.state
         let isDone = contact_no && password
         return (
-            <section className="fantasy-faq">
+            <section className="section-padding">
                 <div className="container">
                     <div className="login-registeration-or-shape">
                         <div className="form-row">
-                            <div className="col-md-4 offset-4">
+                            {/* <div className="col-md-4 offset-4">
                                 <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
-                            </div>
+                            </div> */}
                             <div className="col-md-12">
                                 <div className="or-shape"> <span><h4>Login</h4></span>
                                 </div>
@@ -75,15 +75,12 @@ class Register extends React.Component {
                                     }
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div className="have-an-account mb-5">
-                        <div className="form-row">
-                            <div className="col-md-12">
-                                <div className="loginregisteration-group p-2">
-                                    <span><Link to={`${process.env.PUBLIC_URL}/register`}> Sign up </Link></span>
-                                    <span><Link to={`${process.env.PUBLIC_URL}/forgot-password`}> Forgotten password? </Link></span>
-                                    <span><Link to={`${process.env.PUBLIC_URL}/set-password`}> Set New Password </Link></span>
+                            <div className="row">
+                                <div className="col-lg-6">
+                                    Don't have an account? <Link to={`${process.env.PUBLIC_URL}/register`}> Sign up </Link>
+                                </div>
+                                <div className="col-lg-6">
+                                    <Link className="float-right" to={`${process.env.PUBLIC_URL}/forgot-password`}> Forgotten password? </Link>
                                 </div>
                             </div>
                         </div>

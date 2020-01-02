@@ -39,7 +39,7 @@ class Video extends React.Component {
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
                             <div className={`section-title ${className}-section-title mb-40`}>
-                                <h2>Experience VR</h2>
+                                <h2>Video Gallery</h2>
                             </div>
                         </div>
                     </div>

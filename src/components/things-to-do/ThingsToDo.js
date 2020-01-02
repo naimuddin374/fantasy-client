@@ -34,14 +34,14 @@ class ThingsToDo extends React.Component {
         let { rides, categories, loading } = this.state
         return (
             <div>
-                <InnerSearch className="fantasy" />
+                {/* <InnerSearch className="fantasy" /> */}
                 <section className="things-to-do-page-content-area section-padding relative">
                     <CircleShape />
 
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-md-12">
-                                <div className="section-title fantasy-section-title mb-40">
+                                <div className="section-title fantasy-section-title mb-30">
                                     <h2>Things To Do</h2>
                                 </div>
                             </div>
@@ -52,8 +52,8 @@ class ThingsToDo extends React.Component {
                                 <div key={cat.id}>
                                     <div className="row advanture-ride-area pb-3">
                                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                                            <div className="thing-to-title text-center pb-40 pt-3">
-                                                <h4 className="advanture-ride-title">{cat.name}</h4>
+                                            <div className="thing-to-title text-center mb-30 pt-3">
+                                                <h3 className="advanture-ride-title">{cat.name}</h3>
                                             </div>
                                         </div>
                                     </div>

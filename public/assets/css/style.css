@@ -208,7 +208,7 @@ input[type="submit"] {
 =======================================================*/
 
 .section-padding {
-    padding: 90px 0;
+    padding: 70px 0;
 }
 
 .short-section-padding {
@@ -216,7 +216,7 @@ input[type="submit"] {
 }
 
 .section-padding-top {
-    padding-top: 90px;
+    padding-top: 70px;
 }
 
 .section-padding-bottom {
@@ -750,7 +750,6 @@ a.signup-btn,
 span.signup-btn {
     display: inline-block;
     color: #000 !important;
-    font-weight: bold;
 }
 
 a.signup-btn:hover,
@@ -861,7 +860,7 @@ span.signup-btn:hover {
     position: absolute;
     left: 0;
     top: 50%;
-    width: 46%;
+    width: 40%;
     background: #ddd;
     height: 1px;
 }
@@ -877,7 +876,7 @@ span.signup-btn:hover {
     position: absolute;
     right: 0;
     top: 50%;
-    width: 46%;
+    width: 40%;
     background: #ddd;
     height: 1px;
 }
@@ -2195,7 +2194,7 @@ a.deals-shape-btn {
 ========================================*/
 
 .select-park-option-area {
-    padding: 30px 0;
+    padding: 20px 0;
     position: relative;
 }
 
@@ -2544,7 +2543,7 @@ span.project-gallery:hover img {
 .faq-inner-content .card-body.faq-body p {
     margin-bottom: 0;
     color: #696969;
-    font-family: "Roboto";
+    font-family: 'Rubik', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
@@ -3545,7 +3544,7 @@ button.remove-btn {
 }
 
 .t-tile {
-    font-size: 20px;
+    font-size: 22px;
     color: #1A0537;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -3559,7 +3558,7 @@ button.remove-btn {
 .view-gallery {
     color: #333;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 16px;
     transition: all .3s linear;
 }
 
@@ -3719,6 +3718,7 @@ a.atlantis-book-now-btn {
 
 .react-datepicker__input-container #checkOut {
     padding: 0;
+    padding-left: 10px;
 }
 
 .atlantis-search-room {

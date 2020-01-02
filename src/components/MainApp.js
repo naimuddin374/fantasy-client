@@ -27,6 +27,7 @@ import Profile from './profile/Profile';
 import ForgotPassword from './profile/ForgotPassword';
 import SetNewPassword from './profile/SetNewPassword';
 import PageNotFound from '../page/PageNotFound';
+import Maps from './fantasy-kingdom/Maps';
 
 
 class MainApp extends React.Component {
@@ -36,6 +37,7 @@ class MainApp extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
+                    <Route path={`${process.env.PUBLIC_URL}/maps`} component={Maps} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/forgot-password`} component={ForgotPassword} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/set-password`} component={SetNewPassword} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/profile`} component={Profile} history={this.props.history} />

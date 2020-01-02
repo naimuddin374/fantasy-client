@@ -94,12 +94,11 @@ class DiscoverPackage extends React.Component {
 							<div className="col-lg-12 col-md-4" key={item.id}>
 					<div className="single-discover-carousel">
 											<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><img src={item.image ? API_URL+ item.image : `${process.env.PUBLIC_URL}/assets/images/resorts/resort1.png`} alt="resorts" /></Link>
-						<div className="resport-open-close">
+						{/* <div className="resport-open-close">
 								<span className="offer-shape">{item.open_time}</span>
-						</div>
+						</div> */}
 						<div className="resort-heading-content">
-												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><h3>{item.title}</h3></Link>
-							<h6>{item.open_time}</h6>
+							<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><h3>{item.title}</h3></Link>
 						</div>
 						<div className="resorts-linked-btn">
 							<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
@@ -138,7 +137,7 @@ class DiscoverPackage extends React.Component {
 									<circle className="st0" cx="21.2" cy="17.6" r="2.2"/>
 								</g>
 								</svg>
-								<p>parking</p>
+													<p>Helpline</p>
 							</Link>
 						</div>
 					</div>

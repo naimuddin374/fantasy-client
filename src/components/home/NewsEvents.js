@@ -38,7 +38,7 @@ class NewsEvents extends React.Component {
                         </div>
                         <div className="row">
                             {Object.keys(events).length !== 0 &&
-                                events.slice(0, 6).map(item => (
+                                events.slice(0, 3).map(item => (
                                     <div className="col-lg-4 col-md-6 mb-4" key={item.id}>
                                         <div className="single-news">
                                             <Link to={`${process.env.PUBLIC_URL}/news-events/${item.id}`}>

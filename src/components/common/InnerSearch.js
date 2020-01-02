@@ -33,7 +33,7 @@ class InnerSearch extends React.Component {
                             <div className="fantasy-park-search-item float-right">
                                 <div className="single-fantasy-park-search">
                                     <div className="fantasy-parki-select-item">
-                                        <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select Other park & resorts</span>
+                                        <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select other park & resorts</span>
                                             <ul className="list">
                                                 <li data-value="Fantasy" className="option"><Link to={`${process.env.PUBLIC_URL}/fantasy-kingdom`}>Fantasy Kingdom</Link></li>
                                                 <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/water-kingdom`}>Water Kingdom</Link></li>

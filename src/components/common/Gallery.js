@@ -87,7 +87,7 @@ class Gallery extends React.Component {
                     <div className="row">
                         <div className="col-md-12">
                             <div className={`section-title-small-text ${className}-section-title-small-text mb-40`}>
-                                <h2>Gallery</h2>
+                                <h2 className="ml-2">Gallery</h2>
                             </div>
                         </div>
                     </div>

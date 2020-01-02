@@ -22,13 +22,10 @@ class SetNewPassword extends React.Component {
         let { verify_code, nPassword, password } = this.state
         let isDone = verify_code && nPassword && password && (nPassword === password)
         return (
-            <section className="fantasy-faq">
+            <section className="section-padding">
                 <div className="container">
                     <div className="login-registeration-or-shape">
                         <div className="form-row">
-                            <div className="col-md-4 offset-4">
-                                <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
-                            </div>
                             <div className="col-md-12">
                                 <div className="or-shape"> <span><h4>Set Password</h4></span>
                                 </div>
@@ -92,13 +89,9 @@ class SetNewPassword extends React.Component {
                                     }
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div className="have-an-account mb-5">
-                        <div className="form-row">
-                            <div className="col-md-12">
-                                <div className="loginregisteration-group p-2">
-                                    <span>Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}> Sign in here </Link></span>
+                            <div className="row mb-5">
+                                <div className="col-lg-12">
+                                    Already have an account? <Link to={`${process.env.PUBLIC_URL}/login`}>Sign in here</Link>
                                 </div>
                             </div>
                         </div>

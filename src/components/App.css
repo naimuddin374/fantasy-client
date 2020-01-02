@@ -225,6 +225,34 @@ button.link-btn i {
     padding: 40px 0;
     text-align: center;
 }
-.page-not-found img{
+
+.page-not-found img {
     max-width: 500px;
+}
+
+.fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
+    right: 6px !important;
+}
+
+.home-things-to-do .slick-slide .single-things img {
+    border-radius: 0 !important;
+}
+
+.z-index-minus {
+    z-index: -1;
+}
+
+figure {
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+figure:hover img {
+    opacity: 0;
+}
+
+.maps-area img {
+    display: block;
+    width: 100%;
+    pointer-events: none;
 }

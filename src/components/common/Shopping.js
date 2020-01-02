@@ -16,8 +16,9 @@ class Shopping extends React.Component {
                                 <div className={`fantasy-hotel-table-title section-title-small-text ${className}-section-title-small-text`}>
                                     <h2>Dining</h2>
                                 </div>
-                                <div className="fantasy-hotel-icon">	<Link to={`${process.env.PUBLIC_URL}/`} className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
-                                </div>
+                                {/* <div className="fantasy-hotel-icon">
+                                    <Link to={`${process.env.PUBLIC_URL}/`} className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
+                                </div> */}
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
                                 <Link to={`${process.env.PUBLIC_URL}/`}>
@@ -30,9 +31,9 @@ class Shopping extends React.Component {
                                 <div className={`fantasy-hotel-table-title section-title-small-text ${className}-section-title-small-text`}>
                                     <h2>Shopping</h2>
                                 </div>
-                                <div className="fantasy-hotel-icon">
+                                {/* <div className="fantasy-hotel-icon">
                                     <Link to={`${process.env.PUBLIC_URL}/`} className="hotel-icon relative"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></Link>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
                                 <Link to={`${process.env.PUBLIC_URL}/`}>

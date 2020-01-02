@@ -10,9 +10,9 @@ class FooterPage extends React.Component {
                     <div className="container">
                         <div className="footer-shape-social">
                             <ul>
-                                <li><a target="_blank" href="https://www.facebook.com/fantasykingdomcomplex"><i className="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" href="https://twitter.com/fantasykingdom_"><i className="fa fa-twitter"></i></a></li>
-                                <li><a target="_blank" href="https://www.youtube.com/channel/UC3WC5sY2ez7RirsuyRM2zxQ"><i className="fa fa-youtube-play"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/fantasykingdomcomplex" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/fantasykingdom_" rel="noopener noreferrer"><i className="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/channel/UC3WC5sY2ez7RirsuyRM2zxQ" rel="noopener noreferrer"><i className="fa fa-youtube-play"></i></a></li>
                             </ul>
                         </div>
                         <div className="row">

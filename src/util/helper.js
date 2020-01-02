@@ -16,7 +16,7 @@ export const getItemPrice = (quantity, price, discount_price) => {
     }
     return tPrice
 }
-export const priceCal = (price, vat, discount) => {
-    let p = price - (price * discount) / 100;
-    return Math.floor(p + (p * vat) / 100);
+export const priceCal = (price = 0, vat = 0, discount = 0) => {
+    let subTotal = price - (price * discount) / 100;
+    return Math.floor(subTotal + (subTotal * vat) / 100)
 }

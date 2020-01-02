@@ -18,7 +18,7 @@ class Discount extends React.Component {
     render() {
         let { discount } = this.state
         return (
-            <section className="fantasy-discount-area relative mt-5">
+            <section className="fantasy-discount-area relative">
                 <div className="circle-shape">
                     <svg id="Group_1471" data-name="Group 1471" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 780">
                         <defs>
