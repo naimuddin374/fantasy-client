@@ -28,17 +28,19 @@ import ForgotPassword from './profile/ForgotPassword';
 import SetNewPassword from './profile/SetNewPassword';
 import PageNotFound from '../page/PageNotFound';
 import Maps from './fantasy-kingdom/Maps';
+import Test from '../page/Test';
 
 
 class MainApp extends React.Component {
     render() {
         return (
-            <div className="main-div">
+            <div className="main-div full-bg">
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
                     <Route path={`${process.env.PUBLIC_URL}/maps`} component={Maps} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/forgot-password`} component={ForgotPassword} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/test`} component={Test} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/set-password`} component={SetNewPassword} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/profile`} component={Profile} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/faq`} component={Faq} history={this.props.history} />

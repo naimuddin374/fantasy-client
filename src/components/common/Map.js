@@ -44,13 +44,9 @@ class Map extends React.Component {
                             <div className="fantasy-closing-time">
                                 <div className="opening-part">
                                     <div className="top-content-about-open">
-                                        <h4>Open today ({date_time})</h4>
-                                        {/* <span>{date_time}</span> */}
+                                        <h5>Open today ({date_time})</h5>
                                     </div>
                                 </div>
-                                {/* <div className="see-timing">
-                                <span>See timings</span>
-                                </div> */}
                             </div>
                             <div className="fantasy-google-map-content">
                                 <div className="google-map-wrapper">

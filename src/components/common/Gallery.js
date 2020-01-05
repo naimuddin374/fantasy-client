@@ -1,6 +1,5 @@
 import React from 'react'
 import Slider from "react-slick"
-import CircleShape from './CircleShape';
 import Axios from 'axios';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
@@ -81,7 +80,6 @@ class Gallery extends React.Component {
         }
         return (
             <section className="fantasy-gallery-area section-padding">
-                <CircleShape />
 
                 <div className="container">
                     <div className="row">

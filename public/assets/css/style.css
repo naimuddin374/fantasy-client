@@ -1105,7 +1105,7 @@ li#signInIdIcon {
 =============================================================*/
 
 .hero-slider-item {
-    height: 730px;
+    height: calc(100vh - 146px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1115,7 +1115,6 @@ li#signInIdIcon {
     -ms-flex-align: center;
     align-items: center;
 }
-
 .bg-img {
     background-size: cover;
     background-repeat: no-repeat;
