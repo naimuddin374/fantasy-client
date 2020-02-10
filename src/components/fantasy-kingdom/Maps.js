@@ -19,7 +19,7 @@ class Maps extends React.Component {
                     <div className="form-row">
                         <div className="col-lg-6">
                             <figure onMouseMove={this.handleMouseMove} style={this.state}>
-                                <img src={src} />
+                                <img src={src} alt="MapImage" />
                             </figure>
                         </div>
                         <div className="col-lg-6 z-index-minus">

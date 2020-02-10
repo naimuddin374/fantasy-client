@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ReactTooltip from 'react-tooltip'
+import HelpLine from './HelpLine'
+import ParkHour from './ParkHour'
 
 class Direction extends React.Component {
+    state = {
+        isModalOpen: false,
+        isModalOpenPark: false,
+    }
+    closeModal = () => this.setState({ isModalOpen: false })
+    closeModalPark = () => this.setState({ isModalOpenPark: false })
+
     render() {
         return (
             <section className="direction-area direction-shape relative section-padding full-bg">
                 {/* Tool Tip Body Card */}
-                <ReactTooltip />
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
@@ -45,7 +52,11 @@ class Direction extends React.Component {
                                 </div>
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="#blank">
+                                        <HelpLine
+                                            isOpen={this.state.isModalOpen}
+                                            isClose={this.closeModal}
+                                        />
+                                        <Link to="#blank" onClick={() => this.setState({ isModalOpen: true })}>
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92">
                                                 <g id="Group_1" data-name="Group 1" transform="translate(-1015 -420)">
@@ -57,13 +68,17 @@ class Direction extends React.Component {
                                             </svg>
 
 
-                                            <h4 data-tip="880-2-7790816-19, 01913-531474, info@concord.com.bd">Helpline</h4>
+                                            <h4>Helpline</h4>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-3 col-md-6 direact-content-col">
                                     <div className="direction-content">
-                                        <Link to="#blank" className="clock-direction">
+                                        <ParkHour
+                                            isOpen={this.state.isModalOpenPark}
+                                            isClose={this.closeModalPark}
+                                        />
+                                        <Link to="#blank" className="clock-direction" onClick={() => this.setState({ isModalOpenPark: true })}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1293" data-name="Group 1293" transform="translate(-1012 -2216)">
                                                     <circle id="Ellipse_18" data-name="Ellipse 18" cx="49.5" cy="49.5" r="49.5" transform="translate(1012 2216)" fill="#f9f9f9" />
@@ -79,7 +94,7 @@ class Direction extends React.Component {
                                                     </g>
                                                 </g>
                                             </svg>
-                                            <h4 data-tip="Open from 11:00 AM to 7:30 PM">Parking</h4>
+                                            <h4 data-tip="Open from 11:00 AM to 7:30 PM">Park Hour</h4>
                                         </Link>
                                     </div>
                                 </div>

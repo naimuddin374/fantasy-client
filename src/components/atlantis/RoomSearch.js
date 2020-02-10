@@ -52,7 +52,7 @@ class RoomSearch extends React.Component {
                                 <p className="text-white mt-3 wow fadeInUp" data-wow-delay=".6s">Welcoming everyone with a smile</p>
                             </div>
                             <div className="atlantis-search-area">
-                                <h3 className="mb-3">When would you like to stay at Resort Atlantis?</h3>
+                                <h3 className="mb-3">Plan your stay at Resort Atlantis</h3>
                                 <form onSubmit={this.submitHandler}>
                                     <div className="row">
                                         <div className="col-md-3">

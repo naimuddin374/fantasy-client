@@ -23,7 +23,7 @@ class Details extends React.Component {
                 right: 'auto',
                 bottom: 'auto',
                 marginRight: '-50%',
-                width: "70%",
+                width: "50%",
                 transform: 'translate(-50%, -50%)',
                 color: "#000",
                 border: "none"
@@ -38,29 +38,35 @@ class Details extends React.Component {
             >
                 <div className="modal-content ticket-modal-content">
                     <div className="modal-header ticket-modal-header">
-                        <h5 className="modal-title ticekt-modal-title">Details</h5>
+                        <h5 className="modal-title ticekt-modal-title">Ticket Details</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.isClose}> <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body ticket-body-modal-content">
-                        {image && <div className="row"><img src={API_URL + image} alt="RideImage" style={{ height: "150px", margin: "0 auto" }} /></div>}
-                        <h4 className="ticket-modal-body-title">{title}</h4>
-                        <ul>
-                            <li>{description}</li>
-                        </ul>
-                        {is_buy === "1" &&
-                            <ul>
-                                <li>Regular Price: ৳{price}</li>
-                                {discount_price !== null &&
-                                    <li>Discount Price: ৳{discount_price}</li>
-                                }
-                                <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
-                                {type === "2" &&
-                                    <li>Maximum Age: {age}</li>
-                                }
-                            <li><Link to={`${process.env.PUBLIC_URL}/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
-                            </ul>
-                        }
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <img src={image ? API_URL + image : ''} alt="RideImage" style={{ maxHeight: "300px" }} />
+                            </div>
+                            <div className="col-lg-8">
+                                <h4 className="ticket-modal-body-title">{title}</h4>
+                                <ul>
+                                    <li>Regular Price: ৳{price}</li>
+                                    {discount_price !== null &&
+                                        <li>Discount Price: ৳{discount_price}</li>
+                                    }
+                                    <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
+                                    {type === "2" &&
+                                        <li>Maximum Age: {age}</li>
+                                    }
+                                    <li>
+                                        {description}
+                                    </li>
+                                    {Number(is_buy) === 1 &&
+                                        <li><Link to={`${process.env.PUBLIC_URL}/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Modal>

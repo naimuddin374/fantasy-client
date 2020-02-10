@@ -4,7 +4,6 @@ import CircleShape from './CircleShape'
 import Item from './Item'
 import { API_URL } from '../../store/actions/types'
 import Loading from './../layout/Loading';
-import InnerSearch from './../common/InnerSearch';
 
 class ThingsToDo extends React.Component {
     state = {

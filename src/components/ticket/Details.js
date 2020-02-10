@@ -22,7 +22,7 @@ class Details extends React.Component {
                 right: 'auto',
                 bottom: 'auto',
                 marginRight: '-50%',
-                width: "70%",
+                width: "50%",
                 transform: 'translate(-50%, -50%)',
                 color: "#000",
                 border: "none"
@@ -42,21 +42,27 @@ class Details extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body ticket-body-modal-content">
-                        {image && <div className="row"><img src={API_URL + image} alt="RideImage" style={{ height: "150px", margin: "0 auto" }} /></div>}
-                        <h4 className="ticket-modal-body-title">{title}</h4>
-                        <ul>
-                            <li>Regular Price: ৳{price}</li>
-                            {discount_price !== null &&
-                                <li>Discount Price: ৳{discount_price}</li>
-                            }
-                            <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
-                            {type === "2" &&
-                                <li>Maximum Age: {age}</li>
-                            }
-                            <li>
-                                {description}
-                            </li>
-                        </ul>
+                        <div className="row">
+                            <div className="col-lg-4">
+                                <img src={image ? API_URL + image : ''} alt="RideImage" style={{ maxHeight: "250px" }} />
+                            </div>
+                            <div className="col-lg-8">
+                                <h4 className="ticket-modal-body-title">{title}</h4>
+                                <ul>
+                                    <li>Regular Price: ৳{price}</li>
+                                    {discount_price !== null &&
+                                        <li>Discount Price: ৳{discount_price}</li>
+                                    }
+                                    <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
+                                    {type === "2" &&
+                                        <li>Maximum Age: {age}</li>
+                                    }
+                                    <li>
+                                        {description}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Modal>

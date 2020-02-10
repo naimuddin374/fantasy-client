@@ -1059,7 +1059,7 @@ li#signInIdIcon {
     text-transform: capitalize;
     display: inline-block;
     padding-left: 0;
-    /* z-index: -1; */
+    z-index: 1;
 }
 
 .section-title-small-text h2 {
@@ -1115,6 +1115,7 @@ li#signInIdIcon {
     -ms-flex-align: center;
     align-items: center;
 }
+
 .bg-img {
     background-size: cover;
     background-repeat: no-repeat;
@@ -2969,7 +2970,6 @@ input[type="number"]:focus {
 .product-increment-decrement {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
 }
 
@@ -3112,8 +3112,7 @@ h4.total-price-widget {
     text-align: center;
     display: inline-block;
     padding-top: 22px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 0 !important;
 }
 
 .ticket-widget-content-inner li {
@@ -3157,7 +3156,9 @@ h4.ticket-modal-body-title {
     color: #3a3a3a;
     font-weight: 600;
 }
-
+.ReactModal__Overlay.ReactModal__Overlay--after-open{
+    z-index: 9999;
+}
 
 /* item added alert show */
 
@@ -4560,7 +4561,7 @@ h5.modal-title.ticekt-modal-title {
 }
 
 .ticket-modal-header {
-    background: #E50019;
+    background: #EE9B1F;
     text-align: center;
     display: inline-block;
     padding: 14px 0;
@@ -4569,10 +4570,13 @@ h5.modal-title.ticekt-modal-title {
 
 .ReactModal__Content.ReactModal__Content--after-open {
     box-shadow: 0 3px 5px rgba(56, 38, 38, 0.34);
-    border-radius: 4px !important;
-    padding: 30px 25px;
+    border-radius: 20px !important;
+    /* padding: 30px 25px; */
+    padding: 0 !important;
 
 }
+
+.ReactModal__Content--after-open {}
 
 .ReactModal__Overlay.ReactModal__Overlay--after-open {
     background-color: rgba(0, 0, 0, 0.64) !important;
@@ -4584,4 +4588,8 @@ h5.modal-title.ticekt-modal-title {
 
 .form-group.mb-0.booking-else {
     margin-left: 27px;
+}
+
+.prodcut-add-to-cart {
+    text-align: center;
 }
