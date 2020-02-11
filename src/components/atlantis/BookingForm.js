@@ -2,6 +2,8 @@ import React from 'react';
 import Modal from 'react-modal'
 import { connect } from 'react-redux';
 import { storeRoomBooking } from '../../store/actions/roomActions';
+import { priceFormat } from '../../util/helper';
+
 
 class BookingForm extends React.Component {
     state = {
@@ -81,7 +83,7 @@ class BookingForm extends React.Component {
                             </div>
                             <div className="col-md-4">
                                 <p><b>Total Day: </b>{totalDay}</p>
-                                <p><b>Total Amount: </b>৳{this.props.totalPrice}</p>
+                                <p><b>Total Amount: </b>{priceFormat(this.props.totalPrice)}</p>
                             </div>
                         </div>
                         <form onSubmit={this.submitHandler}>
@@ -168,9 +170,9 @@ class BookingForm extends React.Component {
                             <div className="row">
                                 <div className="col-lg-4 offset-4">
                                     {isDone ?
-                                        <button type="submit" className="primary-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                        <button type="submit" className="primary-btn full-width">
                                             Confirm Booking</button> :
-                                        <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
+                                        <button type="submit" disabled className="disable-btn full-width">
                                             Confirm Booking</button>
                                     }
                                 </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { priceCal } from '../../util/helper'
+import { priceCal, priceFormat } from '../../util/helper'
 import BookingForm from './BookingForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -37,25 +37,26 @@ class PriceBoard extends React.Component {
                     {totalDay > 0 ?
                         <div className="atlantis-booking-content mb-3">
                             <h5 className="atlantis-booking-price">{totalRoom} Rooms for {totalDay} Night(s)</h5>
-                            <h2 className="atlantis-bd-price">৳{(price * totalRoom) * totalDay}</h2>
+                            <h2 className="atlantis-bd-price">{priceFormat((price * totalRoom) * totalDay)}</h2>
                             {discount !== 0 && <h5 className="atlantis-booking-price">Discount: {discount * totalDay}%</h5>}
                             <h5 className="atlantis-booking-price">Vat: {`${vat}%`}</h5>
                             <h5 className="atlantis-booking-price">Service Charge: {`${service_charge * totalDay}%`}</h5>
-                            <h3 className="atlantis-booking-price"><i className="fa fa-coffee" /> Breakfast included</h3>
-                            <h4 className="atlantis-free-collection mb-3">Total Amount: ৳{priceCal(((price * totalRoom) * Number(totalDay)), vat, discount)}</h4>
+                            <h3 className="atlantis-booking-price"><i className="fa fa-caffee" /> Breakfast included</h3>
+                            <h4 className="atlantis-free-collection mb-3">Total Amount: {priceFormat(priceCal(((price * totalRoom) * Number(totalDay)), vat, discount))}
+                            </h4>
                             {this.props.auth.isAuth ?
-                                <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn"><i className="fa fa-check-square-o" /> Book Now</button>
-                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn"><i className="fa fa-sign-in" /> Sign In</Link>
+                                <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn">Book Now</button>
+                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn">Sign In</Link>
                             }
                         </div> :
                         <div className="atlantis-booking-content mb-3">
                             <h5 className="atlantis-booking-price">Price per night as low as</h5>
-                            <h2 className="atlantis-bd-price">৳{price}</h2>
+                            <h2 className="atlantis-bd-price">{priceFormat(price)}</h2>
                             {discount !== 0 && <h5 className="atlantis-booking-price">Discount: {discount}%</h5>}
                             <h5 className="atlantis-booking-price">Vat: {`${vat}%`}</h5>
                             <h5 className="atlantis-booking-price">Service Charge: {`${service_charge}%`}</h5>
                             <h5 className="atlantis-booking-price">Total Rooms: {no_of_room}</h5>
-                            <h4 className="atlantis-free-collection mb-3">Total Amount: ৳{priceCal(price, (Number(vat) + Number(service_charge)), discount)}</h4>
+                            <h4 className="atlantis-free-collection mb-3">Total Amount: {priceFormat(priceCal(price, (Number(vat) + Number(service_charge)), discount))}</h4>
                             <button onClick={() => this.props.gotToTop()} className="atlantis-book-now-btn btn secondary-btn">Check Availability</button>
                         </div>
                     }

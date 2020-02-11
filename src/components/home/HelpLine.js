@@ -27,7 +27,7 @@ class HelpLine extends React.Component {
             >
                 <div className="modal-content ticket-modal-content">
                     <div className="modal-header ticket-modal-header">
-                        <h5 className="modal-title ticekt-modal-title">Our Help Line</h5>
+                        <h5 className="modal-title ticekt-modal-title">Our Helpline</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.props.isClose}> <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

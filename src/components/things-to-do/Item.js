@@ -35,10 +35,10 @@ class Item extends React.Component {
                     <div className="thing-to-do-inner-content">
                         <div className="t-top-content">
                             <div className="t-title-content">
-                                <p className="t-tile">{textLimit(title, 27)}</p>
+                                <p className="t-tile">{textLimit(title, 20)}</p>
                             </div>
                         </div>
-                        <p>{textLimit(description, 70)}</p>
+                        <p>{textLimit(description, 65)}</p>
                         <div className="t-bottom-content">
                             <div className="t-viewdetails-content">
                                 <span className="view-gallery link-btn" onClick={() => this.openModal(this.props.data)}>Read More</span>

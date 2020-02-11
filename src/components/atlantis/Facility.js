@@ -14,7 +14,7 @@ class Facility extends React.Component {
                             <i className="fa fa-shopping-basket" aria-hidden="true" /> Room service &nbsp;<br />
                             <i className="fa fa-clock-o" aria-hidden="true" /> 24 hours front desk &nbsp;
                             <i className="fa fa-television" aria-hidden="true" /> Flat-screen TV &nbsp;
-                            <i className="fa fa-cafee" aria-hidden="true" /> Tea&Cafee maker &nbsp;
+                            <i className="fa fa-coffee" aria-hidden="true" /> Tea&Coffee maker &nbsp;
                         </li>
                         <li><h4>Other Facilities</h4></li>
                         <li><i className="fa fa-check" aria-hidden="true" /> Room rent includes complimentary Breakfast and FREE Entry + 3 Rides at Fantasy Kingdom & All Rides unlimited at Water Kingdom</li>

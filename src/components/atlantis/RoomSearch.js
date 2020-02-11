@@ -98,7 +98,7 @@ class RoomSearch extends React.Component {
                                             />
                                         </div>
                                         <div className="col-md-2" style={{ top: "36px" }}>
-                                            <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}><i className="fa fa-search" /> Check Availability</button>
+                                            <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}> Check Availability</button>
                                         </div>
                                     </div>
                                 </form>
