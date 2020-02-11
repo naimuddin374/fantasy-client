@@ -65,7 +65,7 @@ h4.product-price {
 
 .things-to-do-img {
     width: 100%;
-    height: 226px;
+    height: 350px;
 }
 
 .react-datepicker-wrapper {
@@ -232,10 +232,6 @@ button.link-btn i {
 
 .fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
     right: 6px !important;
-}
-
-.home-things-to-do .slick-slide .single-things img {
-    border-radius: 0 !important;
 }
 
 .z-index-minus {

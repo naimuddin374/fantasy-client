@@ -5,7 +5,6 @@ import Axios from 'axios';
 import { API_URL } from '../../store/actions/types';
 import Loading from '../layout/Loading';
 
-
 class DiscoverPackage extends React.Component {
 	state = {
 		services: {},
@@ -94,9 +93,6 @@ class DiscoverPackage extends React.Component {
 							<div className="col-lg-12 col-md-4" key={item.id}>
 					<div className="single-discover-carousel">
 											<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><img src={item.image ? API_URL+ item.image : `${process.env.PUBLIC_URL}/assets/images/resorts/resort1.png`} alt="resorts" /></Link>
-						{/* <div className="resport-open-close">
-								<span className="offer-shape">{item.open_time}</span>
-						</div> */}
 						<div className="resort-heading-content">
 							<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><h3>{item.title}</h3></Link>
 						</div>

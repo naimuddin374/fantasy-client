@@ -40,7 +40,7 @@ class Cart extends React.Component {
             totalItem = totalItem + 1
         }
         return (
-            <li className="nav-item cart-item-header">
+            <li className="nav-item cart-item-header" id="mobile-menu-card">
                 <Link className="nav-link shopping-cart-btn mr-0" to="#cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span className="cart-count">{totalItem}</span></Link>
                 {(Object.keys(rides).length !== 0 || (Object.keys(booking).length !== 0)) &&
                     <div className="fantasy-mini-cart">
