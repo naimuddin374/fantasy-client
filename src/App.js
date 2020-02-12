@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom';
-import MainApp from './components/MainApp';
+import Routes from './components/Routes';
 import History from './util/History'
 
 
@@ -9,7 +9,7 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 {/* <BrowserRouter basename={'/fantasykingdom'}> */}
-                <MainApp history={History} />
+                <Routes history={History} />
             </BrowserRouter>
         )
     }

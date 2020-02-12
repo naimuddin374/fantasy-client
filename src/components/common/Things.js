@@ -87,7 +87,9 @@ class Things extends React.Component {
                         </div>
                         <div className="col-lg-4 col-md-4">
                             <div className="show-all-content-area text-right">
-                                <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
+                                {Object.keys(rides).length !== 0 &&
+                                    <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
+                                }
                             </div>
                         </div>
                     </div>
@@ -115,13 +117,14 @@ class Things extends React.Component {
                             }
                         </Slider>}
                 </div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 text-center mt-5">
-                            <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn">Get Ticket</Link>
+                {Object.keys(rides).length !== 0 &&
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2 text-center mt-5">
+                                <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn">Get Ticket</Link>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </section>
         )
     }

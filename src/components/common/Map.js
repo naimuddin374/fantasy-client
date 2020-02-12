@@ -36,7 +36,11 @@ class Map extends React.Component {
                                 <div className={`section-title ${className}-section-title`}>
                                     <h2>{title}</h2>
                                     <p className="mt-3">{textLimit(description, 650)}</p>
-                                    <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn mt-5">Get Ticket</Link>
+
+                                    <div className="top-content-about-open mt-2">
+                                        <h5>Open today: 11:00 AM to 7:30 PM <br /> Holidays: 10:30 AM to 7:30 PM</h5>
+                                    </div>
+                                    <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn mt-3">Get Ticket</Link>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +48,7 @@ class Map extends React.Component {
                             <div className="fantasy-closing-time">
                                 <div className="opening-part">
                                     <div className="top-content-about-open">
-                                        <h5>Open today ({date_time})</h5>
+                                        {/* <h5>Open today ({date_time})</h5> */}
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +96,7 @@ class Map extends React.Component {
                                 </div>
                                 <div className="single-direction-map">
                                     <a href="#blank"> <i className="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span>Parking House</span>
+                                        <span>Parking Hour</span>
                                     </a>
                                 </div>
                             </div>

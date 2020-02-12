@@ -23,7 +23,7 @@ class Video extends React.Component {
     render() {
         let { service, className } = this.state
         const opts = {
-            height: '320',
+            height: '450',
             width: '100%',
             playerVars: {
                 autoplay: 0

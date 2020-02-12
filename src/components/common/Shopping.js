@@ -21,9 +21,9 @@ class Shopping extends React.Component {
                                 </div> */}
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
-                                <Link to={`${process.env.PUBLIC_URL}/`}>
+                                <a href="#blank">
                                     <img src="./assets/images/hotelfeature/dinner.png" alt="dining" />
-                                </Link>
+                                </a>
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6">
@@ -36,9 +36,9 @@ class Shopping extends React.Component {
                                 </div> */}
                             </div>
                             <div className="dining-feature hotel-feature-img mt-3">
-                                <Link to={`${process.env.PUBLIC_URL}/`}>
+                                <a href="#blank">
                                     <img src={`${process.env.PUBLIC_URL}/assets/images/hotelfeature/shopping.png`} alt="shopping" />
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>

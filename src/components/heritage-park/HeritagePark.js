@@ -21,21 +21,21 @@ class HeritagePark extends React.Component {
 
                 <Slider />
 
-                <InnerSearch className="water" />
+                <InnerSearch className="heritage" />
 
-                <Map className="water" />
+                <Map className="heritage" />
 
-                <Things className="water" />
+                <Things className="heritage" />
 
                 <Discount />
 
-                <Gallery className="water" />
+                <Gallery className="heritage" />
 
-                <Video className="water" />
+                <Video className="heritage" />
 
-                <Shopping className="water" />
+                <Shopping className="heritage" />
 
-                <Faq className="water" />
+                <Faq className="heritage" />
 
             </div>
         )

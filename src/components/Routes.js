@@ -18,7 +18,7 @@ import HomePage from './home/HomePage';
 import FoysLake from './foys-lake/FoysLake';
 import HeritagePark from './heritage-park/HeritagePark';
 import Atlantis from './atlantis/Atlantis';
-import NewsEvents from './../page/NewsEvents';
+import NewsEvents from '../page/NewsEvents';
 import NewsEventDetail from '../page/NewsEventDetail';
 import AlertMessage from './layout/AlertMessage';
 import Register from './profile/Register';
@@ -31,7 +31,7 @@ import Maps from './fantasy-kingdom/Maps';
 import Test from '../page/Test';
 
 
-class MainApp extends React.Component {
+class Routes extends React.Component {
     render() {
         return (
             <div className="main-div full-bg">
@@ -66,4 +66,4 @@ class MainApp extends React.Component {
         )
     }
 }
-export default MainApp
+export default Routes
