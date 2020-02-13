@@ -47,7 +47,7 @@ class RoomSearch extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-md-12">
-                            <div className="breadcrum-wrapper text-center mb-5">
+                            <div className="breadcrum-wrapper atlantics-bredcrumb text-center mb-5">
                                 <h2 className="text-white wow fadeInUp" data-wow-delay=".3s">Recreation with Excitement</h2>
                                 <p className="text-white mt-3 wow fadeInUp" data-wow-delay=".6s">Welcoming everyone with a smile</p>
                             </div>
@@ -55,7 +55,7 @@ class RoomSearch extends React.Component {
                                 <h3 className="mb-3">Plan your stay at Resort Atlantis</h3>
                                 <form onSubmit={this.submitHandler}>
                                     <div className="row">
-                                        <div className="col-md-3">
+                                        <div className="col-md-3 no-margin-res">
                                             <label htmlFor="checkIn">Check In Date: </label>
                                             <DatePicker
                                                 id="checkIn"
@@ -65,9 +65,10 @@ class RoomSearch extends React.Component {
                                                 onChange={this.checkInHandleChange}
                                             />
                                         </div>
-                                        <div className="col-md-3">
+                                        <div className="col-md-3 no-margin-res">
                                             <label htmlFor="checkOut">Check Out Date: </label>
                                             <DatePicker
+                                                popoverTargetAttachment='top right'
                                                 id="checkOut"
                                                 className='form-control'
                                                 placeholder="Check Out Date"
@@ -75,7 +76,7 @@ class RoomSearch extends React.Component {
                                                 onChange={this.checkOutHandleChange}
                                             />
                                         </div>
-                                        <div className="col-md-2">
+                                        <div className="col-md-2 no-margin-res">
                                             <label htmlFor="no_of_room">Room: </label>
                                             <input
                                                 type="text"
@@ -86,7 +87,7 @@ class RoomSearch extends React.Component {
                                                 onChange={this.changeHandler}
                                             />
                                         </div>
-                                        <div className="col-md-2">
+                                        <div className="col-md-2 no-margin-res">
                                             <label htmlFor="no_of_guest">Adult: </label>
                                             <input
                                                 type="text"
@@ -97,7 +98,7 @@ class RoomSearch extends React.Component {
                                                 onChange={this.changeHandler}
                                             />
                                         </div>
-                                        <div className="col-md-2" style={{ top: "36px" }}>
+                                        <div className="col-md-2 room-search-btn-atlantics" style={{ top: "36px" }}>
                                             <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}> Check Availability</button>
                                         </div>
                                     </div>

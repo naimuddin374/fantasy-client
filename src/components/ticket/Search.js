@@ -20,7 +20,7 @@ class Search extends React.Component {
                                                     {/* <select id="fantasysearchtype" className="form-control" style="display: none;">
                                                         <option selected="">Select Your Park or resorts</option>
                                                     </select> */}
-                                                    <div className="nice-select fantasy-nice-select ticket-search-bg ticket-page-select" tabIndex="0"><span className="current">Select Your Park or resorts</span>
+                                                    <div className="nice-select fantasy-nice-select ticket-search-bg ticket-page-select" tabIndex="0"><span className="current">Select other parks and resorts</span>
                                                         <ul className="list">
                                                             <li data-value="Fantasy" className="option">Fantasy Kingdom</li>
                                                             <li data-value="water" className="option">Water Kingdom</li>

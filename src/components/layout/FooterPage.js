@@ -10,9 +10,13 @@ class FooterPage extends React.Component {
                     <div className="container">
                         <div className="footer-shape-social">
                             <ul>
+
                                 <li><a target="_blank" href="https://www.facebook.com/fantasykingdomcomplex" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" href="https://twitter.com/fantasykingdom_" rel="noopener noreferrer"><i className="fa fa-twitter"></i></a></li>
+
+                                <li><a target="_blank" href="https://instagram.com/fantasykingdom_" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
+
                                 <li><a target="_blank" href="https://www.youtube.com/channel/UC3WC5sY2ez7RirsuyRM2zxQ" rel="noopener noreferrer"><i className="fa fa-youtube-play"></i></a></li>
+
                             </ul>
                         </div>
                         <div className="row">
@@ -26,7 +30,7 @@ class FooterPage extends React.Component {
                             </div>
                             <div className="col-lg-4 col-md-4">
                                 <div className="widget-wrapper">
-                                    <div className="widget-content">
+                                    <div className="widget-content contact-widget-content">
                                         <h4>Contact Us</h4>
                                         <ul>
                                             <li>
@@ -59,7 +63,7 @@ class FooterPage extends React.Component {
                             </div>
                             <div className="col-lg-3 col-md-3">
                                 <div className="widget-wrapper">
-                                    <div className="widget-content animation-widget">
+                                    <div className="widget-content animation-widget useful-link-widget-content">
                                         <h4>useful link</h4>
                                         <ul>
                                             <li><Link to={`${process.env.PUBLIC_URL}/ticket`}>Park Tickets</Link></li>

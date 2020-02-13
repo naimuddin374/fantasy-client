@@ -24,9 +24,28 @@ class Menu extends React.Component {
                 header.addClass("sticky");
             }
         });
-        $('.rox-dropdown.nav-item').on('click', function () {
-            $('ul.rox-dropdown-menu').slideToggle()
-        });
+
+
+
+
+
+        if ($(window).width() < 991) {
+
+            $("#main-menu").slideUp();
+
+            $('.rox-dropdown.nav-item').on('click', function () {
+                $('ul.rox-dropdown-menu').slideToggle()
+            });
+
+            $(".res-button").on('click', function () {
+                $("#main-menu").slideToggle('slow');
+            });
+
+            $("#main-menu>li.sliding").on('click', function () {
+                $("#main-menu").toggle('slow');
+            });
+        }
+
 
     }
     handleScroll = (event) => {
@@ -51,11 +70,11 @@ class Menu extends React.Component {
                                 <img src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
                             </Link>
                         </div>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtogglerItemItem"
+                        <button type="button" className="res-button" data-target="#navtogglerItemItem"
                             aria-controls="navtogglerItemItem" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse4" id="navtogglerItemItem">
+                        <div className="navbar-collapse4" id="navtogglerItemItem">
                             <ul className="navbar-nav m-auto mt-2 mt-lg-0" id="main-menu">
 
                                 <li className="rox-dropdown nav-item" id="full-width">Parks & Tickets  <i className="fa fa-angle-down"></i>
@@ -100,11 +119,11 @@ class Menu extends React.Component {
                                         </div>
                                     </ul>
                                 </li>
-                                <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/things-to-do`} className="nav-link">Things To Do</Link></li>
-                                <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/atlantis`} className="nav-link">Places to stay</Link></li>
-                                <li className="nav-item"> <Link to={`${process.env.PUBLIC_URL}/ticket/${DISCOUNT_TAG}`} className="nav-link">Offers</Link>
+                                <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/things-to-do`} className="nav-link sliding">Things To Do</Link></li>
+                                <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/atlantis`} className="nav-link sliding">Places to stay</Link></li>
+                                <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/ticket/${DISCOUNT_TAG}`} className="nav-link sliding">Offers</Link>
                                 </li>
-                                <li className="nav-item"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
+                                <li className="nav-item sliding"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
                                 </li>
 
                                 <li className="nav-item">
@@ -119,7 +138,7 @@ class Menu extends React.Component {
                                 </li>
 
                                 {this.props.auth.isAuth &&
-                                    <li className="nav-item search-header-btn mobile-none"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
+                                    <li className="nav-item search-header-btn mobile-none sliding"><Link className="nav-link" to={`${process.env.PUBLIC_URL}/profile`}><i className="fa fa-user"></i></Link>
                                     </li>}
 
                                 <li className="nav-item search-header-btn mobile-none"><Link className="nav-link" to="#search"><i className="fa fa-search"></i></Link>

@@ -433,6 +433,7 @@ a.navbar-brand>img {
 .header-area {
     padding: 0;
     transition: all .3s linear;
+    box-shadow: 0 3px 6px rgba(171, 171, 171, .41);
 }
 
 ul#main-menu li {
@@ -467,6 +468,11 @@ ul#main-menu li a:hover {
     background: #fff;
     -webkit-box-shadow: 0 3px 6px rgba(171, 171, 171, .41);
     box-shadow: 0 3px 6px rgba(171, 171, 171, .41);
+}
+
+.res-button {
+    display: none;
+    border: none;
 }
 
 
@@ -562,7 +568,6 @@ ul#main-menu li a:hover {
     .rox-dropdown {
         position: relative;
     }
-
     .rox-dropdown-menu {
         position: absolute;
         visibility: hidden;
@@ -586,7 +591,6 @@ ul#main-menu li a:hover {
         border-top-right-radius: 0;
         border-top: 1px solid #bbaeae21;
     }
-
     .rox-dropdown .rox-dropdown-menu>li>a {
         display: block;
         color: #3a3a3a;
@@ -594,40 +598,32 @@ ul#main-menu li a:hover {
         border-bottom: 1px solid rgba(238, 238, 238, 0.05);
         text-align: left;
     }
-
     .rox-dropdown .rox-dropdown-menu>li:last-child>a {
         border: 0;
     }
-
     .rox-header-menu .nav li ul .rox-dropdown-menu {
         left: 100%;
     }
-
     .rox-header-menu .nav li ul .rox-dropdown .rox-dropdown-menu {
         -webkit-transition: all .3s linear;
         transition: all .3s linear;
         top: 30%;
     }
-
     .rox-header-menu .nav li ul li.rox-dropdown:hover .rox-dropdown-menu {
         top: 0%;
     }
-
     .rox-dropdown:hover>.rox-dropdown-menu {
         visibility: visible;
         -webkit-opacity: 1;
         opacity: 1;
         top: 100%;
     }
-
     .rox-dropdown .rox-dropdown-menu>li>a:hover {
         color: #87C3FF;
     }
-
     .header-sticky.sticky .rox-header-menu .nav>.rox-dropdown:after {
         bottom: 10px;
     }
-
     .logo {
         max-width: 172px;
     }
@@ -1090,6 +1086,10 @@ li#signInIdIcon {
     display: none;
 }
 
+.fantasy-cart-button a {
+    color: #fff !important;
+}
+
 
 /*===========================================================
     home page 
@@ -1414,7 +1414,7 @@ section#carousel-linked {
 .widget-content h4 {
     color: #fff;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
@@ -1449,6 +1449,10 @@ p.footer-text>a:hover {
     color: #fff;
 }
 
+.contact-widget-content {
+    margin-left: 30px;
+}
+
 
 /*=====================================================
 	discover and resorts section
@@ -1457,6 +1461,7 @@ p.footer-text>a:hover {
 .single-discover-carousel {
     position: relative;
     overflow: hidden;
+    margin: 0 15px;
 }
 
 .discover-area .owl-stage-outer.owl-height {
@@ -1628,6 +1633,11 @@ p.footer-text>a:hover {
     visibility: visible;
 }
 
+.helpline-icon {
+    height: 49px !important;
+    width: 30px !important;
+}
+
 
 /* discover carousel */
 
@@ -1667,6 +1677,14 @@ p.footer-text>a:hover {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.discover-area .slick-prev {
+    top: -62px !important;
+}
+
+.discover-area .slick-next {
+    top: -64px !important;
 }
 
 
@@ -1769,7 +1787,6 @@ section.linked-area.section-padding.buy-ticket-overlay.magic-overlay.magic-pictu
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
@@ -1812,6 +1829,7 @@ section.linked-area.section-padding.buy-ticket-overlay.magic-overlay.magic-pictu
 
 .single-things {
     position: relative;
+    margin: 0 15px;
 }
 
 .offer-shape {
@@ -2000,7 +2018,6 @@ section.linked-area.section-padding.buy-ticket-overlay.magic-overlay.magic-pictu
         left: 0;
         top: 0;
     }
-
     to {
         transform: scale(1.10);
     }
@@ -2463,13 +2480,11 @@ a.hotel-icon i {
         -webkit-opacity: 1;
         opacity: 1;
     }
-
     50% {
         right: 30px;
         -webkit-opacity: .5;
         opacity: .5;
     }
-
     to {
         right: 40px;
         -webkit-opacity: .8;
@@ -2808,7 +2823,9 @@ span.project-gallery:hover img {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#5ea3de', endColorstr='#26c8f9', GradientType=1);
 }
 
+
 /* water kingdom breadcrum area */
+
 
 /*====================================================
     heritage park page global
@@ -2842,7 +2859,6 @@ span.project-gallery:hover img {
     width: calc(100% - 40px);
 }
 
-
 .heritage-feature-img {
     background: url("../images/waterkingdom.jpg");
     background-size: cover;
@@ -2855,9 +2871,8 @@ span.project-gallery:hover img {
     background: linear-gradient(60deg, rgba(255, 234, 203, 1) 0%, rgba(255, 218, 99, 1) 91%);
 }
 
+
 /* heritage park breadcrum area */
-
-
 
 
 /*=========================================================================
@@ -3231,11 +3246,6 @@ h5.modal-title.ticekt-modal-title {
 
 .modal-content.ticket-modal-content {
     border-radius: 15px;
-}
-
-.modal-content.ticket-modal-content {
-    border-radius: 15px;
-    min-width: 650px;
 }
 
 .modal-body.ticket-body-modal-content {
@@ -3851,7 +3861,7 @@ button.atlantis-search-btn {
     left: auto;
     top: 0;
     height: 50%;
-    right: 0;
+    right: 14px;
     padding: 0 18px;
     border: none;
     background: #E50019;
@@ -3994,7 +4004,6 @@ ul.count-guest-list {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
 }
 
 
@@ -4077,14 +4086,30 @@ ul.count-guest-list {
     margin-bottom: 40px;
 }
 
+.room-suite-inner-content-area h3 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
 .single-room-feature ul li {
     display: inline-block;
     width: 100%;
     float: left;
-    margin-bottom: 22px;
+    margin-bottom: 15px;
     color: #000;
     font-size: 16px;
     font-weight: 400;
+}
+
+.single-room-feature ul li i {
+    line-height: 37px;
+    padding-right: 9px;
+    padding-left: 8px;
+}
+
+.single-room-feature ul li i:first-child {
+    padding-left: 0;
 }
 
 .single-room-feature {
@@ -4113,9 +4138,11 @@ ul.count-guest-list {
 }
 
 .atlantis-bd-price {
-    font-size: 42px;
+    font-size: 37px;
     font-weight: 700;
     color: #000;
+    margin-top: 5px;
+    margin-bottom: 12px;
 }
 
 span.atlantis-charge {
@@ -4125,6 +4152,8 @@ span.atlantis-charge {
 .atlantis-free-collection {
     font-weight: 700;
     font-size: 16px;
+    margin-top: 14px;
+    margin-bottom: 4px !important;
 }
 
 .atlantis-booking-content>span {
@@ -4137,7 +4166,7 @@ button.atlantis-book-now-btn.btn {
     background: #E50019;
     color: #fff;
     width: 100%;
-    padding: 20px 10px;
+    padding: 15px 8px;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 400;
@@ -4194,12 +4223,10 @@ button.atlantis-book-now-btn.btn {
 ========================================================================================*/
 
 @media only screen and (min-width: 1920px) and (max-width: 2200px) {
-
     /* atlantis page*/
     .atlantis-room-suites:after {
         top: 60%;
     }
-
     .fantasy-feature-shape:after {
         bottom: -156px;
         left: 20px;
@@ -4207,12 +4234,10 @@ button.atlantis-book-now-btn.btn {
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1300px) {
-
     /* atlantis page */
     .atlantis-room-suites:after {
         display: none;
     }
-
     .atlantis-bd-price {
         font-size: 30px;
         line-height: 42px;
@@ -4220,175 +4245,137 @@ button.atlantis-book-now-btn.btn {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-
     /* atlantis page */
     .atlantis-room-thumb {
         margin-bottom: 21px;
         height: 100px;
     }
-
     button.atlantis-book-now-btn.btn {
         padding: 10px 10px;
     }
-
     .atlantis-room-suites {
         padding-top: 40px;
     }
-
     .atlantis-bd-price {
         font-size: 25px;
         line-height: 38px;
     }
-
     .atlantis-room-suites:after {
         display: none;
     }
-
     .calender-date-checking {
         width: 100%;
     }
-
     .atlantis-single-search-content {
         margin-bottom: 20px;
     }
-
     .number-guest {
         width: 50%;
     }
-
     .number-room {
         width: 50%;
     }
-
     .check-in-out-date-content:after {
         display: none;
     }
-
     .single-date-checking {
         width: calc(50% - 12px);
     }
-
     .atlantis-breadcrumb-area {
         padding-bottom: 300px;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-
     /* atlantis page */
     div#featured_img {
         margin-bottom: 30px;
     }
-
     .atlantis-bd-price {
         font-size: 20px;
         line-height: 32px;
     }
-
     button.atlantis-book-now-btn.btn {
         padding: 10px 10px;
     }
-
     .atlantis-free-collection {
         font-weight: 700;
         font-size: 14px;
     }
-
     .atlantis-room-suites:after {
         display: none;
     }
-
     .calender-date-checking {
         width: 100%;
     }
-
     .calender-date-checking {
         width: 100%;
         margin-bottom: 21px;
     }
-
     .check-in-out-date-content:after {
         display: none;
     }
-
     .number-guest {
         width: 50%;
     }
-
     .number-room {
         width: 50%;
     }
-
     .breadcrum-area {
         padding-bottom: 400px;
     }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-
     /* atlantis page */
     .atlantis-room-large-img>img {
         margin-bottom: 20px;
     }
-
     .atlantis-room-thumb {
         margin: auto;
         text-align: center;
         margin-bottom: 22px;
     }
-
     .single-room-feature ul li {
         width: 100%;
     }
-
     .room-suite-inner-content-area>h3 {
         font-size: 20px;
     }
-
     .atlantis-bd-price {
         font-size: 18px;
         line-height: 30px;
     }
-
     .atlantis-booking-ticket-area {
         margin-top: 30px;
     }
-
     .atlantis-address-content-wrapper {
         display: block;
     }
-
     .atlantis-contact-address-area {
         margin-bottom: 20px;
     }
-
     button.atlantis-book-now-btn.btn {
         padding: 10px 9px;
     }
-
     .atlantis-room-suites:after {
         display: none;
     }
-
     .calender-date-checking,
     .number-guest,
     .number-room {
         width: 100%;
     }
-
     .atlantis-single-search-content {
         margin-bottom: 18px;
     }
-
     .atlantis-search-area {
         padding: 30px 15px;
     }
-
     .check-in-out-date-content:after,
     .atlantis-search-room:before {
         display: none;
     }
-
     .atlantis-breadcrumb-area {
         padding-bottom: 450px;
     }
@@ -4653,7 +4640,6 @@ h5.modal-title.ticekt-modal-title {
 
 .modal-content.ticket-modal-content {
     border-radius: 15px;
-    min-width: 650px;
     border: none;
 }
 
@@ -4702,3 +4688,304 @@ h5.modal-title.ticekt-modal-title {
 /*==================================================================
     hamburger menu
 ====================================================================*/
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #09d3ac;
+}
+
+.experience-area iframe {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.experience-area .experiencebg:after {
+    display: none;
+}
+
+ul.list li.option a {
+    color: #000;
+    display: block;
+}
+
+.nice-select .option:hover a {
+    color: #fff;
+}
+
+.nice-select .option.selected.focus {
+    color: #fff;
+}
+
+h4.product-price {
+    margin-left: -15px;
+}
+
+.modal-body.ticket-body-modal-content {
+    padding: 10px 30px 30px 30px;
+}
+
+.ticket-widget-content-inner {
+    padding: 10px 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+}
+
+.link-btn {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.things-to-do-img {
+    width: 100%;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+body.swal2-toast-shown .swal2-container.swal2-top-end {
+    z-index: 999999 !important;
+}
+
+#parks-explore-rides .slick-prev,
+#parks-explore-rides .slick-next {
+    display: none;
+}
+
+i.fa.fa-long-arrow-left {
+    display: none;
+}
+
+
+/* add to cart btn custom style */
+
+button.link-btn {
+    background: transparent;
+    height: 15px;
+    width: 15px;
+    border: 1px solid;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+button.link-btn i {
+    font-size: 11px;
+}
+
+button.link-btn i {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* slick slider customize */
+
+.main-div .slick-prev.slick-arrow,
+.main-div .slick-next.slick-arrow {
+    display: block !important;
+}
+
+.main-div .slick-prev {
+    right: 100px !important;
+    height: 31px;
+    width: 40px;
+    top: -30px;
+    left: auto;
+    background: transparent;
+    padding: 3px 29px;
+    font-size: 20px;
+    transition: all .3s linear;
+}
+
+.main-div .slick-next {
+    right: 0 !important;
+    height: 31px;
+    width: 40px;
+    background: orange;
+    top: -30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #E50019;
+    padding: 3px 29px;
+    font-size: 20px;
+    transition: all .3s linear;
+}
+
+.main-div .slick-prev:hover,
+.main-div .slick-prev:focus,
+.main-div .slick-next:hover,
+.main-div .slick-next:focus {
+    background-color: #E50019 !important;
+}
+
+.main-div .slick-prev:before,
+.main-div .slick-next:before {
+    font-family: "font-awesome";
+    font-weight: 900 !important;
+    opacity: 1 !important;
+}
+
+.main-div .slick-prev:before {
+    color: #3a3a3a;
+}
+
+.main-div .slick-next:before,
+.main-div .slick-prev:before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-div .slick-prev:hover:before {
+    color: #fff;
+}
+
+.main-div .slick-prev:hover {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.pay-btn-enable {
+    cursor: pointer;
+}
+
+.pay-btn-enable:hover {
+    background: #e50019;
+}
+
+
+/* global css loading css */
+
+.loading-relative-data {
+    position: relative;
+    min-height: 170px;
+}
+
+.loading-relative-data .sc-bdVaJa {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+/* Things to do image design */
+
+.slick-slide .single-things img {
+    display: block;
+    border-radius: 15px;
+}
+
+
+/* Map page desing */
+
+.direction-area-fantasy-kingdom a {
+    color: #000;
+}
+
+
+/***********************Change for select room check availability adult select option***********************/
+
+.select-park-option-area,
+.fantasy-feature-about-area {
+    /* z-index: -1; */
+}
+
+.btn-disabled {
+    background: #838383 !important;
+    cursor: inherit !important;
+}
+
+.booking-for-area {
+    background: #eae6df75;
+    border-radius: 10px;
+    padding-top: 15px;
+    margin: 20px 0;
+}
+
+.page-not-found {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.page-not-found img {
+    max-width: 500px;
+}
+
+.fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
+    right: 6px !important;
+}
+
+.z-index-minus {
+    z-index: -1;
+}
+
+figure {
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+figure:hover img {
+    opacity: 0;
+}
+
+.maps-area img {
+    display: block;
+    width: 100%;
+    pointer-events: none;
+}
+
+
+/*====================================================================
+    book list popup customize
+======================================================================*/
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    z-index: 9999999 !important;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    border: none;
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    margin-right: -50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    z-index: 9999999999999 !important;
+}

@@ -73,11 +73,11 @@
         padding-top: 0;
     }
     .direction-shape:before {
-        left: -33px;
-        top: -169px;
-        height: 300px;
-        width: 300px;
-        transform: translateX(-4%)scale(.7);
+        left: -19px;
+        top: -139px;
+        height: 195px !important;
+        width: 108px !important;
+        transform: translateX(-4%)scale(.5);
     }
     .magic-overlay:before {
         bottom: 128px;
@@ -92,11 +92,30 @@
     .discount-overlay:before {
         bottom: 100%;
     }
+    .single-discover-carousel>a>img {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1500px) {
     .top-select-btn input {
         right: 32px;
+    }
+    .single-discover-carousel {
+        margin: 0 10px;
+    }
+    .single-things {
+        margin: 0 10px;
+    }
+    .atlantis-breadcrumb-area {
+        padding-bottom: 350px;
+    }
+    .fantasy-feature-about-area {
+        padding-bottom: 0;
+    }
+    .atlantis-room-suites {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
 
@@ -255,6 +274,64 @@
     /* thing to do page */
     .things-to-do-page-content-area:after {
         display: none;
+    }
+    ul#main-menu li {
+        padding: 30px 10px;
+    }
+    .single-linked a h4 {
+        font-size: 12px;
+    }
+    .single-discover-carousel {
+        margin: 0 5px;
+    }
+    .single-things {
+        margin: 0 5px;
+    }
+    .single-discover-carousel>a>img {
+        width: 100%;
+    }
+    .atlantis-breadcrumb-area {
+        padding-bottom: 350px;
+    }
+    .fantasy-feature-about-area {
+        padding-bottom: 0;
+    }
+    .atlantis-room-suites {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .disable-btn {
+        padding: 4px 16px;
+        font-size: 14px;
+    }
+    .primary-btn {
+        padding: 4px 16px;
+        font-size: 14px;
+    }
+    .payment-btn {
+        padding: 4px 16px;
+        font-size: 14px;
+    }
+    .prodcut-info h4 {
+        font-size: 16px;
+    }
+    .ticket-prodcut-padding {
+        padding: 25px 20px;
+    }
+    .inner-checkout-content>span {
+        font-size: 13px;
+    }
+    .ticket-widget-content-inner h5 {
+        font-size: 13px;
+    }
+    .order-summary-qtn>input {
+        width: 100%;
+    }
+    .pro-quantity {
+        padding: 0 11px;
+    }
+    h4.total-price-widget {
+        font-size: 22px;
     }
 }
 
@@ -529,9 +606,9 @@
     .things-to-do-page-content-area:after {
         display: none;
     }
-    /*========================================================================== 
-        update 768 screen responsive customization
-    ============================================================================*/
+    .single-things {
+        margin: 0 10px;
+    }
     #carousel-linked {
         display: none;
     }
@@ -540,6 +617,83 @@
         margin-top: 16px;
         text-align: center;
         left: 50%;
+    }
+    .row-responsive-thing {
+        margin-bottom: 20px;
+    }
+    #home-thing-to-title {
+        margin-bottom: 0;
+    }
+    .discover-area .slick-next {
+        top: -59px !important;
+    }
+    .discover-area .slick-prev {
+        top: -58px !important;
+    }
+    .single-discover-carousel {
+        margin: 0 4px;
+    }
+    .things-to-do-page-content-area:before {
+        display: none;
+    }
+    button.atlantis-search-btn {
+        right: 7px;
+        padding: 0 11px;
+        font-size: 11px;
+    }
+    .atlantis-booking-content {
+        padding: 20px 0;
+    }
+    .atlantis-room-suites {
+        padding: 0 0;
+    }
+    .ticket-prodcut-padding {
+        float: left;
+        width: calc(50% - 10px);
+        margin-right: 10px;
+    }
+    .ticket-prodcut-padding:nth-child(odd) {
+        margin-right: 0;
+    }
+    .checkout-inner-content-area {
+        overflow: hidden;
+    }
+    .prodcut-info h4 {
+        margin-top: 10px;
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    .primary-btn {
+        padding: 5px 20px;
+        font-size: 14px;
+    }
+    .prodcut-add-to-cart button {
+        margin-top: 6px;
+    }
+    .prodcut-details-btn {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .disable-btn {
+        padding: 5px 20px;
+        font-size: 14px;
+    }
+    .ticket-prodcut-padding {
+        padding: 25px 20px;
+    }
+    div#all-park-explore-ride {
+        margin-bottom: 0;
+        padding-bottom: 22px;
+    }
+    div#all-parks-photo-gallery {
+        margin-bottom: 0;
+        padding-bottom: 22px;
+    }
+    div#all-parks-photo-gallery h2 {
+        margin-bottom: 0;
+    }
+    .fantasy-feature-about-area {
+        padding-bottom: 0;
     }
 }
 
@@ -553,6 +707,10 @@
     h2 {
         font-size: 26px;
         line-height: 36px;
+    }
+    .hero-slider-content h1 {
+        font-size: 40px;
+        line-height: 52px;
     }
     .page-title h3 {
         font-size: 20px;
@@ -588,9 +746,6 @@
     .rox-header-menu .nav>li>a {
         font-size: 14px;
     }
-    .single-discover-carousel {
-        margin: 0 15px;
-    }
     .rox-header-menu.header-sticky.sticky .mean-container .mean-nav ul li a {
         color: #fff;
     }
@@ -621,9 +776,6 @@
         font-size: 20px;
         line-height: 30px;
     }
-    /*==================================================
-        linked show hide
-    ===================================================*/
     section#desktop-linked {
         display: none;
     }
@@ -756,7 +908,6 @@
         font-size: 20px;
         line-height: 30px;
     }
-    /* fantasy kindom page, water kingdom page */
     .nice-select.fantasy-nice-select {
         margin-right: 0;
     }
@@ -873,10 +1024,6 @@
         font-size: 16px;
     }
     /* thing to do page */
-    .single-thing-to-do-content {
-        margin-right: 15px;
-        margin-left: 15px;
-    }
     .things-to-do-page-content-area:after {
         display: none;
     }
@@ -900,9 +1047,58 @@
         font-size: 16px;
         margin-bottom: 10px;
     }
-    /*=====================================================================================
-        update responsive customize ( home page )
-=======================================================================================*/
+    /* atlantics search */
+    .atlantis-breadcrumb-area {
+        padding: 120px 0 !important;
+    }
+    .atlantis-search-area {
+        padding: 10px 15px;
+        position: relative;
+        left: 0;
+        width: 100%;
+        transform: none;
+    }
+    .atlantis-search-area h3 {
+        font-size: 16px;
+    }
+    .breadcrum-wrapper.atlantics-bredcrumb.text-center.mb-5 {
+        margin-bottom: 10px !important;
+    }
+    .atlantis-search-area h3 {
+        margin-bottom: 3px !important;
+    }
+    .atlantics-bredcrumb p {
+        margin-top: 0 !important;
+    }
+    .col-md-2.room-search-btn-atlantics {
+        text-align: center;
+        top: 27px !important;
+    }
+    button.atlantis-search-btn {
+        position: relative;
+        left: 0;
+        top: 0;
+        height: auto;
+        border: none;
+        background: #E50019;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 6px 20px;
+    }
+    .no-margin-res {
+        margin-bottom: 12px;
+    }
+    .no-margin-res label {
+        margin-bottom: 0;
+    }
+    .no-margin-res label {
+        margin-bottom: 0;
+    }
+    .col-md-2.no-margin-res {
+        margin-bottom: 12px;
+    }
+    /*  update responsive customize ( home page ) */
     .mean-container a.meanmenu-reveal span {
         height: 2px;
     }
@@ -952,6 +1148,122 @@
     }
     .section-title-small-text.text-center.mb-4.faq-section-title {
         margin-bottom: 0 !important;
+    }
+    .discover-area .slick-next.fantasy-gallery-next {
+        bottom: -47px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: auto !important;
+    }
+    .discover-area .slick-prev {
+        display: none !important;
+    }
+    .newletterfom-field>input {
+        font-size: 14px;
+    }
+    .contact-widget-content {
+        margin-left: 0;
+    }
+    .single-discover-carousel>a>img {
+        width: 100%;
+    }
+    /* book list popup customize*/
+    .ReactModal__Overlay.ReactModal__Overlay--after-open {
+        z-index: 999999999999 !important;
+    }
+    .ReactModal__Content.ReactModal__Content--after-open {
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 99999 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    .modal-body.ticket-body-modal-content {
+        height: 450px;
+    }
+    .col-lg-4.offset-lg-4.booking-submit-wrapper {
+        margin-bottom: 17px;
+    }
+    .advanture-ride-title {
+        font-size: 23px;
+    }
+    .things-to-do-page-content-area:before {
+        display: none;
+    }
+    .atlantis-room-suites-feature-area {
+        padding: 0;
+    }
+    .atlantis-room-thumb {
+        margin-bottom: 28px;
+        height: auto;
+    }
+    .atlantis-room-thumb img {
+        height: auto;
+    }
+    .atlantis-room-suites {
+        padding-bottom: 0;
+    }
+    .atlantis-booking-content {
+        padding: 20px 10px;
+    }
+    .single-room-feature ul li i {
+        padding-right: 0;
+    }
+    .prodcut-info img {
+        width: 100%;
+    }
+    .prodcut-info h4 {
+        margin-top: 18px;
+    }
+    .prodcut-add-to-cart button {
+        margin-top: 10px;
+    }
+    .primary-btn {
+        padding: 3px 15px;
+        font-size: 13px;
+    }
+    .disable-btn {
+        padding: 3px 15px;
+        font-size: 13px;
+    }
+    .prodcut-details-btn {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .inner-checkout-content {
+        margin: 5px 0;
+    }
+    .payment-btn {
+        padding: 3px 15px;
+        font-size: 13px;
+    }
+    h4.total-price-widget {
+        text-align: center;
+    }
+    .pro-quantity {
+        position: relative;
+        overflow: hidden;
+        left: 14px;
+    }
+    h4.total-price-widget {
+        font-size: 22px;
+    }
+    .fantasy-photo-gallery {
+        margin-bottom: 18px;
+    }
+    .fantasy-photo-gallery h2 {
+        margin-bottom: 0;
+        font-size: 21px;
+    }
+    .fantasy-gallery-slider2 .slick-prev {
+        display: none;
+    }
+    .fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
+        right: 5px !important;
+        top: -36px;
+    }
+    .project-gallery img {
+        width: 100%;
     }
 }
 
@@ -1068,7 +1380,7 @@
     }
 }
 
-@media only screen and (min-width: 320px) and (max-width:991px) {
+@media only screen and (min-width: 320px) and (max-width: 991px) {
     /* menu responsive update */
     li.megamenu>span {
         color: #fff;
@@ -1159,9 +1471,7 @@
     .footer-text {
         display: none;
     }
-    /*=========================================================
-				mobile cart 
-	============================================================*/
+    /*mobile cart*/
     .header-area {
         padding: 20px 10px;
     }
@@ -1204,7 +1514,7 @@
         font-size: 16px !important;
     }
     .mobile-none {
-        display: none;
+        display: none !important;
     }
     li.nav-item.cart-item-header.mobile-none {
         display: none !important;
@@ -1222,23 +1532,83 @@
         width: 100%;
         margin-top: 20px;
     }
+    .res-button {
+        display: block;
+    }
 }
 
-
-}
-@media only screen and (min-width: 992px) and (max-width:1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
     a.nav-link.shopping-cart-btn {
         margin-right: 0;
     }
-    
     li#signInIdText {
         margin-left: 8px;
     }
+    button.atlantis-search-btn {
+        padding: 0 11px;
+        font-size: 15px;
+    }
 }
-@media only screen and (min-width:992px) {
+
+@media only screen and (min-width: 992px) {
     .mobile-menu-card,
     .mobile-menu-search,
     .mobile-menu-profile {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .booking-row {
+        display: block;
+    }
+    .form-group.mb-0.booking-else {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    .helpline-icon {
+        height: 27px !important;
+        width: 21px !important;
+    }
+    .resorts-linked-btn>a>p {
+        font-size: 14px;
+    }
+    .resorts-linked-btn>a {
+        margin-right: 12px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .single-fantasy-park-search {
+        margin-top: 0 !important;
+    }
+    .section-title.mb-40.things-to-do-title {
+        margin-top: 50px;
+        margin-bottom: 12px;
+    }
+}
+
+@media only screen and (min-width: 611px) and (max-width: 650px) {
+    .mobile-menu-profile {
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .mobile-menu-card {
+        position: absolute;
+        top: 20px;
+        transform: translateX(-42%);
+        width: 100%;
+        right: auto !important;
+    }
+    .mobile-menu-search {
+        position: absolute;
+        top: 68px;
+        left: 66%;
+        transform: translateX(-50%);
+        right: inherit !important;
     }
 }

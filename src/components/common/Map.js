@@ -31,7 +31,7 @@ class Map extends React.Component {
             <section className="fantasy-feature-about-area relative fantasy-feature-shape section-padding">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6 col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="fantasy-about-content">
                                 <div className={`section-title ${className}-section-title`}>
                                     <h2>{title}</h2>
@@ -44,7 +44,7 @@ class Map extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="fantasy-closing-time">
                                 <div className="opening-part">
                                     <div className="top-content-about-open">
@@ -96,7 +96,7 @@ class Map extends React.Component {
                                 </div>
                                 <div className="single-direction-map">
                                     <a href="#blank"> <i className="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span>Parking Hour</span>
+                                        <span>Park Hours</span>
                                     </a>
                                 </div>
                             </div>

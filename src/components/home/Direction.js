@@ -17,9 +17,9 @@ class Direction extends React.Component {
                 {/* Tool Tip Body Card */}
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-8 col-md-8 offset-lg-2 offset-md-2">
+                        <div className="col-lg-8 col-md-12 offset-lg-2">
                             <div className="row">
-                                <div className="col-lg-3 col-md-6 direact-content-col">
+                                <div className="col-lg-3 col-md-3 direact-content-col">
                                     <div className="direction-content">
                                         <Link to={`${process.env.PUBLIC_URL}/maps`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
@@ -37,7 +37,7 @@ class Direction extends React.Component {
                                     {/* Map image view modal*/}
 
                                 </div>
-                                <div className="col-lg-3 col-md-6 direact-content-col">
+                                <div className="col-lg-3 col-md-3 direact-content-col">
                                     <div className="direction-content">
                                         <a href="https://g.page/fantasy-kingdom-dhaka?share" target="_blank" rel="noopener noreferrer">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
@@ -50,7 +50,7 @@ class Direction extends React.Component {
                                         </a>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 col-md-6 direact-content-col">
+                                <div className="col-lg-3 col-md-3 direact-content-col">
                                     <div className="direction-content">
                                         <HelpLine
                                             isOpen={this.state.isModalOpen}
@@ -72,7 +72,7 @@ class Direction extends React.Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 col-md-6 direact-content-col">
+                                <div className="col-lg-3 col-md-3 direact-content-col">
                                     <div className="direction-content">
                                         <ParkHour
                                             isOpen={this.state.isModalOpenPark}
