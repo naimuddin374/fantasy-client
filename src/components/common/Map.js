@@ -21,30 +21,30 @@ class Map extends React.Component {
         let { moduleData, className } = this.state
         let title = ''
         let description = ''
-        let date_time = ''
         if (Object.keys(moduleData).length !== 0) {
             title = moduleData[0].title
             description = moduleData[0].description
-            date_time = moduleData[0].open_time
         }
         return (
             <section className="fantasy-feature-about-area relative fantasy-feature-shape section-padding">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6 col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="fantasy-about-content">
                                 <div className={`section-title ${className}-section-title`}>
                                     <h2>{title}</h2>
                                     <p className="mt-3">{textLimit(description, 650)}</p>
 
                                     <div className="top-content-about-open mt-2">
-                                        <h5>Open today: 11:00 AM to 7:30 PM <br /> Holidays: 10:30 AM to 7:30 PM</h5>
+                                        <p><b>Open today:</b> <i className="fa fa-clock-o" /> 11:00 AM to 7:30 PM</p>
+                                        <p><b>Holidays:</b> <i className="fa fa-clock-o" /> 10:30 AM to 7:30 PM</p>
+                                        {/* <h5>Open today: <i className="fa fa-clock-o" /> 11:00 AM to 7:30 PM <br /> Holidays: <i className="fa fa-clock-o" /> 10:30 AM to 7:30 PM</h5> */}
                                     </div>
                                     <Link to={`${process.env.PUBLIC_URL}/ticket`} className="theme-btn mt-3">Get Ticket</Link>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-6">
+                        <div className="col-lg-6 col-md-12">
                             <div className="fantasy-closing-time">
                                 <div className="opening-part">
                                     <div className="top-content-about-open">
@@ -96,7 +96,7 @@ class Map extends React.Component {
                                 </div>
                                 <div className="single-direction-map">
                                     <a href="#blank"> <i className="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span>Parking Hour</span>
+                                        <span>Park Hours</span>
                                     </a>
                                 </div>
                             </div>

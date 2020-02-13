@@ -60,14 +60,15 @@ class Things extends React.Component {
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 768,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 2,
+                        infinite: true,
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 320,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
@@ -77,11 +78,11 @@ class Things extends React.Component {
         }
         let { rides, className, loading } = this.state
         return (
-            <section className="things-area explore-area section-padding">
+            <section className="things-area explore-area section-padding" id="parks-explore-rides">
                 <div className="container">
                     <div className="row row-center">
                         <div className="col-lg-8 col-md-8">
-                            <div className={`section-title ${className}-section-title mb-40 things-to-do-title`}>
+                            <div className={`section-title ${className}-section-title mb-40 things-to-do-title`} id="all-park-explore-ride">
                                 <h2>Explore Rides & Events</h2>
                             </div>
                         </div>
@@ -99,7 +100,7 @@ class Things extends React.Component {
                         <Slider {...settings}>
                             {Object.keys(rides).length !== 0 &&
                                 rides.map(item => (Number(item.slide) === 1 &&
-                                    <div className="col-lg-12 col-md-4" key={item.id}>
+                                    <div className="parks-rides-wrapper-carousel" key={item.id}>
                                         <div className="single-things">
                                             <div className="img-things-link">
                                                 <img src={API_URL + item.image} alt="thins img" />

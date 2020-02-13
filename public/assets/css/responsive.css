@@ -1,1244 +1,1736 @@
-@media only screen and (min-width: 1920px) and (max-width: 2200px) {
-    .circle-shape {
-        top: -79px;
-    }
-    .things-to-do-page-content-area::after {
-        content: "";
-        position: absolute;
-        right: -70px;
-        top: 25%;
-        background: url(../images/lia.png);
-        background-repeat: no-repeat;
-        height: 200px;
-        width: 200px;
-        transform: translateY(-91%);
-    }
-}
-
-@media only screen and (min-width: 1501px) and (max-width: 1600px) {
-    /* home page */
-    h1 {
-        font-size: 50px;
-        line-height: 60px;
-    }
-    .slide-title {
-        font-size: 50px;
-        line-height: 60px;
-    }
-    .resort-heading-content a h3 {
-        line-height: 38px;
-        font-size: 28px;
-    }
-    .latest-news-content h4 a {
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 600;
-    }
-    .read-more-btn {
-        font-size: 16px;
-        font-weight: 500;
-    }
-    .theme-btn {
-        padding: 9px 30px;
-        font-size: 16px;
-    }
-}
-
-
-/* Layout: Max 1500px. */
-
-@media only screen and (min-width: 1200px) and (max-width: 1500px) {
-    .theme-btn {
-        padding: 8px 30px;
-        font-size: 16px;
-    }
-    /* fantasy kingdom page, water kingdom page */
-    .breadcrum-wrapper>h2 {
-        font-size: 50px;
-        line-height: 62px;
-    }
-    .fantasy-park-search-item.float-right {
-        margin-right: 30px;
-    }
-    .resort-heading-content a h3 {
-        font-size: 26px;
-    }
-    .park-select-submit input {
-        right: 0;
-    }
-    .fantasy-feature-shape:after {
-        display: none;
-    }
-    .things-area {
-        padding-top: 0;
-    }
-    .direction-shape:before {
-        left: -33px;
-        top: -169px;
-        height: 300px;
-        width: 300px;
-        transform: translateX(-4%)scale(.7);
-    }
-    .magic-overlay:before {
-        bottom: 128px;
-        height: 250px;
-        width: 250px;
-        transform: scale(.9);
-        right: -46px;
-    }
-    .section-title.mb-40.things-to-do-title {
-        padding-top: 60px;
-    }
-    .discount-overlay:before {
-        bottom: 100%;
-    }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1500px) {
-    .top-select-btn input {
-        right: 32px;
-    }
-}
-
-@media only screen and (min-width: 1351px) and (max-width: 1499px) {
-    /* ride page */
-    .fantasy-gallery-area-ride:after {
-        bottom: -44px;
-        transform: scale(.9);
-        right: -74px;
-    }
-    /* thing to do page */
-    .things-to-do-page-content-area:before {
-        left: -19px;
-        transform: translateY(-85%)scale(.6);
-    }
-    .things-to-do-page-content-area:after {
-        right: -74px;
-        top: 22%;
-        transform: translateY(-85%)scale(.7);
-    }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1350px) {
-    /* ride page */
-    .fantasy-gallery-area-ride:after {
-        top: auto;
-        bottom: -44px;
-        transform: scale(.6);
-    }
-    /* thing to  do page */
-    .things-to-do-page-content-area:after {
-        display: none;
-    }
-    .things-to-do-page-content-area:before {
-        display: none;
-    }
-}
-
-
-/* Layout: Min 992px Max 1199px. */
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    p {
-        font-size: 14px;
-    }
-    h2 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .theme-btn {
-        padding: 7px 32px;
-        font-size: 16px;
-    }
-    .rox-header-menu .nav>li>a {
-        padding: 36px 8px;
-    }
-    .rox-header-menu .nav>li>a {
-        padding: 40px 6px;
-        font-size: 14px;
-    }
-    /* home page */
-    .resort-heading-content a h3 {
-        font-size: 25px;
-        line-height: 35px;
-    }
-    .single-things>a {
-        font-size: 22px;
-    }
-    .direction-shape:before {
-        display: none;
-    }
-    .section-title h2::before {
-        bottom: 3px;
-        height: 16px;
-    }
-    a.deals-shape-btn {
-        border-bottom-right-radius: 63px;
-    }
-    .magic-picture:after {
-        display: none;
-    }
-    .slide-title {
-        font-size: 45px;
-        line-height: 57px;
-    }
-    .latest-news-content h4 a {
-        font-size: 17px;
-    }
-    .latest-news-content>a {
-        font-size: 16px;
-    }
-    .single-discover-carousel:hover:before {
-        height: 82%;
-    }
-    .magic-overlay:before {
-        display: none;
-    }
-    .discover-area .owl-prev {
-        position: absolute;
-        margin-right: 20px;
-        right: 63px;
-        padding: 5px 20px;
-        font-size: 20px;
-        color: #ccc;
-        transition: all .3s linear;
-        top: -76px;
-    }
-    .discover-area .owl-next {
-        padding: 5px 20px;
-        background: #E50019;
-        color: #fff;
-        font-size: 20px;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 20px;
-        border-top-right-radius: 10px;
-        top: -76px;
-        right: 20px;
-        position: absolute;
-    }
-    /* fantasy kingdom page , water kingdom page */
-    .breadcrum-wrapper>h2 {
-        font-size: 40px;
-        line-height: 53px;
-    }
-    .fantasy-park-search-item.float-right {
-        margin-right: 30px;
-    }
-    .park-select-submit input {
-        right: 0;
-    }
-    .fantasy-feature-shape:after {
-        display: none;
-    }
-    .fantasy-feature-about-area {
-        padding-bottom: 0;
-    }
-    .nice-select.fantasy-nice-select {
-        margin-right: 55px;
-    }
-    .discount-overlay:before {
-        bottom: 100%;
-    }
-    /* ride page */
-    .fantasy-gallery-area-ride:after {
-        right: 0;
-        bottom: -43px;
-        transform: scale(.6);
-        top: auto;
-    }
-    /* checkoutt page */
-    .checkout-page-content>.circle-shape {
-        top: 340px;
-        width: 100%;
-    }
-    /* thing to do page */
-    .things-to-do-page-content-area:after {
-        display: none;
-    }
-}
-
-
-/* Large Layout: 991px. */
-
-@media only screen and (min-width: 992px) {
-    .rox-header-menu .nav {
-        display: block;
-    }
-    .rox-header-menu .nav>li {
-        display: inline-block;
-        position: relative;
-    }
-    .header-inner>.header-action>div {
-        margin-left: 40px;
-    }
-    .rox-header-menu .main-menu {
-        display: inline-block !important;
-    }
-    .header-sticky.sticky .rox-header-menu .nav>li>a {
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-    /* menu terms and condition */
-    li.nav-item.terms-condition {
-        display: none;
-    }
-    div#navtogglerItemItem {
-        display: block;
-    }
-}
-
-
-/* Medium Layout: 991px. */
-
-@media only screen and (max-width: 991px) {
-    .header-inner>div {
-        margin-left: 0;
-    }
-    .mean-container .mean-nav>ul::-webkit-scrollbar {
-        width: 16px;
-    }
-    .mean-container .mean-nav>ul::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 4px #444;
-    }
-    .mean-container .mean-nav>ul::-webkit-scrollbar-thumb {
-        background-color: #87C3FF;
-        outline: 1px solid #87C3FF;
-    }
-    .mean-container .mean-bar {
-        float: none !important;
-    }
-    .rox-header-menu .mean-container .mean-nav ul>li:hover>a {
-        color: #87C3FF;
-    }
-    .header-inner>.header-action>div {
-        margin-left: 20px;
-    }
-    .rox-header.sticky .mean-container .mean-nav {
-        margin-top: 33px;
-    }
-    .mean-container .mean-nav ul li a {
-        padding: 9px 20px;
-    }
-    .mean-container a.meanmenu-reveal {
-        width: 26px;
-        height: 22px;
-        position: absolute;
-        top: 0px;
-        right: 13px;
-        text-align: right;
-        cursor: pointer;
-        color: #3a3a3a;
-        text-decoration: none;
-        font-size: 16px;
-        display: block;
-        font-weight: 700;
-        z-index: 99999999999999;
-    }
-    .rox-header-menu {
-        border-bottom: none;
-        padding-bottom: 38px;
-        padding-top: 25px;
-    }
-    .logo {
-        max-width: 100px;
-    }
-    .mean-container a.meanmenu-reveal span {
-        background: #000;
-    }
-    .mean-container a.meanmenu-reveal.meanclose {
-        top: 0px;
-    }
-    .header-area {
-        padding: 0;
-        position: absolute;
-        top: 0;
-        z-index: 999;
-        background: #fff;
-        width: 100%;
-        padding: 10px 10px;
-    }
-    .rox-dropdown-menu {
-        background-color: #0C1923 !important;
-    }
-    ul#main-menu li {
-        padding: 9px 14px;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    /* home page */
-    p {
-        font-size: 14px;
-    }
-    h2 {
-        font-size: 26px;
-        line-height: 38px;
-    }
-    h3 {
-        font-size: 25px;
-        line-height: 35px;
-    }
-    .theme-btn {
-        padding: 7px 40px;
-        font-size: 14px;
-    }
-    .breadcrum-wrapper>h2 {
-        font-size: 45px;
-        line-height: 59px;
-    }
-    /* responsive menu */
-    .mean-container a.meanmenu-reveal {
-        top: -66px;
-        right: 0;
-    }
-    .mean-container a.meanmenu-reveal {
-        top: -3px !important;
-    }
-    .mean-container .mean-nav ul li a {
-        border-top: none;
-    }
-    .mean-container a.meanmenu-reveal span {
-        background: #000;
-    }
-    .rox-header-menu.header-sticky.sticky .mean-container a.meanmenu-reveal span {
-        background: #3a3a3a !important;
-    }
-    .rox-header-menu {
-        border-bottom: none;
-    }
-    .mean-container .mean-nav {
-        margin-top: 53px;
-    }
-    .section-padding {
-        padding: 70px 0;
-    }
-    .rox-header-menu.sticky .nav>li>a {
-        color: #fff;
-    }
-    .rox-header-menu {
-        padding: 40px 0;
-    }
-    .mean-container a.meanmenu-reveal {
-        top: -10px;
-        right: 0;
-    }
-    .single-news {
-        margin-bottom: 23px;
-    }
-    .magic-picture:after {
-        display: none;
-    }
-    .single-linked {
-        margin-bottom: 40px;
-    }
-    .direction-content {
-        margin-bottom: 40px;
-    }
-    .circle-shape {
-        display: none;
-    }
-    .slide-title {
-        font-size: 40px;
-        line-height: 55px;
-    }
-    .direction-shape:before {
-        display: none;
-    }
-    .section-title h2::before {
-        bottom: 0;
-        height: 17px;
-    }
-    .discover-area .owl-nav {
-        position: absolute;
-        margin-top: 16px;
-    }
-    .resort-heading-content a h3 {
-        font-size: 25px;
-        line-height: 35px;
-    }
-    .widget-content>img {
-        max-width: 200px;
-    }
-    .latest-news-content h4 a {
-        font-size: 16px;
-    }
-    .latest-news-content>a {
-        font-size: 16px;
-    }
-    .widget-content h4 {
-        font-size: 15px;
-    }
-    .magic-overlay:before {
-        display: none;
-    }
-    a.deals-shape-btn {
-        border-bottom-right-radius: 43px;
-    }
-    /* fantasy kingdom page , water kingdom page */
-    .park-select-submit input {
-        right: 0px;
-    }
-    .fantasy-park-search-item {
-        margin-right: 30px;
-    }
-    .fantasy-feature-shape:after {
-        display: none;
-    }
-    .single-direction-map>a>svg {
-        height: 30px;
-        width: 30px;
-    }
-    .single-direction-map>a>span {
-        font-size: 14px;
-    }
-    .single-direction-map>a>i {
-        height: 30px;
-        width: 30px;
-        font-size: 30px;
-    }
-    .footer-bottom-area {
-        padding-top: 10px;
-    }
-    .discount-overlay:before {
-        display: none;
-    }
-    .nice-select.fantasy-nice-select {
-        margin-right: 56px;
-    }
-    /* ride page */
-    .fantasy-gallery-area-ride:after {
-        bottom: -44px;
-        top: initial;
-        right: 0;
-        transform: scale(0.4);
-    }
-    /* tickets page */
-    h4.total-price-widget {
-        text-align: center;
-    }
-    /* checkout page */
-    .checkout-page-order-summary-wrapper {
-        padding: 20px 15px;
-    }
-    .checkout-page-content>.circle-shape {
-        top: 340px;
-        width: 100%;
-    }
-    /* thing to do page */
-    .things-to-do-page-content-area:after {
-        display: none;
-    }
-    /*========================================================================== 
-        update 768 screen responsive customization
-    ============================================================================*/
-    #carousel-linked {
-        display: none;
-    }
-    .discover-area .owl-nav {
-        position: absolute;
-        margin-top: 16px;
-        text-align: center;
-        left: 50%;
-    }
-}
-
-
-/* Mobile Layout: 767px. */
-
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-    p {
-        font-size: 14px;
-    }
-    h2 {
-        font-size: 26px;
-        line-height: 36px;
-    }
-    .page-title h3 {
-        font-size: 20px;
-    }
-    .section-padding {
-        padding: 40px 0;
-    }
-    .short-section-padding {
-        padding: 40px 0;
-    }
-    .section-padding-bottom {
-        padding-bottom: 40px;
-    }
-    .mean-container .mean-nav ul li a {
-        border-top: none;
-    }
-    .mean-container a.meanmenu-reveal span {
-        background: #000;
-    }
-    .rox-header-menu.header-sticky.sticky .mean-container a.meanmenu-reveal span {
-        background: #3a3a3a !important;
-    }
-    .slider-start::after {
-        display: none;
-    }
-    .mean-container .mean-nav {
-        position: absolute;
-        width: 100%;
-        background: #0c1923;
-        margin-top: 51px;
-        z-index: 99;
-    }
-    .rox-header-menu .nav>li>a {
-        font-size: 14px;
-    }
-    .single-discover-carousel {
-        margin: 0 15px;
-    }
-    .rox-header-menu.header-sticky.sticky .mean-container .mean-nav ul li a {
-        color: #fff;
-    }
-    .rox-header-menu.header-sticky.sticky .mean-container .mean-nav ul li a:hover {
-        color: #87C3FF;
-    }
-    section#carousel-linked {
-        display: block;
-    }
-    h4 {
-        font-size: 15px;
-        line-height: 24px;
-    }
-    h5 {
-        font-size: 15px;
-        line-height: 24px;
-    }
-    /* home page */
-    .slide-title {
-        font-size: 25px;
-        line-height: 35px;
-    }
-    .theme-btn {
-        padding: 7px 27px;
-        font-size: 14px;
-    }
-    .section-title h2 {
-        font-size: 20px;
-        line-height: 30px;
-    }
-    /*==================================================
-        linked show hide
-    ===================================================*/
-    section#desktop-linked {
-        display: none;
-    }
-    section#carousel-linked .owl-next {
-        display: none;
-    }
-    section#carousel-linked .owl-prev {
-        display: none;
-    }
-    #carousel-linked .slider-bottom-linked {
-        margin-top: 0;
-        margin-left: 0px !important;
-        padding-bottom: 0;
-        padding-top: 42px;
-    }
-    .single-linked {
-        margin-bottom: 50px;
-    }
-    .resort-heading-content a h3 {
-        font-size: 18px;
-    }
-    .discover-area .owl-next {
-        padding: 2px 20px;
-        background: #E50019;
-        position: absolute;
-        bottom: -48px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .circle-shape {
-        display: none;
-    }
-    .direction-area {
-        padding: 35px 0;
-        padding-bottom: 0;
-    }
-    .direction-content a>svg {
-        height: 60px;
-        width: 60px;
-    }
-    .direact-content-col {
-        float: left;
-        width: 25%;
-    }
-    .discover-area .owl-prev {
-        display: none;
-    }
-    .single-things>a {
-        font-size: 16px;
-    }
-    .single-discover-carousel:hover .resorts-linked-btn {
-        width: 100%;
-    }
-    .direction-content h4 {
-        font-size: 12px;
-    }
-    .direction-shape:before {
-        display: none;
-    }
-    .direction-content {
-        margin-bottom: 50px;
-    }
-    a.deals-shape-btn {
-        border-bottom-right-radius: 30px;
-    }
-    .show-all-content-area.text-right {
-        text-align: left !important;
-    }
-    .view-all-blog-post.text-center.mt-5 {
-        margin-top: 0 !important;
-    }
-    .things-to-do-title {
-        margin-bottom: 0;
-        padding-bottom: 4px !important;
-    }
-    .show-all-content-area a {
-        display: inherit;
-        margin-bottom: 15px;
-    }
-    .magic-picture:after {
-        display: none;
-    }
-    .single-discover-carousel:hover:before {
-        display: none;
-    }
-    .single-discover-carousel:after {
-        left: 0;
-        right: 0;
-        width: auto;
-    }
-    .section-title h2::before {
-        height: 10px;
-        bottom: 4px;
-    }
-    .submit-btn-field button {
-        position: absolute;
-        right: 0;
-        padding: 0 10px;
-    }
-    .latest-news-content>a {
-        font-size: 15px;
-    }
-    .single-news {
-        margin-bottom: 30px;
-    }
-    .widget-content h4 {
-        margin-bottom: 17px;
-    }
-    .widget-wrapper {
-        margin-top: 50px;
-    }
-    a.nav-link.shopping-cart-btn span {
-        top: 0;
-        left: 16px;
-    }
-    .short-section-title h3 {
-        font-size: 21px;
-    }
-    .submit-btn {
-        padding: 11px 23px;
-        font-size: 16px;
-    }
-    .widget-content>img {
-        max-width: 300px;
-    }
-    .magic-overlay:before {
-        display: none;
-    }
-    .breadcrum-wrapper>h2 {
-        font-size: 20px;
-        line-height: 30px;
-    }
-    /* fantasy kindom page, water kingdom page */
-    .nice-select.fantasy-nice-select {
-        margin-right: 0;
-    }
-    .park-select-submit input {
-        width: 100%;
-    }
-    .park-select-submit input {
-        position: relative;
-        margin-top: 15px;
-        padding: 10px 20px;
-        right: 0;
-        border-radius: 13px;
-    }
-    .single-fantasy-park-search {
-        margin-top: 30px;
-    }
-    .fantasy-about-content {
-        margin-bottom: 30px;
-    }
-    .fantasy-feature-shape:after {
-        display: none;
-    }
-    .see-timing>span {
-        font-size: 14px;
-    }
-    .top-content-about-open>span {
-        font-size: 14px;
-    }
-    .top-content-about-open>h4 {
-        font-size: 14px;
-    }
-    .discount-overlay:before {
-        display: none;
-    }
-    .single-direction-map {
-        width: calc(50% - 16px);
-        margin-top: 25px;
-    }
-    .ex-video-icon a.exp-play-btn {
-        height: 40px;
-        width: 40px;
-    }
-    .ex-video-icon a.exp-play-btn i {
-        font-size: 17px;
-        line-height: 40px;
-        padding-left: 0;
-    }
-    .fantasy-hotel-table-content {
-        margin-top: 30px;
-    }
-    .card.faq-inner-content {
-        padding: 15px;
-    }
-    .faq-inner-content .card-header a {
-        font-size: 18px;
-    }
-    a.project-gallery.popup>img {
-        width: 100%;
-    }
-    .fantasy-park-search-item.float-right {
-        float: left !important;
-    }
-    /* ride page */
-    .fantasy-gallery-area-ride:after {
-        display: none;
-    }
-    /* tickets page */
-    .page-breadcrum-area {
-        display: block;
-    }
-    .ticket-prodcut-padding {
-        padding: 10px 10px;
-    }
-    .product-increment-decrement {
-        display: block;
-    }
-    .single-product-increment-decrement {
-        width: 100%;
-    }
-    .disable-payment-btn {
-        font-size: 14px;
-        padding: 6px 15px;
-    }
-    .details-ancor {
-        font-size: 14px;
-    }
-    h4.product-price {
-        font-size: 15px;
-        font-weight: 500;
-    }
-    /* checkout page */
-    .single-order-content {
-        display: block;
-    }
-    .product-total-order-price>span {
-        margin-left: 30px;
-        margin-top: 12px;
-        display: inline-block;
-    }
-    .checkout-page-order-summary-wrapper>h4 {
-        font-size: 18px;
-    }
-    li.order-product-name {
-        font-size: 16px;
-    }
-    .product-total-order-price>span {
-        font-size: 14px;
-    }
-    .charge-order-content {
-        font-weight: 500;
-        font-size: 15px;
-    }
-    .total-order-count>span {
-        font-size: 16px;
-    }
-    /* thing to do page */
-    .single-thing-to-do-content {
-        margin-right: 15px;
-        margin-left: 15px;
-    }
-    .things-to-do-page-content-area:after {
-        display: none;
-    }
-    .single-thing-to-do-content>a>img {
-        width: 100%;
-    }
-    h4.advanture-ride-title {
-        text-align: left;
-        font-size: 17px;
-        margin-bottom: 10px;
-    }
-    .t-tile {
-        font-size: 15px;
-    }
-    .t-ticket-btn-content a {
-        padding: 6px 20px;
-        font-size: 14px;
-        display: inline-block;
-    }
-    h4.event-entertainment-title {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    /*=====================================================================================
-        update responsive customize ( home page )
-=======================================================================================*/
-    .mean-container a.meanmenu-reveal span {
-        height: 2px;
-    }
-    section#buy-tickets-linked {
-        display: none;
-    }
-    #things-area {
-        padding-bottom: 30px;
-    }
-    div#show-content {
-        position: absolute;
-        right: 20px;
-        top: -51px;
-    }
-    .things-to-do-title {
-        margin-bottom: 20px;
-    }
-    #show-content a {
-        letter-spacing: 0;
-        font-size: 14px;
-    }
-    .single-linked a h4 {
-        font-size: 12px;
-    }
-    .direction-area {
-        margin-top: 35px;
-    }
-    .section-padding-top {
-        padding-top: 40px;
-    }
-    .pb-40 {
-        padding-bottom: 10px;
-    }
-    .deails-details-btn a {
-        font-size: 16px;
-        font-weight: 400;
-    }
-    div#footer-menu-widget {
-        display: none;
-    }
-    .footer-text {
-        font-size: 14px;
-        font-weight: 400 !important;
-    }
-    #footer-logo-widget {
-        display: none;
-    }
-    .section-title-small-text.text-center.mb-4.faq-section-title {
-        margin-bottom: 0 !important;
-    }
-}
-
-
-/* Small Device : 480px. */
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-    /* home page */
-    .slide-title {
-        font-size: 28px;
-        line-height: 38px;
-    }
-    .section-title h2 {
-        font-size: 25px;
-        line-height: 35px;
-    }
-    .submit-btn-field button {
-        position: absolute;
-        right: 0;
-        top: 0;
-        text-align: right;
-        left: auto;
-        padding: 15px 30px;
-    }
-    .single-news>a>img {
-        width: 100%;
-    }
-    .theme-btn {
-        padding: 7px 30px;
-        font-size: 14px;
-    }
-    .widget-content>img {
-        max-width: 300px;
-    }
-    /* fantasy kindom page , water kingdom page */
-    .park-select-submit input {
-        width: inherit;
-    }
-    .fantasy-park-search-item.float-right {
-        float: left !important;
-    }
-    .park-select-submit input {
-        position: absolute;
-        margin-top: 15px;
-        right: 10px;
-        border-radius: 13px;
-        top: 13px;
-        height: 66px;
-    }
-    .section-title.mb-40.things-to-do-title {
-        margin-top: 50px;
-        margin-bottom: 0;
-    }
-    .breadcrum-wrapper>h2 {
-        font-size: 25px;
-        line-height: 38px;
-    }
-    /* tickets page */
-    .ticket-prodcut-padding {
-        padding: 20px 15px;
-    }
-    h4.ticket-name {
-        margin-bottom: 20px;
-        font-size: 16px;
-    }
-    h4.total-price-widget {
-        text-align: center;
-    }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-    h2 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .single-news>a>img {
-        width: 100%;
-    }
-    .widget-content>img {
-        max-width: 300px;
-    }
-    /* fantasy kingdom page, water kingdom page */
-    .ex-video-icon a.exp-play-btn {
-        height: 60px;
-        width: 60px;
-    }
-    .ex-video-icon a.exp-play-btn i {
-        font-size: 25px;
-        line-height: 60px;
-        padding-left: 0;
-    }
-    .things-area {
-        padding-top: 0 !important;
-    }
-    .submit-btn-field button {
-        right: 0;
-        padding: 15px 30px;
-    }
-    /* fantasy kingdom , water kingdom page */
-    .breadcrum-wrapper>h2 {
-        font-size: 30px;
-        line-height: 43px;
-    }
-}
-
-
-/* Small Device : 480px. */
-
-@media only screen and (max-width: 480px) {
-    .header-inner>div {
-        margin-left: 0;
-        right: auto;
-        left: 0;
-    }
-}
-
-@media only screen and (min-width: 320px) and (max-width:991px) {
-    /* menu responsive update */
-    li.megamenu>span {
-        color: #fff;
-        font-size: 14px;
-    }
-    a.single-park span {
-        color: #fff;
-        font-size: 13px;
-    }
-    a.single-park p {
-        color: #fff;
-        font-size: 13px;
-    }
-    .menga-menu-park-list {
-        display: block;
-        justify-content: normal;
-    }
-    .menga-menu-park-list .megamenu-item {
-        margin-top: 7px;
-    }
-    .menga-menu-park-list li.megamenu {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .menga-menu-park-list li.megamenu {
-        min-width: 100%;
-        padding: 10px 20px;
-        text-align: left;
-        text-align: center;
-        max-width: 100%;
-    }
-    li.megamenu {
-        text-align: left !important;
-    }
-    .mean-container .mean-nav ul li li a {
-        padding-left: 0;
-    }
-    .menga-menu-park-list {
-        padding: 0 35px;
-        height: 400px;
-        overflow-y: scroll;
-    }
-    li.nav-item.search-header-btn {
-        position: absolute;
-        right: 60px;
-        top: -51px;
-    }
-    li.nav-item.cart-item-header {
-        position: absolute !important;
-        right: 90px !important;
-        top: 0 !important;
-    }
-    a.nav-link.shopping-cart-btn i {
-        font-size: 16px;
-    }
-    li#signInIdText {
-        display: none;
-    }
-    li#signInIdIcon {
-        display: block;
-    }
-    li#signInIdIcon {
-        position: absolute;
-        right: 145px;
-        top: -25px;
-    }
-    li#signInIdIcon a.signup-btn {
-        background: transparent;
-    }
-    li#signInIdIcon a i {
-        color: #666;
-        font-size: 17px;
-    }
-    .menu-menu-park-btn {
-        display: none;
-    }
-    .fantasy-mini-cart {
-        display: none !important;
-    }
-    li.rox-dropdown.nav-item a i {
-        display: none;
-    }
-    /* terms and condition */
-    li.nav-item.terms-condition {
-        display: block;
-    }
-    /* footer terms and condition */
-    .footer-text {
-        display: none;
-    }
-    /*=========================================================
-				mobile cart 
-	============================================================*/
-    .header-area {
-        padding: 20px 10px;
-    }
-    .mobile-menu-card {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-    .mobile-menu-card li {
-        padding: 1px !important;
-        line-height: 21px;
-        position: absolute;
-        top: 0;
-        right: 90px;
-    }
-    .mobile-menu-card a.nav-link.shopping-cart-btn span {
-        top: -7px;
-        left: 24px;
-        position: absolute;
-    }
-    .mobile-menu-search {
-        position: absolute;
-        top: 68px;
-        right: 13px !important;
-    }
-    .mobile-menu-profile {
-        position: absolute;
-        top: 17px;
-        right: 150px;
-    }
-    .mobile-menu-search li,
-    .mobile-menu-profile li,
-    .mobile-menu-card li {
-        list-style: none;
-    }
-    .mobile-menu-search .nav-item .nav-link i,
-    .mobile-menu-profile .nav-item .nav-link i,
-    .mobile-menu-card .nav-item .nav-link i {
-        color: #3a3a3a !important;
-        font-size: 16px !important;
-    }
-    .mobile-none {
-        display: none;
-    }
-    li.nav-item.cart-item-header.mobile-none {
-        display: none !important;
-    }
-    li.nav-item.cart-item-header {
-        display: none !important;
-    }
-    .mobile-menu-card li.nav-item.cart-item-header {
-        display: block !important;
-    }
-    .rox-dropdown-menu {
-        display: none;
-    }
-    div#navtogglerItemItem {
-        width: 100%;
-        margin-top: 20px;
-    }
-}
-
-
-}
-@media only screen and (min-width: 992px) and (max-width:1200px) {
-    a.nav-link.shopping-cart-btn {
-        margin-right: 0;
-    }
-    
-    li#signInIdText {
-        margin-left: 8px;
-    }
-}
-@media only screen and (min-width:992px) {
-    .mobile-menu-card,
-    .mobile-menu-search,
-    .mobile-menu-profile {
-        display: none;
-    }
-}
+            @media only screen and (min-width: 1920px) and (max-width: 2200px) {
+                .circle-shape {
+                    top: -79px;
+                }
+                .things-to-do-page-content-area::after {
+                    content: "";
+                    position: absolute;
+                    right: -70px;
+                    top: 25%;
+                    background: url(../images/lia.png);
+                    background-repeat: no-repeat;
+                    height: 200px;
+                    width: 200px;
+                    transform: translateY(-91%);
+                }
+            }
+            
+            @media only screen and (min-width: 1501px) and (max-width: 1600px) {
+                /* home page */
+                h1 {
+                    font-size: 50px;
+                    line-height: 60px;
+                }
+                .slide-title {
+                    font-size: 50px;
+                    line-height: 60px;
+                }
+                .resort-heading-content a h3 {
+                    line-height: 38px;
+                    font-size: 28px;
+                }
+                .latest-news-content h4 a {
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 600;
+                }
+                .read-more-btn {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                .theme-btn {
+                    padding: 9px 30px;
+                    font-size: 16px;
+                }
+            }
+            /* Layout: Max 1500px. */
+            
+            @media only screen and (min-width: 1200px) and (max-width: 1500px) {
+                .theme-btn {
+                    padding: 8px 30px;
+                    font-size: 16px;
+                }
+                /* fantasy kingdom page, water kingdom page */
+                .breadcrum-wrapper>h2 {
+                    font-size: 50px;
+                    line-height: 62px;
+                }
+                .fantasy-park-search-item.float-right {
+                    margin-right: 30px;
+                }
+                .resort-heading-content a h3 {
+                    font-size: 26px;
+                }
+                .park-select-submit input {
+                    right: 0;
+                }
+                .fantasy-feature-shape:after {
+                    display: none;
+                }
+                .things-area {
+                    padding-top: 0;
+                }
+                .direction-shape:before {
+                    left: -19px;
+                    top: -139px;
+                    height: 195px !important;
+                    width: 108px !important;
+                    transform: translateX(-4%)scale(.5);
+                }
+                .magic-overlay:before {
+                    bottom: 128px;
+                    height: 250px;
+                    width: 250px;
+                    transform: scale(.9);
+                    right: -46px;
+                }
+                .section-title.mb-40.things-to-do-title {
+                    padding-top: 60px;
+                }
+                .discount-overlay:before {
+                    bottom: 100%;
+                }
+                .single-discover-carousel>a>img {
+                    width: 100%;
+                }
+            }
+            
+            @media only screen and (min-width: 1200px) and (max-width: 1500px) {
+                .top-select-btn input {
+                    right: 32px;
+                }
+                .single-discover-carousel {
+                    margin: 0 10px;
+                }
+                .single-things {
+                    margin: 0 10px;
+                }
+                .atlantis-breadcrumb-area {
+                    padding-bottom: 350px;
+                }
+                .fantasy-feature-about-area {
+                    padding-bottom: 0;
+                }
+                .atlantis-room-suites {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+            
+            @media only screen and (min-width: 1351px) and (max-width: 1499px) {
+                /* ride page */
+                .fantasy-gallery-area-ride:after {
+                    bottom: -44px;
+                    transform: scale(.9);
+                    right: -74px;
+                }
+                /* thing to do page */
+                .things-to-do-page-content-area:before {
+                    left: -19px;
+                    transform: translateY(-85%)scale(.6);
+                }
+                .things-to-do-page-content-area:after {
+                    right: -74px;
+                    top: 22%;
+                    transform: translateY(-85%)scale(.7);
+                }
+            }
+            
+            @media only screen and (min-width: 1200px) and (max-width: 1350px) {
+                /* ride page */
+                .fantasy-gallery-area-ride:after {
+                    top: auto;
+                    bottom: -44px;
+                    transform: scale(.6);
+                }
+                /* thing to  do page */
+                .things-to-do-page-content-area:after {
+                    display: none;
+                }
+                .things-to-do-page-content-area:before {
+                    display: none;
+                }
+            }
+            /* Layout: Min 992px Max 1199px. */
+            
+            @media only screen and (min-width: 992px) and (max-width: 1199px) {
+                p {
+                    font-size: 14px;
+                }
+                h2 {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                .theme-btn {
+                    padding: 7px 32px;
+                    font-size: 16px;
+                }
+                .rox-header-menu .nav>li>a {
+                    padding: 36px 8px;
+                }
+                .rox-header-menu .nav>li>a {
+                    padding: 40px 6px;
+                    font-size: 14px;
+                }
+                /* home page */
+                .resort-heading-content a h3 {
+                    font-size: 25px;
+                    line-height: 35px;
+                }
+                .single-things>a {
+                    font-size: 22px;
+                }
+                .direction-shape:before {
+                    display: none;
+                }
+                .section-title h2::before {
+                    bottom: 3px;
+                    height: 16px;
+                }
+                a.deals-shape-btn {
+                    border-bottom-right-radius: 63px;
+                }
+                .magic-picture:after {
+                    display: none;
+                }
+                .slide-title {
+                    font-size: 45px;
+                    line-height: 57px;
+                }
+                .latest-news-content h4 a {
+                    font-size: 17px;
+                }
+                .latest-news-content>a {
+                    font-size: 16px;
+                }
+                .single-discover-carousel:hover:before {
+                    height: 82%;
+                }
+                .magic-overlay:before {
+                    display: none;
+                }
+                .discover-area .owl-prev {
+                    position: absolute;
+                    margin-right: 20px;
+                    right: 63px;
+                    padding: 5px 20px;
+                    font-size: 20px;
+                    color: #ccc;
+                    transition: all .3s linear;
+                    top: -76px;
+                }
+                .discover-area .owl-next {
+                    padding: 5px 20px;
+                    background: #E50019;
+                    color: #fff;
+                    font-size: 20px;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 20px;
+                    border-top-right-radius: 10px;
+                    top: -76px;
+                    right: 20px;
+                    position: absolute;
+                }
+                /* fantasy kingdom page , water kingdom page */
+                .breadcrum-wrapper>h2 {
+                    font-size: 40px;
+                    line-height: 53px;
+                }
+                .fantasy-park-search-item.float-right {
+                    margin-right: 30px;
+                }
+                .park-select-submit input {
+                    right: 0;
+                }
+                .fantasy-feature-shape:after {
+                    display: none;
+                }
+                .fantasy-feature-about-area {
+                    padding-bottom: 0;
+                }
+                .nice-select.fantasy-nice-select {
+                    margin-right: 55px;
+                }
+                .discount-overlay:before {
+                    bottom: 100%;
+                }
+                /* ride page */
+                .fantasy-gallery-area-ride:after {
+                    right: 0;
+                    bottom: -43px;
+                    transform: scale(.6);
+                    top: auto;
+                }
+                /* checkoutt page */
+                .checkout-page-content>.circle-shape {
+                    top: 340px;
+                    width: 100%;
+                }
+                /* thing to do page */
+                .things-to-do-page-content-area:after {
+                    display: none;
+                }
+                ul#main-menu li {
+                    padding: 30px 10px;
+                }
+                .single-linked a h4 {
+                    font-size: 12px;
+                }
+                .single-discover-carousel {
+                    margin: 0 5px;
+                }
+                .single-things {
+                    margin: 0 5px;
+                }
+                .single-discover-carousel>a>img {
+                    width: 100%;
+                }
+                .atlantis-breadcrumb-area {
+                    padding-bottom: 350px;
+                }
+                .fantasy-feature-about-area {
+                    padding-bottom: 0;
+                }
+                .atlantis-room-suites {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                .disable-btn {
+                    padding: 4px 16px;
+                    font-size: 14px;
+                }
+                .primary-btn {
+                    padding: 4px 16px;
+                    font-size: 14px;
+                }
+                .payment-btn {
+                    padding: 4px 16px;
+                    font-size: 14px;
+                }
+                .prodcut-info h4 {
+                    font-size: 16px;
+                }
+                .ticket-prodcut-padding {
+                    padding: 25px 20px;
+                }
+                .inner-checkout-content>span {
+                    font-size: 13px;
+                }
+                .ticket-widget-content-inner h5 {
+                    font-size: 13px;
+                }
+                .order-summary-qtn>input {
+                    width: 100%;
+                }
+                .pro-quantity {
+                    padding: 0 11px;
+                }
+                h4.total-price-widget {
+                    font-size: 22px;
+                }
+            }
+            /* Large Layout: 991px. */
+            
+            @media only screen and (min-width: 992px) {
+                .rox-header-menu .nav {
+                    display: block;
+                }
+                .rox-header-menu .nav>li {
+                    display: inline-block;
+                    position: relative;
+                }
+                .header-inner>.header-action>div {
+                    margin-left: 40px;
+                }
+                .rox-header-menu .main-menu {
+                    display: inline-block !important;
+                }
+                .header-sticky.sticky .rox-header-menu .nav>li>a {
+                    padding-top: 25px;
+                    padding-bottom: 25px;
+                }
+                /* menu terms and condition */
+                li.nav-item.terms-condition {
+                    display: none;
+                }
+                div#navtogglerItemItem {
+                    display: block;
+                }
+            }
+            /* Medium Layout: 991px. */
+            
+            @media only screen and (max-width: 991px) {
+                .header-inner>div {
+                    margin-left: 0;
+                }
+                .mean-container .mean-nav>ul::-webkit-scrollbar {
+                    width: 16px;
+                }
+                .mean-container .mean-nav>ul::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 4px #444;
+                }
+                .mean-container .mean-nav>ul::-webkit-scrollbar-thumb {
+                    background-color: #87C3FF;
+                    outline: 1px solid #87C3FF;
+                }
+                .mean-container .mean-bar {
+                    float: none !important;
+                }
+                .rox-header-menu .mean-container .mean-nav ul>li:hover>a {
+                    color: #87C3FF;
+                }
+                .header-inner>.header-action>div {
+                    margin-left: 20px;
+                }
+                .rox-header.sticky .mean-container .mean-nav {
+                    margin-top: 33px;
+                }
+                .mean-container .mean-nav ul li a {
+                    padding: 9px 20px;
+                }
+                .mean-container a.meanmenu-reveal {
+                    width: 26px;
+                    height: 22px;
+                    position: absolute;
+                    top: 0px;
+                    right: 13px;
+                    text-align: right;
+                    cursor: pointer;
+                    color: #3a3a3a;
+                    text-decoration: none;
+                    font-size: 16px;
+                    display: block;
+                    font-weight: 700;
+                    z-index: 99999999999999;
+                }
+                .rox-header-menu {
+                    border-bottom: none;
+                    padding-bottom: 38px;
+                    padding-top: 25px;
+                }
+                .logo {
+                    max-width: 100px;
+                }
+                .mean-container a.meanmenu-reveal span {
+                    background: #000;
+                }
+                .mean-container a.meanmenu-reveal.meanclose {
+                    top: 0px;
+                }
+                .header-area {
+                    padding: 0;
+                    position: absolute;
+                    top: 0;
+                    z-index: 999;
+                    background: #fff;
+                    width: 100%;
+                    padding: 10px 10px;
+                }
+                .rox-dropdown-menu {
+                    background-color: #0C1923 !important;
+                }
+                ul#main-menu li {
+                    padding: 9px 14px;
+                }
+            }
+            
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
+                /* home page */
+                p {
+                    font-size: 14px;
+                }
+                h2 {
+                    font-size: 26px;
+                    line-height: 38px;
+                }
+                h3 {
+                    font-size: 25px;
+                    line-height: 35px;
+                }
+                .theme-btn {
+                    padding: 7px 40px;
+                    font-size: 14px;
+                }
+                .breadcrum-wrapper>h2 {
+                    font-size: 45px;
+                    line-height: 59px;
+                }
+                /* responsive menu */
+                .mean-container a.meanmenu-reveal {
+                    top: -66px;
+                    right: 0;
+                }
+                .mean-container a.meanmenu-reveal {
+                    top: -3px !important;
+                }
+                .mean-container .mean-nav ul li a {
+                    border-top: none;
+                }
+                .mean-container a.meanmenu-reveal span {
+                    background: #000;
+                }
+                .rox-header-menu.header-sticky.sticky .mean-container a.meanmenu-reveal span {
+                    background: #3a3a3a !important;
+                }
+                .rox-header-menu {
+                    border-bottom: none;
+                }
+                .mean-container .mean-nav {
+                    margin-top: 53px;
+                }
+                .section-padding {
+                    padding: 70px 0;
+                }
+                .rox-header-menu.sticky .nav>li>a {
+                    color: #fff;
+                }
+                .rox-header-menu {
+                    padding: 40px 0;
+                }
+                .mean-container a.meanmenu-reveal {
+                    top: -10px;
+                    right: 0;
+                }
+                .single-news {
+                    margin-bottom: 23px;
+                }
+                .magic-picture:after {
+                    display: none;
+                }
+                .single-linked {
+                    margin-bottom: 40px;
+                }
+                .direction-content {
+                    margin-bottom: 40px;
+                }
+                .circle-shape {
+                    display: none;
+                }
+                .slide-title {
+                    font-size: 40px;
+                    line-height: 55px;
+                }
+                .direction-shape:before {
+                    display: none;
+                }
+                .section-title h2::before {
+                    bottom: 0;
+                    height: 17px;
+                }
+                .discover-area .owl-nav {
+                    position: absolute;
+                    margin-top: 16px;
+                }
+                .resort-heading-content a h3 {
+                    font-size: 25px;
+                    line-height: 35px;
+                }
+                .widget-content>img {
+                    max-width: 200px;
+                }
+                .latest-news-content h4 a {
+                    font-size: 16px;
+                }
+                .latest-news-content>a {
+                    font-size: 16px;
+                }
+                .widget-content h4 {
+                    font-size: 15px;
+                }
+                .magic-overlay:before {
+                    display: none;
+                }
+                a.deals-shape-btn {
+                    border-bottom-right-radius: 43px;
+                }
+                /* fantasy kingdom page , water kingdom page */
+                .park-select-submit input {
+                    right: 0px;
+                }
+                .fantasy-park-search-item {
+                    margin-right: 30px;
+                }
+                .fantasy-feature-shape:after {
+                    display: none;
+                }
+                .single-direction-map>a>svg {
+                    height: 30px;
+                    width: 30px;
+                }
+                .single-direction-map>a>span {
+                    font-size: 14px;
+                }
+                .single-direction-map>a>i {
+                    height: 30px;
+                    width: 30px;
+                    font-size: 30px;
+                }
+                .footer-bottom-area {
+                    padding-top: 10px;
+                }
+                .discount-overlay:before {
+                    display: none;
+                }
+                .nice-select.fantasy-nice-select {
+                    margin-right: 56px;
+                }
+                /* ride page */
+                .fantasy-gallery-area-ride:after {
+                    bottom: -44px;
+                    top: initial;
+                    right: 0;
+                    transform: scale(0.4);
+                }
+                /* tickets page */
+                h4.total-price-widget {
+                    text-align: center;
+                }
+                /* checkout page */
+                .checkout-page-order-summary-wrapper {
+                    padding: 20px 15px;
+                }
+                .checkout-page-content>.circle-shape {
+                    top: 340px;
+                    width: 100%;
+                }
+                /* thing to do page */
+                .things-to-do-page-content-area:after {
+                    display: none;
+                }
+                .single-things {
+                    margin: 0 10px;
+                }
+                #carousel-linked {
+                    display: none;
+                }
+                .discover-area .owl-nav {
+                    position: absolute;
+                    margin-top: 16px;
+                    text-align: center;
+                    left: 50%;
+                }
+                .row-responsive-thing {
+                    margin-bottom: 20px;
+                }
+                #home-thing-to-title {
+                    margin-bottom: 0;
+                }
+                .discover-area .slick-next {
+                    top: -59px !important;
+                }
+                .discover-area .slick-prev {
+                    top: -58px !important;
+                }
+                .single-discover-carousel {
+                    margin: 0 4px;
+                }
+                .things-to-do-page-content-area:before {
+                    display: none;
+                }
+                button.atlantis-search-btn {
+                    right: 7px;
+                    padding: 0 11px;
+                    font-size: 11px;
+                }
+                .atlantis-booking-content {
+                    padding: 20px 0;
+                }
+                .atlantis-room-suites {
+                    padding: 0 0;
+                }
+                .ticket-prodcut-padding {
+                    float: left;
+                    width: calc(50% - 10px);
+                    margin-right: 10px;
+                }
+                .ticket-prodcut-padding:nth-child(odd) {
+                    margin-right: 0;
+                }
+                .checkout-inner-content-area {
+                    overflow: hidden;
+                }
+                .prodcut-info h4 {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    margin-bottom: 4px;
+                }
+                .primary-btn {
+                    padding: 5px 20px;
+                    font-size: 14px;
+                }
+                .prodcut-add-to-cart button {
+                    margin-top: 6px;
+                }
+                .prodcut-details-btn {
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+                .disable-btn {
+                    padding: 5px 20px;
+                    font-size: 14px;
+                }
+                .ticket-prodcut-padding {
+                    padding: 25px 20px;
+                }
+                div#all-park-explore-ride {
+                    margin-bottom: 0;
+                    padding-bottom: 22px;
+                }
+                div#all-parks-photo-gallery {
+                    margin-bottom: 0;
+                    padding-bottom: 22px;
+                }
+                div#all-parks-photo-gallery h2 {
+                    margin-bottom: 0;
+                }
+                .fantasy-feature-about-area {
+                    padding-bottom: 0;
+                }
+                div#mobile-shortlinked-icon {
+                    margin-left: -15px;
+                    margin-right: -15px;
+                    padding: 32px 0;
+                    box-shadow: 0px 6px 4px #EFEBDF6B;
+                    padding-bottom: 0;
+                }
+                .newsletter-area {
+                    margin-top: 40px;
+                }
+            }
+            /* Mobile Layout: 767px. */
+            
+            @media only screen and (min-width: 320px) and (max-width: 767px) {
+                p {
+                    font-size: 14px;
+                }
+                h2 {
+                    font-size: 26px;
+                    line-height: 36px;
+                }
+                .hero-slider-content h1 {
+                    font-size: 40px;
+                    line-height: 52px;
+                }
+                .page-title h3 {
+                    font-size: 20px;
+                }
+                .section-padding {
+                    padding: 40px 0;
+                }
+                .short-section-padding {
+                    padding: 40px 0;
+                }
+                .section-padding-bottom {
+                    padding-bottom: 40px;
+                }
+                .mean-container .mean-nav ul li a {
+                    border-top: none;
+                }
+                .mean-container a.meanmenu-reveal span {
+                    background: #000;
+                }
+                .rox-header-menu.header-sticky.sticky .mean-container a.meanmenu-reveal span {
+                    background: #3a3a3a !important;
+                }
+                .slider-start::after {
+                    display: none;
+                }
+                .mean-container .mean-nav {
+                    position: absolute;
+                    width: 100%;
+                    background: #0c1923;
+                    margin-top: 51px;
+                    z-index: 99;
+                }
+                .rox-header-menu .nav>li>a {
+                    font-size: 14px;
+                }
+                .rox-header-menu.header-sticky.sticky .mean-container .mean-nav ul li a {
+                    color: #fff;
+                }
+                .rox-header-menu.header-sticky.sticky .mean-container .mean-nav ul li a:hover {
+                    color: #87C3FF;
+                }
+                section#carousel-linked {
+                    display: block;
+                }
+                h4 {
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+                h5 {
+                    font-size: 15px;
+                    line-height: 24px;
+                }
+                /* home page */
+                .slide-title {
+                    font-size: 25px;
+                    line-height: 35px;
+                }
+                .theme-btn {
+                    padding: 7px 27px;
+                    font-size: 14px;
+                }
+                .section-title h2 {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                section#desktop-linked {
+                    display: none;
+                }
+                section#carousel-linked .owl-next {
+                    display: none;
+                }
+                section#carousel-linked .owl-prev {
+                    display: none;
+                }
+                #carousel-linked .slider-bottom-linked {
+                    margin-top: 0;
+                    margin-left: 0px !important;
+                    padding-bottom: 0;
+                    padding-top: 42px;
+                }
+                .single-linked {
+                    margin-bottom: 50px;
+                }
+                .resort-heading-content a h3 {
+                    font-size: 18px;
+                }
+                .discover-area .owl-next {
+                    padding: 2px 20px;
+                    background: #E50019;
+                    position: absolute;
+                    bottom: -48px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .circle-shape {
+                    display: none;
+                }
+                .direction-area {
+                    padding: 35px 0;
+                    padding-bottom: 0;
+                }
+                .direction-content a>svg {
+                    height: 60px;
+                    width: 60px;
+                }
+                .direact-content-col {
+                    float: left;
+                    width: 25%;
+                }
+                .discover-area .owl-prev {
+                    display: none;
+                }
+                .single-things>a {
+                    font-size: 16px;
+                }
+                .single-discover-carousel:hover .resorts-linked-btn {
+                    width: 100%;
+                }
+                .direction-content h4 {
+                    font-size: 12px;
+                }
+                .direction-shape:before {
+                    display: none;
+                }
+                .direction-content {
+                    margin-bottom: 50px;
+                }
+                a.deals-shape-btn {
+                    border-bottom-right-radius: 30px;
+                }
+                .show-all-content-area.text-right {
+                    text-align: left !important;
+                }
+                .view-all-blog-post.text-center.mt-5 {
+                    margin-top: 0 !important;
+                }
+                .things-to-do-title {
+                    margin-bottom: 0;
+                    padding-bottom: 4px !important;
+                }
+                .show-all-content-area a {
+                    display: inherit;
+                    margin-bottom: 15px;
+                }
+                .magic-picture:after {
+                    display: none;
+                }
+                .single-discover-carousel:hover:before {
+                    display: none;
+                }
+                .single-discover-carousel:after {
+                    left: 0;
+                    right: 0;
+                    width: auto;
+                }
+                .section-title h2::before {
+                    height: 10px;
+                    bottom: 4px;
+                }
+                .submit-btn-field button {
+                    position: absolute;
+                    right: 0;
+                    padding: 0 10px;
+                }
+                .latest-news-content>a {
+                    font-size: 15px;
+                }
+                .single-news {
+                    margin-bottom: 30px;
+                }
+                .widget-content h4 {
+                    margin-bottom: 17px;
+                }
+                .widget-wrapper {
+                    margin-top: 50px;
+                }
+                a.nav-link.shopping-cart-btn span {
+                    top: 0;
+                    left: 16px;
+                }
+                .short-section-title h3 {
+                    font-size: 21px;
+                }
+                .submit-btn {
+                    padding: 11px 23px;
+                    font-size: 16px;
+                }
+                .widget-content>img {
+                    max-width: 300px;
+                }
+                .magic-overlay:before {
+                    display: none;
+                }
+                .breadcrum-wrapper>h2 {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                .nice-select.fantasy-nice-select {
+                    margin-right: 0;
+                }
+                .park-select-submit input {
+                    width: 100%;
+                }
+                .park-select-submit input {
+                    position: relative;
+                    margin-top: 15px;
+                    padding: 10px 20px;
+                    right: 0;
+                    border-radius: 13px;
+                }
+                .single-fantasy-park-search {
+                    margin-top: 30px;
+                }
+                .fantasy-about-content {
+                    margin-bottom: 30px;
+                }
+                .fantasy-feature-shape:after {
+                    display: none;
+                }
+                .see-timing>span {
+                    font-size: 14px;
+                }
+                .top-content-about-open>span {
+                    font-size: 14px;
+                }
+                .top-content-about-open>h4 {
+                    font-size: 14px;
+                }
+                .discount-overlay:before {
+                    display: none;
+                }
+                .single-direction-map {
+                    width: calc(50% - 16px);
+                    margin-top: 25px;
+                }
+                .ex-video-icon a.exp-play-btn {
+                    height: 40px;
+                    width: 40px;
+                }
+                .ex-video-icon a.exp-play-btn i {
+                    font-size: 17px;
+                    line-height: 40px;
+                    padding-left: 0;
+                }
+                .fantasy-hotel-table-content {
+                    margin-top: 30px;
+                }
+                .card.faq-inner-content {
+                    padding: 15px;
+                }
+                .faq-inner-content .card-header a {
+                    font-size: 18px;
+                }
+                a.project-gallery.popup>img {
+                    width: 100%;
+                }
+                .fantasy-park-search-item.float-right {
+                    float: left !important;
+                }
+                /* ride page */
+                .fantasy-gallery-area-ride:after {
+                    display: none;
+                }
+                /* tickets page */
+                .page-breadcrum-area {
+                    display: block;
+                }
+                .ticket-prodcut-padding {
+                    padding: 10px 10px;
+                }
+                .product-increment-decrement {
+                    display: block;
+                }
+                .single-product-increment-decrement {
+                    width: 100%;
+                }
+                .disable-payment-btn {
+                    font-size: 14px;
+                    padding: 6px 15px;
+                }
+                .details-ancor {
+                    font-size: 14px;
+                }
+                h4.product-price {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+                /* checkout page */
+                .single-order-content {
+                    display: block;
+                }
+                .product-total-order-price>span {
+                    margin-left: 30px;
+                    margin-top: 12px;
+                    display: inline-block;
+                }
+                .checkout-page-order-summary-wrapper>h4 {
+                    font-size: 18px;
+                }
+                li.order-product-name {
+                    font-size: 16px;
+                }
+                .product-total-order-price>span {
+                    font-size: 14px;
+                }
+                .charge-order-content {
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+                .total-order-count>span {
+                    font-size: 16px;
+                }
+                /* thing to do page */
+                .things-to-do-page-content-area:after {
+                    display: none;
+                }
+                .single-thing-to-do-content>a>img {
+                    width: 100%;
+                }
+                h4.advanture-ride-title {
+                    text-align: left;
+                    font-size: 17px;
+                    margin-bottom: 10px;
+                }
+                .t-tile {
+                    font-size: 15px;
+                }
+                .t-ticket-btn-content a {
+                    padding: 6px 20px;
+                    font-size: 14px;
+                    display: inline-block;
+                }
+                h4.event-entertainment-title {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                /* atlantics search */
+                .atlantis-breadcrumb-area {
+                    padding: 120px 0 !important;
+                }
+                .atlantis-search-area {
+                    padding: 10px 15px;
+                    position: relative;
+                    left: 0;
+                    width: 100%;
+                    transform: none;
+                }
+                .atlantis-search-area h3 {
+                    font-size: 16px;
+                }
+                .breadcrum-wrapper.atlantics-bredcrumb.text-center.mb-5 {
+                    margin-bottom: 10px !important;
+                }
+                .atlantis-search-area h3 {
+                    margin-bottom: 3px !important;
+                }
+                .atlantics-bredcrumb p {
+                    margin-top: 0 !important;
+                }
+                .col-md-2.room-search-btn-atlantics {
+                    text-align: center;
+                    top: 27px !important;
+                }
+                button.atlantis-search-btn {
+                    position: relative;
+                    left: 0;
+                    top: 0;
+                    height: auto;
+                    border: none;
+                    background: #E50019;
+                    color: #fff;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    padding: 6px 20px;
+                }
+                .no-margin-res {
+                    margin-bottom: 12px;
+                }
+                .no-margin-res label {
+                    margin-bottom: 0;
+                }
+                .no-margin-res label {
+                    margin-bottom: 0;
+                }
+                .col-md-2.no-margin-res {
+                    margin-bottom: 12px;
+                }
+                /*  update responsive customize ( home page ) */
+                .mean-container a.meanmenu-reveal span {
+                    height: 2px;
+                }
+                section#buy-tickets-linked {
+                    display: none;
+                }
+                #things-area {
+                    padding-bottom: 30px;
+                }
+                div#show-content {
+                    position: absolute;
+                    right: 20px;
+                    top: -51px;
+                }
+                .things-to-do-title {
+                    margin-bottom: 20px;
+                }
+                #show-content a {
+                    letter-spacing: 0;
+                    font-size: 14px;
+                }
+                .single-linked a h4 {
+                    font-size: 12px;
+                }
+                .direction-area {
+                    margin-top: 35px;
+                }
+                .section-padding-top {
+                    padding-top: 40px;
+                }
+                .pb-40 {
+                    padding-bottom: 10px;
+                }
+                .deails-details-btn a {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                div#footer-menu-widget {
+                    display: none;
+                }
+                .footer-text {
+                    font-size: 14px;
+                    font-weight: 400 !important;
+                }
+                #footer-logo-widget {
+                    display: none;
+                }
+                .section-title-small-text.text-center.mb-4.faq-section-title {
+                    margin-bottom: 0 !important;
+                }
+                .discover-area .slick-next.fantasy-gallery-next {
+                    bottom: -47px !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    top: auto !important;
+                }
+                .discover-area .slick-prev {
+                    display: none !important;
+                }
+                .newletterfom-field>input {
+                    font-size: 14px;
+                }
+                .contact-widget-content {
+                    margin-left: 0;
+                }
+                .single-discover-carousel>a>img {
+                    width: 100%;
+                }
+                /* book list popup customize*/
+                .ReactModal__Overlay.ReactModal__Overlay--after-open {
+                    z-index: 999999999999 !important;
+                }
+                .ReactModal__Content.ReactModal__Content--after-open {
+                    left: 0 !important;
+                    width: 100% !important;
+                    z-index: 99999 !important;
+                    top: 50% !important;
+                    transform: translateY(-50%) !important;
+                }
+                .modal-body.ticket-body-modal-content {
+                    height: 450px;
+                }
+                .col-lg-4.offset-lg-4.booking-submit-wrapper {
+                    margin-bottom: 17px;
+                }
+                .advanture-ride-title {
+                    font-size: 23px;
+                }
+                .things-to-do-page-content-area:before {
+                    display: none;
+                }
+                .atlantis-room-suites-feature-area {
+                    padding: 0;
+                }
+                .atlantis-room-thumb {
+                    margin-bottom: 28px;
+                    height: auto;
+                }
+                .atlantis-room-thumb img {
+                    height: auto;
+                }
+                .atlantis-room-suites {
+                    padding-bottom: 0;
+                }
+                .atlantis-booking-content {
+                    padding: 20px 10px;
+                }
+                .single-room-feature ul li i {
+                    padding-right: 0;
+                }
+                .prodcut-info h4 {
+                    margin-top: 18px;
+                }
+                .prodcut-add-to-cart button {
+                    margin-top: 10px;
+                }
+                .primary-btn {
+                    padding: 3px 15px;
+                    font-size: 13px;
+                }
+                .disable-btn {
+                    padding: 3px 15px;
+                    font-size: 13px;
+                }
+                .prodcut-details-btn {
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+                .inner-checkout-content {
+                    margin: 5px 0;
+                }
+                .payment-btn {
+                    padding: 3px 15px;
+                    font-size: 13px;
+                }
+                h4.total-price-widget {
+                    text-align: center;
+                }
+                .pro-quantity {
+                    position: relative;
+                    overflow: hidden;
+                    left: 14px;
+                }
+                h4.total-price-widget {
+                    font-size: 22px;
+                }
+                .fantasy-photo-gallery {
+                    margin-bottom: 18px;
+                }
+                .fantasy-photo-gallery h2 {
+                    margin-bottom: 0;
+                    font-size: 21px;
+                }
+                .fantasy-gallery-slider2 .slick-prev {
+                    display: none;
+                }
+                .fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
+                    right: 5px !important;
+                    top: -36px;
+                }
+                .project-gallery img {
+                    width: 100%;
+                }
+                div#mobile-shortlinked-icon {
+                    margin-left: -15px;
+                    margin-right: -15px;
+                    padding: 32px 0;
+                    box-shadow: 0px 6px 4px #EFEBDF6B;
+                    padding-bottom: 0;
+                }
+                .newsletter-area {
+                    margin-top: 50px;
+                }
+                h1.slide-title {
+                    font-size: 25px;
+                    line-height: 38px;
+                }
+            }
+            /* Small Device : 480px. */
+            
+            @media only screen and (min-width: 480px) and (max-width: 767px) {
+                /* home page */
+                .slide-title {
+                    font-size: 28px;
+                    line-height: 38px;
+                }
+                .section-title h2 {
+                    font-size: 25px;
+                    line-height: 35px;
+                }
+                .submit-btn-field button {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    text-align: right;
+                    left: auto;
+                    padding: 15px 30px;
+                }
+                .single-news>a>img {
+                    width: 100%;
+                }
+                .theme-btn {
+                    padding: 7px 30px;
+                    font-size: 14px;
+                }
+                .widget-content>img {
+                    max-width: 300px;
+                }
+                /* fantasy kindom page , water kingdom page */
+                .park-select-submit input {
+                    width: inherit;
+                }
+                .fantasy-park-search-item.float-right {
+                    float: left !important;
+                }
+                .park-select-submit input {
+                    position: absolute;
+                    margin-top: 15px;
+                    right: 10px;
+                    border-radius: 13px;
+                    top: 13px;
+                    height: 66px;
+                }
+                .section-title.mb-40.things-to-do-title {
+                    margin-top: 50px;
+                    margin-bottom: 0;
+                }
+                .breadcrum-wrapper>h2 {
+                    font-size: 25px;
+                    line-height: 38px;
+                }
+                /* tickets page */
+                .ticket-prodcut-padding {
+                    padding: 20px 15px;
+                }
+                h4.ticket-name {
+                    margin-bottom: 20px;
+                    font-size: 16px;
+                }
+                h4.total-price-widget {
+                    text-align: center;
+                }
+                .section-title.mb-40.things-to-do-title {
+                    margin-top: 50px;
+                    margin-bottom: 20px;
+                }
+            }
+            
+            @media only screen and (min-width: 576px) and (max-width: 767px) {
+                h2 {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                .single-news>a>img {
+                    width: 100%;
+                }
+                .widget-content>img {
+                    max-width: 300px;
+                }
+                /* fantasy kingdom page, water kingdom page */
+                .ex-video-icon a.exp-play-btn {
+                    height: 60px;
+                    width: 60px;
+                }
+                .ex-video-icon a.exp-play-btn i {
+                    font-size: 25px;
+                    line-height: 60px;
+                    padding-left: 0;
+                }
+                .things-area {
+                    padding-top: 0 !important;
+                }
+                .submit-btn-field button {
+                    right: 0;
+                    padding: 15px 30px;
+                }
+                /* fantasy kingdom , water kingdom page */
+                .breadcrum-wrapper>h2 {
+                    font-size: 30px;
+                    line-height: 43px;
+                }
+            }
+            /* Small Device : 480px. */
+            
+            @media only screen and (max-width: 480px) {
+                .header-inner>div {
+                    margin-left: 0;
+                    right: auto;
+                    left: 0;
+                }
+            }
+            
+            @media only screen and (min-width: 320px) and (max-width: 991px) {
+                /* menu responsive update */
+                li.megamenu>span {
+                    color: #fff;
+                    font-size: 14px;
+                }
+                a.single-park span {
+                    color: #fff;
+                    font-size: 13px;
+                }
+                a.single-park p {
+                    color: #fff;
+                    font-size: 13px;
+                }
+                .menga-menu-park-list {
+                    display: block;
+                    justify-content: normal;
+                }
+                .menga-menu-park-list .megamenu-item {
+                    margin-top: 7px;
+                }
+                .menga-menu-park-list li.megamenu {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+                .menga-menu-park-list li.megamenu {
+                    min-width: 100%;
+                    padding: 10px 20px;
+                    text-align: left;
+                    text-align: center;
+                    max-width: 100%;
+                }
+                li.megamenu {
+                    text-align: left !important;
+                }
+                .mean-container .mean-nav ul li li a {
+                    padding-left: 0;
+                }
+                .menga-menu-park-list {
+                    padding: 0 35px;
+                    height: 400px;
+                    overflow-y: scroll;
+                }
+                li.nav-item.search-header-btn {
+                    position: absolute;
+                    right: 60px;
+                    top: -51px;
+                }
+                li.nav-item.cart-item-header {
+                    position: absolute !important;
+                    right: 90px !important;
+                    top: 0 !important;
+                }
+                a.nav-link.shopping-cart-btn i {
+                    font-size: 16px;
+                }
+                li#signInIdText {
+                    display: none;
+                }
+                li#signInIdIcon {
+                    display: block;
+                }
+                li#signInIdIcon {
+                    position: absolute;
+                    right: 145px;
+                    top: -25px;
+                }
+                li#signInIdIcon a.signup-btn {
+                    background: transparent;
+                }
+                li#signInIdIcon a i {
+                    color: #666;
+                    font-size: 17px;
+                }
+                .menu-menu-park-btn {
+                    display: none;
+                }
+                .fantasy-mini-cart {
+                    display: none !important;
+                }
+                li.rox-dropdown.nav-item a i {
+                    display: none;
+                }
+                /* terms and condition */
+                li.nav-item.terms-condition {
+                    display: block;
+                }
+                /* footer terms and condition */
+                .footer-text {
+                    display: none;
+                }
+                /*mobile cart*/
+                .header-area {
+                    padding: 20px 10px;
+                }
+                .mobile-menu-card {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+                .mobile-menu-card li {
+                    padding: 1px !important;
+                    line-height: 21px;
+                    position: absolute;
+                    top: 0;
+                    right: 90px;
+                }
+                .mobile-menu-card a.nav-link.shopping-cart-btn span {
+                    top: -7px;
+                    left: 24px;
+                    position: absolute;
+                }
+                .mobile-menu-search {
+                    position: absolute;
+                    top: 68px;
+                    right: 13px !important;
+                }
+                .mobile-menu-profile {
+                    position: absolute;
+                    top: 17px;
+                    right: 150px;
+                }
+                .mobile-menu-search li,
+                .mobile-menu-profile li,
+                .mobile-menu-card li {
+                    list-style: none;
+                }
+                .mobile-menu-search .nav-item .nav-link i,
+                .mobile-menu-profile .nav-item .nav-link i,
+                .mobile-menu-card .nav-item .nav-link i {
+                    color: #3a3a3a !important;
+                    font-size: 16px !important;
+                }
+                .mobile-none {
+                    display: none !important;
+                }
+                li.nav-item.cart-item-header.mobile-none {
+                    display: none !important;
+                }
+                li.nav-item.cart-item-header {
+                    display: none !important;
+                }
+                .mobile-menu-card li.nav-item.cart-item-header {
+                    display: block !important;
+                }
+                .rox-dropdown-menu {
+                    display: none;
+                }
+                div#navtogglerItemItem {
+                    width: 100%;
+                    margin-top: 20px;
+                }
+                .res-button {
+                    display: block;
+                }
+                #icon-wrapper-mobile {
+                    display: block;
+                }
+                #icon-wrapper-desktop {
+                    display: none;
+                }
+                section#icon-wrapper-mobile {
+                    display: block;
+                }
+                section#disable-home-ticket-mobile {
+                    display: none;
+                }
+                .things-to-do-page-content-area {
+                    margin-top: 100px;
+                }
+                .checkout-page-area {
+                    margin-top: 100px;
+                }
+                .fantasy-faq {
+                    margin-top: 100px;
+                }
+            }
+            
+            @media only screen and (min-width: 992px) and (max-width: 1200px) {
+                a.nav-link.shopping-cart-btn {
+                    margin-right: 0;
+                }
+                li#signInIdText {
+                    margin-left: 8px;
+                }
+                button.atlantis-search-btn {
+                    padding: 0 11px;
+                    font-size: 15px;
+                }
+            }
+            
+            @media only screen and (min-width: 992px) {
+                .mobile-menu-card,
+                .mobile-menu-search,
+                .mobile-menu-profile {
+                    display: none;
+                }
+            }
+            
+            @media only screen and (min-width: 320px) and (max-width: 480px) {
+                .booking-row {
+                    display: block;
+                }
+                .form-group.mb-0.booking-else {
+                    margin-left: 0;
+                }
+            }
+            
+            @media only screen and (min-width: 481px) and (max-width: 767px) {
+                .helpline-icon {
+                    height: 27px !important;
+                    width: 21px !important;
+                }
+                .resorts-linked-btn>a>p {
+                    font-size: 14px;
+                }
+                .resorts-linked-btn>a {
+                    margin-right: 12px;
+                }
+            }
+            
+            @media only screen and (min-width: 576px) and (max-width: 767px) {
+                .single-fantasy-park-search {
+                    margin-top: 0 !important;
+                }
+                .section-title.mb-40.things-to-do-title {
+                    margin-top: 50px;
+                    margin-bottom: 12px;
+                }
+            }
+            
+            @media only screen and (min-width: 611px) and (max-width: 650px) {
+                .mobile-menu-profile {
+                    position: absolute;
+                    top: 17px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                .mobile-menu-card {
+                    position: absolute;
+                    top: 20px;
+                    transform: translateX(-42%);
+                    width: 100%;
+                    right: auto !important;
+                }
+                .mobile-menu-search {
+                    position: absolute;
+                    top: 68px;
+                    left: 66%;
+                    transform: translateX(-50%);
+                    right: inherit !important;
+                }
+            }
+            
+            @media only screen and (min-width: 651px) and (max-width: 730px) {
+                .mobile-menu-profile {
+                    right: 200px;
+                }
+                .mobile-menu-card {
+                    right: 75px;
+                }
+                .mobile-menu-search {
+                    right: 67px !important;
+                }
+            }
+            
+            @media only screen and (min-width: 731px) and (max-width: 809px) {
+                .mobile-menu-profile {
+                    right: 210px;
+                }
+                .mobile-menu-card {
+                    right: 88px;
+                }
+                .mobile-menu-search {
+                    right: 83px !important;
+                }
+            }
+            
+            @media only screen and (min-width: 810px) and (max-width: 850px) {
+                .mobile-menu-profile {
+                    position: absolute;
+                    top: 17px;
+                    right: 180px;
+                }
+                .mobile-menu-card {
+                    position: absolute;
+                    top: 20px;
+                    right: 50px;
+                }
+                .mobile-menu-search {
+                    position: absolute;
+                    top: 68px;
+                    right: 37px !important;
+                }
+            }
+            
+            @media only screen and (min-width: 851px) and (max-width: 900px) {
+                .mobile-menu-profile {
+                    position: absolute;
+                    top: 17px;
+                    right: 210px;
+                }
+                .mobile-menu-card {
+                    position: absolute;
+                    top: 20px;
+                    right: 76px;
+                }
+                .mobile-menu-search {
+                    position: absolute;
+                    top: 68px;
+                    right: 60px !important;
+                }
+            }
+            
+            @media only screen and (min-width: 901px) and (max-width: 950px) {
+                .mobile-menu-profile {
+                    position: absolute;
+                    top: 17px;
+                    right: 240px;
+                }
+                .mobile-menu-card {
+                    position: absolute;
+                    top: 20px;
+                    right: 115px;
+                }
+                .mobile-menu-search {
+                    position: absolute;
+                    top: 68px;
+                    right: 100px !important;
+                }
+            }
+            
+            @media only screen and (min-width: 951px) and (max-width: 991px) {
+                .mobile-menu-profile {
+                    right: 230px;
+                }
+                .mobile-menu-card {
+                    right: 105px;
+                }
+                .mobile-menu-search {
+                    right: 100px !important;
+                }
+            }

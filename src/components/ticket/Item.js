@@ -36,13 +36,13 @@ class Item extends Component {
                         <div className="prodcut-info">
                             <div className="row">
                                 <div className="col-lg-3">
-                                    <img src={image ? API_URL + image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" style={{ height: '150px' }} />
+                                    <img src={image ? API_URL + image : `${process.env.PUBLIC_URL}/assets/images/no-image-available.jpg`} alt="Ticket purchase logo" />
                                 </div>
 
                                 <div className="col-lg-6">
                                     <h4>{title}</h4>
                                     <p>{textLimit(description, 80)}</p>
-                                    <hr/>
+                                    <hr />
                                     <div className="prodcut-details-btn">
                                         <span className="details-ancor link-btn" onClick={() => this.openModal(this.props.data)}>Details</span>
                                     </div>
@@ -58,7 +58,8 @@ class Item extends Component {
                                             </div>
                                         </div>
                                         <h4 className="product-price">৳{discount_price !== null ? discount_price : price}</h4>
-                                        <p>Child (below 4) reg</p>
+                                        <p></p>
+                                        {/* <p>Child (below 4) reg</p> */}
                                     </div>
                                     <div className="prodcut-add-to-cart">
                                         {isInCart !== true ?

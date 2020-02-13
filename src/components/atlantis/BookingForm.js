@@ -168,7 +168,7 @@ class BookingForm extends React.Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-lg-4 offset-4">
+                                <div className="col-lg-4 offset-lg-4 booking-submit-wrapper">
                                     {isDone ?
                                         <button type="submit" className="primary-btn full-width">
                                             Confirm Booking</button> :

@@ -84,8 +84,8 @@ class Gallery extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <div className={`section-title-small-text ${className}-section-title-small-text mb-40`}>
-                                <h2 className="ml-2">Gallery</h2>
+                            <div className={`section-title-small-text ${className}-section-title-small-text fantasy-photo-gallery mb-40`} id="all-parks-photo-gallery">
+                                <h2 className="ml-2">Photo Gallery</h2>
                             </div>
                         </div>
                     </div>

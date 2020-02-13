@@ -8,17 +8,17 @@ import Loading from './../layout/Loading';
 class ThingsToDo extends React.Component {
     state = {
         rides: {},
-        categories: {},
+        services: {},
         loading: true
     }
     componentDidMount() {
         this.setState({
             loading: true
         })
-        Axios.get(`${API_URL}api/ride-category`)
+        Axios.get(`${API_URL}api/service`)
             .then(res => {
                 this.setState({
-                    categories: res.data
+                    services: res.data
                 })
             })
         Axios.get(`${API_URL}api/ride`)
@@ -30,7 +30,7 @@ class ThingsToDo extends React.Component {
             })
     }
     render() {
-        let { rides, categories, loading } = this.state
+        let { rides, services, loading } = this.state
         return (
             <div>
                 {/* <InnerSearch className="fantasy" /> */}
@@ -46,20 +46,20 @@ class ThingsToDo extends React.Component {
                             </div>
                         </div>
                         {loading ? <Loading /> :
-                            Object.keys(categories).length !== 0 &&
-                            categories.map(cat => (
-                                <div key={cat.id}>
+                            Object.keys(services).length !== 0 &&
+                            services.map(service => (
+                                <div key={service.id}>
                                     <div className="row advanture-ride-area pb-3">
                                         <div className="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
                                             <div className="thing-to-title text-center mb-30 pt-3">
-                                                <h3 className="advanture-ride-title">{cat.name}</h3>
+                                                <h3 className="advanture-ride-title">{service.title}</h3>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row">
                                         {Object.keys(rides).length !== 0 &&
                                             rides.map(item => (
-                                                Number(cat.id) === Number(item.category_id) &&
+                                                Number(service.id) === Number(item.service_id) &&
                                                 <Item data={item} key={item.id} />
                                             ))
                                         }

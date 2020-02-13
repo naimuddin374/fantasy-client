@@ -5,7 +5,7 @@ import { DISCOUNT_TAG } from '../../store/actions/types';
 class Ticket extends React.Component {
     render() {
         return (
-            <section className="linked-area section-padding buy-ticket-area magic-overlay magic-picture relative">
+            <section className="linked-area section-padding buy-ticket-area magic-overlay magic-picture relative" id="disable-home-ticket-mobile">
                 <div className="circle-shape">
                     <svg id="Group_1471" data-name="Group 1471" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 780">
                         <defs>

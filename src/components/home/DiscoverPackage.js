@@ -36,7 +36,7 @@ class DiscoverPackage extends React.Component {
 			speed: 1000,
 			rows: 1,
 			dots: false,
-			autoplay: true,
+			autoplay: false,
 			arrows: true,
 			slidesToShow: 3,
 			slidesToScroll: 3,
@@ -59,6 +59,15 @@ class DiscoverPackage extends React.Component {
 						infinite: true,
 					}
 				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						infinite: true,
+					}
+				},
+
 				{
 					breakpoint: 600,
 					settings: {
@@ -90,7 +99,7 @@ class DiscoverPackage extends React.Component {
 							<Slider {...settings}>
 							{Object.keys(services).length !== 0 && 
 								services.map(item => (
-							<div className="col-lg-12 col-md-4" key={item.id}>
+							<div className="content" key={item.id}>
 					<div className="single-discover-carousel">
 											<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}><img src={item.image ? API_URL+ item.image : `${process.env.PUBLIC_URL}/assets/images/resorts/resort1.png`} alt="resorts" /></Link>
 						<div className="resort-heading-content">
@@ -121,19 +130,20 @@ class DiscoverPackage extends React.Component {
 									</svg>
 								<p>Direction</p>
 							</Link>
-												<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
-								<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-									viewBox="0 0 32 32">
+							<Link to={`${process.env.PUBLIC_URL}/${item.hyperlink}`}>
+								<svg version="1.1" id="Layer_1" className="helpline-icon" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+									viewBox="0 0 16 16" space="preserve">
 								<g>
-									<path className="st0" d="M27.9,11.6H27l-1.5-5.1c-0.3-0.9-1.1-1.5-2-1.5H8.5c-0.9,0-1.7,0.6-2,1.5L5,11.6H4.1c-0.7,0-1.3,0.6-1.3,1.3v0
-										c0,0.7,0.6,1.3,1.3,1.3h0.4v6.7c0,1.2,0.9,2.1,2.1,2.1h0.3v2.2c0,1,0.8,1.9,1.9,1.9H9c1,0,1.9-0.8,1.9-1.9v-2.2H21v2.2
-										c0,1,0.8,1.9,1.9,1.9h0.2c1,0,1.9-0.8,1.9-1.9v-2.2h0.4c1.2,0,2.1-0.9,2.1-2.1v-6.7h0.4c0.7,0,1.3-0.6,1.3-1.3v0
-										C29.2,12.1,28.6,11.6,27.9,11.6z M8.5,7.1l15,0l1.6,5.3H6.9L8.5,7.1z M6.5,20.8l0-6.3h18.9l0,6.4L6.5,20.8z"/>
-									<circle className="st0" cx="10.8" cy="17.6" r="2.2"/>
-									<circle className="st0" cx="21.2" cy="17.6" r="2.2"/>
+									<path d="M12.8,16c-0.2,0-0.5,0-0.7-0.1C6.5,14,2,9.5,0.1,4C-0.1,3.3,0,2.5,0.6,1.9l1.5-1.5c0.5-0.5,1.3-0.5,1.8,0l2.5,2.5
+										C6.5,3,6.6,3.2,6.6,3.4c0,0.2-0.1,0.4-0.2,0.5L5.1,5.1c0,0-0.1,0.1,0,0.2c1.3,2.3,3.3,4.3,5.6,5.6c0.1,0,0.1,0,0.2,0l0.8-0.8
+										c0.5-0.5,1.3-0.5,1.8,0l2.1,2.1c0.2,0.2,0.4,0.5,0.4,0.9s-0.1,0.6-0.4,0.9l-1.4,1.4L13.9,15l0.4,0.4L13.9,15l0.3,0.4
+										C13.8,15.8,13.3,16,12.8,16z M3,1C2.9,1,2.9,1,2.8,1.1L1.4,2.5C1.2,2.8,0.9,3.2,1.1,3.7c1.8,5.2,6.1,9.4,11.3,11.3
+										c0.4,0.1,0.8,0.1,1-0.2l0.1-0.1l1.4-1.4c0.1-0.1,0.1-0.1,0.1-0.2s0-0.1-0.1-0.2l-2.1-2.1c-0.1-0.1-0.2-0.1-0.3,0l-0.8,0.8
+										c-0.4,0.4-0.9,0.4-1.4,0.2c-2.5-1.4-4.6-3.5-6-6C4,5.4,4.1,4.8,4.4,4.4l1.1-1.1L3.2,1.1C3.1,1,3.1,1,3,1z M5.7,3.2
+										C5.7,3.2,5.7,3.2,5.7,3.2L5.7,3.2z"/>
 								</g>
 								</svg>
-													<p>Helpline</p>
+								<p>Helpline</p>
 							</Link>
 						</div>
 					</div>

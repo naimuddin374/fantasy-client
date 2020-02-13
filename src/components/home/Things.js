@@ -59,6 +59,14 @@ class Things extends React.Component {
                     }
                 },
                 {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                    }
+                },
+                {
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 2,
@@ -78,25 +86,27 @@ class Things extends React.Component {
         return (
             <section className="things-area section-padding-top full-bg home-things-to-do">
                 <div className="container">
-                    <div className="row row-center">
+
+                    <div className="row row-center row-responsive-thing">
                         <div className="col-lg-8 col-md-8">
-                            <div className="section-title fantasy-section-title mb-40 things-to-do-title">
+                            <div className="section-title fantasy-section-title mb-40 things-to-do-title" id="home-thing-to-title">
                                 <h2>Things To Do</h2>
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-4">
-                            <div className="show-all-content-area text-right">
+                            <div className="show-all-content-area text-right" id="show-content">
                                 <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div className="things-wrapper">
                     {loading ? <Loading /> :
                         <Slider {...settings}>
                             {Object.keys(rides).length !== 0 &&
                                 rides.map(item => (Number(item.slide) === 1 &&
-                                    <div className="col-lg-12 col-md-4" key={item.id}>
+                                    <div className="home-thing-to-do" key={item.id}>
                                         <div className="single-things">
                                             <div className="img-things-link">
                                                 <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}><img src={API_URL + item.image} alt="thins img" /></Link>

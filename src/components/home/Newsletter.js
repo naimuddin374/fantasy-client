@@ -48,7 +48,7 @@ class Newsletter extends React.Component {
                                             placeholder="Enter your email address"
                                         />
                                         <div className="submit-btn-field">
-                                            <button type="submit" className={email ? "submit-btn" : "submit-btn secondary-btn"} disabled={!email}>Subscribe</button>
+                                            <button type="submit" className={email ? "submit-btn" : "submit-btn"} disabled={!email}>Subscribe</button>
                                         </div>
                                     </div>
                                 </form>

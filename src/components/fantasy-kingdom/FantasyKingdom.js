@@ -1,5 +1,4 @@
-import React from 'react'
-import ShortLink from '../common/CircleShape'
+import React from 'react';
 import Map from '../common/Map'
 import Discount from '../common/Discount'
 import Gallery from '../common/Gallery'
@@ -19,8 +18,6 @@ class FantasyKingdom extends React.Component {
 
         return (
             <div>
-                <ShortLink />
-
                 <Slider />
 
                 <InnerSearch className="fantasy" />

@@ -22,18 +22,18 @@ class InnerSearch extends React.Component {
             <div className={`select-park-option-area ${className}-select-park-bg`}>
                 <div className="container">
                     <div className="row row-center">
-                        <div className="col-lg-3 col-md-3">
+                        <div className="col-lg-3 col-md-3 col-sm-4">
                             {Object.keys(service).length !== 0 &&
                                 service.map(item => (
                                     <img key={item.id} src={API_URL + item.logo} alt="logo" />
                                 ))
                             }
                         </div>
-                        <div className="col-lg-9 col-md-9">
+                        <div className="col-lg-9 col-md-9 col-sm-8">
                             <div className="fantasy-park-search-item float-right">
                                 <div className="single-fantasy-park-search">
                                     <div className="fantasy-parki-select-item">
-                                        <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select other park & resorts</span>
+                                        <div className="nice-select fantasy-nice-select" tabIndex="0"><span className="current">Select other parks and resorts</span>
                                             <ul className="list">
                                                 <li data-value="Fantasy" className="option"><Link to={`${process.env.PUBLIC_URL}/fantasy-kingdom`}>Fantasy Kingdom</Link></li>
                                                 <li data-value="water" className="option"><Link to={`${process.env.PUBLIC_URL}/water-kingdom`}>Water Kingdom</Link></li>

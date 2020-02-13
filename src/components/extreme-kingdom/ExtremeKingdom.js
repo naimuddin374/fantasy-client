@@ -1,5 +1,4 @@
 import React from 'react'
-import ShortLink from '../common/CircleShape'
 import Map from '../common/Map'
 import Discount from '../common/Discount'
 import Gallery from '../common/Gallery'
@@ -17,8 +16,6 @@ class ExtremeKingdom extends React.Component {
     render() {
         return (
             <div>
-                <ShortLink />
-
                 <Slider />
 
                 <InnerSearch className="xtreme" />

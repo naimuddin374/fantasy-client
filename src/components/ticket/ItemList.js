@@ -1,9 +1,41 @@
 import React from 'react'
 import Item from './Item'
 import { DISCOUNT_TAG } from '../../store/actions/types'
+import $ from 'jquery';
 
 
 class ItemList extends React.Component {
+
+    componentDidMount() {
+
+        function useSameHeight(el) {
+            var max = 0;
+            el.css('height', 'auto');
+            el.each(function () {
+                max = Math.max(max, $(this).height());
+            }).height(max);
+            return el;
+        }
+        $(window).resize(function () {
+            useSameHeight($('.prodcut-info>p'));
+        }).resize();
+
+
+        function cardcontent(el) {
+            var max = 0;
+            el.css('height', 'auto');
+            el.each(function () {
+                max = Math.max(max, $(this).height());
+            }).height(max);
+            return el;
+        }
+        $(window).resize(function () {
+            cardcontent($('.prodcut-info h4'));
+        }).resize();
+
+
+    }
+
     render() {
         let { rides, paramId } = this.props
         return (
