@@ -1,10 +1,11 @@
 import React from 'react';
 import Cart from './Cart';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { logout } from '../../store/actions/authActions'
 import { DISCOUNT_TAG } from '../../store/actions/types';
 import $ from 'jquery';
+
 
 
 class Menu extends React.Component {
@@ -23,6 +24,9 @@ class Menu extends React.Component {
                 header.addClass("sticky");
             }
         });
+
+
+
 
 
         if ($(window).width() < 991) {
