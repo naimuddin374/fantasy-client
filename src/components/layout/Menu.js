@@ -1,7 +1,7 @@
 import React from 'react';
 import Cart from './Cart';
 import { connect } from 'react-redux';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logout } from '../../store/actions/authActions'
 import { DISCOUNT_TAG } from '../../store/actions/types';
 import $ from 'jquery';
@@ -85,29 +85,29 @@ class Menu extends React.Component {
                                                     <div className="megamenu-item">
                                                         <Link to={`${process.env.PUBLIC_URL}/fantasy-kingdom`} className="single-park">
                                                             <span>Fantasy Kingdom</span>
-                                                            <p>Open, 10 am- 11 pm</p>
+                                                            <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
                                                         <Link to={`${process.env.PUBLIC_URL}/foys-lake`} className="single-park">	<span>Foys Lake</span>
-                                                            <p>Open, 10 am- 11 pm</p>
+                                                            <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
                                                     </div>
                                                 </li>
                                                 <li className="megamenu">	<span>Water Parks</span>
                                                     <div className="megamenu-item">
                                                         <Link to={`${process.env.PUBLIC_URL}/water-kingdom`} className="single-park">	<span>Water Kingdom</span>
-                                                            <p>Open, 10 am- 11 pm</p>
+                                                            <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
                                                     </div>
                                                 </li>
                                                 <li className="megamenu">	<span>Other parks</span>
                                                     <div className="megamenu-item">
                                                         <Link to={`${process.env.PUBLIC_URL}/xtreme-racing`} className="single-park">	<span>Xtreme Racing</span>
-                                                            <p>Open, 10 am- 11 pm</p>
+                                                            <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
                                                     </div>
                                                     <div className="megamenu-item">
                                                         <Link to={`${process.env.PUBLIC_URL}/heritage-park`} className="single-park">	<span>Heritage Park</span>
-                                                            <p>Open, 10 am- 11 pm</p>
+                                                            <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
                                                     </div>
                                                 </li>

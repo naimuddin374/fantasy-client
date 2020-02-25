@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cartActions'
-import { getItemPrice } from '../../util/helper'
+import { getItemPrice, priceFormat } from '../../util/helper'
 
 class Summary extends React.Component {
     state = {
@@ -51,9 +51,9 @@ class Summary extends React.Component {
                                 </div>
 
                                 <div className="inner-checkout-content">
-                                    <span className="float-left">Quantity: {item.quantity}x৳{item.discount_price !== null ? item.discount_price : item.price}</span>
+                                    <span className="float-left">Quantity: {item.quantity}x{priceFormat(item.discount_price !== null ? item.discount_price : item.price)}</span>
                                     <span className="float-right">
-                                        ৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
+                                        {priceFormat(getItemPrice(item.quantity, item.price, item.discount_price))}</span>
                                 </div>
                                 <div className="inner-checkout-content">
                                     <div className="row">
@@ -69,7 +69,7 @@ class Summary extends React.Component {
                             </div>
                         ))}
                     <div className="widget-checkout-money">
-                        <h4 className="total-price-widget">Total : ৳{totalPrice}</h4>
+                        <h4 className="total-price-widget">Total: {priceFormat(totalPrice)}</h4>
                         <div className="widget-chekout-btn-area mt-3 text-center">
                             {Object.keys(rides).length !== 0 ?
                                 <Link to={`${process.env.PUBLIC_URL}/checkout`} className="payment-btn">Check Out</Link> :

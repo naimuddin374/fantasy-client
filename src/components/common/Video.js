@@ -35,33 +35,31 @@ class Video extends React.Component {
         }
         return (
             <section className="experience-area relative">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12 col-md-12">
-                            <div className={`section-title ${className}-section-title mb-40`}>
-                                <h2>Video Gallery</h2>
+                {videoLink &&
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <div className={`section-title ${className}-section-title mb-40`}>
+                                    <h2>Video Gallery</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12 col-md-12">
-                            <div className="experience-img relative experiencebg">
-                                {/* <img src="./assets/images/experiencebg.png" alt="experience background" /> */}
-                                {videoLink &&
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <div className="experience-img relative experiencebg">
                                     <YouTube
                                         videoId={videoLink}
                                         opts={opts}
                                         onReady={this.onReady}
                                     />
-                                }
-                                {/* <div className="ex-video-icon"> <Link to={`https://www.youtube.com/watch?v=${videoLink}`} className="exp-play-btn">
+                                    {/* <div className="ex-video-icon"> <Link to={`https://www.youtube.com/watch?v=${videoLink}`} className="exp-play-btn">
                                         <i className=" fa fa-play"></i>
                                     </Link>
                                     </div> */}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
             </section>
 
         )

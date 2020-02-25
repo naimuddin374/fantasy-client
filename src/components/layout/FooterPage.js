@@ -11,7 +11,7 @@ class FooterPage extends React.Component {
                         <div className="footer-shape-social">
                             <ul>
 
-                                <li><a target="_blank" href="https://www.facebook.com/fantasykingdomcomplex" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/FantasyKingdomHQ" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
 
                                 <li><a target="_blank" href="https://instagram.com/fantasykingdom_" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
 
@@ -38,7 +38,7 @@ class FooterPage extends React.Component {
                                                     <i className="fa fa-phone"></i>
                                                 </div>
                                                 <div className="icon-text">
-                                                    <p>880-2-7790816-19 , 01913-531474 <br /> 01913-531522</p>
+                                                    <p>09612-002020</p>
                                                 </div>
                                             </li>
                                             <li>

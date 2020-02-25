@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { API_URL } from '../../store/actions/types'
-import { textLimit } from './../../util/helper';
+import { textLimit, priceFormat } from './../../util/helper';
 import Details from './Details'
-
 
 class Item extends Component {
     state = {
@@ -57,7 +56,7 @@ class Item extends Component {
                                                 <button className="inc qtybtn" disabled={quantity === 15} onClick={() => this.props.quantityAddHandler(id)}>+</button>
                                             </div>
                                         </div>
-                                        <h4 className="product-price">৳{discount_price !== null ? discount_price : price}</h4>
+                                        <h4 className="product-price">{priceFormat(discount_price !== null ? discount_price : price)}</h4>
                                         <p></p>
                                         {/* <p>Child (below 4) reg</p> */}
                                     </div>

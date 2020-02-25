@@ -17,8 +17,26 @@ class Things extends React.Component {
         })
         Axios.get(`${API_URL}api/ride${window.location.pathname}`)
             .then(res => {
+                let rides = [];
+                if (Object.keys(res.data).length !== 0 && Object.keys(res.data).length < 5) {
+                    rides = res.data
+                    if (rides.length < 6) {
+                        rides = [...rides, ...rides]
+                    }
+                    if (rides.length < 5) {
+                        rides = [...rides, ...rides]
+                    }
+                    if (rides.length < 4) {
+                        rides = [...rides, ...rides]
+                    }
+                    if (rides.length < 3) {
+                        rides = [...rides, ...rides]
+                    }
+                } else {
+                    rides = res.data
+                }
                 this.setState({
-                    rides: res.data,
+                    rides,
                     loading: false
                 })
             })
@@ -52,6 +70,14 @@ class Things extends React.Component {
                     }
                 },
                 {
+                    breakpoint: 1440,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                    }
+                },
+                {
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
@@ -79,36 +105,35 @@ class Things extends React.Component {
         let { rides, className, loading } = this.state
         return (
             <section className="things-area explore-area section-padding" id="parks-explore-rides">
-                <div className="container">
-                    <div className="row row-center">
-                        <div className="col-lg-8 col-md-8">
-                            <div className={`section-title ${className}-section-title mb-40 things-to-do-title`} id="all-park-explore-ride">
-                                <h2>Explore Rides & Events</h2>
+                {Object.keys(rides).length !== 0 &&
+                    <div className="container">
+                        <div className="row row-center">
+                            <div className="col-lg-8 col-md-8">
+                                <div className={`section-title ${className}-section-title mb-40 things-to-do-title`} id="all-park-explore-ride">
+                                    <h2>Explore Rides & Events</h2>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4">
-                            <div className="show-all-content-area text-right">
-                                {Object.keys(rides).length !== 0 &&
+                            <div className="col-lg-4 col-md-4">
+                                <div className="show-all-content-area text-right">
                                     <Link to={`${process.env.PUBLIC_URL}/things-to-do`}>View All</Link>
-                                }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
                 <div className="things-wrapper">
                     {loading ? <Loading /> :
                         <Slider {...settings}>
                             {Object.keys(rides).length !== 0 &&
-                                rides.map(item => (Number(item.slide) === 1 &&
+                                rides.map(item => (
                                     <div className="parks-rides-wrapper-carousel" key={item.id}>
                                         <div className="single-things">
                                             <div className="img-things-link">
                                                 <img src={API_URL + item.image} alt="thins img" />
                                             </div>
                                             <div className="thing-offer">
-                                                <span className="offer-shape">
+                                                {/* <span className="offer-shape">
                                                     {item.is_buy ? 'Ride' : 'Complimentary'}
-                                                </span>
+                                                </span> */}
                                             </div>
                                             <Link to={`${process.env.PUBLIC_URL}/ticket/${item.id}`}>{item.title}</Link>
                                             <div className="gradient-bottomshape"></div>

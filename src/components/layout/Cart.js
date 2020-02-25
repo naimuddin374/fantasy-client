@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cartActions'
 import { API_URL } from '../../store/actions/types';
-import { getItemPrice } from '../../util/helper'
+import { getItemPrice, priceFormat } from '../../util/helper'
 
 class Cart extends React.Component {
     state = {
@@ -54,8 +54,8 @@ class Cart extends React.Component {
                                         <div className="fantasy-cart-info">
                                             <p>{item.title}</p>
                                             <p>
-                                                <span className="float-left">Q: {item.quantity}x৳{item.discount_price !== null ? item.discount_price : item.price}</span>
-                                                <span className="float-right">৳{getItemPrice(item.quantity, item.price, item.discount_price)}</span>
+                                                <span className="float-left">Q: {item.quantity}x{priceFormat(item.discount_price !== null ? item.discount_price : item.price)}</span>
+                                                <span className="float-right">{priceFormat(getItemPrice(item.quantity, item.price, item.discount_price))}</span>
                                             </p>
                                         </div>
                                         <div className="fantasy-cart-remove">
@@ -70,7 +70,7 @@ class Cart extends React.Component {
                                     </div>
                                     <div className="fantasy-cart-info">	<p>{booking.title}</p>
                                         <p>
-                                            <span className="float-right">৳{booking.totalPrice}</span></p>
+                                            <span className="float-right">{priceFormat(booking.totalPrice)}</span></p>
                                     </div>
                                     <div className="fantasy-cart-remove">
                                         {/* <button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button> */}
@@ -79,7 +79,7 @@ class Cart extends React.Component {
                             }
                             <div className="fantasy-mini-cart-table">
                                 <div className="fantasy-cart-total mt-10">	<span className="fantasy-total-amount">Total:</span>
-                                    <span className="fantasy-price">৳{totalPrice}</span>
+                                    <span className="fantasy-price">{priceFormat(totalPrice)}</span>
                                 </div>
                             </div>
                         </div>

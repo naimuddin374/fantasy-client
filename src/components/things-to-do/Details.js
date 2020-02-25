@@ -2,6 +2,8 @@ import React from 'react';
 import Modal from 'react-modal'
 import { API_URL } from '../../store/actions/types';
 import { Link } from 'react-router-dom';
+import { priceFormat } from '../../util/helper';
+
 
 class Details extends React.Component {
     componentDidMount() {
@@ -50,17 +52,12 @@ class Details extends React.Component {
                             <div className="col-lg-8">
                                 <h4 className="ticket-modal-body-title">{title}</h4>
                                 <ul>
-                                    <li>Regular Price: ৳{price}</li>
+                                    <li>Regular Price: {priceFormat(price)}</li>
                                     {discount_price !== null &&
-                                        <li>Discount Price: ৳{discount_price}</li>
+                                        <li>Discount Price: {priceFormat(discount_price)}</li>
                                     }
-                                    <li>Type: {(type === "1" ? "Anyone" : "Only Kids")}</li>
-                                    {type === "2" &&
-                                        <li>Maximum Age: {age}</li>
-                                    }
-                                    <li>
-                                        {description}
-                                    </li>
+                                    <li>Type: {(Number(type) === 1 && "Anyone") || (Number(type) === 2 && "Only Kids") || (Number(type) === 3 && "Adult")}</li>
+                                    <li>{description}</li>
                                     {Number(is_buy) === 1 &&
                                         <li><Link to={`${process.env.PUBLIC_URL}/ticket/${id}`} className="payment-btn">Buy Ticket</Link></li>
                                     }

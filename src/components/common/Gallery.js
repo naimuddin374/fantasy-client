@@ -81,6 +81,7 @@ class Gallery extends React.Component {
         return (
             <section className="fantasy-gallery-area section-padding">
 
+                {Object.keys(images).length !== 0 &&
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -92,8 +93,7 @@ class Gallery extends React.Component {
                     <div className="fantasy-gallery-slider2">
                         {loading ? <Loading /> :
                             <Slider {...settings}>
-                                {Object.keys(images).length !== 0 &&
-                                    images.map((item, index) => (
+                                {images.map((item, index) => (
                                         <div className="col-md-12" key={item + '.' + index}>
                                             <span className="project-gallery popup link-btn" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
                                                 <img src={API_URL + item.image} alt="gallery" />
@@ -114,8 +114,8 @@ class Gallery extends React.Component {
                             onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % imageSrc.length })}
                         />
                     )}
-                </div>
-            </section >
+                </div>}
+            </section>
         )
     }
 }

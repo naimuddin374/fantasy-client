@@ -79,22 +79,27 @@ class Direction extends React.Component {
                                             isClose={this.closeModalPark}
                                         />
                                         <Link to="#blank" className="clock-direction" onClick={() => this.setState({ isModalOpenPark: true })}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
-                                                <g id="Group_1293" data-name="Group 1293" transform="translate(-1012 -2216)">
-                                                    <circle id="Ellipse_18" data-name="Ellipse 18" cx="49.5" cy="49.5" r="49.5" transform="translate(1012 2216)" fill="#f9f9f9" />
-                                                    <g id="Group_1157" data-name="Group 1157" transform="translate(1025 2239)">
-                                                        <path id="Path_2177" data-name="Path 2177" d="M63.663,29.9,57.636,10.058H13.219L7.192,29.9V49.74H63.663Z" transform="translate(0.875 -10.058)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <line id="Line_48" data-name="Line 48" x2="56.471" transform="translate(8.067 19.841)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <path id="Rectangle_276" data-name="Rectangle 276" d="M0,0H10.005a0,0,0,0,1,0,0V10.549a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V0A0,0,0,0,1,0,0Z" transform="translate(15.019 39.682)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <path id="Rectangle_277" data-name="Rectangle 277" d="M0,0H10.005a0,0,0,0,1,0,0V10.549a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V0A0,0,0,0,1,0,0Z" transform="translate(46.392 39.682)" fill="none" stroke="#e50019" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <line id="Line_49" data-name="Line 49" x2="8.818" transform="translate(16.207 29.338)" fill="none" stroke="#e50019" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <line id="Line_50" data-name="Line 50" x2="8.818" transform="translate(45.544 29.762)" fill="none" stroke="#e50019" strokeLinecap="round" strokeMiterlimit="10" strokeWidth="4" />
-                                                        <rect id="Rectangle_278" data-name="Rectangle 278" width="9.949" height="6.834" rx="2" transform="translate(62.655 14.89)" fill="#e50019" />
-                                                        <rect id="Rectangle_279" data-name="Rectangle 279" width="9.949" height="6.834" rx="2" transform="translate(0 14.89)" fill="#e50019" />
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                            <h4 data-tip="Open from 11:00 AM to 7:30 PM">Park Hour</h4>
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 99 99"  space="preserve">
+<g>
+	<circle id="Ellipse_19" class="st0" cx="49.5" cy="49.5" r="49.5"/>
+	<path id="Union_1" class="st1" d="M48.8,51.7L48.8,51.7z"/>
+	<g>
+		<path class="st2" d="M49,23c-14.3,0-26,11.7-26,26c0,14.3,11.7,26,26,26c14.3,0,26-11.7,26-26C75,34.7,63.3,23,49,23z M49,71
+			c-12.1,0-22-9.9-22-22s9.9-22,22-22s22,9.9,22,22S61.1,71,49,71z"/>
+		<path class="st2" d="M64.8,49.7h-14v-14c0-1.1-0.9-2-2-2s-2,0.9-2,2v16c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2S65.9,49.7,64.8,49.7z"
+			/>
+	</g>
+</g>
+</svg>
+
+
+
+                                            {/* <svg height="384pt" viewBox="0 0 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="m343.59375 101.039062c-7.953125 3.847657-11.28125 13.417969-7.433594 21.367188 10.511719 21.714844 15.839844 45.121094 15.839844 69.59375 0 88.222656-71.777344 160-160 160s-160-71.777344-160-160 71.777344-160 160-160c36.558594 0 70.902344 11.9375 99.328125 34.519531 6.894531 5.503907 16.976563 4.351563 22.480469-2.566406 5.503906-6.914063 4.351562-16.984375-2.570313-22.480469-33.652343-26.746094-76-41.472656-119.238281-41.472656-105.863281 0-192 86.136719-192 192s86.136719 192 192 192 192-86.136719 192-192c0-29.335938-6.40625-57.449219-19.039062-83.527344-3.839844-7.96875-13.441407-11.289062-21.367188-7.433594zm0 0" />
+                                                <path d="m192 64c-8.832031 0-16 7.167969-16 16v112c0 8.832031 7.167969 16 16 16h80c8.832031 0 16-7.167969 16-16s-7.167969-16-16-16h-64v-96c0-8.832031-7.167969-16-16-16zm0 0" />
+                                            </svg> */}
+                                            <h4>Park Hour</h4>
                                         </Link>
                                     </div>
                                 </div>
