@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Registration } from '../../store/actions/authActions'
 import { connect } from 'react-redux';
+import Axios from 'axios'
 
 class Register extends React.Component {
     state = {
@@ -13,7 +14,12 @@ class Register extends React.Component {
         gender: '',
         age: '',
         time: null,
-        validation: {}
+        validation: {},
+        Authorization: "",
+        username: "testdemo",
+        appPassword: "test%#de23@msdao",
+        app_key: "5nej5keguopj928ekcj3dne8p",
+        app_secret: "1honf6u1c56mqcivtc9ffl960slp4v2756jle5925nbooa46ch62"
     }
     changeHandler = event => {
         this.setState({
@@ -31,6 +37,31 @@ class Register extends React.Component {
             validation: nextProps.auth.validation,
         }
     }
+    makePayment = () => {
+        let { Authorization, username, appPassword, app_key, app_secret } = this.state
+        
+        let headers = {
+            username,
+            password: appPassword,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            ABC: "abc",
+        }
+        let posts = {
+            app_key,
+            app_secret
+        }
+        Axios.post('https://checkout.sandbox.bka.sh/v1.2.0-beta/checkout/token/grant', posts, { headers })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => console.log(error.response))
+    }
+
+
+
+
     render() {
         let { full_name, contact_no, email, password, address, gender, age, validation } = this.state
         let isDone = full_name && contact_no && password && gender
@@ -186,6 +217,7 @@ class Register extends React.Component {
                                     Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}>Sign In</Link>
                                 </div>
                             </div>
+                            <button onClick={this.makePayment}>Pay</button>
                         </div>
                     </div>
 

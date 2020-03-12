@@ -87,9 +87,9 @@ class Menu extends React.Component {
                                                             <span>Fantasy Kingdom</span>
                                                             <p>Open, 11:00 AM to 7:30 PM</p>
                                                         </Link>
-                                                        <Link to={`${process.env.PUBLIC_URL}/foys-lake`} className="single-park">	<span>Foys Lake</span>
+                                                        {/* <Link to={`${process.env.PUBLIC_URL}/foys-lake`} className="single-park">	<span>Foys Lake</span>
                                                             <p>Open, 11:00 AM to 7:30 PM</p>
-                                                        </Link>
+                                                        </Link> */}
                                                     </div>
                                                 </li>
                                                 <li className="megamenu">	<span>Water Parks</span>

@@ -9,6 +9,7 @@ class Award extends React.Component {
                         <div className="col-lg-8 offset-lg-2">
                             <div className="section-title fantasy-section-title text-center pb-40">
                                 <h2>Awards & Accolades</h2>
+                                {/* <button id="bKash_button">Pay with bKash</button> */}
                             </div>
                         </div>
                     </div>
