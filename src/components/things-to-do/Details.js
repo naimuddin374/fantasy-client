@@ -31,7 +31,7 @@ class Details extends React.Component {
                 border: "none"
             }
         }
-        let { id, title, description, price, discount_price, image, type, age, is_buy } = this.state.detailData
+        let { id, title, description, price, discount_price, image, type, is_buy } = this.state.detailData
         return (
             <Modal
                 isOpen={this.props.isOpen}

@@ -3,7 +3,7 @@ import { API_URL } from '../../store/actions/types'
 import Axios from 'axios'
 import { connect } from 'react-redux';
 import Collapsible from 'react-collapsible';
-import { priceCal } from '../../util/helper';
+import { priceCal, priceFormat } from '../../util/helper';
 
 class OrderHistory extends React.Component {
     state = {
@@ -31,7 +31,7 @@ class OrderHistory extends React.Component {
                 <h3>Ordered History :</h3>
                 {Object.keys(sales).length !== 0 ?
                     sales.map(sale => (
-                        <Collapsible key={sale.id} trigger={`FAN${sale.id} | ${sale.created_at} | ৳${sale.total_price}`}>
+                        <Collapsible key={sale.id} trigger={`${sale.invoice} | ৳${sale.total_price} | ${sale.created_at}`}>
                             {salesDetails.map(sDetail => (
                                 sDetail.type === 1 ?
                                     rides.map(ride => (
@@ -42,7 +42,7 @@ class OrderHistory extends React.Component {
                                                 <div className="col-md-4">{ride.title}</div>
                                                 <div className="col-md-2">Quantity: {ride.quantity}</div>
                                                 <div className="col-md-2">Discount: {ride.discount}</div>
-                                                <div className="col-md-2">৳{ride.price}</div>
+                                                <div className="col-md-2">{priceFormat(ride.price)}</div>
                                             </div>}
                                         </div>
                                     ))
@@ -55,7 +55,7 @@ class OrderHistory extends React.Component {
                                             <div className="col-md-2">Check Out: {room.check_out}</div>
                                             <div className="col-md-1">Room: {room.no_of_room}</div>
                                             <div className="col-md-1">Person: {room.no_of_guest}</div>
-                                            <div className="col-md-2">৳{priceCal(room.price, (room.vat + room.service_charge), room.discount)}</div>
+                                            <div className="col-md-2">{priceFormat(priceCal(room.price, (room.vat + room.service_charge), room.discount))}</div>
                                         </div>
                                     ))
                             ))}

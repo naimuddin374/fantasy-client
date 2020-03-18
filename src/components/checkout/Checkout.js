@@ -22,14 +22,9 @@ class Checkout extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
-    termsAdnConditionsHandler() {
-        this.setState({
-            termsAdnConditions: !this.state.termsAdnConditions
-        })
-    }
     payHandler = () => {
         let { rides, booking, auth } = this.state
-        this.props.checkoutPayment(rides, booking, auth, this.props.history)
+        this.props.checkoutPayment(rides, booking, auth.token)
         this.setState({
             termsAdnConditions: false
         })
@@ -37,7 +32,7 @@ class Checkout extends React.Component {
             this.setState({
                 termsAdnConditions: false
             })
-        }, 3000)
+        }, 5000)
     }
     render() {
         if (!this.state.auth.isAuth) {
@@ -137,7 +132,7 @@ class Checkout extends React.Component {
                                                 name="payactive"
                                                 value="1"
                                                 checked={termsAdnConditions}
-                                                onChange={() => this.termsAdnConditionsHandler()}
+                                                onChange={() => this.setState({ termsAdnConditions: !termsAdnConditions })}
                                             /><label htmlFor="termsConditions">Terms & Conditions</label>
                                             <br />
                                             <div className="checkbox-pay-btn-content mt-3">

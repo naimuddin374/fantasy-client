@@ -61,3 +61,24 @@ export const setRoom = data => dispatch => {
         }
     })
 }
+
+export const roomRemoveFromCart = bookingId => dispatch => {
+    Axios.get(`${API_URL}api/cancel-room-booking/${bookingId}`)
+        .then(res => {
+            localStorage.removeItem("booking_data")
+            dispatch({
+                type: SET_ROOM_IN_CART,
+                payload: {}
+            })
+        })
+        .catch(err => {
+            console.log(err.response)
+            dispatch({
+                type: SET_MESSAGE,
+                payload: {
+                    message: err.response && err.response.data,
+                    type: 'error',
+                }
+            })
+        })
+}

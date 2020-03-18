@@ -73,6 +73,7 @@ class RoomSearch extends React.Component {
                                                 className='form-control'
                                                 placeholder="Check Out Date"
                                                 selected={checkOut}
+                                                minDate={checkIn}
                                                 onChange={this.checkOutHandleChange}
                                             />
                                         </div>

@@ -2249,6 +2249,7 @@ a.deals-shape-btn {
 
 .breadcrum-area {
     padding: 250px 0;
+    z-index: 1;
 }
 
 .fantasy-feature-img {

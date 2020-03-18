@@ -29,7 +29,7 @@ class Details extends React.Component {
                 border: "none"
             }
         }
-        let { title, description, price, discount_price, image, type, age } = this.state.detailData
+        let { title, description, price, discount_price, image, type } = this.state.detailData
         return (
             <Modal
                 isOpen={this.props.isOpen}

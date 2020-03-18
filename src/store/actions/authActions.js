@@ -1,5 +1,6 @@
 import { SET_MESSAGE, API_URL, SET_VALIDATION, SET_USER } from './types'
 import Axios from 'axios'
+import store from '../index';
 
 // Registration 
 export const Registration = (data, history) => dispatch => {
@@ -42,6 +43,18 @@ export const Registration = (data, history) => dispatch => {
 
 // Login
 export const Login = (data, history) => dispatch => {
+    let carts = store.getState().cart
+    let cartRide = false
+    let cartRoom = false
+    if (Object.keys(carts).length !== 0) {
+        let cartRides = carts.rides.filter(item => item.isInCart)
+        if (Object.keys(cartRides).length !== 0) {
+            cartRide = true
+        }
+        if (!cartRide) {
+            cartRoom = Object.keys(carts.booking).length !== 0
+        }
+    }
     Axios.post(`${API_URL}api/login`, data)
         .then(res => {
             let userAuth = { token: res.data.token, user: res.data.user }
@@ -57,7 +70,11 @@ export const Login = (data, history) => dispatch => {
                     type: 'success',
                 }
             })
-            history.push(`${process.env.PUBLIC_URL}/`)
+            if (cartRide || cartRoom) {
+                history.push(`${process.env.PUBLIC_URL}/checkout`)
+            } else {
+                history.push(`${process.env.PUBLIC_URL}/`)
+            }
         })
         .catch(err => {
             dispatch({

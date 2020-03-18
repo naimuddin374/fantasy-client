@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cartActions'
+import { roomRemoveFromCart } from '../../store/actions/roomActions'
 import { API_URL } from '../../store/actions/types';
 import { getItemPrice, priceFormat } from '../../util/helper'
 
@@ -73,7 +74,7 @@ class Cart extends React.Component {
                                             <span className="float-right">{priceFormat(booking.totalPrice)}</span></p>
                                     </div>
                                     <div className="fantasy-cart-remove">
-                                        {/* <button className="link-btn" onClick={() => this.cartRemoveHandler(item.id)}><i className="fa fa-close"></i></button> */}
+                                        <button className="link-btn" onClick={() => this.props.roomRemoveFromCart(booking.booking_id)}><i className="fa fa-close"></i></button>
                                     </div>
                                 </div>
                             }
@@ -98,4 +99,4 @@ class Cart extends React.Component {
 const mapStateToProps = state => ({
     cart: state.cart
 })
-export default connect(mapStateToProps, { addToCart })(Cart)
+export default connect(mapStateToProps, { addToCart, roomRemoveFromCart })(Cart)

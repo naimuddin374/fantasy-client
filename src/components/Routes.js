@@ -29,6 +29,8 @@ import SetNewPassword from './profile/SetNewPassword';
 import PageNotFound from '../page/PageNotFound';
 import Maps from './fantasy-kingdom/Maps';
 import Test from '../page/Test';
+import PaymentSuccess from './checkout/PaymentSuccess';
+import PaymentFailed from './checkout/PaymentFailed';
 
 
 class Routes extends React.Component {
@@ -38,6 +40,8 @@ class Routes extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
+                    <Route path={`${process.env.PUBLIC_URL}/payment/success`} component={PaymentSuccess} history={this.props.history} />
+                    <Route path={`${process.env.PUBLIC_URL}/payment/failed`} component={PaymentFailed} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/maps`} component={Maps} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/forgot-password`} component={ForgotPassword} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/test`} component={Test} history={this.props.history} />
