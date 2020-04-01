@@ -38,7 +38,7 @@ class Things extends React.Component {
             rows: 1,
             dots: false,
             autoplay: false,
-            arrows: false,
+            arrows: true,
             slidesToShow: 3,
             slidesToScroll: 3,
             prevArrow: <SliderPrevArrow />,
@@ -86,7 +86,7 @@ class Things extends React.Component {
         }
         let { data, loading } = this.state
         return (
-            <section className="things-area section-padding-top full-bg home-things-to-do">
+            <section className="things-area section-padding-top full-bg home-things-to-do home-news-events-area">
                 <div className="container">
 
                     <div className="row row-center row-responsive-thing">

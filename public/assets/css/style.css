@@ -5101,3 +5101,11 @@ i.input-value-down-arrow {
     bottom: 10px;
     font-size: 20px;
 }
+
+.home-news-events-area .slick-prev {
+    top: -15px !important;
+}
+
+.home-news-events-area .slick-next {
+    top: -15px !important;
+}

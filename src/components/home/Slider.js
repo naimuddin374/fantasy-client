@@ -30,7 +30,7 @@ class HomeSlider extends React.Component {
             speed: 1000,
             dots: false,
             arrows: false,
-            autoplay: true,
+            autoplay: false,
         }
         let { sliders, loading } = this.state
         return (
@@ -40,12 +40,25 @@ class HomeSlider extends React.Component {
                         {Object.keys(sliders).length !== 0 &&
                             sliders.map(item => (
                                 <div className="hero-single-slide hero-overlay" key={item.id}>
-                                    <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${API_URL + item.image})` }}>
-                                        <div className="container">
+                                    <div className="hero-slider-item bg-img home-slider d-none d-lg-block" style={{ background: `url(${API_URL + item.image})` }}>
+                                        <div className="container d-none d-lg-block">
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <div className="hero-slider-content slide-1 text-center">
                                                         <h1 className="slide-title">{item.title}</h1>
+                                                        <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>
+                                                        {item.link && <Link to={`${process.env.PUBLIC_URL}/${item.link}`} className="theme-btn">Get Details</Link>}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="hero-slider-item bg-img home-slider d-block d-lg-none" style={{ background: `url(${API_URL + item.image_sm})` }}>
+                                        <div className="container d-block d-lg-none">
+                                            <div className="row">
+                                                <div className="col-md-12">
+                                                    <div className="hero-slider-content slide-1 text-center">
+                                                        <h1 className="slide-title">{item.title} MOBILE</h1>
                                                         <p className="slide-desc text-white">{textLimit(item.description, 150)}</p>
                                                         {item.link && <Link to={`${process.env.PUBLIC_URL}/${item.link}`} className="theme-btn">Get Details</Link>}
                                                     </div>

@@ -39,8 +39,20 @@ class HomeSlider extends React.Component {
                         {Object.keys(sliders).length !== 0 &&
                             sliders.map(item => (
                                 <div className="hero-single-slide hero-overlay" key={item.id}>
-                                    <div className="hero-slider-item bg-img home-slider" style={{ background: `url(${API_URL + item.image})` }}>
-                                        <div className="container">
+                                    <div className="hero-slider-item bg-img home-slider d-none d-lg-block" style={{ background: `url(${API_URL + item.image})` }}>
+                                        <div className="container d-none d-lg-block">
+                                            <div className="row">
+                                                <div className="col-md-12">
+                                                    <div className="hero-slider-content slide-1 text-center">
+                                                        <h1 className="text-white wow fadeInUp slide-title" data-wow-delay=".3s">{item.title}</h1>
+                                                        <p className="text-white mt-3 wow fadeInUp" data-wow-delay=".6s">{textLimit(item.description, 150)}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="hero-slider-item bg-img home-slider d-block d-lg-none" style={{ background: `url(${API_URL + item.sm_image})` }}>
+                                        <div className="container d-block d-lg-none">
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <div className="hero-slider-content slide-1 text-center">

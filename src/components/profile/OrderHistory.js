@@ -4,6 +4,7 @@ import Axios from 'axios'
 import { connect } from 'react-redux';
 import { priceCal, priceFormat } from '../../util/helper';
 import dateFormat from 'dateformat';
+import Moment from 'react-moment';
 
 
 class OrderHistory extends Component {
@@ -40,7 +41,9 @@ class OrderHistory extends Component {
                                 <div className="card faq-inner-content" key={sale.id + '-' + index}>
                                     <div className="card-header faq-heading" id="headingOne">
                                         <a data-toggle="collapse" className={index !== 0 ? "collapsed" : ''} data-target={`#collapseOne-${sale.id}`} href="#blank" aria-expanded="true" aria-controls={`collapseOne-${sale.id}`}>
-                                            {sale.invoice} | {dateFormat(sale.created_at, "dd-mm-yyyy")} | <i className="fa fa-download" onClick={() => this.downloadPdf(sale.invoice)} />
+                                            {sale.invoice} | <Moment format="D MMM YYYY" withTitle>
+                                                {sale.created_at}
+                                            </Moment> | <i className="fa fa-download" onClick={() => this.downloadPdf(sale.invoice)} />
                                         </a>
                                     </div>
                                     <div id={`collapseOne-${sale.id}`} className={index === 0 ? "collapse show" : "collapse"} aria-labelledby="headingOne" data-parent="#accordionExample">
