@@ -80,18 +80,18 @@ class Direction extends React.Component {
                                         />
                                         <Link to="#blank" className="clock-direction" onClick={() => this.setState({ isModalOpenPark: true })}>
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 99 99"  space="preserve">
-<g>
-	<circle id="Ellipse_19" className="st0" cx="49.5" cy="49.5" r="49.5"/>
-	<path id="Union_1" className="st1" d="M48.8,51.7L48.8,51.7z"/>
-	<g>
-		<path className="st2" d="M49,23c-14.3,0-26,11.7-26,26c0,14.3,11.7,26,26,26c14.3,0,26-11.7,26-26C75,34.7,63.3,23,49,23z M49,71
+                                                viewBox="0 0 99 99" space="preserve">
+                                                <g>
+                                                    <circle id="Ellipse_19" className="st0" cx="49.5" cy="49.5" r="49.5" />
+                                                    <path id="Union_1" className="st1" d="M48.8,51.7L48.8,51.7z" />
+                                                    <g>
+                                                        <path className="st2" d="M49,23c-14.3,0-26,11.7-26,26c0,14.3,11.7,26,26,26c14.3,0,26-11.7,26-26C75,34.7,63.3,23,49,23z M49,71
 			c-12.1,0-22-9.9-22-22s9.9-22,22-22s22,9.9,22,22S61.1,71,49,71z"/>
-		<path className="st2" d="M64.8,49.7h-14v-14c0-1.1-0.9-2-2-2s-2,0.9-2,2v16c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2S65.9,49.7,64.8,49.7z"
-			/>
-	</g>
-</g>
-</svg>
+                                                        <path className="st2" d="M64.8,49.7h-14v-14c0-1.1-0.9-2-2-2s-2,0.9-2,2v16c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2S65.9,49.7,64.8,49.7z"
+                                                        />
+                                                    </g>
+                                                </g>
+                                            </svg>
 
 
 

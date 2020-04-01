@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { storeSubscribe } from '../../store/actions/commonActions';
+import Axios from 'axios';
+import { API_URL } from './../../store/actions/types';
+
 
 class Newsletter extends React.Component {
     state = {
-        email: ''
+        email: '',
+        message: null,
+        status: 0
     }
     changeHandler = event => {
         this.setState({
@@ -14,19 +19,21 @@ class Newsletter extends React.Component {
     submitHandler = event => {
         event.preventDefault()
         let { email } = this.state
-        if (!email) {
-            alert('Provide your email address')
-        } else {
-            this.props.storeSubscribe({ email })
-            setTimeout(() => {
+        this.setState({
+            status: 1
+        })
+        Axios.post(`${API_URL}api/subscribe`, { email })
+            .then(res => {
                 this.setState({
-                    email: ''
+                    status: res.data.status,
+                    message: res.data.message,
+                    email: res.data.status === 3 ? '' : email
                 })
-            }, 1500)
-        }
+            })
+            .catch(err => console.log(err))
     }
     render() {
-        let { email } = this.state
+        let { email, message, status } = this.state
         return (
             <section className="newsletter-area section-padding background-section">
                 <div className="container">
@@ -42,16 +49,20 @@ class Newsletter extends React.Component {
                                             type="email"
                                             name="email"
                                             required
+                                            autoComplete="off"
                                             value={email}
                                             onChange={this.changeHandler}
                                             className="form-control fanstasy-input-field"
                                             placeholder="Enter your email address"
                                         />
                                         <div className="submit-btn-field">
-                                            <button type="submit" className={email ? "submit-btn" : "submit-btn"} disabled={!email}>Subscribe</button>
+                                            <button type="submit" className="submit-btn" disabled={!email && status !== 1}>Subscribe</button>
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                            <div className="short-section-title text-center">
+                                {message && <h5 className="text-white mb-3">{message}</h5>}
                             </div>
                         </div>
                     </div>

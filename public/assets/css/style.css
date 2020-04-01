@@ -808,6 +808,19 @@ span.signup-btn:hover {
     color: #E50019 !important;
 }
 
+a.sign-in-btn {
+    background: #E50019 !important;
+    color: #fff !important;
+    padding: 5px 12px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    margin: 0 15px;
+}
+
+a.sign-in-btn:hover {
+    opacity: .7;
+}
+
 .modal {
     z-index: 9999999999;
     top: 50%;
@@ -2163,6 +2176,7 @@ a.deals-shape-btn {
 
 .single-news {
     position: relative;
+    padding: 10px;
 }
 
 .newshap {
@@ -2190,7 +2204,7 @@ a.deals-shape-btn {
 }
 
 .latest-news-content {
-    padding: 23px 32px;
+    padding: 10px;
     background: #F1F1F1;
     transition: all .3s linear;
 }
@@ -5067,4 +5081,23 @@ figure:hover img {
 
 .st2 {
     fill: #E50019;
+}
+
+/* .bg-gallery-area {
+    width: 100%;
+    height: 100%;
+} */
+
+i.input-value-up-arrow {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    font-size: 20px;
+}
+
+i.input-value-down-arrow {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 20px;
 }

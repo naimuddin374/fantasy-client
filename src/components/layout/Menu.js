@@ -7,10 +7,13 @@ import { DISCOUNT_TAG } from '../../store/actions/types';
 import $ from 'jquery';
 
 
-
 class Menu extends React.Component {
-    state = {
-        stickyClass: 'rox-header-menu header-sticky',
+    constructor(props) {
+        super(props);
+        this.state = {
+            stickyClass: 'rox-header-menu header-sticky',
+            currentURL: props.history.location.pathname
+        }
     }
     componentDidMount() {
         // sticky header
@@ -24,9 +27,6 @@ class Menu extends React.Component {
                 header.addClass("sticky");
             }
         });
-
-
-
 
 
         if ($(window).width() < 991) {
@@ -45,10 +45,8 @@ class Menu extends React.Component {
                 $("#main-menu").toggle('slow');
             });
         }
-
-
     }
-    handleScroll = (event) => {
+    handleScroll = event => {
         if (window.pageYOffset > 120) {
             this.setState({
                 stickyClass: 'rox-header-menu header-sticky sticky'
@@ -60,6 +58,7 @@ class Menu extends React.Component {
         }
     }
     render() {
+        let { currentURL } = this.state
         return (
             <React.Fragment>
                 <nav
@@ -130,9 +129,11 @@ class Menu extends React.Component {
                                     {this.props.auth.isAuth ?
                                         <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
                                         : <span>
-                                            <Link to={`${process.env.PUBLIC_URL}/register`} className="signup-btn">Create Account</Link>
-                                            <span> | </span>
-                                            <Link to={`${process.env.PUBLIC_URL}/login`} className="signup-btn">Sign In</Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/register`} className={currentURL === "/register" ? "sign-in-btn" : "signup-btn"} onClick={() => this.setState({ currentURL: "/register" })} >Signup</Link>
+
+                                            <Link to={`${process.env.PUBLIC_URL}/login`} className={currentURL === "/login" ? "sign-in-btn" : "signup-btn"} onClick={() => this.setState({ currentURL: "/login" })}>
+                                                Sign In
+                                            </Link>
                                         </span>
                                     }
                                 </li>

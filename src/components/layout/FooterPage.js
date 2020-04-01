@@ -13,7 +13,7 @@ class FooterPage extends React.Component {
 
                                 <li><a target="_blank" href="https://www.facebook.com/FantasyKingdomHQ" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
 
-                                <li><a target="_blank" href="https://instagram.com/fantasykingdom_" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/fantasykingdomhq/" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a></li>
 
                                 <li><a target="_blank" href="https://www.youtube.com/channel/UC3WC5sY2ez7RirsuyRM2zxQ" rel="noopener noreferrer"><i className="fa fa-youtube-play"></i></a></li>
 
@@ -23,7 +23,7 @@ class FooterPage extends React.Component {
                             <div className="col-lg-5 col-md-5">
                                 <div className="widget-wrapper">
                                     <div className="widget-content">
-                                        <img src={`${process.env.PUBLIC_URL}/assets/images/footerlogo.png`} alt="logo" />
+                                        <img src={`${process.env.PUBLIC_URL}/assets/images/fantasy-logo-white.png`} alt="logo" />
                                         <p>Based in Ashulia, Fantasy Kingdom is the first theme park in Bangladesh. The park is only a 20 minutes car ride away from Hazrat Shahjalal International Airport.</p>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@ class FooterPage extends React.Component {
                                                     <i className="fa fa-phone"></i>
                                                 </div>
                                                 <div className="icon-text">
-                                                    <p>09612-002020</p>
+                                                    <p><a className="text-white" href="tel:09612-002020">09612-002020</a></p>
                                                 </div>
                                             </li>
                                             <li>
@@ -46,7 +46,7 @@ class FooterPage extends React.Component {
                                                     <i className="fa fa-envelope-o" aria-hidden="true"></i>
                                                 </div>
                                                 <div className="icon-text">
-                                                    <p>info@concord.com.bd</p>
+                                                    <p><a href="mailto:info@fantasykingdom.net" className="text-white">info@fantasykingdom.net</a></p>
                                                 </div>
                                             </li>
                                             <li>

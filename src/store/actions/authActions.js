@@ -46,7 +46,7 @@ export const Login = (data, history) => dispatch => {
     let carts = store.getState().cart
     let cartRide = false
     let cartRoom = false
-    if (Object.keys(carts).length !== 0) {
+    if (Object.keys(carts.rides).length !== 0) {
         let cartRides = carts.rides.filter(item => item.isInCart)
         if (Object.keys(cartRides).length !== 0) {
             cartRide = true

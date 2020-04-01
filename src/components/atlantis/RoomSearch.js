@@ -7,8 +7,8 @@ import { searchRoom } from '../../store/actions/roomActions'
 
 class RoomSearch extends React.Component {
     state = {
-        checkIn: new Date('2019-12-21'),
-        checkOut: new Date('2019-12-24'),
+        checkIn: null,
+        checkOut: null,
         no_of_room: 1,
         no_of_guest: 2,
     }
@@ -38,9 +38,14 @@ class RoomSearch extends React.Component {
         let days = Math.floor(res / 86400);
         this.props.searchRoom({ check_in, check_out, no_of_room, no_of_guest, totalDay: days })
     }
+    datediff = (first, second) => {
+        return Math.round((second - first) / (1000 * 60 * 60 * 24));
+    }
     render() {
         let { checkIn, checkOut, no_of_room, no_of_guest } = this.state
-        let isDone = checkIn && checkOut && no_of_room && no_of_guest
+        let totalDay = this.datediff(checkIn, checkOut)
+        let isDone = checkIn && checkOut && no_of_room > 0 && no_of_guest > 0 && totalDay > 0
+        console.log(no_of_room)
         return (
             <section className="breadcrum-area atlantis-feature-img relative atlantis-breadcrumb-area">
                 <div className="breadcrum-feature-overlay"></div>
@@ -63,6 +68,8 @@ class RoomSearch extends React.Component {
                                                 placeholder="Check In Date"
                                                 selected={checkIn}
                                                 onChange={this.checkInHandleChange}
+                                                dateFormat="dd MMMM yyyy"
+                                                autoComplete="off"
                                             />
                                         </div>
                                         <div className="col-md-3 no-margin-res">
@@ -75,28 +82,42 @@ class RoomSearch extends React.Component {
                                                 selected={checkOut}
                                                 minDate={checkIn}
                                                 onChange={this.checkOutHandleChange}
+                                                dateFormat="dd MMMM yyyy"
+                                                autoComplete="off"
                                             />
                                         </div>
                                         <div className="col-md-2 no-margin-res">
                                             <label htmlFor="no_of_room">Room: </label>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 className="form-control"
                                                 id="no_of_room"
                                                 name="no_of_room"
                                                 value={no_of_room}
                                                 onChange={this.changeHandler}
                                             />
+                                            <i className="fa fa-sort-up input-value-up-arrow"
+                                                onClick={() => this.setState({ no_of_room: no_of_room + 1 })}
+                                            />
+                                            <i className="fa fa-sort-down input-value-down-arrow"
+                                                onClick={() => this.setState({ no_of_room: no_of_room - 1 })}
+                                            />
                                         </div>
                                         <div className="col-md-2 no-margin-res">
                                             <label htmlFor="no_of_guest">Adult: </label>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 className="form-control"
                                                 id="no_of_guest"
                                                 name="no_of_guest"
                                                 value={no_of_guest}
                                                 onChange={this.changeHandler}
+                                            />
+                                            <i className="fa fa-sort-up input-value-up-arrow"
+                                                onClick={() => this.setState({ no_of_guest: no_of_guest + 1 })}
+                                            />
+                                            <i className="fa fa-sort-down input-value-down-arrow"
+                                                onClick={() => this.setState({ no_of_guest: no_of_guest - 1 })}
                                             />
                                         </div>
                                         <div className="col-md-2 room-search-btn-atlantics" style={{ top: "36px" }}>

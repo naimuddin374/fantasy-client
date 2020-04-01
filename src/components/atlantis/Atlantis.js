@@ -32,6 +32,9 @@ class Atlantis extends React.Component {
     }
     static getDerivedStateFromProps(nextProps, prevState) {
         if ((JSON.stringify(nextProps.room.searchData) === JSON.stringify(prevState.searchData)) && (JSON.stringify(nextProps.room.rooms) === JSON.stringify(prevState.rooms))) return null
+        if (Object.keys(nextProps.room.rooms).length === 0) {
+            window.scrollTo(0, 0)
+        }
         return {
             rooms: nextProps.room.rooms,
             searchData: nextProps.room.searchData,
@@ -42,7 +45,7 @@ class Atlantis extends React.Component {
         window.scrollTo(0, 0)
     }
     searchHandler = () => {
-        window.scrollTo(0, 1200)
+        window.scrollTo(0, 600)
     }
     render() {
         let { rooms, loading, searchData } = this.state
@@ -50,11 +53,11 @@ class Atlantis extends React.Component {
             <div>
                 <RoomSearch searchHandler={this.searchHandler} />
                 {/* <InnerSearch className="atlantis" /> */}
-                <PageContent />
+                {Object.keys(rooms).length !== 0 && <PageContent />}
                 {loading ? <Loading /> :
-                    Object.keys(rooms).length === 0 ? <div className="row mb-5">
-                        <div className="col-md-6 offset-3">
-                            <h1>No room available right now.</h1>
+                    Object.keys(rooms).length === 0 ? <div className="row my-5">
+                        <div className="col-md-12 text-center">
+                            <h3>No room available right now.</h3>
                         </div>
                     </div>
                         : <section className="atlantis-room-suites section-padding-bottom relative">

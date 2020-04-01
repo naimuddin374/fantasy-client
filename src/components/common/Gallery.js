@@ -33,6 +33,7 @@ class Gallery extends React.Component {
                     })
                 }
             })
+        window.scrollTo(0, 0)
     }
     render() {
         function SliderPrevArrow(props) {
@@ -82,39 +83,39 @@ class Gallery extends React.Component {
             <section className="fantasy-gallery-area section-padding">
 
                 {Object.keys(images).length !== 0 &&
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className={`section-title-small-text ${className}-section-title-small-text fantasy-photo-gallery mb-40`} id="all-parks-photo-gallery">
-                                <h2 className="ml-2">Photo Gallery</h2>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className={`section-title-small-text ${className}-section-title-small-text fantasy-photo-gallery mb-40`} id="all-parks-photo-gallery">
+                                    <h2 className="ml-2">Photo Gallery</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="fantasy-gallery-slider2">
-                        {loading ? <Loading /> :
-                            <Slider {...settings}>
-                                {images.map((item, index) => (
+                        <div className="fantasy-gallery-slider2">
+                            {loading ? <Loading /> :
+                                <Slider {...settings}>
+                                    {images.map((item, index) =>
                                         <div className="col-md-12" key={item + '.' + index}>
                                             <span className="project-gallery popup link-btn" onClick={() => this.setState({ photoIndex: index, isOpen: true })}>
                                                 <img src={API_URL + item.image} alt="gallery" />
                                             </span>
                                         </div>
-                                    ))
-                                }
-                            </Slider>}
-                    </div>
+                                    )}
+                                </Slider>}
+                        </div>
 
-                    {isOpen && (
-                        <Lightbox
-                            mainSrc={imageSrc[photoIndex]}
-                            nextSrc={imageSrc[(photoIndex + 1) % imageSrc.length]}
-                            prevSrc={imageSrc[(photoIndex + imageSrc.length - 1) % imageSrc.length]}
-                            onCloseRequest={() => this.setState({ isOpen: false })}
-                            onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + imageSrc.length - 1) % imageSrc.length })}
-                            onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % imageSrc.length })}
-                        />
-                    )}
-                </div>}
+                        {isOpen &&
+                            <Lightbox
+                                wrapperClassName="bg-gallery-area"
+                                mainSrc={imageSrc[photoIndex]}
+                                nextSrc={imageSrc[(photoIndex + 1) % imageSrc.length]}
+                                prevSrc={imageSrc[(photoIndex + imageSrc.length - 1) % imageSrc.length]}
+                                onCloseRequest={() => this.setState({ isOpen: false })}
+                                onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + imageSrc.length - 1) % imageSrc.length })}
+                                onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % imageSrc.length })}
+                            />
+                        }
+                    </div>}
             </section>
         )
     }

@@ -32,7 +32,7 @@ class Checkout extends React.Component {
             this.setState({
                 termsAdnConditions: false
             })
-        }, 5000)
+        }, 10000)
     }
     render() {
         if (!this.state.auth.isAuth) {
@@ -145,9 +145,9 @@ class Checkout extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="order-account-accept text-center pt-3">	<span style={{ marginRight: "15px" }}>We accept</span>
-                                        <span style={{ marginRight: "15px" }}><img src="./assets/images/payment/visa.png" alt="visa card" /></span>
-                                        <span><img src="./assets/images/payment/mastercard.png" alt="master card" /></span>
+                                    <div className="order-account-accept text-center pt-3">	<span>We accept</span>
+                                        <span style={{ marginRight: "15px" }}><img src="./assets/images/payment/bkash.svg" alt="visa card" width="50" /></span>
+                                        {/* <span><img src="./assets/images/payment/mastercard.png" alt="master card" /></span> */}
                                     </div>
                                 </div>
                             </div>

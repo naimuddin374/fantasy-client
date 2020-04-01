@@ -22,7 +22,8 @@ class PriceBoard extends React.Component {
         })
     }
     render() {
-        let { price, vat, discount, service_charge, no_of_room } = this.props.data
+        let { data, searchData } = this.props
+        let { price, vat, discount, service_charge, no_of_room } = data
         let totalDay = 0
         let totalRoom = 1
         if (this.props.searchData.totalDay) {
@@ -31,6 +32,14 @@ class PriceBoard extends React.Component {
         if (this.props.searchData.no_of_room) {
             totalRoom = this.props.searchData.no_of_room
         }
+        if (Object.keys(searchData).length !== 0) {
+            let no_of_guest = Number(searchData.no_of_guest)
+            if (no_of_guest > 2) {
+                no_of_guest = no_of_guest - 2
+                price = price + (no_of_guest * 1300)
+            }
+        }
+
         return (
             <div className="col-lg-4 col-md-4">
                 <div className="atlantis-booking-ticket-area">

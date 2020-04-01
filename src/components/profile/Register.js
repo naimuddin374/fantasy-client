@@ -33,7 +33,7 @@ class Register extends React.Component {
     }
     render() {
         let { full_name, contact_no, email, password, address, gender, age, validation } = this.state
-        let isDone = full_name && contact_no && password && gender
+        let isDone = full_name && email && contact_no && password && gender
         return (
             <section className="section-padding">
                 <div className="container">
@@ -73,7 +73,7 @@ class Register extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="contact_no">Connect Number <span className="text-danger">*</span></label>
+                                    <label htmlFor="contact_no">Contact Number <span className="text-danger">*</span></label>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -87,7 +87,7 @@ class Register extends React.Component {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="emailAddress">Email Address</label>
+                                    <label htmlFor="emailAddress">Email Address <span className="text-danger">*</span></label>
                                     <input
                                         type="email"
                                         className="form-control"

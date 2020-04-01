@@ -12,7 +12,7 @@ class ParkHour extends React.Component {
                 right: 'auto',
                 bottom: 'auto',
                 marginRight: '-50%',
-                width: "40%",
+                width: "50%",
                 transform: 'translate(-50%, -50%)',
                 color: "#000",
                 border: "none",
@@ -35,11 +35,39 @@ class ParkHour extends React.Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <h4>Fantasy Kingdom is open all throughout the week.</h4>
-                                <p>
+                                <div className="row mt-5">
+                                    <div className="col-lg-7">Saturday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Sunday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Monday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Tuesday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Wednesday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Thursday</div>
+                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-lg-7">Fridays and Other Government Holidays</div>
+                                    <div className="col-lg-5">10:30 AM to 7:30 PM</div>
+                                </div>
+
+                                {/* <p>
                                     From Saturday through Thursday the parks are open from 11:00 AM to 7:30 PM <br />
                                     On Fridays and other Government holidays the parks are open from 10:30 AM to 7:30 PM
-                                    </p>
-
+                                    </p> */}
                             </div>
                         </div>
                     </div>
