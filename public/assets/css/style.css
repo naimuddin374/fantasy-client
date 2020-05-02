@@ -1235,6 +1235,7 @@ li#signInIdIcon {
 .hero-slider-content {
     position: relative;
     z-index: 1;
+    top: 60%;
 }
 
 .slide-title {
@@ -2099,7 +2100,7 @@ section.linked-area.section-padding.buy-ticket-overlay.magic-overlay.magic-pictu
 }
 
 .deails-img {
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 a.deals-shape-btn {
@@ -4622,7 +4623,8 @@ button.atlantis-book-now-btn.btn {
 }
 
 .disable-btn {
-    background: #4E4E4E !important;
+    /* background: #4E4E4E !important; */
+    background: #eb7500 !important;
     color: #fff !important;
     padding: 7px 23px;
     text-align: center;
@@ -4742,6 +4744,8 @@ h5.modal-title.ticekt-modal-title {
     border-radius: 20px !important;
     /* padding: 30px 25px; */
     padding: 0 !important;
+    /* width: 100% !important;
+    height: 100% !important; */
 }
 
 .ReactModal__Content--after-open {}
@@ -4890,12 +4894,13 @@ button.link-btn i {
     right: 100px !important;
     height: 31px;
     width: 40px;
-    top: -30px;
+    top: -38px !important;
     left: auto;
     background: transparent;
     padding: 3px 29px;
     font-size: 20px;
     transition: all .3s linear;
+    margin-right: -30px;
 }
 
 .main-div .slick-next {
@@ -4903,7 +4908,7 @@ button.link-btn i {
     height: 31px;
     width: 40px;
     background: orange;
-    top: -30px;
+    top: -38px !important;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -4912,6 +4917,7 @@ button.link-btn i {
     padding: 3px 29px;
     font-size: 20px;
     transition: all .3s linear;
+    margin: 0 5px;
 }
 
 .main-div .slick-prev:hover,
@@ -5090,22 +5096,42 @@ figure:hover img {
 
 i.input-value-up-arrow {
     position: absolute;
-    right: 0;
-    top: 40px;
+    right: 5%;
+    top: 38px;
     font-size: 20px;
 }
 
 i.input-value-down-arrow {
     position: absolute;
-    right: 0;
-    bottom: 10px;
+    right: 5%;
+    bottom: 5px;
     font-size: 20px;
 }
 
 .home-news-events-area .slick-prev {
-    top: -15px !important;
+    top: -38px !important;
+    margin-right: -30px;
 }
 
 .home-news-events-area .slick-next {
-    top: -15px !important;
+    top: -38px !important;
+    margin: 0 5px;
+}
+
+.image-gallery .ReactModal__Content.ReactModal__Content--after-open {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.form-width-90 {
+    width: 90%;
+}
+
+.display-none-menu {
+    display: none;
+}
+
+.offer-price {
+    font-size: 20px;
 }

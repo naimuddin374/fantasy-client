@@ -9,10 +9,15 @@ import Ticket from './Ticket'
 import Newsletter from './Newsletter'
 import NewsEvents from './NewsEvents'
 import Award from './Award'
+import $ from 'jquery';
+
 
 class HomePage extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
+        if (window.innerWidth < 980) {
+            $("#main-menu").hide('slow');
+        }
     }
     render() {
         return (

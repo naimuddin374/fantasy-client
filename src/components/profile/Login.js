@@ -2,13 +2,16 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { Login, logout } from '../../store/actions/authActions'
 import { connect } from 'react-redux';
+import FacebookLogin from 'react-facebook-login';
+
+
 
 class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            contact_no: '01688554455',
-            password: '123',
+            contact_no: '',
+            password: '',
         }
     }
     changeHandler = event => {
@@ -23,6 +26,11 @@ class Register extends Component {
     render() {
         let { contact_no, password } = this.state
         let isDone = contact_no && password
+
+
+        const responseFacebook = (response) => {
+            console.log(response);
+        }
         return (
             <Fragment>
                 <section className="section-padding">
@@ -79,12 +87,20 @@ class Register extends Component {
                                         }
                                     </div>
                                 </form>
+                                {/* <br />
+                                <FacebookLogin
+                                    appId="542058643407302" //APP ID NOT CREATED YET
+                                    fields="name,email,picture"
+                                    callback={responseFacebook}
+                                />
+                                <br /> */}
+
                                 <div className="row">
-                                    <div className="col-lg-6">
+                                    {/* <div className="col-lg-6">
                                         Don't have an account? <Link to={`${process.env.PUBLIC_URL}/register`}> Sign up </Link>
-                                    </div>
+                                    </div> */}
                                     <div className="col-lg-6">
-                                        <Link className="float-right" to={`${process.env.PUBLIC_URL}/forgot-password`}> Forgotten password? </Link>
+                                        <Link className="float-left" to={`${process.env.PUBLIC_URL}/forgot-password`}> Forgotten password? </Link>
                                     </div>
                                 </div>
                             </div>

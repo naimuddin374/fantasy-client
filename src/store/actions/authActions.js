@@ -4,7 +4,7 @@ import store from '../index';
 
 // Registration 
 export const Registration = (data, history) => dispatch => {
-    Axios.post(`${API_URL}api/register`, data)
+    Axios.post(`${API_URL}api/registration`, data)
         .then(res => {
             dispatch({
                 type: SET_VALIDATION,
@@ -22,7 +22,8 @@ export const Registration = (data, history) => dispatch => {
             history.push(`${process.env.PUBLIC_URL}/login`)
         })
         .catch(err => {
-            if (err.response.data.validation) {
+            console.log('ERROR', err.response)
+            if (err.response) {
                 dispatch({
                     type: SET_VALIDATION,
                     payload: {
@@ -33,7 +34,7 @@ export const Registration = (data, history) => dispatch => {
             dispatch({
                 type: SET_MESSAGE,
                 payload: {
-                    message: err.response.data.message,
+                    message: err.response && err.response.data.message,
                     type: 'error',
                 }
             })
@@ -80,7 +81,7 @@ export const Login = (data, history) => dispatch => {
             dispatch({
                 type: SET_MESSAGE,
                 payload: {
-                    message: err.response.data.message,
+                    message: err.response && err.response.data.message,
                     type: 'error',
                 }
             })

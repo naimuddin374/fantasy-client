@@ -34,7 +34,7 @@ class HelpLine extends React.Component {
                     <div className="modal-body ticket-body-modal-content">
                         <div className="row">
                             <div className="col-lg-12">
-                                <h4>E-Mail: <a href="tel:09612-002020">09612-002020</a></h4>
+                                <h4>Phone: <a href="tel:09612-002020">09612-002020</a></h4>
                                 <h4>E-Mail: <a href="mailto:tajul5217@concordgroupbd.com">tajul5217@concordgroupbd.com</a></h4>
                             </div>
                         </div>

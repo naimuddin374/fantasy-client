@@ -28,11 +28,6 @@ class Checkout extends React.Component {
         this.setState({
             termsAdnConditions: false
         })
-        setTimeout(() => {
-            this.setState({
-                termsAdnConditions: false
-            })
-        }, 10000)
     }
     render() {
         if (!this.state.auth.isAuth) {
@@ -134,21 +129,25 @@ class Checkout extends React.Component {
                                                 checked={termsAdnConditions}
                                                 onChange={() => this.setState({ termsAdnConditions: !termsAdnConditions })}
                                             /><label htmlFor="termsConditions">Terms & Conditions</label>
-                                            <br />
+                                            <h4>Pay With</h4>
                                             <div className="checkbox-pay-btn-content mt-3">
                                                 {termsAdnConditions ?
+                                                    <img src="./assets/images/payment/bkash.svg" className="link-btn" title="Pay With Bkash" alt="Pay With Bkash" onClick={this.payHandler} width="100" /> :
+                                                    <img src="./assets/images/payment/bkash.svg" alt="Pay With Bkash" title="Pay With Bkash" width="100" />
+                                                }
+                                                {/* {termsAdnConditions ?
                                                     <button type="submit" className="primary-btn full-width" onClick={this.payHandler}> <i className="fa fa-check mr-2" aria-hidden="true" />
                                                         Pay</button> :
                                                     <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
                                                         Pay</button>
-                                                }
+                                                } */}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="order-account-accept text-center pt-3">	<span>We accept</span>
+                                    {/* <div className="order-account-accept text-center pt-3">	<span>We accept</span>
                                         <span style={{ marginRight: "15px" }}><img src="./assets/images/payment/bkash.svg" alt="visa card" width="50" /></span>
-                                        {/* <span><img src="./assets/images/payment/mastercard.png" alt="master card" /></span> */}
-                                    </div>
+                                        <span><img src="./assets/images/payment/mastercard.png" alt="master card" /></span>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

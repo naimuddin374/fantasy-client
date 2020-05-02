@@ -23,6 +23,7 @@ class RoomSearch extends React.Component {
         });
     }
     changeHandler = event => {
+        if ((event.target.name === "no_of_room" || event.target.name === "no_of_guest") && event.target.value < 1) return false
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -45,7 +46,6 @@ class RoomSearch extends React.Component {
         let { checkIn, checkOut, no_of_room, no_of_guest } = this.state
         let totalDay = this.datediff(checkIn, checkOut)
         let isDone = checkIn && checkOut && no_of_room > 0 && no_of_guest > 0 && totalDay > 0
-        console.log(no_of_room)
         return (
             <section className="breadcrum-area atlantis-feature-img relative atlantis-breadcrumb-area">
                 <div className="breadcrum-feature-overlay"></div>
@@ -90,34 +90,36 @@ class RoomSearch extends React.Component {
                                             <label htmlFor="no_of_room">Room: </label>
                                             <input
                                                 type="number"
-                                                className="form-control"
+                                                className="form-control form-width-90"
                                                 id="no_of_room"
                                                 name="no_of_room"
                                                 value={no_of_room}
                                                 onChange={this.changeHandler}
+                                                min="1"
                                             />
                                             <i className="fa fa-sort-up input-value-up-arrow"
                                                 onClick={() => this.setState({ no_of_room: no_of_room + 1 })}
                                             />
                                             <i className="fa fa-sort-down input-value-down-arrow"
-                                                onClick={() => this.setState({ no_of_room: no_of_room - 1 })}
+                                                onClick={() => no_of_room > 1 && this.setState({ no_of_room: no_of_room - 1 })}
                                             />
                                         </div>
                                         <div className="col-md-2 no-margin-res">
                                             <label htmlFor="no_of_guest">Adult: </label>
                                             <input
                                                 type="number"
-                                                className="form-control"
+                                                className="form-control form-width-90"
                                                 id="no_of_guest"
                                                 name="no_of_guest"
                                                 value={no_of_guest}
                                                 onChange={this.changeHandler}
+                                                min="1"
                                             />
                                             <i className="fa fa-sort-up input-value-up-arrow"
                                                 onClick={() => this.setState({ no_of_guest: no_of_guest + 1 })}
                                             />
                                             <i className="fa fa-sort-down input-value-down-arrow"
-                                                onClick={() => this.setState({ no_of_guest: no_of_guest - 1 })}
+                                                onClick={() => no_of_guest > 1 && this.setState({ no_of_guest: no_of_guest - 1 })}
                                             />
                                         </div>
                                         <div className="col-md-2 room-search-btn-atlantics" style={{ top: "36px" }}>

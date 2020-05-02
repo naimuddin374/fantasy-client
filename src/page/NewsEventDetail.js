@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import Moment from 'react-moment';
-import { textLimit } from './../util/helper';
+// import { textLimit } from './../util/helper';
 import { API_URL } from './../store/actions/types';
+import $ from 'jquery';
 
 class NewsEventDetail extends Component {
     state = {
@@ -21,6 +22,10 @@ class NewsEventDetail extends Component {
         window.scrollTo(0, 0)
     }
     componentDidMount() {
+        if (window.innerWidth < 980) {
+            $("#main-menu").hide('slow');
+        }
+
         Axios.get(`${API_URL}api/news-event/detail/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
@@ -43,8 +48,10 @@ class NewsEventDetail extends Component {
                                         <div className="blog-details-page-inner-content" key={item.id}>
                                             <div className="single-news single-page-blog-image text-center">
                                                 <img className="top-left-right-radius" src={item.cover_image ? API_URL + item.cover_image : API_URL + item.image} alt="news" />
-                                                <div className="blog-details-content pt-4">
-                                                    <span>{item.created_at}</span>
+                                                <div className="blog-details-content pt-4 text-left">
+                                                    <Moment format="D MMM YYYY" withTitle>
+                                                        {item.created_at}
+                                                    </Moment>
                                                     <h3 className="pb-3">{item.title}</h3>
                                                     <p>{item.description}</p>
                                                 </div>

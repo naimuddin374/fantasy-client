@@ -18,7 +18,6 @@ class Atlantis extends React.Component {
         loading: true,
     }
     componentDidMount() {
-        window.scrollTo(0, 0)
         this.setState({
             loading: true
         })
@@ -29,6 +28,7 @@ class Atlantis extends React.Component {
                     loading: false
                 })
             })
+        window.scrollTo(0, 0)
     }
     static getDerivedStateFromProps(nextProps, prevState) {
         if ((JSON.stringify(nextProps.room.searchData) === JSON.stringify(prevState.searchData)) && (JSON.stringify(nextProps.room.rooms) === JSON.stringify(prevState.rooms))) return null

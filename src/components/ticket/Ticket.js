@@ -26,9 +26,11 @@ class Ticket extends React.Component {
                         allItem = res.data.filter(item => item.id !== Number(paramId))
 
                         // Add default in cart
-                        selItem[0].isInCart = true
-                        selItem[0].quantity = 1
-                        allItem.unshift(...selItem)
+                        if (Object.keys(selItem).length !== 0) {
+                            selItem[0].isInCart = true
+                            selItem[0].quantity = 1
+                            allItem.unshift(...selItem)
+                        }
                     } else {
                         allItem = res.data
                     }

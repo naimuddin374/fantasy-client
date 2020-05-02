@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Registration } from '../../store/actions/authActions'
 import { connect } from 'react-redux';
 
@@ -22,6 +21,11 @@ class Register extends React.Component {
     }
     submitHandler = event => {
         event.preventDefault()
+        let { contact_no } = this.state
+        if (contact_no.length !== 11) {
+            alert('Phone number should be 11 digit')
+            return;
+        }
         this.props.Registration(this.state, this.props.history)
     }
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -181,11 +185,11 @@ class Register extends React.Component {
                                     }
                                 </div>
                             </form>
-                            <div className="row">
+                            {/* <div className="row">
                                 <div className="col-lg-12">
                                     Already have an account <Link to={`${process.env.PUBLIC_URL}/login`}>Sign In</Link>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

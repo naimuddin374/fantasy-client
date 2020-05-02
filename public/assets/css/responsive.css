@@ -544,7 +544,7 @@
                 }
 
                 .rox-dropdown-menu {
-                    background-color: #0C1923 !important;
+                    background-color: #fafafa !important;
                 }
 
                 ul#main-menu li {
@@ -1466,13 +1466,17 @@
 
                 .discover-area .slick-next.fantasy-gallery-next {
                     bottom: -47px !important;
-                    left: 50% !important;
+                    left: 60% !important;
                     transform: translateX(-50%) !important;
                     top: auto !important;
                 }
 
                 .discover-area .slick-prev {
-                    display: none !important;
+                    display: block;
+                    bottom: -47px !important;
+                    left: 30% !important;
+                    transform: translateX(-50%) !important;
+                    top: auto !important;
                 }
 
                 .newletterfom-field>input {
@@ -1597,11 +1601,11 @@
                 }
 
                 .fantasy-gallery-slider2 .slick-prev {
-                    display: none;
+                    /* display: none; */
                 }
 
                 .fantasy-gallery-slider2 .slick-slider .fantasy-gallery-next {
-                    right: 5px !important;
+                    right: 0px !important;
                     top: -36px;
                 }
 
@@ -1776,17 +1780,17 @@
 
                 /* menu responsive update */
                 li.megamenu>span {
-                    color: #fff;
+                    color: #000;
                     font-size: 14px;
                 }
 
                 a.single-park span {
-                    color: #fff;
+                    color: #000;
                     font-size: 13px;
                 }
 
                 a.single-park p {
-                    color: #fff;
+                    color: #000;
                     font-size: 13px;
                 }
 
@@ -1992,6 +1996,29 @@
 
                 .fantasy-faq {
                     margin-top: 100px;
+                }
+
+                .news-event-view-all {
+                    margin-top: 70px;
+                }
+
+                .experience-area {
+                    margin-top: 30px;
+                }
+
+                .arrow-bottom-section .slick-prev {
+                    display: block;
+                    bottom: -30px !important;
+                    left: 30% !important;
+                    transform: translateX(-50%) !important;
+                    top: auto !important;
+                }
+
+                .arrow-bottom-section .slick-next.fantasy-gallery-next {
+                    bottom: -30px !important;
+                    left: 60% !important;
+                    transform: translateX(-50%) !important;
+                    top: auto !important;
                 }
             }
 

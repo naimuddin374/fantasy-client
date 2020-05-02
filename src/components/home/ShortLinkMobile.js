@@ -10,7 +10,7 @@ class ShortLinkMobile extends Component {
             fade: false,
             speed: 1000,
             rows: 1,
-            dots: false,
+            dots: true,
             autoplay: false,
             arrows: false,
             slidesToShow: 5,

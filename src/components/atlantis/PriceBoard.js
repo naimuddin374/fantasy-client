@@ -36,7 +36,7 @@ class PriceBoard extends React.Component {
             let no_of_guest = Number(searchData.no_of_guest)
             if (no_of_guest > 2) {
                 no_of_guest = no_of_guest - 2
-                price = price + (no_of_guest * 1300)
+                price = Number(price) + (no_of_guest * 1300)
             }
         }
 

@@ -8,10 +8,16 @@ import Things from '../common/Things'
 import Slider from '../common/Slider'
 import InnerSearch from '../common/InnerSearch'
 import Video from '../common/Video'
+import $ from 'jquery';
+
+
 
 class HeritagePark extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
+        if (window.innerWidth < 980) {
+            $("#main-menu").hide('slow');
+        }
     }
     render() {
         return (

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { API_URL } from '../../store/actions/types'
 import Axios from 'axios'
 import { connect } from 'react-redux';
-import { priceCal, priceFormat } from '../../util/helper';
+import { priceFormat } from '../../util/helper';
 import dateFormat from 'dateformat';
 import Moment from 'react-moment';
 
@@ -27,7 +27,7 @@ class OrderHistory extends Component {
             .catch(err => console.log(err.response))
     }
     downloadPdf = invoice => {
-        window.location.href = `${API_URL}api/order-history-pdf/${invoice}`;
+        window.location.href = `${API_URL}api/download-mail-copy/${invoice}`;
     }
     render() {
         let { sales, salesDetails, rides, roomBooks } = this.state
@@ -73,7 +73,7 @@ class OrderHistory extends Component {
                                                                 Room: {room.no_of_room} <br />
                                                                 Person: {room.no_of_guest}
                                                             </div>
-                                                            <div className="col-md-2">{priceFormat(priceCal(room.price, (room.vat + room.service_charge), room.discount))}</div>
+                                                            <div className="col-md-2">{priceFormat(sDetail.price)}</div>
                                                         </div>
                                                     ))
                                             ))}

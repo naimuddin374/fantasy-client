@@ -31,6 +31,7 @@ import Maps from './fantasy-kingdom/Maps';
 import Test from '../page/Test';
 import PaymentSuccess from './checkout/PaymentSuccess';
 import PaymentFailed from './checkout/PaymentFailed';
+import TicketOffer from './offer/TicketOffer';
 
 
 class Routes extends React.Component {
@@ -40,6 +41,7 @@ class Routes extends React.Component {
                 <AlertMessage />
                 <Menu history={this.props.history} />
                 <Switch>
+                    <Route path={`${process.env.PUBLIC_URL}/offer`} component={TicketOffer} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/payment/success`} component={PaymentSuccess} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/payment/failed`} component={PaymentFailed} history={this.props.history} />
                     <Route path={`${process.env.PUBLIC_URL}/maps`} component={Maps} history={this.props.history} />

@@ -39,7 +39,7 @@ class Direction extends React.Component {
                                 </div>
                                 <div className="col-lg-3 col-md-3 direact-content-col">
                                     <div className="direction-content">
-                                        <a href="https://g.page/fantasy-kingdom-dhaka?share" target="_blank" rel="noopener noreferrer">
+                                        <a href="https://www.google.com/maps/place/Fantasy+Kingdom/@23.9360583,90.2899562,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c744fd8c1a35:0x7195e7f75f88f8b!8m2!3d23.9360583!4d90.2921449" target="_blank" rel="noopener noreferrer">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
                                                 <g id="Group_1293" data-name="Group 1293" transform="translate(-782 -2216)">
                                                     <circle id="Ellipse_17" data-name="Ellipse 17" cx="49.5" cy="49.5" r="49.5" transform="translate(782 2216)" fill="#f9f9f9" />

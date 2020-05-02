@@ -3,8 +3,9 @@ import Cart from './Cart';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { logout } from '../../store/actions/authActions'
-import { DISCOUNT_TAG } from '../../store/actions/types';
+// import { DISCOUNT_TAG } from '../../store/actions/types';
 import $ from 'jquery';
+
 
 
 class Menu extends React.Component {
@@ -12,7 +13,7 @@ class Menu extends React.Component {
         super(props);
         this.state = {
             stickyClass: 'rox-header-menu header-sticky',
-            currentURL: props.history.location.pathname
+            currentURL: props.history.location.pathname,
         }
     }
     componentDidMount() {
@@ -45,6 +46,15 @@ class Menu extends React.Component {
                 $("#main-menu").toggle('slow');
             });
         }
+
+        // setInterval(() => {
+        //     let { currentURL } = this.state
+        //     let url2 = window.location.href
+
+        //     if (currentURL !== url2) {
+        //         this.setState({ currentURL: url2 })
+        //     }
+        // }, 1500)
     }
     handleScroll = event => {
         if (window.pageYOffset > 120) {
@@ -120,7 +130,7 @@ class Menu extends React.Component {
                                 </li>
                                 <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/things-to-do`} className="nav-link sliding">Things To Do</Link></li>
                                 <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/atlantis`} className="nav-link sliding">Places to stay</Link></li>
-                                <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/ticket/${DISCOUNT_TAG}`} className="nav-link sliding">Offers</Link>
+                                <li className="nav-item sliding"> <Link to={`${process.env.PUBLIC_URL}/offer`} className="nav-link sliding">Offers</Link>
                                 </li>
                                 <li className="nav-item sliding"> <Link className="nav-link" to={`${process.env.PUBLIC_URL}/faq`}>FAQ</Link>
                                 </li>
@@ -129,9 +139,9 @@ class Menu extends React.Component {
                                     {this.props.auth.isAuth ?
                                         <span className="signup-btn link-btn" onClick={() => this.props.logout(this.props.history)} >Sign Out</span>
                                         : <span>
-                                            <Link to={`${process.env.PUBLIC_URL}/register`} className={currentURL === "/register" ? "sign-in-btn" : "signup-btn"} onClick={() => this.setState({ currentURL: "/register" })} >Signup</Link>
+                                            <Link to={`${process.env.PUBLIC_URL}/register`} onClick={() => this.setState({ currentURL: '/register' })} className={currentURL === `/register` ? "sign-in-btn" : "signup-btn mr-4"} >Signup</Link>
 
-                                            <Link to={`${process.env.PUBLIC_URL}/login`} className={currentURL === "/login" ? "sign-in-btn" : "signup-btn"} onClick={() => this.setState({ currentURL: "/login" })}>
+                                            <Link to={`/login`} onClick={() => this.setState({ currentURL: '/login' })} className={currentURL !== `${process.env.PUBLIC_URL}/register` ? "sign-in-btn" : "signup-btn"}>
                                                 Sign In
                                             </Link>
                                         </span>

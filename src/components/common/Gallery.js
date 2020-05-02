@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { API_URL } from '../../store/actions/types';
 import Loading from '../layout/Loading';
 
+
 class Gallery extends React.Component {
     state = {
         images: [],
@@ -18,6 +19,8 @@ class Gallery extends React.Component {
         loading: true
     }
     componentDidMount() {
+        document.body.classList.add('image-gallery')
+
         this.setState({
             loading: true
         })
@@ -34,6 +37,9 @@ class Gallery extends React.Component {
                 }
             })
         window.scrollTo(0, 0)
+    }
+    componentWillUnmount() {
+        document.body.classList.remove('image-gallery')
     }
     render() {
         function SliderPrevArrow(props) {
@@ -80,7 +86,7 @@ class Gallery extends React.Component {
             ]
         }
         return (
-            <section className="fantasy-gallery-area section-padding">
+            <section className="fantasy-gallery-area section-padding arrow-bottom-section">
 
                 {Object.keys(images).length !== 0 &&
                     <div className="container">

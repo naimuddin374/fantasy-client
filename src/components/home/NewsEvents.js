@@ -86,7 +86,7 @@ class Things extends React.Component {
         }
         let { data, loading } = this.state
         return (
-            <section className="things-area section-padding-top full-bg home-things-to-do home-news-events-area">
+            <section className="arrow-bottom-section section-padding-top full-bg home-things-to-do home-news-events-area">
                 <div className="container">
 
                     <div className="row row-center row-responsive-thing">
@@ -125,10 +125,12 @@ class Things extends React.Component {
                             </Slider>}
                     </div>
 
-                    <div className="row">
-                        <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
-                            <div className="view-all-blog-post text-center mt-5">
-                                <Link to={`${process.env.PUBLIC_URL}/news-events`} className="theme-btn">View All</Link>
+                    <div className="news-event-view-all">
+                        <div className="row">
+                            <div className="col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+                                <div className="view-all-blog-post text-center mt-5">
+                                    <Link to={`${process.env.PUBLIC_URL}/news-events`} className="theme-btn">View All</Link>
+                                </div>
                             </div>
                         </div>
                     </div>

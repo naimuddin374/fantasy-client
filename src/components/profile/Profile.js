@@ -1,10 +1,14 @@
 import React from 'react'
 import PersonalInfo from './PersonalInfo';
 import OrderHistory from './OrderHistory';
+import $ from 'jquery';
 
 class Profile extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
+        if (window.innerWidth < 980) {
+            $("#main-menu").hide('slow');
+        }
     }
     render() {
         return (

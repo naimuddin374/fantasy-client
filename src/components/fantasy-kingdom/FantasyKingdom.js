@@ -8,11 +8,15 @@ import Things from '../common/Things'
 import Slider from '../common/Slider'
 import InnerSearch from '../common/InnerSearch'
 import Video from '../common/Video'
+import $ from 'jquery';
 
 
 class FantasyKingdom extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
+        if (window.innerWidth < 980) {
+            $("#main-menu").hide('slow');
+        }
     }
     render() {
 

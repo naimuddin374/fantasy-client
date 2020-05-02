@@ -54,7 +54,7 @@ class Map extends React.Component {
                             </div>
                             <div className="fantasy-google-map-content">
                                 <div className="google-map-wrapper">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3646.674190942606!2d90.28915281538697!3d23.936588587554027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c386684b8de9%3A0xa51d15a3906d565c!2sFantasy%20Kingdom!5e0!3m2!1sen!2sbd!4v1577854192398!5m2!1sen!2sbd" width="100%" height="480" frameBorder="0" style={{ border: '0' }} allowFullScreen="" title="fantasy kingdom"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1823.3409504428519!2d90.2910183696944!3d23.936315695504295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c744fd8c1a35%3A0x7195e7f75f88f8b!2sFantasy%20Kingdom!5e0!3m2!1sen!2sbd!4v1586771776157!5m2!1sen!2sbd" width="100%" height="480" frameBorder="0" style={{ border: '0' }} allowFullScreen="" title="fantasy kingdom"></iframe>
                                 </div>
                             </div>
                         </div>

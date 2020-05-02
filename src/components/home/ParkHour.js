@@ -35,33 +35,33 @@ class ParkHour extends React.Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <h4>Fantasy Kingdom is open all throughout the week.</h4>
-                                <div className="row mt-5">
+                                <div className="row mt-3">
                                     <div className="col-lg-7">Saturday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Sunday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Monday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Tuesday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Wednesday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Thursday</div>
-                                    <div className="col-lg-5">11:00 AM-8:00 PM</div>
+                                    <div className="col-lg-5">11:00 AM-7:30 PM</div>
                                 </div>
                                 <div className="row">
                                     <div className="col-lg-7">Fridays and Other Government Holidays</div>
-                                    <div className="col-lg-5">10:30 AM to 7:30 PM</div>
+                                    <div className="col-lg-5">10:30 AM-7:30 PM</div>
                                 </div>
 
                                 {/* <p>
