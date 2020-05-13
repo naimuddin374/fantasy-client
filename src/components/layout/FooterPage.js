@@ -63,7 +63,7 @@ class FooterPage extends React.Component {
                             </div>
                             <div className="col-lg-3 col-md-3">
                                 <div className="widget-wrapper">
-                                    <div className="widget-content animation-widget useful-link-widget-content">
+                                    <div className="widget-content animation-widget useful-link-widget-content useful-link-area">
                                         <h4>useful link</h4>
                                         <ul>
                                             <li><Link to={`${process.env.PUBLIC_URL}/ticket`}>Park Tickets</Link></li>

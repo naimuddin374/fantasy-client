@@ -1,4 +1,4 @@
-import { ADD_TO_CART, PAYMENT_SUCCESS, SET_MESSAGE, API_URL } from './types'
+import { ADD_TO_CART, PAYMENT_SUCCESS, SET_MESSAGE, API_URL, SET_EXPECTED_DATE } from './types'
 import { getItemPrice } from '../../util/helper'
 import Axios from 'axios'
 
@@ -10,7 +10,7 @@ export const addToCart = data => dispatch => {
     })
 }
 
-export const checkoutPayment = (rides, booking, userToken) => dispatch => {
+export const checkoutPayment = (rides, booking, userToken, expectedDate) => dispatch => {
 
     let totalPrice = 0
     // Rides Lists and price
@@ -29,7 +29,8 @@ export const checkoutPayment = (rides, booking, userToken) => dispatch => {
         booking,
         rides,
         userToken,
-        totalPrice
+        totalPrice,
+        expectedDate
     }
     Axios.post(`${API_URL}api/sales`, postData)
         .then(res => {
@@ -40,7 +41,8 @@ export const checkoutPayment = (rides, booking, userToken) => dispatch => {
             //         message: res.data.message
             //     }
             // })
-            window.location.href = `${API_URL}payment?invoice=${res.data.invoice}`
+            // window.location.href = `${API_URL}payment?invoice=${res.data.invoice}`
+            alert('OK')
         })
         .catch(err => {
             console.log(err.response)
@@ -75,4 +77,12 @@ export const paymentFailed = () => dispatch => {
             message: "Purchase Failed"
         }
     })
+}
+
+export const checkoutHandler = (expectedDate, history) => dispatch => {
+    dispatch({
+        type: SET_EXPECTED_DATE,
+        payload: expectedDate
+    })
+    history.push('/checkout')
 }

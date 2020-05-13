@@ -1637,6 +1637,10 @@
                 .desktop-section {
                     display: none;
                 }
+
+                .useful-link-area {
+                    display: none;
+                }
             }
 
             /* Small Device : 480px. */

@@ -43,20 +43,8 @@ export const Registration = (data, history) => dispatch => {
 
 
 // Login
-export const Login = (data, history) => dispatch => {
-    let carts = store.getState().cart
-    let cartRide = false
-    let cartRoom = false
-    if (Object.keys(carts.rides).length !== 0) {
-        let cartRides = carts.rides.filter(item => item.isInCart)
-        if (Object.keys(cartRides).length !== 0) {
-            cartRide = true
-        }
-        if (!cartRide) {
-            cartRoom = Object.keys(carts.booking).length !== 0
-        }
-    }
-    Axios.post(`${API_URL}api/login`, data)
+export const Login = (data, history) => async dispatch => {
+    return Axios.post(`${API_URL}api/login`, data)
         .then(res => {
             let userAuth = { token: res.data.token, user: res.data.user }
             localStorage.setItem('auth', JSON.stringify(userAuth))
@@ -64,27 +52,31 @@ export const Login = (data, history) => dispatch => {
                 type: SET_USER,
                 payload: userAuth
             })
-            dispatch({
-                type: SET_MESSAGE,
-                payload: {
-                    message: res.data.message,
-                    type: 'success',
-                }
-            })
-            if (cartRide || cartRoom) {
-                history.push(`${process.env.PUBLIC_URL}/checkout`)
-            } else {
-                history.push(`${process.env.PUBLIC_URL}/`)
+            // dispatch({
+            //     type: SET_MESSAGE,
+            //     payload: {
+            //         message: res.data.message,
+            //         type: 'success',
+            //     }
+            // })
+
+            return {
+                message: res.data.message,
+                status: 1
             }
         })
         .catch(err => {
-            dispatch({
-                type: SET_MESSAGE,
-                payload: {
-                    message: err.response && err.response.data.message,
-                    type: 'error',
-                }
-            })
+            return {
+                message: err.response.data.message,
+                status: 0
+            }
+            // dispatch({
+            //     type: SET_MESSAGE,
+            //     payload: {
+            //         message: err.response && err.response.data.message,
+            //         type: 'error',
+            //     }
+            // })
         })
 }
 

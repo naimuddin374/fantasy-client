@@ -45,7 +45,7 @@ class PriceBoard extends React.Component {
                 <div className="atlantis-booking-ticket-area">
                     {totalDay > 0 ?
                         <div className="atlantis-booking-content mb-3">
-                            <h5 className="atlantis-booking-price">{totalRoom} Rooms for {totalDay} Night(s)</h5>
+                            <h5 className="atlantis-booking-price">{totalRoom} Room(s) for {totalDay} Night(s)</h5>
                             <h2 className="atlantis-bd-price">{priceFormat((price * totalRoom) * totalDay)}</h2>
                             {discount !== 0 && <h5 className="atlantis-booking-price">Discount: {discount * totalDay}%</h5>}
                             <h5 className="atlantis-booking-price">Vat: {`${vat}%`}</h5>
@@ -55,7 +55,7 @@ class PriceBoard extends React.Component {
                             </h4>
                             {this.props.auth.isAuth ?
                                 <button onClick={() => this.openModal(this.props.data)} className="atlantis-book-now-btn btn">Book Now</button>
-                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn">Sign In</Link>
+                                : <Link to={`${process.env.PUBLIC_URL}/login`} className="atlantis-book-now-btn btn">Sign In to Book</Link>
                             }
                         </div> :
                         <div className="atlantis-booking-content mb-3">

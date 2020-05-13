@@ -30,8 +30,8 @@ export const storeRoomBooking = (data, history) => dispatch => {
             })
         })
 }
-export const searchRoom = data => dispatch => {
-    Axios.post(`${API_URL}api/room-search`, data)
+export const searchRoom = data => async dispatch => {
+    return Axios.post(`${API_URL}api/room-search`, data)
         .then(res => {
             dispatch({
                 type: SET_ROOM_RESULT,
@@ -40,6 +40,7 @@ export const searchRoom = data => dispatch => {
                     searchData: data
                 }
             })
+            return true;
         })
         .catch(err => {
             dispatch({
@@ -49,6 +50,7 @@ export const searchRoom = data => dispatch => {
                     type: 'error',
                 }
             })
+            return false;
         })
 }
 

@@ -28,7 +28,7 @@ class Ticket extends React.Component {
                         // Add default in cart
                         if (Object.keys(selItem).length !== 0) {
                             selItem[0].isInCart = true
-                            selItem[0].quantity = 1
+                            selItem[0].quantity = selItem[0].mini_quantity
                             allItem.unshift(...selItem)
                         }
                     } else {
@@ -66,7 +66,7 @@ class Ticket extends React.Component {
             return {
                 ...item,
                 isInCart: item.id === id ? true : item.isInCart,
-                quantity: (item.id === id && Number(item.quantity) === 0) ? 1 : item.quantity
+                quantity: item.id === id && item.mini_quantity > item.quantity ? item.mini_quantity : item.quantity
             }
         })
         this.props.addToCart(newArr)
@@ -108,6 +108,7 @@ class Ticket extends React.Component {
                                 quantityMinusHandler={this.quantityMinusHandler.bind(this)}
                             />
                             <Summary
+                                history={this.props.history}
                                 quantityAddHandler={this.quantityAddHandler.bind(this)}
                                 quantityMinusHandler={this.quantityMinusHandler.bind(this)}
                             />

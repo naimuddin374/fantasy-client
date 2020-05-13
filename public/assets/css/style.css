@@ -4125,8 +4125,9 @@ ul.count-guest-list {
 
 .room-suite-inner-content-area h3 {
     margin-bottom: 10px;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
+    margin-left: -5px;
 }
 
 .single-room-feature ul li {

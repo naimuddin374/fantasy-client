@@ -5,12 +5,14 @@ import dateFormat from 'dateformat';
 import { connect } from 'react-redux';
 import { searchRoom } from '../../store/actions/roomActions'
 
+
 class RoomSearch extends React.Component {
     state = {
         checkIn: null,
         checkOut: null,
         no_of_room: 1,
         no_of_guest: 2,
+        isWait: false
     }
     checkInHandleChange = date => {
         this.setState({
@@ -28,22 +30,28 @@ class RoomSearch extends React.Component {
             [event.target.name]: event.target.value
         })
     }
-    submitHandler = event => {
+    submitHandler = async event => {
         event.preventDefault()
-        this.props.searchHandler()
+        this.setState({ isWait: true })
+        let { searchHandler, searchRoom } = this.props
+
         let { no_of_guest, no_of_room, checkIn, checkOut } = this.state
         let check_in = dateFormat(checkIn, "yyyy-mm-dd")
         let check_out = dateFormat(checkOut, "yyyy-mm-dd")
 
         let res = Math.abs(checkOut - checkIn) / 1000;
         let days = Math.floor(res / 86400);
-        this.props.searchRoom({ check_in, check_out, no_of_room, no_of_guest, totalDay: days })
+        let response = await searchRoom({ check_in, check_out, no_of_room, no_of_guest, totalDay: days })
+        if (response) {
+            searchHandler()
+        }
+        this.setState({ isWait: false })
     }
     datediff = (first, second) => {
         return Math.round((second - first) / (1000 * 60 * 60 * 24));
     }
     render() {
-        let { checkIn, checkOut, no_of_room, no_of_guest } = this.state
+        let { checkIn, checkOut, no_of_room, no_of_guest, isWait } = this.state
         let totalDay = this.datediff(checkIn, checkOut)
         let isDone = checkIn && checkOut && no_of_room > 0 && no_of_guest > 0 && totalDay > 0
         return (
@@ -123,7 +131,7 @@ class RoomSearch extends React.Component {
                                             />
                                         </div>
                                         <div className="col-md-2 room-search-btn-atlantics" style={{ top: "36px" }}>
-                                            <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}> Check Availability</button>
+                                            <button type="submit" className={isDone ? "atlantis-search-btn" : "atlantis-search-btn btn-disabled"} disabled={!isDone}>{isWait ? 'Please Wait...' : 'Check Availability'} </button>
                                         </div>
                                     </div>
                                 </form>

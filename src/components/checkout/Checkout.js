@@ -9,6 +9,7 @@ class Checkout extends React.Component {
     state = {
         rides: {},
         auth: this.props.auth,
+        expectedDate: this.props.cart.expectedDate,
         booking: {},
         termsAdnConditions: false
     }
@@ -22,12 +23,13 @@ class Checkout extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0)
     }
-    payHandler = () => {
-        let { rides, booking, auth } = this.state
-        this.props.checkoutPayment(rides, booking, auth.token)
+    payHandler = async () => {
         this.setState({
-            termsAdnConditions: false
+            termsAdnConditions: true
         })
+        let { rides, booking, auth, expectedDate } = this.state
+        this.props.checkoutPayment(rides, booking, auth.token, expectedDate)
+
     }
     render() {
         if (!this.state.auth.isAuth) {

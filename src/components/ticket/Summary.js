@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addToCart } from '../../store/actions/cartActions'
+import { addToCart, checkoutHandler } from '../../store/actions/cartActions'
 import { getItemPrice, priceFormat } from '../../util/helper'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import dateFormat from 'dateformat';
+
 
 class Summary extends React.Component {
     state = {
         rides: {},
+        expectedDate: null
     }
     static getDerivedStateFromProps(nextProps, prevState) {
         if (JSON.stringify(nextProps.cart.rides) === JSON.stringify(prevState.rides)) return null
@@ -29,13 +34,18 @@ class Summary extends React.Component {
         }
         return true
     }
+    checkOutHandler = () => {
+        let { checkoutHandler, history } = this.props
+        checkoutHandler(this.state.expectedDate, history)
+    }
     render() {
-        let { rides } = this.state
+        let { rides, expectedDate } = this.state
         let totalPrice = 0
         Object.keys(rides).length !== 0 &&
             rides.map(item => (
                 totalPrice = totalPrice + getItemPrice(item.quantity, item.price, item.discount_price)
             ))
+
         return (
             <div className="col-lg-3 col-md-12">
                 <div className="single-widget summary-widget mt-5">
@@ -59,7 +69,7 @@ class Summary extends React.Component {
                                     <div className="row">
                                         <div className="pro-quantity">
                                             <div className="order-summary-qtn">
-                                                <button className="order-qtn" disabled={this.minusButtonHandler(item.quantity)} onClick={() => this.props.quantityMinusHandler(item.id)}>-</button>
+                                                <button className="order-qtn" disabled={item.quantity <= item.mini_quantity} onClick={() => this.props.quantityMinusHandler(item.id)}>-</button>
                                                 <input type="number" name="quantity" className="order-qtn-number" value={item.quantity} readOnly />
                                                 <button className="order-qtn" disabled={item.quantity === 15} onClick={() => this.props.quantityAddHandler(item.id)}>+</button>
                                             </div>
@@ -69,10 +79,21 @@ class Summary extends React.Component {
                             </div>
                         ))}
                     <div className="widget-checkout-money">
+                        <label htmlFor="expectedDate">Expected Visiting Date: </label>
+                        <DatePicker
+                            id="expectedDate"
+                            className='form-control'
+                            placeholder="Expected Date"
+                            selected={expectedDate && new Date(expectedDate)}
+                            onChange={(date) => this.setState({ expectedDate: dateFormat(date, "yyyy-mm-dd") })}
+                            dateFormat="dd MMMM yyyy"
+                            autoComplete="off"
+                            minDate={new Date()}
+                        />
                         <h4 className="total-price-widget">Total: {priceFormat(totalPrice)}</h4>
                         <div className="widget-chekout-btn-area mt-3 text-center">
                             {Object.keys(rides).length !== 0 ?
-                                <Link to={`${process.env.PUBLIC_URL}/checkout`} className="payment-btn">Check Out</Link> :
+                                <Link to={`${process.env.PUBLIC_URL}/checkout`} onClick={this.checkOutHandler} className="payment-btn">Check Out</Link> :
                                 <button type="button" className="payment-btn">Check Out</button>
                             }
                         </div>
@@ -86,4 +107,4 @@ class Summary extends React.Component {
 const mapStateToProps = state => ({
     cart: state.cart
 })
-export default connect(mapStateToProps, { addToCart })(Summary)
+export default connect(mapStateToProps, { addToCart, checkoutHandler })(Summary)

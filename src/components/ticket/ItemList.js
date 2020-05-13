@@ -38,6 +38,9 @@ class ItemList extends React.Component {
 
     render() {
         let { rides, paramId } = this.props
+        let { quantityMinusHandler, quantityAddHandler, addToCartHandler } = this.props
+
+
         return (
             <span>
                 {paramId === DISCOUNT_TAG ?
@@ -50,9 +53,9 @@ class ItemList extends React.Component {
                                     <Item
                                         key={item.id}
                                         data={item}
-                                        quantityMinusHandler={this.props.quantityMinusHandler.bind(this)}
-                                        quantityAddHandler={this.props.quantityAddHandler.bind(this)}
-                                        addToCartHandler={this.props.addToCartHandler.bind(this)}
+                                        quantityMinusHandler={quantityMinusHandler.bind(this)}
+                                        quantityAddHandler={quantityAddHandler.bind(this)}
+                                        addToCartHandler={addToCartHandler.bind(this)}
                                     />
                                 ))
                             }
@@ -65,9 +68,9 @@ class ItemList extends React.Component {
                                     <Item
                                         key={item.id}
                                         data={item}
-                                        quantityMinusHandler={this.props.quantityMinusHandler.bind(this)}
-                                        quantityAddHandler={this.props.quantityAddHandler.bind(this)}
-                                        addToCartHandler={this.props.addToCartHandler.bind(this)}
+                                        quantityMinusHandler={quantityMinusHandler.bind(this)}
+                                        quantityAddHandler={quantityAddHandler.bind(this)}
+                                        addToCartHandler={addToCartHandler.bind(this)}
                                     />
                                 ))
                             }
@@ -82,9 +85,9 @@ class ItemList extends React.Component {
                                     <Item
                                         key={item.id}
                                         data={item}
-                                        quantityMinusHandler={this.props.quantityMinusHandler.bind(this)}
-                                        quantityAddHandler={this.props.quantityAddHandler.bind(this)}
-                                        addToCartHandler={this.props.addToCartHandler.bind(this)}
+                                        quantityMinusHandler={quantityMinusHandler.bind(this)}
+                                        quantityAddHandler={quantityAddHandler.bind(this)}
+                                        addToCartHandler={addToCartHandler.bind(this)}
                                     />
                                 ))
                             }
@@ -97,9 +100,9 @@ class ItemList extends React.Component {
                                     <Item
                                         key={item.id}
                                         data={item}
-                                        quantityMinusHandler={this.props.quantityMinusHandler.bind(this)}
-                                        quantityAddHandler={this.props.quantityAddHandler.bind(this)}
-                                        addToCartHandler={this.props.addToCartHandler.bind(this)}
+                                        quantityMinusHandler={quantityMinusHandler.bind(this)}
+                                        quantityAddHandler={quantityAddHandler.bind(this)}
+                                        addToCartHandler={addToCartHandler.bind(this)}
                                     />
                                 ))
                             }

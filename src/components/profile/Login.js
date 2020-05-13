@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 
 
-
 class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            contact_no: '',
+            emailOrContact: '',
             password: '',
+            message: null,
+            isSuccess: false,
+            isWait: false
         }
     }
     changeHandler = event => {
@@ -19,13 +21,52 @@ class Register extends Component {
             [event.target.name]: event.target.value
         })
     }
-    submitHandler = event => {
+    submitHandler = async event => {
         event.preventDefault()
-        this.props.Login(this.state, this.props.history)
+        this.setState({
+            message: null,
+            isWait: true,
+        })
+        let { Login, history, cart } = this.props
+        let response = await Login(this.state, history)
+        if (response.status === 1) {
+            this.setState({
+                isWait: false,
+                message: response.message,
+                isSuccess: true
+            })
+
+            let cartRide = false
+            let cartRoom = false
+            if (Object.keys(cart.rides).length !== 0) {
+                let cartRides = cart.rides.filter(item => item.isInCart)
+                if (Object.keys(cartRides).length !== 0) {
+                    cartRide = true
+                }
+                if (!cartRide) {
+                    cartRoom = Object.keys(cart.booking).length !== 0
+                }
+            }
+            setTimeout(() => {
+                if (cartRide || cartRoom) {
+                    history.push(`${process.env.PUBLIC_URL}/checkout`)
+                } else {
+                    history.push(`${process.env.PUBLIC_URL}/`)
+                }
+            }, 600)
+        } else {
+            this.setState({
+                isWait: false,
+                message: response.message,
+                isSuccess: false
+            })
+        }
     }
     render() {
-        let { contact_no, password } = this.state
-        let isDone = contact_no && password
+        let { emailOrContact, password, message, isWait, isSuccess } = this.state
+        let isDone = emailOrContact && password
+        let { isAuth, history } = this.props
+        if (isAuth) history.push('/')
 
 
         const responseFacebook = (response) => {
@@ -37,9 +78,6 @@ class Register extends Component {
                     <div className="container">
                         <div className="login-registeration-or-shape">
                             <div className="form-row">
-                                {/* <div className="col-md-4 offset-4">
-                                <img className="ml-5 mt-3" src={`${process.env.PUBLIC_URL}/assets/images/headerlogo.png`} alt="Site Logo" />
-                            </div> */}
                                 <div className="col-md-12">
                                     <div className="or-shape"> <span><h4>Login</h4></span>
                                     </div>
@@ -49,17 +87,23 @@ class Register extends Component {
 
                         <div className="form-row">
                             <div className="col-md-6 offset-md-3">
+                                {message &&
+                                    <div className={isSuccess ? "alert alert-success alert-dismissible fade show" : "alert alert-danger alert-dismissible fade show"} role="alert">
+                                        {message}
+                                    </div>
+                                }
+
                                 <form onSubmit={this.submitHandler}>
                                     <div className="form-group">
-                                        <label htmlFor="contact_no">Contact Number <span className="text-danger">*</span></label>
+                                        <label htmlFor="contact_no">Email or Contact Number <span className="text-danger">*</span></label>
                                         <input
-                                            type="number"
+                                            type="text"
                                             className="form-control"
                                             id="contact_no"
-                                            name="contact_no"
+                                            name="emailOrContact"
                                             aria-describedby="emailHelp"
-                                            placeholder="Enter Contact Number"
-                                            value={contact_no}
+                                            placeholder="Enter Email or Contact Number"
+                                            value={emailOrContact}
                                             onChange={this.changeHandler}
                                             required
                                         />
@@ -81,9 +125,9 @@ class Register extends Component {
                                     <div className="form-group">
                                         {isDone ?
                                             <button type="submit" className="primary-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
-                                            Sign In</button> :
+                                                {isWait ? 'Please Wait...' : 'Sign In'}</button> :
                                             <button type="submit" disabled className="disable-btn full-width"> <i className="fa fa-check mr-2" aria-hidden="true" />
-                                            Sign In</button>
+                                                {isWait ? 'Please Wait...' : 'Sign In'}</button>
                                         }
                                     </div>
                                 </form>
@@ -111,4 +155,8 @@ class Register extends Component {
         )
     }
 }
-export default connect(null, { Login, logout })(Register)
+const mapStateToProps = state => ({
+    cart: state.cart,
+    isAuth: state.auth.isAuth,
+})
+export default connect(mapStateToProps, { Login, logout })(Register)

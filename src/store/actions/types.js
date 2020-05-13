@@ -1,4 +1,4 @@
-export const API_URL = 'https://btlbd.xyz/fantasy-api/'
+export const API_URL = 'http://btlbd.tk/fantasy-api/'
 // export const API_URL = 'http://localhost:8000/'
 
 export const SET_MESSAGE = 'SET_MESSAGE'
@@ -11,3 +11,4 @@ export const DISCOUNT_TAG = 'DC1000'
 export const SET_ROOM_RESULT = 'SET_ROOM_RESULT'
 export const SET_ROOM_IN_CART = 'SET_ROOM_IN_CART'
 export const PAYMENT_SUCCESS = 'PAYMENT_SUCCESS'
+export const SET_EXPECTED_DATE = 'SET_EXPECTED_DATE'

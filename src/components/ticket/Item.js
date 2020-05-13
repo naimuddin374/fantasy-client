@@ -27,7 +27,10 @@ class Item extends Component {
         return true
     }
     render() {
-        let { title, description, quantity, price, discount_price, id, isInCart, image } = this.props.data
+        let { title, description, quantity, mini_quantity, price, discount_price, id, isInCart, image } = this.props.data
+
+        let { quantityMinusHandler, quantityAddHandler, addToCartHandler, data } = this.props
+
         return (
             <Fragment>
                 <div className="single-prodcut-content-ticket ticket-product-bg ticket-prodcut-padding mb-3">
@@ -43,7 +46,7 @@ class Item extends Component {
                                     <p>{textLimit(description, 80)}</p>
                                     <hr />
                                     <div className="prodcut-details-btn">
-                                        <span className="details-ancor link-btn" onClick={() => this.openModal(this.props.data)}>Details</span>
+                                        <span className="details-ancor link-btn" onClick={() => this.openModal(data)}>Details</span>
                                     </div>
                                 </div>
 
@@ -51,9 +54,9 @@ class Item extends Component {
                                     <div className="product-quantity-content text-center">
                                         <div className="pro-quantity">
                                             <div className="pro-qty">
-                                                <button className="dec qtybtn" disabled={this.minusButtonHandler(quantity)} onClick={() => this.props.quantityMinusHandler(id)}>-</button>
+                                                <button className="dec qtybtn" disabled={quantity <= mini_quantity} onClick={() => quantityMinusHandler(id)}>-</button>
                                                 <input type="number" name="quantity" value={quantity} readOnly />
-                                                <button className="inc qtybtn" disabled={quantity === 15} onClick={() => this.props.quantityAddHandler(id)}>+</button>
+                                                <button className="inc qtybtn" onClick={() => quantityAddHandler(id)}>+</button>
                                             </div>
                                         </div>
                                         <h4 className="product-price">{priceFormat(discount_price !== null ? discount_price : price)}</h4>
@@ -62,7 +65,7 @@ class Item extends Component {
                                     </div>
                                     <div className="prodcut-add-to-cart">
                                         {isInCart !== true ?
-                                            <button className="primary-btn" onClick={() => this.props.addToCartHandler(id)}>Add to Cart</button>
+                                            <button className="primary-btn" onClick={() => addToCartHandler(id)}>Add to Cart</button>
                                             : <button className="disable-btn">Added In Cart</button>
                                         }
                                     </div>

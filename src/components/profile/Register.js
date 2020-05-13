@@ -15,17 +15,15 @@ class Register extends React.Component {
         validation: {}
     }
     changeHandler = event => {
+        if (event.target.name === 'contact_no') {
+            if (event.target.value.length > 11) return;
+        }
         this.setState({
             [event.target.name]: event.target.value
         })
     }
     submitHandler = event => {
         event.preventDefault()
-        let { contact_no } = this.state
-        if (contact_no.length !== 11) {
-            alert('Phone number should be 11 digit')
-            return;
-        }
         this.props.Registration(this.state, this.props.history)
     }
     static getDerivedStateFromProps(nextProps, prevState) {
@@ -38,6 +36,10 @@ class Register extends React.Component {
     render() {
         let { full_name, contact_no, email, password, address, gender, age, validation } = this.state
         let isDone = full_name && email && contact_no && password && gender
+
+        let { history, auth } = this.props
+        if (auth.isAuth) history.push('/')
+
         return (
             <section className="section-padding">
                 <div className="container">
