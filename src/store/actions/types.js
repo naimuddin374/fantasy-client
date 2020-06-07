@@ -1,4 +1,4 @@
-export const API_URL = 'http://btlbd.tk/fantasy-api/'
+export const API_URL = 'https://btlbd.tk/fantasy-api/'
 // export const API_URL = 'http://localhost:8000/'
 
 export const SET_MESSAGE = 'SET_MESSAGE'
